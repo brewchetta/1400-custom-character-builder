@@ -1,5 +1,5 @@
-import EquipmentDisplay from '../shared-components/EquipmentDisplay'
-import { toSpinalCase } from '../utilities'
+import EquipmentDisplay from 'shared/EquipmentDisplay'
+import { toSpinalCase } from 'utilities'
 
 function ClassEquipmentDisplay({currentItems, equipmentGroups}) {
 

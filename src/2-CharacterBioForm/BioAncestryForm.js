@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import FormSelect from '../shared-components/FormSelect'
+import FormSelect from 'shared/FormSelect'
 function BioAncestryForm({ancestry, setAncestry, ancestries}) {
 
   useEffect(() => {

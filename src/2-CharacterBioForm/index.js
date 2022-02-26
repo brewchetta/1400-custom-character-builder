@@ -1,11 +1,11 @@
-import FormInput from '../shared-components/FormInput'
+import FormInput from 'shared/FormInput'
+import SpellsInputs from 'shared/SpellsInputs'
+import SkillsInputs from 'shared/SkillsInputs'
 import BioAncestryForm from './BioAncestryForm'
 import BioAncestryDisplay from './BioAncestryDisplay'
-import SpellsInputs from '../shared-components/SpellsInputs'
-import SkillsInputs from '../shared-components/SkillsInputs'
-import useCharacterAncestries from '../hooks/useCharacterAncestries'
-import useSpells from '../hooks/useSpells'
-import coreSkills from '../data/_skillsCore'
+import useCharacterAncestries from 'hooks/useCharacterAncestries'
+import useSpells from 'hooks/useSpells'
+import coreSkills from 'data/_skillsCore'
 
 function CharacterBiographyForm({currentRuleset, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells}) {
 

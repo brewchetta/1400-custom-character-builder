@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import * as rulesets from '../data/_rulesets'
-import { capitalize } from '../utilities'
-import FormSelect from '../shared-components/FormSelect'
-import CharacterBioForm from "../2-CharacterBioForm"
-import CharacterClassForm from "../3-CharacterClassForm"
+import * as rulesets from 'data/_rulesets'
+import { capitalize } from 'utilities'
+import FormSelect from 'shared/FormSelect'
+import CharacterBioForm from "2-CharacterBioForm"
+import CharacterClassForm from "3-CharacterClassForm"
 
 function CharacterForm(props) {
 

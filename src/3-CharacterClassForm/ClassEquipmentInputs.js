@@ -1,4 +1,4 @@
-import FormSelect from '../shared-components/FormSelect'
+import FormSelect from 'shared/FormSelect'
 
 function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, equipmentGuaranteed}) {
 

@@ -1,5 +1,5 @@
-import FormCheckbox from '../shared-components/FormCheckbox'
-import { toSpinalCase } from '../utilities'
+import FormCheckbox from 'shared/FormCheckbox'
+import { toSpinalCase } from 'utilities'
 
 function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
 

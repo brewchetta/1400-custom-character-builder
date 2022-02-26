@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
-import FormSelect from '../shared-components/FormSelect'
+import FormSelect from 'shared/FormSelect'
 import ClassDetailsDisplay from './ClassDetailsDisplay'
-import SpellsInputs from '../shared-components/SpellsInputs'
-import SkillsInputs from '../shared-components/SkillsInputs'
+import SpellsInputs from 'shared/SpellsInputs'
+import SkillsInputs from 'shared/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
-import useCharacterClasses from '../hooks/useCharacterClasses'
-import useSpells from '../hooks/useSpells'
+import useCharacterClasses from 'hooks/useCharacterClasses'
+import useSpells from 'hooks/useSpells'
 
 function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems}) {
 
