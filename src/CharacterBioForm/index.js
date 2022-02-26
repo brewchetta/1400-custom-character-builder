@@ -3,8 +3,10 @@ import FormInput from '../shared-components/FormInput'
 import BioAncestryForm from './BioAncestryForm'
 import BioAncestryDisplay from './BioAncestryDisplay'
 import SpellsInputs from '../shared-components/SpellsInputs'
+import SkillsInputs from '../shared-components/SkillsInputs'
 import useCharacterAncestries from '../hooks/useCharacterAncestries'
 import useSpells from '../hooks/useSpells'
+import coreSkills from '../data/_skillsCore'
 
 function CharacterBiographyForm({currentRuleset, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells}) {
 
@@ -43,12 +45,23 @@ function CharacterBiographyForm({currentRuleset, characterName, setCharacterName
         null
       }
 
+      {
+        ancestryObj && ancestryObj.skills
+        ?
+        <SkillsInputs
+          possibleSkills={coreSkills}
+          currentSkills={currentAncestrySkills}
+          setCurrentSkills={setCurrentAncestrySkills}
+          maxSkills={ancestryObj.skills}
+        />
+        :
+        null
+      }
+
       {ancestryObj && ancestryObj.skills ? null : null}
 
     </>
   )
-
-  // {spells, currentSpells, setCurrentSpells, maxSpells}
 
 }
 

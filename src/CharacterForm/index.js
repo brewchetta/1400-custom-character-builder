@@ -15,7 +15,7 @@ function CharacterForm(props) {
   const [currentClassKey, setCurrentClassKey] = useState('bard')
   const [currentSpells, setCurrentSpells] = useState({})
   const [currentAncestrySpells, setCurrentAncestrySpells] = useState({})
-  const [currentAncestrySkills, setCurrentAncestrySkills] = useState({})
+  const [currentAncestrySkills, setCurrentAncestrySkills] = useState([])
   const [currentSkills, setCurrentSkills] = useState([])
   const [currentItems, setCurrentItems] = useState({})
   // console.log('RULESET: ', ruleset);

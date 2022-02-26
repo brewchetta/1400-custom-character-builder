@@ -1,7 +1,7 @@
 import FormCheckbox from '../shared-components/FormCheckbox'
 import { toSpinalCase } from '../utilities'
 
-function ClassSkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill}) {
+function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill}) {
 
   const skillsLeftToChoose = maxSkills - currentSkills.length
 
@@ -32,13 +32,18 @@ function ClassSkillsInputs({possibleSkills, currentSkills, setCurrentSkills, max
 
       <h4>Starting skills left: {skillsLeftToChoose}</h4>
 
-      <FormCheckbox
-        key={defaultSkill}
-        name={`skill-${toSpinalCase(defaultSkill)}`}
-        labelText={defaultSkill}
-        checked={true}
-        disabled={true}
-      />
+      {defaultSkill
+        ?
+        <FormCheckbox
+          key={defaultSkill}
+          name={`skill-${toSpinalCase(defaultSkill)}`}
+          labelText={defaultSkill}
+          checked={true}
+          disabled={true}
+        />
+        :
+        null
+      }
 
       {renderedSkillCheckboxes}
 
@@ -47,4 +52,4 @@ function ClassSkillsInputs({possibleSkills, currentSkills, setCurrentSkills, max
 
 }
 
-export default ClassSkillsInputs
+export default SkillsInputs
