@@ -9,12 +9,11 @@ export default function useCharacterClasses(ruleset = core) {
   useEffect(() => {
     let currentSpells = {...spells}
 
-    switch (ruleset) {
-      case extendedDND:
-        currentSpells = {...currentSpells}
-      default:
-        setSpells(currentSpells)
+    if (ruleset.includes(extendedDND)) {
+      currentSpells = {...currentSpells}
     }
+
+    setSpells(currentSpells)
 
   }, [ruleset])
 

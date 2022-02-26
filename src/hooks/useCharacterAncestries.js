@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { coreClasses } from '../data/_classesCore'
-import { dndExtendedClasses } from '../data/_classesExtendedDND'
+import { coreAncestries } from '../data/_ancestriesCore'
+import { draochtlanAncestries } from '../data/_ancestriesDraochtlan'
 import { core, extendedDND } from '../data/_rulesets'
 
-export default function useCharacterClasses(ruleset = core) {
-  const [classes, setClasses] = useState(coreClasses)
+export default function useCharacterAncestries(ruleset = core) {
+  const [ancestries, setAncestries] = useState(coreClasses)
 
   useEffect(() => {
     let currentClasses = {...coreClasses}
