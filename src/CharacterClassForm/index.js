@@ -5,7 +5,7 @@ import ClassDetailsDisplay from './ClassDetailsDisplay'
 import ClassSpellsInputs from './ClassSpellsInputs'
 import ClassSkillsInputs from './ClassSkillsInputs'
 import ClassItemsInputs from './ClassItemsInputs'
-import ClassEquipmentDetailsDisplay from "./ClassEquipmentDetailsDisplay"
+import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from '../hooks/useCharacterClasses'
 import useSpells from '../hooks/useSpells'
 import * as rulesets from '../data/_rulesets'
@@ -133,7 +133,7 @@ function CharacterClassForm({}) {
       {
         Object.keys(currentItems).length
         ?
-        <ClassEquipmentDetailsDisplay
+        <ClassEquipmentDisplay
           currentItems={currentItems}
           equipmentGroups={currentClass.equipmentGroups}
         />
