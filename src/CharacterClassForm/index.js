@@ -30,6 +30,10 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
     }
   }, [classes])
 
+  useEffect(() => {
+    setCurrentSpells({})
+  }, [spells])
+
   function resetClassAttributes() {
     setCurrentSpells({})
     setCurrentSkills([])
