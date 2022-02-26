@@ -1,1 +1,1 @@
-export const draochtlanBackgrounds = {}
+export default {}

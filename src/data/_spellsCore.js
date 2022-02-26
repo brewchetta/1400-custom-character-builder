@@ -1,4 +1,4 @@
-export const spellsCore = {
+export default {
   animalForm: {
     name: 'Animal Form',
     cost: 2

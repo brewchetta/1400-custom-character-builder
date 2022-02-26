@@ -1,4 +1,4 @@
-const draochtlanAncestries = {
+export default {
   human: {
     name: 'Human',
     description: 'Increase 2 skills at once.',

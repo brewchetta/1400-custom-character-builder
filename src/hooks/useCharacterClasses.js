@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { coreClasses } from '../data/_classesCore'
-import { dndExtendedClasses } from '../data/_classesExtendedDND'
+import coreClasses from '../data/_classesCore'
+import dndExtendedClasses from '../data/_classesExtendedDND'
 import { core, extendedDND } from '../data/_rulesets'
 
 export default function useCharacterClasses(ruleset = core) {

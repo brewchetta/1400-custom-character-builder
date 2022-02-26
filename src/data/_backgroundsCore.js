@@ -1,1 +1,1 @@
-export const coreBackgrounds = {}
+export default {}

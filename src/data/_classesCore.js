@@ -1,6 +1,6 @@
 import { weapons, armours, tools, supplies, animals } from './_itemsCore'
 
-export const coreClasses = {
+export default {
   bard: {
     name: 'Bard',
     coreskill: 'Perform',

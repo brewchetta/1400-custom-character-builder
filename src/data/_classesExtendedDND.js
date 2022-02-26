@@ -1,6 +1,6 @@
 import { weapons } from './_itemsCore'
 
-export const dndExtendedClasses = {
+export default {
   druid: {
     name: 'Druid',
     coreskill: 'Forage',

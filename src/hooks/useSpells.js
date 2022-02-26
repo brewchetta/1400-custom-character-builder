@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { spellsCore } from '../data/_spellsCore'
+import spellsCore from '../data/_spellsCore'
 import { core, extendedDND, draochtlan } from '../data/_rulesets'
 
 export default function useCharacterClasses(ruleset = core) {
