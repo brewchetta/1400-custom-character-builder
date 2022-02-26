@@ -1,11 +1,6 @@
-import { useState } from 'react'
 import FormSelect from '../shared-components/FormSelect'
-import { toSpinalCase } from '../utilities'
 
 function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, equipmentGuaranteed}) {
-
-  // console.log('EQUIPMENT GROUPS: ', equipmentGroups);
-  // console.log('EQUIPMENT GUARANTEED: ', equipmentGuaranteed);
 
   function renderEquipmentGroupOptions(group) {
     return Object.keys(group).map(itemKey => (

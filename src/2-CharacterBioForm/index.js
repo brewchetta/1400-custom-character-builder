@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import FormInput from '../shared-components/FormInput'
 import BioAncestryForm from './BioAncestryForm'
 import BioAncestryDisplay from './BioAncestryDisplay'

@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import FormInput from '../shared-components/FormInput'
+import { useEffect } from 'react'
 import FormSelect from '../shared-components/FormSelect'
 import ClassDetailsDisplay from './ClassDetailsDisplay'
 import SpellsInputs from '../shared-components/SpellsInputs'
@@ -8,7 +7,6 @@ import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from '../hooks/useCharacterClasses'
 import useSpells from '../hooks/useSpells'
-import { capitalize } from '../utilities'
 
 function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems}) {
 
@@ -28,7 +26,7 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
       setCurrentSkills([])
       setCurrentItems({})
     }
-  }, [classes])
+  }, [classes, currentClassKey])
 
   useEffect(() => {
     setCurrentSpells({})
