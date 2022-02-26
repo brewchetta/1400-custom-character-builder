@@ -1,4 +1,4 @@
-export default {
+const spells = {
   animalForm: {
     name: 'Animal Form',
     cost: 2
@@ -80,3 +80,5 @@ export default {
     cost: 2
   },
 }
+
+export default spells

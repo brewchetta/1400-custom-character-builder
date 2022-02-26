@@ -1,4 +1,4 @@
-export default [
+const skills = [
   "Arcana",
   "Archery",
   "Climb",
@@ -25,3 +25,5 @@ export default [
   "Tracker",
   "Traps",
   "Vehicles"]
+
+export default skills

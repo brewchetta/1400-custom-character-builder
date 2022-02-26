@@ -1,6 +1,6 @@
 import { weapons, supplies } from './_itemsCore'
 
-export default {
+const classes = {
   druid: {
     name: 'Druid',
     coreskill: 'Forage',
@@ -34,3 +34,5 @@ export default {
   },
 
 }
+
+export default classes

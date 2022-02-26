@@ -1,6 +1,6 @@
 import { weapons, armours, tools, supplies, animals } from './_itemsCore'
 
-export default {
+const classes = {
   bard: {
     name: 'Bard',
     coreskill: 'Perform',
@@ -59,3 +59,5 @@ export default {
     description: "Increase (d8) Melee Combat and any 2 of Intimidate, Run and Jump, Archery, Vehicles. Can carry 2 heavy items without hindrance. Take a piece of armour and a weapon."
   },
 }
+
+export default classes

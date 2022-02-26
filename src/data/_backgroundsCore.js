@@ -1,1 +1,2 @@
-export default {}
+const backgrounds = {}
+export default backgrounds

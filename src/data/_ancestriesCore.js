@@ -1,4 +1,4 @@
-export default {
+const ancestries = {
   human: {
     name: 'Human',
     description: 'Increase 2 skills at once.',
@@ -20,3 +20,5 @@ export default {
     skills: 1
   }
 }
+
+export default ancestries
