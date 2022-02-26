@@ -14,6 +14,8 @@ function CharacterForm(props) {
 
   const [currentClassKey, setCurrentClassKey] = useState('bard')
   const [currentSpells, setCurrentSpells] = useState({})
+  const [currentAncestrySpells, setCurrentAncestrySpells] = useState({})
+  const [currentAncestrySkills, setCurrentAncestrySkills] = useState({})
   const [currentSkills, setCurrentSkills] = useState([])
   const [currentItems, setCurrentItems] = useState({})
   // console.log('RULESET: ', ruleset);
@@ -36,7 +38,16 @@ function CharacterForm(props) {
 
       <br/>
 
-      <CharacterBioForm ancestry={ancestry} setAncestry={setAncestry} />
+      <CharacterBioForm {...{
+        characterName,
+        setCharacterName,
+        ancestry,
+        setAncestry,
+        currentAncestrySkills,
+        setCurrentAncestrySkills,
+        currentAncestrySpells,
+        setCurrentAncestrySpells,
+      }}/>
 
       <br/>
 

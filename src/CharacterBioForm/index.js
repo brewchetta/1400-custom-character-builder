@@ -2,12 +2,15 @@ import { useState } from 'react'
 import FormInput from '../shared-components/FormInput'
 import BioAncestryForm from './BioAncestryForm'
 import BioAncestryDisplay from './BioAncestryDisplay'
+import SpellsInputs from '../shared-components/SpellsInputs'
 import useCharacterAncestries from '../hooks/useCharacterAncestries'
+import useSpells from '../hooks/useSpells'
 
-
-function CharacterBiographyForm({characterName, setCharacterName, ancestry, setAncestry}) {
+function CharacterBiographyForm({currentRuleset, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells}) {
 
   const { ancestries } = useCharacterAncestries()
+
+  const { spells } = useSpells(currentRuleset)
 
   const ancestryObj = ancestries[ancestry]
 
@@ -27,12 +30,25 @@ function CharacterBiographyForm({characterName, setCharacterName, ancestry, setA
 
       {ancestryObj ? <BioAncestryDisplay ancestry={ancestryObj}/> : null}
 
-      {ancestryObj && ancestryObj.spells ? null : null}
+      {
+        ancestryObj && ancestryObj.spells
+        ?
+        <SpellsInputs
+          spells={spells}
+          currentSpells={currentAncestrySpells}
+          setCurrentSpells={setCurrentAncestrySpells}
+          maxSpells={ancestryObj.spells}
+        />
+        :
+        null
+      }
 
       {ancestryObj && ancestryObj.skills ? null : null}
 
     </>
   )
+
+  // {spells, currentSpells, setCurrentSpells, maxSpells}
 
 }
 

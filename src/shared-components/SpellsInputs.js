@@ -33,7 +33,7 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
   return (
     <div>
 
-      <h4>Starting spells left: {spellsLeftToChoose}</h4>
+      <h4>Spells left: {spellsLeftToChoose}</h4>
 
       {renderedSpellCheckboxes}
 

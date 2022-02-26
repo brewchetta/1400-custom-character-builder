@@ -17,7 +17,7 @@ function BioAncestryForm({ancestry, setAncestry, ancestries}) {
       </option>)
   })
 
-  console.log('ANCESTRIES :',ancestries);
+  // console.log('ANCESTRIES :',ancestries);
 
   return (
     <>
