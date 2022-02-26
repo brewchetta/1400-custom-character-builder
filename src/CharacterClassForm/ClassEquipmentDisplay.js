@@ -1,3 +1,4 @@
+import EquipmentDisplay from '../shared-components/EquipmentDisplay'
 import { toSpinalCase } from '../utilities'
 
 function ClassEquipmentDisplay({currentItems, equipmentGroups}) {
@@ -8,14 +9,7 @@ function ClassEquipmentDisplay({currentItems, equipmentGroups}) {
       {Object.values(currentItems).map((item, i) => {
         const foundItem = equipmentGroups[i][item]
         if (foundItem) {
-          return (
-            <div key={toSpinalCase(foundItem.name)}>
-              <p><b>{foundItem.name}</b></p>
-              {foundItem.durability ? <p>Durability: {foundItem.durability}</p> : null}
-              {foundItem.tags ? <p>Tags: {foundItem.tags.join(", ")}</p> : null}
-              {foundItem.special ? <p>{foundItem.special}</p> : null}
-            </div>
-          )
+          return <EquipmentDisplay key={toSpinalCase(foundItem.name)} item={foundItem}/>
         } else {
           return null
         }

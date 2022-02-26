@@ -129,6 +129,10 @@ export const supplies = {
     name: 'Bandages',
     tags: ['Supply'],
   },
+  backpack: {
+    name: 'Backpack',
+    tags: ['Supply']
+  },
   chalk: {
     name: 'Chalk',
     tags: ['Supply'],
@@ -155,6 +159,10 @@ export const supplies = {
     name: 'Torch (x5)',
     tags: ['Supply'],
     durability: 5
+  },
+  waterskin: {
+    name: 'Waterskin',
+    tags: ['Supply']
   },
   wire: {
     name: 'Wire (10ft)',
