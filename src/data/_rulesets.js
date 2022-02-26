@@ -1,3 +1,3 @@
 export const core = 'CORE'
-export const extendedDNDClasses = 'EXTENDED_DND_CLASSES'
+export const extendedDND = 'EXTENDED_DND'
 // const chettCustom = 'CHETT_CUSTOM'

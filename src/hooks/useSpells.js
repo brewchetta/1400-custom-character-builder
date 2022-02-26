@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { spellsCore } from '../data/_spellsCore'
-import { core, extendedDNDClasses } from '../data/_rulesets'
+import { core, extendedDND } from '../data/_rulesets'
 
 export default function useCharacterClasses(ruleset = core) {
   // const [ruleset, setRuleset] = useState(ruleset)
@@ -10,7 +10,7 @@ export default function useCharacterClasses(ruleset = core) {
     let currentSpells = {...spells}
 
     switch (ruleset) {
-      case extendedDNDClasses:
+      case extendedDND:
         currentSpells = {...currentSpells}
       default:
         setSpells(currentSpells)
