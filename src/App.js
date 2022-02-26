@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CharacterClassForm from './CharacterClassForm'
+import CharacterForm from './CharacterForm'
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
 
-      <CharacterClassForm />
+      <CharacterForm />
 
     </div>
   );

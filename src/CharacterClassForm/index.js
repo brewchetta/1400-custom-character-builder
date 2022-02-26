@@ -8,22 +8,14 @@ import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from '../hooks/useCharacterClasses'
 import useSpells from '../hooks/useSpells'
-import * as rulesets from '../data/_rulesets'
 import { capitalize } from '../utilities'
 
-function CharacterClassForm({}) {
+function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems}) {
 
-  const [characterName, setCharacterName] = useState('')
-  const [currentRuleset, setCurrentRuleset] = useState(rulesets.core)
   const { classes } = useCharacterClasses(currentRuleset)
   const { spells } = useSpells(currentRuleset)
-  const [currentClassKey, setCurrentClassKey] = useState('bard')
   const currentClass = classes[currentClassKey]
-  const [currentSpells, setCurrentSpells] = useState({})
-  const [currentSkills, setCurrentSkills] = useState([])
-  const [currentItems, setCurrentItems] = useState({})
 
-  // console.log('RULESET: ', ruleset);
   // console.log('CURRENT CLASS: ', currentClass)
   // console.log('CURRENT ITEMS: ', currentItems)
   // console.log('CURRENT SPELLS: ', currentSpells)
@@ -49,32 +41,8 @@ function CharacterClassForm({}) {
     setCurrentClassKey(e.target.value)
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    console.log('submitted')
-  }
-
   return (
-    <form onSubmit={handleSubmit}>
-
-      <FormSelect
-        value={currentRuleset}
-        onChange={e => setCurrentRuleset(e.target.value)}
-        labelText="Rulesets: "
-      >
-        {Object.values(rulesets).map(r => <option key={r} value={r}>{capitalize(r)}</option>)}
-      </FormSelect>
-
-      <br/>
-
-      <FormInput
-        name="character-name"
-        labelText="Character Name: "
-        value={characterName}
-        onChange={e => setCharacterName(e.target.value)}
-      />
-
-      <br/>
+    <>
 
       <FormSelect
         value={currentClassKey}
@@ -141,7 +109,7 @@ function CharacterClassForm({}) {
         null
       }
 
-    </form>
+    </>
   )
 
 }
