@@ -4,7 +4,7 @@ import FormSelect from '../shared-components/FormSelect'
 import ClassDetailsDisplay from './ClassDetailsDisplay'
 import ClassSpellsInputs from './ClassSpellsInputs'
 import ClassSkillsInputs from './ClassSkillsInputs'
-import ClassItemsInputs from './ClassItemsInputs'
+import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from '../hooks/useCharacterClasses'
 import useSpells from '../hooks/useSpells'
@@ -120,7 +120,7 @@ function CharacterClassForm({}) {
       {
         currentClass?.equipmentGroups || currentClass?.equipmentGuaranteed
         ?
-        (<ClassItemsInputs
+        (<ClassEquipmentInputs
           currentItems={currentItems}
           setCurrentItems={setCurrentItems}
           equipmentGroups={currentClass.equipmentGroups || []}

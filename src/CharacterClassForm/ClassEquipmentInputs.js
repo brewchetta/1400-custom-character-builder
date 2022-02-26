@@ -2,7 +2,7 @@ import { useState } from 'react'
 import FormSelect from '../shared-components/FormSelect'
 import { toSpinalCase } from '../utilities'
 
-function ClassItemsInputs({currentItems, setCurrentItems, equipmentGroups, equipmentGuaranteed}) {
+function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, equipmentGuaranteed}) {
 
   // console.log('EQUIPMENT GROUPS: ', equipmentGroups);
   // console.log('EQUIPMENT GUARANTEED: ', equipmentGuaranteed);
@@ -46,4 +46,4 @@ function ClassItemsInputs({currentItems, setCurrentItems, equipmentGroups, equip
 
 }
 
-export default ClassItemsInputs
+export default ClassEquipmentInputs
