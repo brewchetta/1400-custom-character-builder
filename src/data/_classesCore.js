@@ -45,6 +45,7 @@ const classes = {
     skillSlots: 3,
     equipmentGuaranteed: [supplies.backpack, supplies.waterskin],
     equipmentGroups: [weapons, tools],
+    expertise: 2,
     specialText: 'Increase two skills an additional time (d10)',
     description: "Increase (d8) Sneak and any 3 of Traps, Sleight of Hand, Deceive, Disguise, Climb. Then increase (d10) two of them again. Take a light weapon and a tool."
   },

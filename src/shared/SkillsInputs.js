@@ -1,7 +1,7 @@
 import FormCheckbox from 'shared/FormCheckbox'
 import { toSpinalCase } from 'utilities'
 
-function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill}) {
+function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill, label}) {
 
   const skillsLeftToChoose = maxSkills - currentSkills.length
 
@@ -30,7 +30,7 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
   return (
     <div>
 
-      <h4>Starting skills left: {skillsLeftToChoose}</h4>
+      <h4>{label}</h4>
 
       {defaultSkill
         ?

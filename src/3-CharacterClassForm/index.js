@@ -8,7 +8,7 @@ import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useSpells from 'hooks/useSpells'
 
-function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems}) {
+function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise}) {
 
   const { classes } = useCharacterClasses(currentRuleset)
   const { spells } = useSpells(currentRuleset)
@@ -27,6 +27,14 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
       setCurrentItems({})
     }
   }, [classes, currentClassKey])
+
+  useEffect(() => {
+    for (let expertise of currentExpertise) {
+      if (!currentSkills.includes(expertise)) {
+        setCurrentExpertise(prev => prev.filter(ex => ex !== expertise))
+      }
+    }
+  }, [currentSkills, currentExpertise])
 
   useEffect(() => {
     setCurrentSpells({})
@@ -77,11 +85,25 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
       {currentClass?.skillSlots
         ?
         (<SkillsInputs
+          label={`Starting Skills Left: ${currentClass.skillSlots - currentSkills.length}`}
           possibleSkills={currentClass.skills}
           currentSkills={currentSkills}
           setCurrentSkills={setCurrentSkills}
           maxSkills={currentClass.skillSlots}
           defaultSkill={currentClass.coreskill}
+        />)
+        :
+        null
+      }
+
+      {currentClass?.expertise
+        ?
+        (<SkillsInputs
+          label={`Expert Skills Left: ${currentClass.expertise - currentExpertise.length}`}
+          possibleSkills={currentSkills}
+          currentSkills={currentExpertise}
+          setCurrentSkills={setCurrentExpertise}
+          maxSkills={currentClass.expertise}
         />)
         :
         null
