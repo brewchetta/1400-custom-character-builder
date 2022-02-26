@@ -3,13 +3,14 @@ import * as rulesets from '../data/_rulesets'
 import { capitalize } from '../utilities'
 import FormSelect from '../shared-components/FormSelect'
 import CharacterClassForm from "../CharacterClassForm"
-import CharacterBiographyForm from "../CharacterBiographyForm"
+import CharacterBioForm from "../CharacterBioForm"
 
 function CharacterForm(props) {
 
   const [currentRuleset, setCurrentRuleset] = useState(rulesets.core)
 
   const [characterName, setCharacterName] = useState('')
+  const [ancestry, setAncestry] = useState('')
 
   const [currentClassKey, setCurrentClassKey] = useState('bard')
   const [currentSpells, setCurrentSpells] = useState({})
@@ -35,7 +36,7 @@ function CharacterForm(props) {
 
       <br/>
 
-      <CharacterBiographyForm />
+      <CharacterBioForm ancestry={ancestry} setAncestry={setAncestry} />
 
       <br/>
 
