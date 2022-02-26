@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import FormInput from '../shared-components/FormInput'
 import FormSelect from '../shared-components/FormSelect'
 import ClassDetailsDisplay from './ClassDetailsDisplay'
-import ClassSpellsInputs from './ClassSpellsInputs'
-import ClassSkillsInputs from './ClassSkillsInputs'
+import SpellsInputs from '../shared-components/SpellsInputs'
+import SkillsInputs from '../shared-components/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from '../hooks/useCharacterClasses'
@@ -66,7 +66,7 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
 
       {currentClass?.spells
         ?
-        (<ClassSpellsInputs
+        (<SpellsInputs
           spells={spells}
           currentSpells={currentSpells}
           setCurrentSpells={setCurrentSpells}
@@ -78,7 +78,7 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
 
       {currentClass?.skillSlots
         ?
-        (<ClassSkillsInputs
+        (<SkillsInputs
           possibleSkills={currentClass.skills}
           currentSkills={currentSkills}
           setCurrentSkills={setCurrentSkills}

@@ -1,7 +1,7 @@
 import FormCheckbox from '../shared-components/FormCheckbox'
 import { toSpinalCase } from '../utilities'
 
-function ClassSpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
+function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
 
   const spellsLeftToChoose = maxSpells - Object.keys(currentSpells).length
 
@@ -42,4 +42,4 @@ function ClassSpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells})
 
 }
 
-export default ClassSpellsInputs
+export default SpellsInputs

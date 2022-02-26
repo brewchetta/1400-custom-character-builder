@@ -27,6 +27,10 @@ function CharacterBiographyForm({characterName, setCharacterName, ancestry, setA
 
       {ancestryObj ? <BioAncestryDisplay ancestry={ancestryObj}/> : null}
 
+      {ancestryObj && ancestryObj.spells ? null : null}
+
+      {ancestryObj && ancestryObj.skills ? null : null}
+
     </>
   )
 
