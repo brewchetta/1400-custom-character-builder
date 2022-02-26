@@ -1,11 +1,10 @@
 import { useState } from 'react'
+import FormInput from '../shared-components/FormInput'
 
-function CharacterBiographyForm(props) {
-
-  const [characterName, setCharacterName] = useState('')
+function CharacterBiographyForm({characterName, setCharacterName}) {
 
   return (
-    <form>
+    <>
 
       <FormInput
         name="character-name"
@@ -14,7 +13,7 @@ function CharacterBiographyForm(props) {
         onChange={e => setCharacterName(e.target.value)}
       />
 
-    </form>
+    </>
   )
 
 }

@@ -3,10 +3,14 @@ import * as rulesets from '../data/_rulesets'
 import { capitalize } from '../utilities'
 import FormSelect from '../shared-components/FormSelect'
 import CharacterClassForm from "../CharacterClassForm"
+import CharacterBiographyForm from "../CharacterBiographyForm"
 
 function CharacterForm(props) {
 
   const [currentRuleset, setCurrentRuleset] = useState(rulesets.core)
+
+  const [characterName, setCharacterName] = useState('')
+
   const [currentClassKey, setCurrentClassKey] = useState('bard')
   const [currentSpells, setCurrentSpells] = useState({})
   const [currentSkills, setCurrentSkills] = useState([])
@@ -28,6 +32,10 @@ function CharacterForm(props) {
       >
         {Object.values(rulesets).map(r => <option key={r} value={r}>{capitalize(r)}</option>)}
       </FormSelect>
+
+      <br/>
+
+      <CharacterBiographyForm />
 
       <br/>
 
