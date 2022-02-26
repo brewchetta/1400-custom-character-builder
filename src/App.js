@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CharacterForm from './CharacterForm'
+import CharacterForm from './1-CharacterForm'
 
 function App() {
 
