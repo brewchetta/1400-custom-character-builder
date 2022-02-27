@@ -7,7 +7,7 @@ import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useSpells from 'hooks/useSpells'
 import coreSkills from 'data/_skillsCore'
 
-function CharacterBiographyForm({currentRuleset, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells}) {
+function CharacterBiographyForm({currentRuleset, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells, characterQuirk, setCharacterQuirk, characterHistory, setCharacterHistory}) {
 
   const { ancestries } = useCharacterAncestries()
 
@@ -58,6 +58,20 @@ function CharacterBiographyForm({currentRuleset, characterName, setCharacterName
       }
 
       {ancestryObj && ancestryObj.skills ? null : null}
+
+      <FormInput
+        name="character-quirk"
+        labelText="Character Quirk: "
+        value={characterQuirk}
+        onChange={e => setCharacterQuirk(e.target.value)}
+      />
+
+      <FormInput
+        name="character-history"
+        labelText="Character History: "
+        value={characterHistory}
+        onChange={e => setCharacterHistory(e.target.value)}
+      />
 
     </>
   )

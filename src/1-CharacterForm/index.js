@@ -19,6 +19,8 @@ function CharacterForm(props) {
   const [currentSkills, setCurrentSkills] = useState([])
   const [currentExpertise, setCurrentExpertise] = useState([])
   const [currentItems, setCurrentItems] = useState({})
+  const [characterQuirk, setCharacterQuirk] = useState('')
+  const [characterHistory, setCharacterHistory] = useState('')
   // console.log('RULESET: ', ruleset);
 
   function handleSubmit(e) {
@@ -48,6 +50,10 @@ function CharacterForm(props) {
         setCurrentAncestrySkills,
         currentAncestrySpells,
         setCurrentAncestrySpells,
+        characterQuirk,
+        setCharacterQuirk,
+        characterHistory,
+        setCharacterHistory
       }}/>
 
       <br/>
