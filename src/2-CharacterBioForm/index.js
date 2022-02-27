@@ -9,7 +9,7 @@ import coreSkills from 'data/_skillsCore'
 
 function CharacterBiographyForm({currentRuleset, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells, characterQuirk, setCharacterQuirk, characterHistory, setCharacterHistory}) {
 
-  const { ancestries } = useCharacterAncestries()
+  const { ancestries } = useCharacterAncestries(currentRuleset)
 
   const { spells } = useSpells(currentRuleset)
 

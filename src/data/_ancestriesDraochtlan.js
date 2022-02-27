@@ -1,22 +1,27 @@
 const ancestries = {
-  human: {
-    name: 'Human',
-    description: 'Increase 2 skills at once.',
-    skills: 2
+  modernHuman: {
+    name: 'Modern Human',
+    description: 'Once per situation, negate the effect of a harm.'
   },
-  elfin: {
-    name: 'Elfin',
-    description: 'Learn 1 spell. You cannot be beguiled or put to sleep by magic.',
+  faeTouched: {
+    name: 'Fae Touched',
+    description: 'You cannot be beguiled or put to sleep by magic.',
   },
-  dwarf: {
-    name: 'Dwarf',
-    description: 'Increase 1 skill. You can see fine in low light and resist the effects of poisons and ale.',
-    skills: 1
+  stoutDeep: {
+    name: 'Stout Deep-Dweller',
+    description: 'You can see fine in low light. Carry 1 additional heavy item without being hindered.'
   },
-  greenskin: {
-    name: 'Greenskin',
-    description: 'Increase 1 skill. You can breath underwater and have a nasty bite.',
-    skills: 1
+  smallFolk: {
+    name: 'Small Folk',
+    description: 'Once per situation, gain advantage to a roll that is aided by your small size.'
+  },
+  draconicClaws: {
+    name: 'Draconic (Sharp Claws)',
+    description: 'Melee Combat is rolled one level higher when attacking with no weapon.'
+  },
+  draconicBreath: {
+    name: 'Draconic (Dragonsbreath)',
+    description: 'Gain Breath Weapon (d8).'
   }
 }
 

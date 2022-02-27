@@ -11,6 +11,8 @@ function CharacterForm(props) {
 
   const [characterName, setCharacterName] = useState('')
   const [ancestry, setAncestry] = useState('')
+  const [characterQuirk, setCharacterQuirk] = useState('')
+  const [characterHistory, setCharacterHistory] = useState('')
 
   const [currentClassKey, setCurrentClassKey] = useState('bard')
   const [currentSpells, setCurrentSpells] = useState({})
@@ -19,8 +21,6 @@ function CharacterForm(props) {
   const [currentSkills, setCurrentSkills] = useState([])
   const [currentExpertise, setCurrentExpertise] = useState([])
   const [currentItems, setCurrentItems] = useState({})
-  const [characterQuirk, setCharacterQuirk] = useState('')
-  const [characterHistory, setCharacterHistory] = useState('')
   // console.log('RULESET: ', ruleset);
 
   function handleSubmit(e) {
@@ -42,6 +42,7 @@ function CharacterForm(props) {
       <br/>
 
       <CharacterBioForm {...{
+        currentRuleset,
         characterName,
         setCharacterName,
         ancestry,
