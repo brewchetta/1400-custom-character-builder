@@ -85,7 +85,7 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
       {currentClass?.skillSlots
         ?
         (<SkillsInputs
-          label={`Trained Skills Left (upgrade to d8): ${currentClass.skillSlots - currentSkills.length}`}
+          label={`Choose ${currentClass.skillSlots - currentSkills.length} more skills to upgrade to d8`}
           possibleSkills={currentClass.skills}
           currentSkills={currentSkills}
           setCurrentSkills={setCurrentSkills}
@@ -99,7 +99,7 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
       {currentClass?.expertise
         ?
         (<SkillsInputs
-          label={`Expert Skills Left (upgrade to d10): ${currentClass.expertise - currentExpertise.length}`}
+          label={`Choose ${currentClass.expertise - currentExpertise.length} more skills to upgrade to d10`}
           possibleSkills={currentSkills}
           currentSkills={currentExpertise}
           setCurrentSkills={setCurrentExpertise}
