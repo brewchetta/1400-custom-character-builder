@@ -56,6 +56,8 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
 
       {renderedSkillCheckboxes}
 
+      </div>
+
       {
         possibleSkills.length
         ?
@@ -68,8 +70,6 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
         :
         null
       }
-
-      </div>
 
     </>
   )
