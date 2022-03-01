@@ -31,18 +31,24 @@ function CharacterForm() {
       ancestry,
       name: characterName,
       className: currentClassKey,
-      characterClass: classes[currentClassKey],
       quirk: characterQuirk,
       history: characterHistory,
       skills: {
-        d8: [...currentSkills, ...currentAncestrySkills].filter(s => !currentExpertise.includes(s)),
-        d10: currentExpertise,
+        d8: [...currentSkills, ...currentAncestrySkills].filter(s => !currentExpertise.includes(s))
       },
       spells: [...Object.keys(currentSpells), ...Object.keys(currentAncestrySpells)],
       items: [
         ...classes[currentClassKey].equipmentGuaranteed,
         ...Object.values(currentItems)
       ]
+    }
+
+    if (currentExpertise.length) {
+      character.skills.d10 = currentExpertise
+    }
+    if (classes[currentClassKey].specialText) {
+      console.log(classes[currentClassKey].specialText);
+      character.classSpecial = classes[currentClassKey].specialText
     }
     console.log(character);
   }
