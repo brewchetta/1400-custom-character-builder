@@ -127,7 +127,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
       }
 
       {
-        Object.keys(currentItems).length
+        currentClass && Object.keys(currentItems).length
         ?
         <ClassEquipmentDisplay
           currentItems={currentItems}
