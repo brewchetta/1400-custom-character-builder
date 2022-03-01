@@ -9,3 +9,14 @@ export function toSpinalCase(string) {
 export function toSpaceCase(string) {
   return string.replace(/[_-]/g, " ")
 }
+
+export function randomArrayItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
+export function randomAttribute(allAttributes, currentAttributes) {
+  const possibleAttributes = allAttributes.filter(attr => !currentAttributes.includes(attr))
+  if (possibleAttributes.length) {
+    return randomArrayItem(possibleAttributes)
+  }
+}
