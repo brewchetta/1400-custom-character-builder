@@ -4,11 +4,11 @@ import { capitalize } from 'utilities'
 import FormSelect from 'shared/FormSelect'
 import CharacterBioForm from "2-CharacterBioForm"
 import CharacterClassForm from "3-CharacterClassForm"
+import FormCheckbox from "shared/FormCheckbox"
 
-function CharacterForm(props) {
+function CharacterForm() {
 
-  const [currentRuleset, setCurrentRuleset] = useState(rulesets.core)
-
+  const [currentRulesets, setCurrentRulesets] = useState([rulesets.core])
   const [characterName, setCharacterName] = useState('')
   const [ancestry, setAncestry] = useState('')
   const [characterQuirk, setCharacterQuirk] = useState('')
@@ -21,28 +21,44 @@ function CharacterForm(props) {
   const [currentSkills, setCurrentSkills] = useState([])
   const [currentExpertise, setCurrentExpertise] = useState([])
   const [currentItems, setCurrentItems] = useState({})
-  // console.log('RULESET: ', ruleset);
 
   function handleSubmit(e) {
     e.preventDefault()
     alert('Under construction!')
   }
 
+  function toggleRuleset(rule) {
+    if (currentRulesets.includes(rulesets[rule])) {
+      setCurrentRulesets(prev => prev.filter(r => r !== rulesets[rule]))
+    } else {
+      setCurrentRulesets(prev => [...prev, rulesets[rule]])
+    }
+  }
+
+  const renderedRulesets = Object.keys(rulesets).map(rule => {
+    const displayName = capitalize(rulesets[rule])
+    return (
+      <FormCheckbox
+        key={rule}
+        name={`ruleset-${rule}`}
+        labelText={displayName}
+        onChange={() => toggleRuleset(rule)}
+        checked={currentRulesets.includes(rulesets[rule])}
+        disabled={rule === "core"}
+      />
+     )
+  })
+
   return (
     <form onSubmit={handleSubmit}>
 
-      <FormSelect
-        value={currentRuleset}
-        onChange={e => setCurrentRuleset(e.target.value)}
-        labelText="Rulesets: "
-      >
-        {Object.values(rulesets).map(r => <option key={r} value={r}>{capitalize(r)}</option>)}
-      </FormSelect>
+      <p>Rulesets:</p>
+      {renderedRulesets}
 
       <br/>
 
       <CharacterBioForm {...{
-        currentRuleset,
+        currentRulesets,
         characterName,
         setCharacterName,
         ancestry,
@@ -60,7 +76,7 @@ function CharacterForm(props) {
       <br/>
 
       <CharacterClassForm {...{
-        currentRuleset,
+        currentRulesets,
         currentClassKey,
         setCurrentClassKey,
         currentSpells,

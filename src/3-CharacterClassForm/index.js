@@ -8,38 +8,40 @@ import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useSpells from 'hooks/useSpells'
 
-function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise}) {
+function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise}) {
 
-  const { classes } = useCharacterClasses(currentRuleset)
-  const { spells } = useSpells(currentRuleset)
+  const { classes } = useCharacterClasses(currentRulesets)
+  const { spells } = useSpells(currentRulesets)
   const currentClass = classes[currentClassKey]
   const maxSpells = classes[currentClassKey]?.spells
 
+  console.log('RULESET: ', currentRulesets);
+  // console.log('CLASSES: ', classes);
   // console.log('CURRENT CLASS: ', currentClass)
   // console.log('CURRENT ITEMS: ', currentItems)
   // console.log('CURRENT SPELLS: ', currentSpells)
   // console.log('CURRENT SKILLS: ', currentSkills)
 
-  useEffect(() => {
-    if (!classes[currentClassKey]) {
-      setCurrentClassKey('bard')
-      setCurrentSpells({})
-      setCurrentSkills([])
-      setCurrentItems({})
-    }
-  }, [classes, currentClassKey])
+  // useEffect(() => {
+  //   if (!classes[currentClassKey]) {
+  //     setCurrentClassKey('bard')
+  //     setCurrentSpells({})
+  //     setCurrentSkills([])
+  //     setCurrentItems({})
+  //   }
+  // }, [classes, currentClassKey])
 
-  useEffect(() => {
-    for (let expertise of currentExpertise) {
-      if (!currentSkills.includes(expertise)) {
-        setCurrentExpertise(prev => prev.filter(ex => ex !== expertise))
-      }
-    }
-  }, [currentSkills, currentExpertise])
+  // useEffect(() => {
+  //   for (let expertise of currentExpertise) {
+  //     if (!currentSkills.includes(expertise)) {
+  //       setCurrentExpertise(prev => prev.filter(ex => ex !== expertise))
+  //     }
+  //   }
+  // }, [currentSkills, currentExpertise])
 
-  useEffect(() => {
-    setCurrentSpells({})
-  }, [spells])
+  // useEffect(() => {
+  //   setCurrentSpells({})
+  // }, [spells])
 
   function resetClassAttributes() {
     setCurrentSpells({})

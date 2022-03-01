@@ -7,12 +7,11 @@ export default function useCharacterAncestries(ruleset = core) {
   const [characterBackgrounds, setCharacterBackgrounds] = useState(coreBackgrounds)
 
   useEffect(() => {
-    switch (ruleset) {
-      case draochtlan:
-        setAncestries(draochtlanBackgrounds)
-        break;
-      default:
-        setAncestries(coreBackgrounds)
+    if (currentRulesets.includes(draochtlan)) {
+      console.log('word');
+      setAncestries(draochtlanBackgrounds)
+    } else {
+      setAncestries(coreBackgrounds)
     }
   }, [ruleset])
 

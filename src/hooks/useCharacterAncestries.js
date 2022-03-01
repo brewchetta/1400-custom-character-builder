@@ -7,12 +7,10 @@ export default function useCharacterAncestries(ruleset = core) {
   const [ancestries, setAncestries] = useState(coreAncestries)
 
   useEffect(() => {
-    switch (ruleset) {
-      case draochtlan:
-        setAncestries(draochtlanAncestries)
-        break;
-      default:
-        setAncestries(coreAncestries)
+    if (ruleset.includes(draochtlan)) {
+      setAncestries(draochtlanAncestries)
+    } else {
+      setAncestries(coreAncestries)
     }
   }, [ruleset])
 

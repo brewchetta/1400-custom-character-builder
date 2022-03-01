@@ -7,11 +7,11 @@ import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useSpells from 'hooks/useSpells'
 import coreSkills from 'data/_skillsCore'
 
-function CharacterBiographyForm({currentRuleset, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells, characterQuirk, setCharacterQuirk, characterHistory, setCharacterHistory}) {
+function CharacterBiographyForm({currentRulesets, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells, characterQuirk, setCharacterQuirk, characterHistory, setCharacterHistory}) {
 
-  const { ancestries } = useCharacterAncestries(currentRuleset)
+  const { ancestries } = useCharacterAncestries(currentRulesets)
 
-  const { spells } = useSpells(currentRuleset)
+  const { spells } = useSpells(currentRulesets)
 
   const ancestryObj = ancestries[ancestry]
 
