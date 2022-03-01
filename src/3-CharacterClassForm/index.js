@@ -5,6 +5,7 @@ import SpellsInputs from 'shared/SpellsInputs'
 import SkillsInputs from 'shared/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
+import Conditional from 'shared/Conditional'
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useSpells from 'hooks/useSpells'
 
@@ -15,33 +16,26 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
   const currentClass = classes[currentClassKey]
   const maxSpells = classes[currentClassKey]?.spells
 
-  // console.log('RULESET: ', currentRulesets);
-  // console.log('CLASSES: ', classes);
-  // console.log('CURRENT CLASS: ', currentClass)
-  // console.log('CURRENT ITEMS: ', currentItems)
-  // console.log('CURRENT SPELLS: ', currentSpells)
-  // console.log('CURRENT SKILLS: ', currentSkills)
+  useEffect(() => {
+    if (!classes[currentClassKey]) {
+      setCurrentClassKey('bard')
+      setCurrentSpells({})
+      setCurrentSkills([])
+      setCurrentItems({})
+    }
+  }, [classes, currentClassKey])
 
-  // useEffect(() => {
-  //   if (!classes[currentClassKey]) {
-  //     setCurrentClassKey('bard')
-  //     setCurrentSpells({})
-  //     setCurrentSkills([])
-  //     setCurrentItems({})
-  //   }
-  // }, [classes, currentClassKey])
+  useEffect(() => {
+    for (let expertise of currentExpertise) {
+      if (!currentSkills.includes(expertise)) {
+        setCurrentExpertise(prev => prev.filter(ex => ex !== expertise))
+      }
+    }
+  }, [currentSkills, currentExpertise])
 
-  // useEffect(() => {
-  //   for (let expertise of currentExpertise) {
-  //     if (!currentSkills.includes(expertise)) {
-  //       setCurrentExpertise(prev => prev.filter(ex => ex !== expertise))
-  //     }
-  //   }
-  // }, [currentSkills, currentExpertise])
-
-  // useEffect(() => {
-  //   setCurrentSpells({})
-  // }, [spells])
+  useEffect(() => {
+    setCurrentSpells({})
+  }, [spells])
 
   function resetClassAttributes() {
     setCurrentSpells({})
@@ -65,77 +59,55 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         {Object.keys(classes).map(c => <option key={c} value={c}>{classes[c].name}</option>)}
       </FormSelect>
 
-      {
-        currentClass
-        ?
-        (<ClassDetailsDisplay characterClass={currentClass} /> )
-        :
-        null
-      }
+      <Conditional condition={currentClass}>
+        <ClassDetailsDisplay characterClass={currentClass} />
+      </Conditional>
 
-      {currentClass?.spells
-        ?
+      <Conditional condition={currentClass?.spells}>
         <SpellsInputs
           spells={spells}
           currentSpells={currentSpells}
           setCurrentSpells={setCurrentSpells}
           maxSpells={maxSpells}
         />
-        :
-        null
-      }
+      </Conditional>
 
-
-      {currentClass?.skillSlots
-        ?
-        (<SkillsInputs
-          label={`Choose ${currentClass.skillSlots - currentSkills.length} more skills to upgrade to d8`}
-          possibleSkills={currentClass.skills}
+      <Conditional condition={currentClass?.skillSlots}>
+        <SkillsInputs
+          label={`Choose ${currentClass?.skillSlots - currentSkills.length} more skills to upgrade to d8`}
+          possibleSkills={currentClass?.skills}
           currentSkills={currentSkills}
           setCurrentSkills={setCurrentSkills}
-          maxSkills={currentClass.skillSlots}
-          defaultSkill={currentClass.coreskill}
-        />)
-        :
-        null
-      }
+          maxSkills={currentClass?.skillSlots}
+          defaultSkill={currentClass?.coreskill}
+        />
+      </Conditional>
 
-      {currentClass?.expertise && currentSkills.length
-        ?
-        (<SkillsInputs
-          label={`Choose ${currentClass.expertise - currentExpertise.length} more skills to upgrade to d10`}
+      <Conditional condition={currentClass?.expertise && currentSkills.length}>
+        <SkillsInputs
+          label={`Choose ${currentClass?.expertise - currentExpertise.length} more skills to upgrade to d10`}
           possibleSkills={currentSkills}
           currentSkills={currentExpertise}
           setCurrentSkills={setCurrentExpertise}
-          maxSkills={currentClass.expertise}
-        />)
-        :
-        null
-      }
+          maxSkills={currentClass?.expertise}
+        />
+      </Conditional>
 
-      {
-        currentClass?.equipmentGroups || currentClass?.equipmentGuaranteed
-        ?
-        (<ClassEquipmentInputs
+      <Conditional condition={currentClass?.equipmentGroups || currentClass?.equipmentGuaranteed}>
+        <ClassEquipmentInputs
           currentItems={currentItems}
           setCurrentItems={setCurrentItems}
-          equipmentGroups={currentClass.equipmentGroups || []}
-          equipmentGuaranteed={currentClass.equipmentGuaranteed || []}
-        />)
-        :
-        null
-      }
+          equipmentGroups={currentClass?.equipmentGroups || []}
+          equipmentGuaranteed={currentClass?.equipmentGuaranteed || []}
+        />
+      </Conditional>
 
-      {
-        currentClass && Object.keys(currentItems).length
-        ?
+      <Conditional condition={currentClass && Object.keys(currentItems).length}>
         <ClassEquipmentDisplay
           currentItems={currentItems}
-          equipmentGroups={currentClass.equipmentGroups}
+          equipmentGroups={currentClass?.equipmentGroups}
         />
-        :
-        null
-      }
+      </Conditional>
 
     </>
   )

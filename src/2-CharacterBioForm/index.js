@@ -3,6 +3,7 @@ import SpellsInputs from 'shared/SpellsInputs'
 import SkillsInputs from 'shared/SkillsInputs'
 import BioAncestryForm from './BioAncestryForm'
 import BioAncestryDisplay from './BioAncestryDisplay'
+import Conditional from 'shared/Conditional'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useSpells from 'hooks/useSpells'
 import coreSkills from 'data/_skillsCore'
@@ -29,36 +30,27 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
 
         <BioAncestryForm ancestry={ancestry} setAncestry={setAncestry} ancestries={ancestries}/>
 
+        <Conditional condition={ancestryObj}>
+          <BioAncestryDisplay ancestry={ancestryObj}/>
+        </Conditional>
 
-        {ancestryObj ? <BioAncestryDisplay ancestry={ancestryObj}/> : null}
-
-        {
-          ancestryObj && ancestryObj.spells
-          ?
+        <Conditional condition={ancestryObj && ancestryObj.spells}>
           <SpellsInputs
             spells={spells}
             currentSpells={currentAncestrySpells}
             setCurrentSpells={setCurrentAncestrySpells}
-            maxSpells={ancestryObj.spells}
+            maxSpells={ancestryObj?.spells}
           />
-          :
-          null
-        }
+        </Conditional>
 
-        {
-          ancestryObj && ancestryObj.skills
-          ?
+        <Conditional condition={ancestryObj && ancestryObj.skills}>
           <SkillsInputs
             possibleSkills={coreSkills}
             currentSkills={currentAncestrySkills}
             setCurrentSkills={setCurrentAncestrySkills}
-            maxSkills={ancestryObj.skills}
+            maxSkills={ancestryObj?.skills}
           />
-          :
-          null
-        }
-
-        {ancestryObj && ancestryObj.skills ? null : null}
+        </Conditional>
 
         <FormInput
           name="character-quirk"
