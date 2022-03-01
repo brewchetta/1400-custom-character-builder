@@ -1,5 +1,5 @@
 import FormCheckbox from 'shared/FormCheckbox'
-import { toSpinalCase } from 'utilities'
+import { toSpinalCase, randomAttribute } from 'utilities'
 
 function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill, label}) {
 
@@ -27,6 +27,13 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
     )
   })
 
+  function rollRandomSkill() {
+    if (currentSkills.length < maxSkills) {
+      const newSkill = randomAttribute(possibleSkills, currentSkills)
+      setCurrentSkills(prev => [...prev, newSkill])
+    }
+  }
+
   return (
     <>
 
@@ -48,6 +55,19 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
       }
 
       {renderedSkillCheckboxes}
+
+      {
+        possibleSkills.length
+        ?
+        <input
+          type="button"
+          disabled={currentSkills.length >= maxSkills}
+          onClick={rollRandomSkill}
+          value="Random Skill"
+        />
+        :
+        null
+      }
 
       </div>
 
