@@ -53,7 +53,10 @@ function CharacterForm() {
     <form onSubmit={handleSubmit}>
 
       <p>Rulesets:</p>
-      {renderedRulesets}
+
+      <div className="flex-wrap-container">
+        {renderedRulesets}
+      </div>
 
       <br/>
 

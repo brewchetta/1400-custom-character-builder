@@ -1,8 +1,6 @@
-.flex-scroll-container {
+.flex-wrap-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  overflow-x: auto;
 }
 
 .grid-columns-small {
