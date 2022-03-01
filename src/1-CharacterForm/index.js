@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import * as rulesets from 'data/_rulesets'
 import { capitalize } from 'utilities'
-import FormSelect from 'shared/FormSelect'
 import CharacterBioForm from "2-CharacterBioForm"
 import CharacterClassForm from "3-CharacterClassForm"
 import FormCheckbox from "shared/FormCheckbox"
 import useCharacterClasses from 'hooks/useCharacterClasses'
-import  { supplies } from 'data/_itemsCore'
+import useCharacterAncestries from 'hooks/useCharacterAncestries'
 
 function CharacterForm() {
 
@@ -25,8 +24,10 @@ function CharacterForm() {
   const [currentItems, setCurrentItems] = useState({})
 
   const { classes } = useCharacterClasses(currentRulesets)
+  const { ancestries } = useCharacterAncestries(currentRulesets)
 
   function buildCharacterObject() {
+    console.log(ancestries);
     const character = {
       ancestry,
       name: characterName,
@@ -49,6 +50,9 @@ function CharacterForm() {
     if (classes[currentClassKey].specialText) {
       console.log(classes[currentClassKey].specialText);
       character.classSpecial = classes[currentClassKey].specialText
+    }
+    if (ancestries[ancestry]?.specialText) {
+      character.ancestrySpecial = ancestries[ancestry].specialText
     }
     console.log(character);
   }
