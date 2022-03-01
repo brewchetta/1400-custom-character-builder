@@ -7,7 +7,6 @@ import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useSpells from 'hooks/useSpells'
-import { randomAttribute } from 'utilities'
 
 function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise}) {
 
@@ -53,15 +52,6 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
     setCurrentClassKey(e.target.value)
   }
 
-  // console.log(currentSpells);
-
-  function rollRandomSpell() {
-    if (Object.keys(currentSpells).length < maxSpells) {
-      const newSpell = randomAttribute(Object.keys(spells), Object.keys(currentSpells))
-      setCurrentSpells(prev => ({...prev, [newSpell]: spells[newSpell]}))
-    }
-  }
-
   return (
     <>
 
@@ -83,20 +73,12 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
 
       {currentClass?.spells
         ?
-        <>
         <SpellsInputs
           spells={spells}
           currentSpells={currentSpells}
           setCurrentSpells={setCurrentSpells}
           maxSpells={maxSpells}
         />
-        <input
-          type="button"
-          value="Random Spell"
-          disabled={Object.keys(currentSpells).length >= maxSpells}
-          onClick={rollRandomSpell}
-        />
-        </>
         :
         null
       }

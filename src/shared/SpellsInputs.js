@@ -1,5 +1,5 @@
 import FormCheckbox from 'shared/FormCheckbox'
-import { toSpinalCase } from 'utilities'
+import { toSpinalCase, randomAttribute } from 'utilities'
 
 function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
 
@@ -13,6 +13,13 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
       const newSpells = {...currentSpells}
       delete newSpells[spell]
       setCurrentSpells(newSpells)
+    }
+  }
+
+  function rollRandomSpell() {
+    if (Object.keys(currentSpells).length < maxSpells) {
+      const newSpell = randomAttribute(Object.keys(spells), Object.keys(currentSpells))
+      setCurrentSpells(prev => ({...prev, [newSpell]: spells[newSpell]}))
     }
   }
 
@@ -41,6 +48,12 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
 
       </div>
 
+      <input
+        type="button"
+        value="Random Spell"
+        disabled={Object.keys(currentSpells).length >= maxSpells}
+        onClick={rollRandomSpell}
+      />
 
     </div>
   )
