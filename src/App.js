@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import CharacterForm from './1-CharacterForm'
+import CharacterForm from '1-CharacterForm'
+import CharacterSheet from '4-CharacterSheet'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
       {
         currentCharacter
         ?
-        <p>CurrentCharacter: {currentCharacter?.name}</p>
+        <CharacterSheet currentCharacter={currentCharacter} />
         :
         null
       }
