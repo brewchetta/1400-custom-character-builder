@@ -98,7 +98,7 @@ function CharacterClassForm({currentRuleset, currentClassKey, setCurrentClassKey
         null
       }
 
-      {currentClass?.expertise
+      {currentClass?.expertise && currentSkills.length
         ?
         (<SkillsInputs
           label={`Choose ${currentClass.expertise - currentExpertise.length} more skills to upgrade to d10`}
