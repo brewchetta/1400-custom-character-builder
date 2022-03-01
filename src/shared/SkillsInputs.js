@@ -28,9 +28,11 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
   })
 
   return (
-    <div>
+    <>
 
       <h4>{label}</h4>
+
+      <div className="grid-columns-small">
 
       {defaultSkill
         ?
@@ -47,7 +49,9 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
 
       {renderedSkillCheckboxes}
 
-    </div>
+      </div>
+
+    </>
   )
 
 }

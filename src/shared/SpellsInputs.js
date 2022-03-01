@@ -35,7 +35,12 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
 
       <h4>Spells left: {spellsLeftToChoose}</h4>
 
-      {renderedSpellCheckboxes}
+      <div className="grid-columns-small">
+
+        {renderedSpellCheckboxes}
+
+      </div>
+
 
     </div>
   )

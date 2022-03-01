@@ -1,1 +1,24 @@
+// colors
+$black: black;
+$dark-grey: #555;
+
+// body
 $body-padding: 1em;
+
+// screen sizes
+$tiny-screen: 0px;
+$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+$gigantic-screen: 1800px;
+
+$screen-sizes: (
+"tiny-screen": $tiny-screen,
+"small-screen": $small-screen,
+"medium-screen": $medium-screen,
+"large-screen": $large-screen,
+"gigantic-screen": $gigantic-screen
+);
+
+// checkboxes
+$disabled-checkbox-color: $dark-grey;

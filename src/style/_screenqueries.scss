@@ -1,0 +1,19 @@
+@mixin tiny-screen-only {
+  @media (min-width: #{$tiny-screen}) { @content; }
+}
+
+@mixin small-screen-only {
+  @media (min-width: #{$small-screen}) { @content; }
+}
+
+@mixin medium-screen-only {
+  @media (min-width: #{$medium-screen}) { @content; }
+}
+
+@mixin large-screen-only {
+  @media (min-width: #{$large-screen}) { @content; }
+}
+
+@mixin gigantic-screen-only {
+  @media (min-width: #{$gigantic-screen}) { @content; }
+}

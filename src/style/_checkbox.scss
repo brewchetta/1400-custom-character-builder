@@ -1,0 +1,41 @@
+input[type="checkbox"] {
+  &:disabled + label {
+    color: $disabled-checkbox-color;
+  }
+
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  color: currentColor;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(0.3em);
+  &::before {
+    display: block;
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    transform: scale(0) translateX(-50%) translateY(-50%);
+    background-color: black;
+    transition: transform 0.1s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 0.1em;
+  }
+
+  &:checked::before {
+    transform: scale(1) translateX(-50%) translateY(-50%);
+  }
+
+  &:disabled {
+    border-color: $disabled-checkbox-color;
+
+    &::before {
+      background-color: $disabled-checkbox-color;
+    }
+  }
+
+}
