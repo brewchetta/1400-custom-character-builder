@@ -1,0 +1,20 @@
+.labeled-input-section {
+
+  input:not([type="checkbox"]), select {
+    display: block;
+    margin-top: $input-label-margin-top;
+  }
+
+  label {
+    display: block;
+    margin-top: $input-label-margin-top;
+    &:first-child {
+      margin-top: inherit;
+    }
+  }
+
+  input[type="checkbox"] + label {
+    display: inline;
+  }
+
+}

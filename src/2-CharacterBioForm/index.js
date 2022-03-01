@@ -18,60 +18,63 @@ function CharacterBiographyForm({currentRuleset, characterName, setCharacterName
   return (
     <>
 
-      <FormInput
+      <div className="labeled-input-section">
+
+        <FormInput
         name="character-name"
-        labelText="Character Name: "
+        labelText="Character Name"
         value={characterName}
         onChange={e => setCharacterName(e.target.value)}
-      />
-
-      <br/>
-
-      <BioAncestryForm ancestry={ancestry} setAncestry={setAncestry} ancestries={ancestries}/>
-
-      {ancestryObj ? <BioAncestryDisplay ancestry={ancestryObj}/> : null}
-
-      {
-        ancestryObj && ancestryObj.spells
-        ?
-        <SpellsInputs
-          spells={spells}
-          currentSpells={currentAncestrySpells}
-          setCurrentSpells={setCurrentAncestrySpells}
-          maxSpells={ancestryObj.spells}
         />
-        :
-        null
-      }
 
-      {
-        ancestryObj && ancestryObj.skills
-        ?
-        <SkillsInputs
-          possibleSkills={coreSkills}
-          currentSkills={currentAncestrySkills}
-          setCurrentSkills={setCurrentAncestrySkills}
-          maxSkills={ancestryObj.skills}
+        <BioAncestryForm ancestry={ancestry} setAncestry={setAncestry} ancestries={ancestries}/>
+
+
+        {ancestryObj ? <BioAncestryDisplay ancestry={ancestryObj}/> : null}
+
+        {
+          ancestryObj && ancestryObj.spells
+          ?
+          <SpellsInputs
+            spells={spells}
+            currentSpells={currentAncestrySpells}
+            setCurrentSpells={setCurrentAncestrySpells}
+            maxSpells={ancestryObj.spells}
+          />
+          :
+          null
+        }
+
+        {
+          ancestryObj && ancestryObj.skills
+          ?
+          <SkillsInputs
+            possibleSkills={coreSkills}
+            currentSkills={currentAncestrySkills}
+            setCurrentSkills={setCurrentAncestrySkills}
+            maxSkills={ancestryObj.skills}
+          />
+          :
+          null
+        }
+
+        {ancestryObj && ancestryObj.skills ? null : null}
+
+        <FormInput
+          name="character-quirk"
+          labelText="Character Quirk: "
+          value={characterQuirk}
+          onChange={e => setCharacterQuirk(e.target.value)}
         />
-        :
-        null
-      }
 
-      {ancestryObj && ancestryObj.skills ? null : null}
+        <FormInput
+          name="character-history"
+          labelText="Character History: "
+          value={characterHistory}
+          onChange={e => setCharacterHistory(e.target.value)}
+        />
 
-      <FormInput
-        name="character-quirk"
-        labelText="Character Quirk: "
-        value={characterQuirk}
-        onChange={e => setCharacterQuirk(e.target.value)}
-      />
-
-      <FormInput
-        name="character-history"
-        labelText="Character History: "
-        value={characterHistory}
-        onChange={e => setCharacterHistory(e.target.value)}
-      />
+      </div>
 
     </>
   )
