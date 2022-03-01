@@ -54,7 +54,6 @@ const classes = {
     coreskill: 'Melee Combat',
     skills: ['Intimidate', 'Run and Jump', 'Archery', 'Vehicles'],
     skillSlots: 2,
-    specialText: 'Can carry 2 heavy items without hindrance.',
     equipmentGuaranteed: [supplies.backpack, supplies.waterskin],
     equipmentGroups: [armours, weapons],
     specialText: 'Can carry 2 heavy items without hindrance',

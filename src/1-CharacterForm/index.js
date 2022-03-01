@@ -7,7 +7,7 @@ import FormCheckbox from "shared/FormCheckbox"
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
 
-function CharacterForm() {
+function CharacterForm({setCurrentCharacter, currentCharacter}) {
 
   const [currentRulesets, setCurrentRulesets] = useState([rulesets.core])
   const [characterName, setCharacterName] = useState('')
@@ -27,7 +27,7 @@ function CharacterForm() {
   const { ancestries } = useCharacterAncestries(currentRulesets)
 
   function buildCharacterObject() {
-    console.log(ancestries);
+
     const character = {
       ancestry,
       name: characterName,
@@ -47,19 +47,23 @@ function CharacterForm() {
     if (currentExpertise.length) {
       character.skills.d10 = currentExpertise
     }
+
     if (classes[currentClassKey].specialText) {
       console.log(classes[currentClassKey].specialText);
       character.classSpecial = classes[currentClassKey].specialText
     }
+
     if (ancestries[ancestry]?.specialText) {
       character.ancestrySpecial = ancestries[ancestry].specialText
     }
-    console.log(character);
+
+    return character
+
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    buildCharacterObject()
+    setCurrentCharacter(buildCharacterObject())
   }
 
   function toggleRuleset(rule) {
