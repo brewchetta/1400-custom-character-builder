@@ -1,4 +1,5 @@
 import FormSelect from 'shared/FormSelect'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 
 function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, equipmentGuaranteed}) {
 
@@ -51,4 +52,4 @@ function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, e
 
 }
 
-export default ClassEquipmentInputs
+export default ConditionalWrapper(ClassEquipmentInputs)

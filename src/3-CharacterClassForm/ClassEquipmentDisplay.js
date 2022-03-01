@@ -1,4 +1,5 @@
 import EquipmentDisplay from 'shared/EquipmentDisplay'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { toSpinalCase } from 'utilities'
 
 function ClassEquipmentDisplay({currentItems, equipmentGroups}) {
@@ -20,4 +21,4 @@ function ClassEquipmentDisplay({currentItems, equipmentGroups}) {
 
 }
 
-export default ClassEquipmentDisplay
+export default ConditionalWrapper(ClassEquipmentDisplay)

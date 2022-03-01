@@ -1,4 +1,5 @@
 import FormCheckbox from 'shared/FormCheckbox'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { toSpinalCase, randomAttribute } from 'utilities'
 
 function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill, label}) {
@@ -76,4 +77,4 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
 
 }
 
-export default SkillsInputs
+export default ConditionalWrapper(SkillsInputs)

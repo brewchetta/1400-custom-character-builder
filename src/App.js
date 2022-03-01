@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import CharacterForm from './1-CharacterForm'
-import Conditional from 'shared/Conditional'
 
 function App() {
 
@@ -9,15 +8,23 @@ function App() {
   return (
     <div className="App">
 
-      <Conditional condition={!currentCharacter}>
+      {
+        !currentCharacter
+        ?
         <CharacterForm
           setCurrentCharacter={setCurrentCharacter}
         />
-      </Conditional>
+        :
+        null
+      }
 
-      <Conditional condition={currentCharacter}>
+      {
+        currentCharacter
+        ?
         <p>CurrentCharacter: {currentCharacter?.name}</p>
-      </Conditional>
+        :
+        null
+      }
 
     </div>
   );

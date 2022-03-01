@@ -5,7 +5,6 @@ import SpellsInputs from 'shared/SpellsInputs'
 import SkillsInputs from 'shared/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
-import Conditional from 'shared/Conditional'
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useSpells from 'hooks/useSpells'
 
@@ -59,55 +58,51 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         {Object.keys(classes).map(c => <option key={c} value={c}>{classes[c].name}</option>)}
       </FormSelect>
 
-      <Conditional condition={currentClass}>
-        <ClassDetailsDisplay characterClass={currentClass} />
-      </Conditional>
+      <ClassDetailsDisplay
+        displayCondition={currentClass}
+        characterClass={currentClass}
+      />
 
-      <Conditional condition={currentClass?.spells}>
-        <SpellsInputs
-          spells={spells}
-          currentSpells={currentSpells}
-          setCurrentSpells={setCurrentSpells}
-          maxSpells={maxSpells}
-        />
-      </Conditional>
+      <SpellsInputs
+        displayCondition={currentClass?.spells}
+        spells={spells}
+        currentSpells={currentSpells}
+        setCurrentSpells={setCurrentSpells}
+        maxSpells={maxSpells}
+      />
 
-      <Conditional condition={currentClass?.skillSlots}>
-        <SkillsInputs
-          label={`Choose ${currentClass?.skillSlots - currentSkills.length} more skills to upgrade to d8`}
-          possibleSkills={currentClass?.skills}
-          currentSkills={currentSkills}
-          setCurrentSkills={setCurrentSkills}
-          maxSkills={currentClass?.skillSlots}
-          defaultSkill={currentClass?.coreskill}
-        />
-      </Conditional>
+      <SkillsInputs
+        displayCondition={currentClass?.skillSlots}
+        label={`Choose ${currentClass?.skillSlots - currentSkills.length} more skills to upgrade to d8`}
+        possibleSkills={currentClass?.skills}
+        currentSkills={currentSkills}
+        setCurrentSkills={setCurrentSkills}
+        maxSkills={currentClass?.skillSlots}
+        defaultSkill={currentClass?.coreskill}
+      />
 
-      <Conditional condition={currentClass?.expertise && currentSkills.length}>
-        <SkillsInputs
-          label={`Choose ${currentClass?.expertise - currentExpertise.length} more skills to upgrade to d10`}
-          possibleSkills={currentSkills}
-          currentSkills={currentExpertise}
-          setCurrentSkills={setCurrentExpertise}
-          maxSkills={currentClass?.expertise}
-        />
-      </Conditional>
+      <SkillsInputs
+        displayCondition={currentClass?.expertise && currentSkills.length}
+        label={`Choose ${currentClass?.expertise - currentExpertise.length} more skills to upgrade to d10`}
+        possibleSkills={currentSkills}
+        currentSkills={currentExpertise}
+        setCurrentSkills={setCurrentExpertise}
+        maxSkills={currentClass?.expertise}
+      />
 
-      <Conditional condition={currentClass?.equipmentGroups || currentClass?.equipmentGuaranteed}>
-        <ClassEquipmentInputs
-          currentItems={currentItems}
-          setCurrentItems={setCurrentItems}
-          equipmentGroups={currentClass?.equipmentGroups || []}
-          equipmentGuaranteed={currentClass?.equipmentGuaranteed || []}
-        />
-      </Conditional>
+      <ClassEquipmentInputs
+        displayCondition={currentClass?.equipmentGroups || currentClass?.equipmentGuaranteed}
+        currentItems={currentItems}
+        setCurrentItems={setCurrentItems}
+        equipmentGroups={currentClass?.equipmentGroups || []}
+        equipmentGuaranteed={currentClass?.equipmentGuaranteed || []}
+      />
 
-      <Conditional condition={currentClass && Object.keys(currentItems).length}>
-        <ClassEquipmentDisplay
-          currentItems={currentItems}
-          equipmentGroups={currentClass?.equipmentGroups}
-        />
-      </Conditional>
+      <ClassEquipmentDisplay
+        displayCondition={currentClass && Object.keys(currentItems).length}
+        currentItems={currentItems}
+        equipmentGroups={currentClass?.equipmentGroups}
+      />
 
     </>
   )

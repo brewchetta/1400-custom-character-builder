@@ -1,3 +1,5 @@
+import ConditionalWrapper from 'shared/ConditionalWrapper'
+
 function ClassDetailsDisplay({characterClass}) {
 
   return (
@@ -11,4 +13,4 @@ function ClassDetailsDisplay({characterClass}) {
 
 }
 
-export default ClassDetailsDisplay
+export default ConditionalWrapper(ClassDetailsDisplay)

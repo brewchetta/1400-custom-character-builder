@@ -3,7 +3,6 @@ import SpellsInputs from 'shared/SpellsInputs'
 import SkillsInputs from 'shared/SkillsInputs'
 import BioAncestryForm from './BioAncestryForm'
 import BioAncestryDisplay from './BioAncestryDisplay'
-import Conditional from 'shared/Conditional'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useSpells from 'hooks/useSpells'
 import coreSkills from 'data/_skillsCore'
@@ -30,27 +29,23 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
 
         <BioAncestryForm ancestry={ancestry} setAncestry={setAncestry} ancestries={ancestries}/>
 
-        <Conditional condition={ancestryObj}>
-          <BioAncestryDisplay ancestry={ancestryObj}/>
-        </Conditional>
+        <BioAncestryDisplay displayCondition={ancestryObj} ancestry={ancestryObj}/>
 
-        <Conditional condition={ancestryObj && ancestryObj.spells}>
-          <SpellsInputs
-            spells={spells}
-            currentSpells={currentAncestrySpells}
-            setCurrentSpells={setCurrentAncestrySpells}
-            maxSpells={ancestryObj?.spells}
-          />
-        </Conditional>
+        <SpellsInputs
+          displayCondition={ancestryObj && ancestryObj.spells}
+          spells={spells}
+          currentSpells={currentAncestrySpells}
+          setCurrentSpells={setCurrentAncestrySpells}
+          maxSpells={ancestryObj?.spells}
+        />
 
-        <Conditional condition={ancestryObj && ancestryObj.skills}>
-          <SkillsInputs
-            possibleSkills={coreSkills}
-            currentSkills={currentAncestrySkills}
-            setCurrentSkills={setCurrentAncestrySkills}
-            maxSkills={ancestryObj?.skills}
-          />
-        </Conditional>
+        <SkillsInputs
+          displayCondition={ancestryObj && ancestryObj.skills}
+          possibleSkills={coreSkills}
+          currentSkills={currentAncestrySkills}
+          setCurrentSkills={setCurrentAncestrySkills}
+          maxSkills={ancestryObj?.skills}
+        />
 
         <FormInput
           name="character-quirk"

@@ -1,3 +1,5 @@
+import ConditionalWrapper from 'shared/ConditionalWrapper'
+
 function BioAncestryDisplay({ancestry}) {
 
   return (
@@ -9,4 +11,4 @@ function BioAncestryDisplay({ancestry}) {
 
 }
 
-export default BioAncestryDisplay
+export default ConditionalWrapper(BioAncestryDisplay)

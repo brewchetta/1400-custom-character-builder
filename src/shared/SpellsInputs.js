@@ -1,4 +1,5 @@
 import FormCheckbox from 'shared/FormCheckbox'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { toSpinalCase, randomAttribute } from 'utilities'
 
 function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
@@ -60,4 +61,4 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
 
 }
 
-export default SpellsInputs
+export default ConditionalWrapper(SpellsInputs)
