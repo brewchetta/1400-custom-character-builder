@@ -20,9 +20,19 @@ function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, e
         key={`equipment-select-${i}`}
         name={`equipment-select-${i}`}
         onChange={(e) => handleChange(e,i)}
-        value={currentItems[i].key}
+        value={currentItems[i]?.key}
       >
+
+        {
+          !currentItems[i]?.key
+          ?
+          <option value={null}>=Choose an Item=</option>
+          :
+          null
+        }
+
         {renderEquipmentGroupOptions(group)}
+
       </FormSelect>
     )
   })
