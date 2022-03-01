@@ -1,24 +1,20 @@
 input[type="checkbox"] {
-  &:disabled + label {
-    color: $disabled-checkbox-color;
-  }
-
   -webkit-appearance: none;
   appearance: none;
   position: relative;
-  color: currentColor;
-  width: 1.2em;
-  height: 1.2em;
+  color: $checkbox-color;
+  width: $checkbox-size;
+  height: $checkbox-size;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(0.3em);
   &::before {
     display: block;
     content: "";
-    width: 0.5em;
-    height: 0.5em;
+    width: $checkbox-mark-size;
+    height: $checkbox-mark-size;
     transform: scale(0) translateX(-50%) translateY(-50%);
-    background-color: black;
+    background-color: currentColor;
     transition: transform 0.1s;
     position: absolute;
     top: 50%;
@@ -31,11 +27,15 @@ input[type="checkbox"] {
   }
 
   &:disabled {
-    border-color: $disabled-checkbox-color;
+    color: $disabled-checkbox-color;
+  }
 
-    &::before {
-      background-color: $disabled-checkbox-color;
-    }
+  & + label {
+    color: $checkbox-color;
+  }
+
+  &:disabled + label {
+    color: $disabled-checkbox-color;
   }
 
 }
