@@ -5,6 +5,8 @@ import FormSelect from 'shared/FormSelect'
 import CharacterBioForm from "2-CharacterBioForm"
 import CharacterClassForm from "3-CharacterClassForm"
 import FormCheckbox from "shared/FormCheckbox"
+import useCharacterClasses from 'hooks/useCharacterClasses'
+import  { supplies } from 'data/_itemsCore'
 
 function CharacterForm() {
 
@@ -22,9 +24,32 @@ function CharacterForm() {
   const [currentExpertise, setCurrentExpertise] = useState([])
   const [currentItems, setCurrentItems] = useState({})
 
+  const { classes } = useCharacterClasses(currentRulesets)
+
+  function buildCharacterObject() {
+    const character = {
+      ancestry,
+      name: characterName,
+      className: currentClassKey,
+      characterClass: classes[currentClassKey],
+      quirk: characterQuirk,
+      history: characterHistory,
+      skills: {
+        d8: [...currentSkills, ...currentAncestrySkills].filter(s => !currentExpertise.includes(s)),
+        d10: currentExpertise,
+      },
+      spells: [...Object.keys(currentSpells), ...Object.keys(currentAncestrySpells)],
+      items: [
+        ...classes[currentClassKey].equipmentGuaranteed,
+        ...Object.values(currentItems)
+      ]
+    }
+    console.log(character);
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
-    alert('Under construction!')
+    buildCharacterObject()
   }
 
   function toggleRuleset(rule) {
@@ -91,6 +116,11 @@ function CharacterForm() {
         currentExpertise,
         setCurrentExpertise
       }} />
+
+      <input
+        type="submit"
+        value="Finalize Character"
+      />
 
     </form>
   )

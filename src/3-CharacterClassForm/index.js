@@ -15,7 +15,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
   const currentClass = classes[currentClassKey]
   const maxSpells = classes[currentClassKey]?.spells
 
-  console.log('RULESET: ', currentRulesets);
+  // console.log('RULESET: ', currentRulesets);
   // console.log('CLASSES: ', classes);
   // console.log('CURRENT CLASS: ', currentClass)
   // console.log('CURRENT ITEMS: ', currentItems)

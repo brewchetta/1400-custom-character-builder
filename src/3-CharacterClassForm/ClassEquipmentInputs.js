@@ -11,7 +11,7 @@ function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, e
   }
 
   function handleChange(e,i) {
-    setCurrentItems(prev => ({...prev, [i]: e.target.value}))
+    setCurrentItems(prev => ({...prev, [i]: equipmentGroups[i][e.target.value]}))
   }
 
   const renderEquipmentSelects = () => equipmentGroups?.map((group,i) => {
@@ -20,7 +20,7 @@ function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, e
         key={`equipment-select-${i}`}
         name={`equipment-select-${i}`}
         onChange={(e) => handleChange(e,i)}
-        value={currentItems[i]}
+        value={currentItems[i].key}
       >
         {renderEquipmentGroupOptions(group)}
       </FormSelect>

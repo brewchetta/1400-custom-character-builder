@@ -7,7 +7,6 @@ export default function useCharacterClasses(ruleset = [core]) {
   const [classes, setClasses] = useState(coreClasses)
 
   useEffect(() => {
-    console.log(ruleset);
     let currentClasses = {...coreClasses}
 
     if (ruleset.includes(extendedDNDClasses)) {
