@@ -1,6 +1,7 @@
 // colors
 $black: black;
 $dark-grey: #555;
+$white: white;
 
 // body
 $body-padding: 1em;
@@ -28,3 +29,8 @@ $checkbox-mark-size: 0.5em;
 
 // forms
 $input-label-margin-top: 0.5em;
+
+// toast
+$background-color-error: $dark-grey;
+$text-color-error: $white;
+$border-color-error: $white;

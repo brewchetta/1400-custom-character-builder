@@ -1,0 +1,34 @@
+@mixin toast-mixin($background-color, $color, $border-color) {
+  background-color: $background-color;
+  color: $color;
+  border-color: $border-color;
+}
+
+.toast {
+  span {
+    display: block;
+  }
+
+  animation: toast-pop-in 0.5s ease;
+  border-radius: 5px;
+  bottom: 1em;
+  cursor: pointer;
+  left: $body-padding;
+  padding: 0.7em;
+  position: fixed;
+  transition: bottom 0.5s;
+
+  &.error {
+    @include toast-mixin($background-color-error, $text-color-error, $border-color-error)
+  }
+
+  &.closed {
+    bottom: -10em;
+  }
+
+}
+
+@keyframes toast-pop-in {
+  0% {bottom: -10em;}
+  100% {bottom: 1em;}
+}
