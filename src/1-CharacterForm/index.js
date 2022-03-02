@@ -6,6 +6,7 @@ import CharacterClassForm from "3-CharacterClassForm"
 import FormCheckbox from "shared/FormCheckbox"
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
+import Toast from 'shared/Toast'
 
 function CharacterForm({setCurrentCharacter, currentCharacter}) {
 
@@ -148,6 +149,12 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
       <input
         type="submit"
         value="Finalize Character"
+      />
+
+      <Toast
+        displayCondition={validationErrors.length}
+        messages={validationErrors}
+        toastType={'error'}
       />
 
     </form>

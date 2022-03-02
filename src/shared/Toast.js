@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 
 function Toast({messages, toastType}) {
 
@@ -30,4 +31,4 @@ function Toast({messages, toastType}) {
   )
 }
 
-export default Toast
+export default ConditionalWrapper(Toast)

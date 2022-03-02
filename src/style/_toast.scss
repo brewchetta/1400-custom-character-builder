@@ -18,6 +18,10 @@
   position: fixed;
   transition: bottom 0.5s;
 
+  &.success {
+    @include toast-mixin($background-color-success, $text-color-success, $border-color-success)
+  }
+
   &.error {
     @include toast-mixin($background-color-error, $text-color-error, $border-color-error)
   }
