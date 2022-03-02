@@ -30,6 +30,14 @@
     bottom: -10em;
   }
 
+  & .toast-frame {
+    position: absolute;
+    left: -1em;
+    top: -1em;
+    width: 4em;
+    filter: invert(1);
+  }
+
 }
 
 @keyframes toast-pop-in {

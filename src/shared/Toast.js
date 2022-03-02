@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import toastFrame from 'assets/images/toast-frame.png'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 
 function Toast({messages, toastType}) {
@@ -26,6 +27,7 @@ function Toast({messages, toastType}) {
       className={"toast " + toastType + openOrClosed}
       onClick={open => setOpen(!open)}
     >
+      <img src={toastFrame} alt="" className="toast-frame" />
         {createMessages()}
     </div>
   )
