@@ -32,10 +32,10 @@
 
   & .toast-frame {
     position: absolute;
-    left: -1em;
+    right: -1em;
     top: -1em;
-    width: 4em;
-    filter: invert(1);
+    width: 2em;
+    // filter: invert(1);
   }
 
 }

@@ -36,7 +36,7 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
     if (classes[currentClassKey]?.spells > Object.keys(currentSpells).length) { valErrs.push(`Not all spells have been chosen`) }
     if (classes[currentClassKey]?.skillSlots > currentSkills.length) { valErrs.push(`Not all skills have been chosen`) }
     if (classes[currentClassKey]?.expertise > currentExpertise.length) { valErrs.push(`Not all expert skills (d10) have been chosen`) }
-    if (classes[currentClassKey]?.equipmentGroups?.length > Object.keys(currentItems).length) { valErrs.push(`Not all expert skills (d10) have been chosen`) }
+    if (classes[currentClassKey]?.equipmentGroups?.length > Object.keys(currentItems).length) { valErrs.push(`Not all equipment has been chosen`) }
     setValidationErrors(valErrs)
     return valErrs
   }
