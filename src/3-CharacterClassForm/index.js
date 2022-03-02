@@ -5,12 +5,10 @@ import SpellsInputs from 'shared/SpellsInputs'
 import SkillsInputs from 'shared/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
-import useCharacterClasses from 'hooks/useCharacterClasses'
 import useSpells from 'hooks/useSpells'
 
-function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise}) {
+function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise, classes}) {
 
-  const { classes } = useCharacterClasses(currentRulesets)
   const { spells } = useSpells(currentRulesets)
   const currentClass = classes[currentClassKey]
   const maxSpells = classes[currentClassKey]?.spells

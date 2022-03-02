@@ -22,9 +22,22 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
   const [currentSkills, setCurrentSkills] = useState([])
   const [currentExpertise, setCurrentExpertise] = useState([])
   const [currentItems, setCurrentItems] = useState({})
+  const [validationErrors, setValidationErrors] = useState([])
 
   const { classes } = useCharacterClasses(currentRulesets)
   const { ancestries } = useCharacterAncestries(currentRulesets)
+
+  function validate() {
+    const valErrs = []
+    if (!characterName.length) { valErrs.push(`Name can't be empty`) }
+    if (ancestry === '') { valErrs.push(`Ancestry can't be blank`) }
+    if (!currentClassKey.length) { valErrs.push(`You must choose a class`) }
+    if (classes[currentClassKey].spells > Object.keys(currentSpells).length) { valErrs.push(`Not all spells have been chosen`) }
+    if (classes[currentClassKey].skillSlots > currentSkills.length) { valErrs.push(`Not all skills have been chosen`) }
+    if (classes[currentClassKey].expertise > currentExpertise.length) { valErrs.push(`Not all expert skills (d10) have been chosen`) }
+    if (classes[currentClassKey].equipmentGroups.length > Object.keys(currentItems).length) { valErrs.push(`Not all expert skills (d10) have been chosen`) }
+    setValidationErrors(valErrs)
+  }
 
   function buildCharacterObject() {
 
@@ -49,7 +62,6 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
     }
 
     if (classes[currentClassKey].specialText) {
-      console.log(classes[currentClassKey].specialText);
       character.classSpecial = classes[currentClassKey].specialText
     }
 
@@ -112,7 +124,8 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
         characterQuirk,
         setCharacterQuirk,
         characterHistory,
-        setCharacterHistory
+        setCharacterHistory,
+        ancestries
       }}/>
 
       <br/>
@@ -128,7 +141,8 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
         currentItems,
         setCurrentItems,
         currentExpertise,
-        setCurrentExpertise
+        setCurrentExpertise,
+        classes
       }} />
 
       <input

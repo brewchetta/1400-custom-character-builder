@@ -3,13 +3,10 @@ import SpellsInputs from 'shared/SpellsInputs'
 import SkillsInputs from 'shared/SkillsInputs'
 import BioAncestryForm from './BioAncestryForm'
 import BioAncestryDisplay from './BioAncestryDisplay'
-import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useSpells from 'hooks/useSpells'
 import coreSkills from 'data/_skillsCore'
 
-function CharacterBiographyForm({currentRulesets, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells, characterQuirk, setCharacterQuirk, characterHistory, setCharacterHistory}) {
-
-  const { ancestries } = useCharacterAncestries(currentRulesets)
+function CharacterBiographyForm({currentRulesets, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells, characterQuirk, setCharacterQuirk, characterHistory, setCharacterHistory, ancestries}) {
 
   const { spells } = useSpells(currentRulesets)
 
