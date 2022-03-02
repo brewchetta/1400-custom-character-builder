@@ -14,7 +14,7 @@ function Toast({messages, toastType}) {
   const createMessages = () => (
     messages.constructor === Array
     ?
-    messages.map(m => <span>{m}</span>)
+    messages.map(m => <span key={m}>{m}</span>)
     :
     (<span>{messages.message}</span>))
 
