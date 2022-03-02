@@ -15,11 +15,9 @@ input[type="checkbox"] {
     height: $checkbox-mark-size;
     transform: scale(0) translateX(-50%) translateY(-50%);
     background-color: currentColor;
-    transition: transform 0.1s;
     position: absolute;
     top: 50%;
     left: 50%;
-    border-radius: 0.1em;
   }
 
   &:checked::before {

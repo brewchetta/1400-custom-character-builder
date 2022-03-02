@@ -1,7 +1,24 @@
 // colors
-$black: black;
-$dark-grey: #555;
-$white: white;
+$black: #000;
+$dark-blue: #0000AA;
+$dark-green: #00AA00;
+$dark-cyan: #00AAAA;
+$dark-red: #AA0000;
+$dark-magenta: #AA00AA;
+$dark-yellow: #AA5500;
+$dark-grey: #AAAAAA;
+$light-blue: #5555FF;
+$light-green: #55FF55;
+$light-cyan: #55FFFF;
+$light-red: #FF5555;
+$light-magenta: #FF55FF;
+$light-yellow: #FFFF55;
+$light-grey: #555555;
+$white: #FFF;
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+$main-font: 'Syne Mono', monospace;
 
 // body
 $body-padding: 1em;
@@ -31,7 +48,7 @@ $checkbox-mark-size: 0.5em;
 $input-label-margin-top: 0.5em;
 
 // toast
-$background-color-error: $dark-grey;
+$background-color-error: $dark-red;
 $text-color-error: $white;
 $border-color-error: $white;
 $background-color-success: $dark-grey;

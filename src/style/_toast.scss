@@ -10,7 +10,6 @@
   }
 
   animation: toast-pop-in 0.5s ease;
-  border-radius: 5px;
   bottom: 1em;
   cursor: pointer;
   left: $body-padding;
@@ -35,7 +34,6 @@
     right: -1em;
     top: -1em;
     width: 2em;
-    // filter: invert(1);
   }
 
 }
