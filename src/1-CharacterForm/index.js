@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import * as rulesets from 'data/_rulesets'
-import { capitalize } from 'utilities'
+import { capitalize, buildUpgradedSkillsList } from 'utilities'
 import CharacterBioForm from "2-CharacterBioForm"
 import CharacterClassForm from "3-CharacterClassForm"
 import FormCheckbox from "shared/FormCheckbox"
@@ -49,18 +49,12 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
       className: currentClassKey,
       quirk: characterQuirk,
       history: characterHistory,
-      skills: {
-        d8: [...currentSkills, ...currentAncestrySkills].filter(s => !currentExpertise.includes(s))
-      },
+      skills: buildUpgradedSkillsList({}, ...currentSkills, ...currentExpertise, ...currentAncestrySkills),
       spells: [...Object.keys(currentSpells), ...Object.keys(currentAncestrySpells)],
       items: [
         ...classes[currentClassKey].equipmentGuaranteed,
         ...Object.values(currentItems)
       ]
-    }
-
-    if (currentExpertise.length) {
-      character.skills.d10 = currentExpertise
     }
 
     if (classes[currentClassKey].specialText) {
@@ -70,6 +64,8 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
     if (ancestries[ancestry]?.specialText) {
       character.ancestrySpecial = ancestries[ancestry].specialText
     }
+
+    console.log('BUILT CHARACTER: ', character);
 
     return character
 

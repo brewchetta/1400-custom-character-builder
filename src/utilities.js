@@ -20,3 +20,18 @@ export function randomAttribute(allAttributes, currentAttributes) {
     return randomArrayItem(possibleAttributes)
   }
 }
+
+export function buildUpgradedSkillsList(charSkills, ...newSkills) {
+  console.log("NEW SKILLS: ", ...newSkills);
+  const skills = {...charSkills}
+  newSkills.forEach(newSkill => {
+    if (!skills[newSkill]) {
+      skills[newSkill] = 6
+    } else if (skills[newSkill] >= 12) {
+      console.error(`Could not increase ${newSkill} over a d12`)
+    } else {
+      skills[newSkill] += 2
+    }
+  })
+  return skills
+}
