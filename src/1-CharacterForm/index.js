@@ -65,8 +65,6 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
       character.ancestrySpecial = ancestries[ancestry].specialText
     }
 
-    console.log('BUILT CHARACTER: ', character);
-
     return character
 
   }
