@@ -26,7 +26,7 @@ export function buildUpgradedSkillsList(charSkills, ...newSkills) {
   const skills = {...charSkills}
   newSkills.forEach(newSkill => {
     if (!skills[newSkill]) {
-      skills[newSkill] = 6
+      skills[newSkill] = 8
     } else if (skills[newSkill] >= 12) {
       console.error(`Could not increase ${newSkill} over a d12`)
     } else {
