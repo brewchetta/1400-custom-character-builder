@@ -1,6 +1,22 @@
-function CharacterSpells(props) {
+function CharacterSpells({spells}) {
+
+  function renderSpells() {
+    return spells.map(spell => <li key="spell" className="spell-item">{spell}</li>)
+  }
+
   return (
-    <p>Spells go here</p>
+
+    <>
+
+      <h3>Spells:</h3>
+
+      <ul>
+
+        {renderSpells()}
+
+      </ul>
+
+    </>
   )
 }
 

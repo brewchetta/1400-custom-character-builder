@@ -1,6 +1,25 @@
-function CharacterSkills(props) {
+function CharacterSkills({skills}) {
+
+  const skillNames = Object.keys(skills)
+
+
+  function renderSkills() {
+    return skillNames.map(skillKey => <li key={skillKey} className="skill-item">{skillKey} - d{skills[skillKey]}</li>)
+  }
+
   return (
-    <p>Skills go here</p>
+
+    <>
+
+      <h3>Skills:</h3>
+
+      <ul className="skills-list">
+
+        {renderSkills()}
+
+      </ul>
+
+    </>
   )
 }
 
