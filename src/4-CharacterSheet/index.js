@@ -8,7 +8,7 @@ function CharacterSheet({currentCharacter, setCurrentCharacter}) {
     <div>
       <CharacterBio character={currentCharacter} />
       <CharacterSkills skills={currentCharacter.skills} />
-      <CharacterSpells spells={currentCharacter.spells} />
+      <CharacterSpells displayCondition={currentCharacter.spells.length} spells={currentCharacter.spells} />
       <CharacterEquipment equipment={currentCharacter.items} />
     </div>
   )

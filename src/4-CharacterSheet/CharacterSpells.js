@@ -1,3 +1,5 @@
+import ConditionalWrapper from 'shared/ConditionalWrapper'
+
 function CharacterSpells({spells}) {
 
   function renderSpells() {
@@ -20,4 +22,4 @@ function CharacterSpells({spells}) {
   )
 }
 
-export default CharacterSpells
+export default ConditionalWrapper(CharacterSpells)
