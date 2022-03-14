@@ -15,7 +15,7 @@ const skills = [
   "Navigate",
   "Perform",
   "Persuade",
-  "Read People",
+  "Reading People",
   "Religion",
   "Run and Jump",
   "Sleight of Hand",
