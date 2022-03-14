@@ -38,6 +38,9 @@ $screen-sizes: (
 "gigantic-screen": $gigantic-screen
 );
 
+// inputs
+$color-transition-timing: color 0.3s;
+
 // checkboxes
 $checkbox-color: $black;
 $disabled-checkbox-color: $dark-grey;
