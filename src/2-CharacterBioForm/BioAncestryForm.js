@@ -3,7 +3,7 @@ import FormSelect from 'shared/FormSelect'
 function BioAncestryForm({ancestry, setAncestry, ancestries}) {
 
   useEffect(() => {
-    setAncestry({})
+    setAncestry('default')
   }, [ancestries])
 
   function handleChange(e) {
@@ -17,16 +17,14 @@ function BioAncestryForm({ancestry, setAncestry, ancestries}) {
       </option>)
   })
 
-  // console.log('ANCESTRIES :',ancestries);
-
   return (
     <>
       <FormSelect
         onChange={handleChange}
         value={ancestry}
         labelText={"Ancestry: "}
+        defaultText={'---Choose an ancestry---'}
       >
-        <option>--Choose an ancestry--</option>
         {ancestryOptions}
       </FormSelect>
     </>

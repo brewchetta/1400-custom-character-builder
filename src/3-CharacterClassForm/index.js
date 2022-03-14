@@ -15,7 +15,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
 
   useEffect(() => {
     if (!classes[currentClassKey]) {
-      setCurrentClassKey('bard')
+      setCurrentClassKey('default')
       setCurrentSpells({})
       setCurrentSkills([])
       setCurrentItems({})
@@ -52,6 +52,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         value={currentClassKey}
         onChange={handleClassChange}
         labelText="Class: "
+        defaultText='--- Choose your class ---'
       >
         {Object.keys(classes).map(c => <option key={c} value={c}>{classes[c].name}</option>)}
       </FormSelect>

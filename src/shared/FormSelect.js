@@ -1,4 +1,6 @@
-function FormInput({name, labelText, onChange, value, children}) {
+function FormInput({name, labelText, onChange, value, children, defaultText}) {
+
+  const defaultOption = defaultText && value === 'default' ? <option value={'default'}>{defaultText}</option> : null
 
   return (
     <>
@@ -10,6 +12,8 @@ function FormInput({name, labelText, onChange, value, children}) {
         onChange={onChange}
         value={value}
       >
+
+        {defaultOption}
 
         {children}
 

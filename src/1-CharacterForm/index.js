@@ -12,11 +12,11 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
 
   const [currentRulesets, setCurrentRulesets] = useState([rulesets.core])
   const [characterName, setCharacterName] = useState('')
-  const [ancestry, setAncestry] = useState('')
+  const [ancestry, setAncestry] = useState('default')
   const [characterQuirk, setCharacterQuirk] = useState('')
   const [characterHistory, setCharacterHistory] = useState('')
 
-  const [currentClassKey, setCurrentClassKey] = useState('bard')
+  const [currentClassKey, setCurrentClassKey] = useState('default')
   const [currentSpells, setCurrentSpells] = useState({})
   const [currentAncestrySpells, setCurrentAncestrySpells] = useState({})
   const [currentAncestrySkills, setCurrentAncestrySkills] = useState([])
@@ -31,11 +31,11 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
   function validate() {
     const valErrs = []
     if (!characterName.length) { valErrs.push(`Name can't be empty`) }
-    if (ancestry === '') { valErrs.push(`Ancestry can't be blank`) }
-    if (!currentClassKey.length) { valErrs.push(`You must choose a class`) }
+    if (!ancestry || ancestry === 'default') { valErrs.push(`Ancestry can't be blank`) }
+    if (!currentClassKey.length || currentClassKey === 'default') { valErrs.push(`You must choose a class`) }
     if (classes[currentClassKey]?.spells > Object.keys(currentSpells).length) { valErrs.push(`Not all spells have been chosen`) }
     if (classes[currentClassKey]?.skillSlots > currentSkills.length) { valErrs.push(`Not all skills have been chosen`) }
-    if (classes[currentClassKey]?.expertise > currentExpertise.length) { valErrs.push(`Not all expert skills (d10) have been chosen`) }
+    if (classes[currentClassKey]?.expertise > currentExpertise.length) { valErrs.push(`Not all skills have been chosen`) }
     if (classes[currentClassKey]?.equipmentGroups?.length > Object.keys(currentItems).length) { valErrs.push(`Not all equipment has been chosen`) }
     setValidationErrors(valErrs)
     return valErrs

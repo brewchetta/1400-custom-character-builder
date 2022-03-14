@@ -18,10 +18,10 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
       <div className="labeled-input-section">
 
         <FormInput
-        name="character-name"
-        labelText="Character Name"
-        value={characterName}
-        onChange={e => setCharacterName(e.target.value)}
+          name="character-name"
+          labelText="Character Name"
+          value={characterName}
+          onChange={e => setCharacterName(e.target.value)}
         />
 
         <BioAncestryForm ancestry={ancestry} setAncestry={setAncestry} ancestries={ancestries}/>
