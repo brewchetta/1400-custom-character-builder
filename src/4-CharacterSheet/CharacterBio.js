@@ -11,8 +11,8 @@ function CharacterBio({character}) {
         null
       }
 
-      <p>{character.history}</p>
-      <p>{character.quirk}</p>
+      <p>Quirk: {character.quirk}</p>
+      <p>History: {character.history}</p>
 
     </div>
   )

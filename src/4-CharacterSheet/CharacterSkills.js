@@ -4,7 +4,13 @@ function CharacterSkills({skills}) {
 
 
   function renderSkills() {
-    return skillNames.map(skillKey => <li key={skillKey} className="skill-item">{skillKey} - d{skills[skillKey]}</li>)
+    return skillNames.map(skillKey => (
+      <li key={skillKey} className="skill-item">
+        {skillKey} [d{skills[skillKey]}]
+        {/* TODO - Make these buttons change the character's skills up or down */}
+        <button>-</button>
+        <button>+</button>
+      </li>))
   }
 
   return (
