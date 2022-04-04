@@ -1,8 +1,12 @@
+import { useState } from 'react'
 import CharacterBioEdit from "./CharacterBioEdit"
 
 function CharacterBio({character, setCharacter}) {
 
+  const [isEditable, setIsEditable] = useState(false)
+
   const handleChangeBio = (newBio) => {
+    setIsEditable(false)
     setCharacter(prev => ({...prev, ...newBio}))
   }
 
@@ -17,10 +21,21 @@ function CharacterBio({character, setCharacter}) {
         null
       }
 
-      <p>Quirk: {character.quirk}</p>
-      <p>History: {character.history}</p>
+      <button onClick={() => setIsEditable(prev => !prev)}>📝</button>
 
-      <CharacterBioEdit {...{character, handleChangeBio}} />
+      {
+        !isEditable
+        ?
+        <>
+        <p>Quirk: {character.quirk}</p>
+        <p>History: {character.history}</p>
+        </>
+        :
+        null
+      }
+
+
+      <CharacterBioEdit {...{character, handleChangeBio}} displayCondition={isEditable} />
 
     </div>
   )

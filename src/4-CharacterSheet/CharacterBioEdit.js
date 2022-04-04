@@ -6,7 +6,8 @@ function CharacterBioEdit({character, handleChangeBio}) {
 
   const [formState, setFormState] = useState({
     quirk: character.quirk,
-    history: character.history
+    history: character.history,
+    name: character.name
   })
 
   const handleChange = e => setFormState(prev => ({...prev, [e.target.name]: e.target.value}))
@@ -17,7 +18,9 @@ function CharacterBioEdit({character, handleChangeBio}) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="labeled-input-section">
+
+      <FormInput name='name' labelText='Name: ' onChange={handleChange} value={formState.name} />
 
       <FormInput name='quirk' labelText='Quirk: ' onChange={handleChange} value={formState.quirk} />
 
