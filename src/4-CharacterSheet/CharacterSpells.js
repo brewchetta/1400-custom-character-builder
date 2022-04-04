@@ -40,6 +40,17 @@ function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
 
       <CharacterSpellsAdd displayCondition={isEditable} currentSpells={spells} handleAddSpell={handleAddSpell} />
 
+      {
+        isEditable
+        ?
+        <>
+          <br/>
+          <button onClick={() => setIsEditable(prev => !prev)}>Save</button>
+        </>
+        :
+        null
+      }
+
     </>
   )
 }

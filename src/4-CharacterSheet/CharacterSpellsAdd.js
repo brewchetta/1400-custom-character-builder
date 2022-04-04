@@ -16,7 +16,10 @@ function CharacterSpellsAdd({currentSpells, handleAddSpell}) {
     <>
       <h4>Add New Spells:</h4>
 
-      {renderedSpells}
+      <div className="grid-columns-small">
+        {renderedSpells}
+      </div>
+
 
     </>
   )
