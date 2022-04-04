@@ -25,11 +25,23 @@ function CharacterSheet({currentCharacter, setCurrentCharacter}) {
     setCurrentCharacter(prev => ({...prev, skills}))
   }
 
+  function handleAddSpell(spell) {
+    setCurrentCharacter(prev => ({...prev, spells: [...prev.spells, spell]}))
+  }
+
+  function handleRemoveSpell(spell) {
+    setCurrentCharacter(prev => ({...prev, spells: prev.spells.filter(s => s !== spell)}))
+  }
+
   return (
     <div>
       <CharacterBio character={currentCharacter} setCharacter={setCurrentCharacter} />
       <CharacterSkills skills={currentCharacter.skills} handleChangeSkill={handleChangeSkill} handleAddSkill={handleAddSkill} />
-      <CharacterSpells displayCondition={currentCharacter.spells.length} spells={currentCharacter.spells} />
+      <CharacterSpells
+        displayCondition={currentCharacter.spells.length}
+        spells={currentCharacter.spells}
+        {...{handleAddSpell, handleRemoveSpell}}
+      />
       <CharacterEquipment equipment={currentCharacter.items} gold={currentCharacter.gold} />
     </div>
   )

@@ -2,8 +2,9 @@ import ConditionalWrapper from 'shared/ConditionalWrapper'
 import Checkbox from 'shared/FormCheckbox'
 import { toSpinalCase } from 'utilities'
 import spellsObj from 'data/_spellsCore'
+import CharacterSpellsAdd from './CharacterSpellsAdd'
 
-function CharacterSpells({spells}) {
+function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
 
   const renderedSpells = spells.map(spell => (
     <div key={spell} className="crossable-checkbox">
@@ -11,6 +12,7 @@ function CharacterSpells({spells}) {
         name={`spell-${toSpinalCase(spell)}`}
         labelText={spellsObj[spell]?.name}
       />
+      <button onClick={() => handleRemoveSpell(spell)}>Remove</button>
     </div>
   ))
 
@@ -25,6 +27,8 @@ function CharacterSpells({spells}) {
         {renderedSpells}
 
       </ul>
+
+      <CharacterSpellsAdd currentSpells={spells} handleAddSpell={handleAddSpell} />
 
     </>
   )
