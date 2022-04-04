@@ -6,14 +6,11 @@ import spellsObj from 'data/_spellsCore'
 function CharacterSpells({spells}) {
 
   const renderedSpells = spells.map(spell => (
-    <div key={spell} className="spell-item">
+    <div key={spell} className="crossable-checkbox">
       <Checkbox
         name={`spell-${toSpinalCase(spell)}`}
         labelText={spellsObj[spell]?.name}
       />
-      {/*checked={spellIsChosen} */}
-      {/*onChange={() => handleChange(spell)} */}
-      {/*disabled={!spellsLeftToChoose && !spellIsChosen} */}
     </div>
   ))
 

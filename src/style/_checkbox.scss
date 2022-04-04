@@ -38,3 +38,9 @@ input[type="checkbox"] {
   }
 
 }
+
+.crossable-checkbox input[type="checkbox"] {
+  &:checked + label {
+    text-decoration: line-through;
+  }
+}
