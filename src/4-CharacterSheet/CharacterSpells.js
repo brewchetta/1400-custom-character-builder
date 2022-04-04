@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import Checkbox from 'shared/FormCheckbox'
 import { toSpinalCase } from 'utilities'
@@ -6,14 +7,21 @@ import CharacterSpellsAdd from './CharacterSpellsAdd'
 
 function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
 
+  const [isEditable, setIsEditable] = useState(false)
+
   const renderedSpells = spells.map(spell => (
-    <div key={spell} className="crossable-checkbox">
-      <Checkbox
-        name={`spell-${toSpinalCase(spell)}`}
-        labelText={spellsObj[spell]?.name}
-      />
-      <button onClick={() => handleRemoveSpell(spell)}>Remove</button>
-    </div>
+      isEditable
+      ?
+      <div key={spell}>
+        <button onClick={() => handleRemoveSpell(spell)}>X</button><span>{spellsObj[spell]?.name}</span>
+      </div>
+      :
+      <div key={spell} className="crossable-checkbox">
+        <Checkbox
+          name={`spell-${toSpinalCase(spell)}`}
+          labelText={spellsObj[spell]?.name}
+        />
+      </div>
   ))
 
   return (
@@ -22,13 +30,15 @@ function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
 
       <h3>Spells:</h3>
 
+      <button onClick={() => setIsEditable(prev => !prev)}>📝</button>
+
       <ul className="skills-list grid-columns-small">
 
         {renderedSpells}
 
       </ul>
 
-      <CharacterSpellsAdd currentSpells={spells} handleAddSpell={handleAddSpell} />
+      <CharacterSpellsAdd displayCondition={isEditable} currentSpells={spells} handleAddSpell={handleAddSpell} />
 
     </>
   )

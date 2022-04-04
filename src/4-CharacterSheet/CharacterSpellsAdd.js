@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 import allSpells from 'data/_spellsCore'
 
 function CharacterSpellsAdd({currentSpells, handleAddSpell}) {
@@ -13,6 +14,7 @@ function CharacterSpellsAdd({currentSpells, handleAddSpell}) {
 
   return (
     <>
+      <h4>Add New Spells:</h4>
 
       {renderedSpells}
 
@@ -20,4 +22,4 @@ function CharacterSpellsAdd({currentSpells, handleAddSpell}) {
   )
 }
 
-export default CharacterSpellsAdd
+export default ConditionalWrapper(CharacterSpellsAdd)
