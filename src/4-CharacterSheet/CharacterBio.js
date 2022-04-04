@@ -1,5 +1,5 @@
 function CharacterBio({character}) {
-  console.log(character);
+
   return (
     <div>
       <h2>{character.name} - {character.ancestry} {character.className}</h2>

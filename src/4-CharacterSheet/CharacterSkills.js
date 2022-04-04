@@ -1,29 +1,42 @@
-function CharacterSkills({skills}) {
+import { useState } from 'react'
+import CharacterSkillsAdd from './CharacterSkillsAdd'
+
+function CharacterSkills({skills, handleChangeSkill, handleAddSkill}) {
+
+  const [isEditable, setIsEditable] = useState(false)
 
   const skillNames = Object.keys(skills)
 
 
-  function renderSkills() {
-    return skillNames.map(skillKey => (
-      <li key={skillKey} className="skill-item">
-        {skillKey} [d{skills[skillKey]}]
-        {/* TODO - Make these buttons change the character's skills up or down */}
-        <button>-</button>
-        <button>+</button>
-      </li>))
-  }
+  const renderedSkills = skillNames.map(skillKey => (
+    <li key={skillKey} className="skill-item">
+      {skillKey} [d{skills[skillKey]}]
+      {
+        isEditable
+        ?
+        <>
+          <button onClick={() => handleChangeSkill(skillKey, -2)}>-</button>
+          <button onClick={() => handleChangeSkill(skillKey, 2)}>+</button>
+        </>
+        :
+        null
+      }
+    </li>
+  ))
 
   return (
 
     <>
 
-      <h3>Skills:</h3>
+      <h3>Skills <button onClick={() => setIsEditable(prev => !prev)}>📝</button>:</h3>
 
-      <ul className="skills-list">
+      <ul className="skills-list grid-columns-small">
 
-        {renderSkills()}
+        {renderedSkills}
 
       </ul>
+
+      <CharacterSkillsAdd displayCondition={isEditable} currentSkills={skills} handleAddSkill={handleAddSkill} />
 
     </>
   )

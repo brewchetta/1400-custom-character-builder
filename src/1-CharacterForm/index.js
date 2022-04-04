@@ -54,7 +54,8 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
       items: [
         ...classes[currentClassKey].equipmentGuaranteed,
         ...Object.values(currentItems)
-      ]
+      ],
+      gold: 2
     }
 
     if (classes[currentClassKey].specialText) {

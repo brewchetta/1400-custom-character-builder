@@ -1,10 +1,21 @@
 import ConditionalWrapper from 'shared/ConditionalWrapper'
+import Checkbox from 'shared/FormCheckbox'
+import { toSpinalCase } from 'utilities'
+import spellsObj from 'data/_spellsCore'
 
 function CharacterSpells({spells}) {
 
-  function renderSpells() {
-    return spells.map(spell => <li key="spell" className="spell-item">{spell}</li>)
-  }
+  const renderedSpells = spells.map(spell => (
+    <div key={spell} className="spell-item">
+      <Checkbox
+        name={`spell-${toSpinalCase(spell)}`}
+        labelText={spellsObj[spell]?.name}
+      />
+      {/*checked={spellIsChosen} */}
+      {/*onChange={() => handleChange(spell)} */}
+      {/*disabled={!spellsLeftToChoose && !spellIsChosen} */}
+    </div>
+  ))
 
   return (
 
@@ -12,9 +23,9 @@ function CharacterSpells({spells}) {
 
       <h3>Spells:</h3>
 
-      <ul>
+      <ul className="skills-list grid-columns-small">
 
-        {renderSpells()}
+        {renderedSpells}
 
       </ul>
 

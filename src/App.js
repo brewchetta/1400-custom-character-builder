@@ -22,7 +22,10 @@ function App() {
       {
         currentCharacter
         ?
-        <CharacterSheet currentCharacter={currentCharacter} />
+        <CharacterSheet
+          currentCharacter={currentCharacter}
+          setCurrentCharacter={setCurrentCharacter}
+        />
         :
         null
       }
