@@ -1,4 +1,10 @@
-function CharacterBio({character}) {
+import CharacterBioEdit from "./CharacterBioEdit"
+
+function CharacterBio({character, setCharacter}) {
+
+  const handleChangeBio = (newBio) => {
+    setCharacter(prev => ({...prev, ...newBio}))
+  }
 
   return (
     <div>
@@ -13,6 +19,8 @@ function CharacterBio({character}) {
 
       <p>Quirk: {character.quirk}</p>
       <p>History: {character.history}</p>
+
+      <CharacterBioEdit {...{character, handleChangeBio}} />
 
     </div>
   )

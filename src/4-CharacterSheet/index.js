@@ -27,7 +27,7 @@ function CharacterSheet({currentCharacter, setCurrentCharacter}) {
 
   return (
     <div>
-      <CharacterBio character={currentCharacter} />
+      <CharacterBio character={currentCharacter} setCharacter={setCurrentCharacter} />
       <CharacterSkills skills={currentCharacter.skills} handleChangeSkill={handleChangeSkill} handleAddSkill={handleAddSkill} />
       <CharacterSpells displayCondition={currentCharacter.spells.length} spells={currentCharacter.spells} />
       <CharacterEquipment equipment={currentCharacter.items} gold={currentCharacter.gold} />
