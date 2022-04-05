@@ -2,6 +2,7 @@ import CharacterBio from './CharacterBio'
 import CharacterSkills from "./CharacterSkills"
 import CharacterEquipment from "./CharacterEquipment"
 import CharacterSpells from "./CharacterSpells"
+import { EditableContextProvider } from 'context/EditableContext'
 
 function CharacterSheet({currentCharacter, setCurrentCharacter}) {
 
@@ -34,16 +35,18 @@ function CharacterSheet({currentCharacter, setCurrentCharacter}) {
   }
 
   return (
-    <div>
-      <CharacterBio character={currentCharacter} setCharacter={setCurrentCharacter} />
-      <CharacterSkills skills={currentCharacter.skills} handleChangeSkill={handleChangeSkill} handleAddSkill={handleAddSkill} />
-      <CharacterSpells
-        displayCondition={currentCharacter.spells.length}
-        spells={currentCharacter.spells}
-        {...{handleAddSpell, handleRemoveSpell}}
-      />
-      <CharacterEquipment equipment={currentCharacter.items} gold={currentCharacter.gold} />
-    </div>
+    <EditableContextProvider>
+      <div>
+        <CharacterBio character={currentCharacter} setCharacter={setCurrentCharacter} />
+        <CharacterSkills skills={currentCharacter.skills} handleChangeSkill={handleChangeSkill} handleAddSkill={handleAddSkill} />
+        <CharacterSpells
+          displayCondition={currentCharacter.spells.length}
+          spells={currentCharacter.spells}
+          {...{handleAddSpell, handleRemoveSpell}}
+        />
+        <CharacterEquipment equipment={currentCharacter.items} gold={currentCharacter.gold} />
+      </div>
+    </EditableContextProvider>
   )
 
 }

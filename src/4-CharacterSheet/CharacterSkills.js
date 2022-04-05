@@ -1,18 +1,17 @@
-import { useState } from 'react'
 import CharacterSkillsAdd from './CharacterSkillsAdd'
+import { useEditableContext } from 'context/EditableContext'
 
 function CharacterSkills({skills, handleChangeSkill, handleAddSkill}) {
 
-  const [isEditable, setIsEditable] = useState(false)
+  const { editable } = useEditableContext()
 
   const skillNames = Object.keys(skills)
-
 
   const renderedSkills = skillNames.map(skillKey => (
     <li key={skillKey} className="skill-item">
       {skillKey} [d{skills[skillKey]}]
       {
-        isEditable
+        editable
         ?
         <>
           <button onClick={() => handleChangeSkill(skillKey, -2)}>-</button>
@@ -28,7 +27,7 @@ function CharacterSkills({skills, handleChangeSkill, handleAddSkill}) {
 
     <>
 
-      <h3>Skills <button onClick={() => setIsEditable(prev => !prev)}>📝</button>:</h3>
+      <h3>Skills:</h3>
 
       <ul className="skills-list grid-columns-small">
 
@@ -36,7 +35,7 @@ function CharacterSkills({skills, handleChangeSkill, handleAddSkill}) {
 
       </ul>
 
-      <CharacterSkillsAdd displayCondition={isEditable} currentSkills={skills} handleAddSkill={handleAddSkill} />
+      <CharacterSkillsAdd displayCondition={editable} currentSkills={skills} handleAddSkill={handleAddSkill} />
 
     </>
   )

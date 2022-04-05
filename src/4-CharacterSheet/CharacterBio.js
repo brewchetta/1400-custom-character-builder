@@ -1,18 +1,18 @@
-import { useState } from 'react'
 import CharacterBioEdit from "./CharacterBioEdit"
+import saveIcon from 'assets/images/file-save.png'
+import { useEditableContext } from 'context/EditableContext'
 
 function CharacterBio({character, setCharacter}) {
 
-  const [isEditable, setIsEditable] = useState(false)
+  const { editable, setEditable } = useEditableContext()
 
   const handleChangeBio = (newBio) => {
-    setIsEditable(false)
     setCharacter(prev => ({...prev, ...newBio}))
   }
 
   return (
     <div>
-      <h2>{character.name} - {character.ancestry} {character.className}</h2>
+      <h2>{character.name} - {character.ancestry} {character.className} <button onClick={() => setEditable(prev => !prev)}>{editable ? <img src={saveIcon} alt="Save Changes" style={{height: '1em'}} /> : '📝'}</button></h2>
       {
         character.ancestrySpecial
         ?
@@ -21,10 +21,8 @@ function CharacterBio({character, setCharacter}) {
         null
       }
 
-      <button onClick={() => setIsEditable(prev => !prev)}>📝</button>
-
       {
-        !isEditable
+        !editable
         ?
         <>
         <p>Quirk: {character.quirk}</p>
@@ -35,7 +33,7 @@ function CharacterBio({character, setCharacter}) {
       }
 
 
-      <CharacterBioEdit {...{character, handleChangeBio}} displayCondition={isEditable} />
+      <CharacterBioEdit {...{character, handleChangeBio}} displayCondition={editable} />
 
     </div>
   )

@@ -1,16 +1,16 @@
-import { useState } from 'react'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import Checkbox from 'shared/FormCheckbox'
 import { toSpinalCase } from 'utilities'
 import spellsObj from 'data/_spellsCore'
 import CharacterSpellsAdd from './CharacterSpellsAdd'
+import { useEditableContext } from 'context/EditableContext'
 
 function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
 
-  const [isEditable, setIsEditable] = useState(false)
+  const { editable } = useEditableContext()
 
   const renderedSpells = spells.map(spell => (
-      isEditable
+      editable
       ?
       <div key={spell}>
         <button onClick={() => handleRemoveSpell(spell)}>X</button><span>{spellsObj[spell]?.name}</span>
@@ -30,26 +30,13 @@ function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
 
       <h3>Spells:</h3>
 
-      <button onClick={() => setIsEditable(prev => !prev)}>📝</button>
-
       <ul className="skills-list grid-columns-small">
 
         {renderedSpells}
 
       </ul>
 
-      <CharacterSpellsAdd displayCondition={isEditable} currentSpells={spells} handleAddSpell={handleAddSpell} />
-
-      {
-        isEditable
-        ?
-        <>
-          <br/>
-          <button onClick={() => setIsEditable(prev => !prev)}>Save</button>
-        </>
-        :
-        null
-      }
+      <CharacterSpellsAdd displayCondition={editable} currentSpells={spells} handleAddSpell={handleAddSpell} />
 
     </>
   )
