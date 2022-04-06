@@ -22,7 +22,6 @@ export function randomAttribute(allAttributes, currentAttributes) {
 }
 
 export function buildUpgradedSkillsList(charSkills, ...newSkills) {
-  console.log("NEW SKILLS: ", ...newSkills);
   const skills = {...charSkills}
   newSkills.forEach(newSkill => {
     if (!skills[newSkill]) {

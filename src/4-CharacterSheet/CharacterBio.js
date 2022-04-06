@@ -13,23 +13,16 @@ function CharacterBio({character, setCharacter}) {
   return (
     <div>
       <h2>{character.name} - {character.ancestry} {character.className} <button onClick={() => setEditable(prev => !prev)}>{editable ? <img src={saveIcon} alt="Save Changes" style={{height: '1em'}} /> : '📝'}</button></h2>
-      {
-        character.ancestrySpecial
-        ?
-        <p>{character.ancestrySpecial}</p>
-        :
-        null
-      }
+
+      { character.ancestrySpecial && <p>{character.ancestrySpecial}</p> }
 
       {
         !editable
-        ?
+        &&
         <>
         <p>Quirk: {character.quirk}</p>
         <p>History: {character.history}</p>
         </>
-        :
-        null
       }
 
 
