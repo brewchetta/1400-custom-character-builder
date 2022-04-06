@@ -1,15 +1,17 @@
 import CharacterSkillsAdd from './CharacterSkillsAdd'
 import { useEditableContext } from 'context/EditableContext'
+import { useStatusConditionsContext } from 'context/StatusConditionsContext'
 
 function CharacterSkills({skills, handleChangeSkill, handleAddSkill}) {
 
   const { editable } = useEditableContext()
+  const { statusConditions: {hindered, injured, helped} } = useStatusConditionsContext()
 
   const skillNames = Object.keys(skills)
 
   const renderedSkills = skillNames.map(skillKey => (
     <li key={skillKey} className="skill-item">
-      {skillKey} [d{skills[skillKey]}]
+      {skillKey} [d{(!hindered && !injured) || editable ? skills[skillKey] : 4}{helped && ' + d6'}]
       {
         editable
         ?
