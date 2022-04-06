@@ -18,15 +18,16 @@ function CharacterBio({character, setCharacter}) {
 
       {
         !editable
-        &&
+        ?
         <>
         <p>Quirk: {character.quirk}</p>
         <p>History: {character.history}</p>
         </>
+        :
+        <CharacterBioEdit {...{character, handleChangeBio}} />
       }
 
 
-      <CharacterBioEdit {...{character, handleChangeBio}} displayCondition={editable} />
 
     </div>
   )
