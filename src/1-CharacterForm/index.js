@@ -7,6 +7,7 @@ import FormCheckbox from "shared/FormCheckbox"
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import Toast from 'shared/Toast'
+import { v4 as uuid } from 'uuid'
 
 function CharacterForm({setCurrentCharacter, currentCharacter}) {
 
@@ -44,6 +45,7 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
   function buildCharacterObject() {
 
     const character = {
+      id: uuid(),
       ancestry,
       name: characterName,
       className: currentClassKey,
