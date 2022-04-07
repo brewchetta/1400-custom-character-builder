@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import * as rulesets from 'data/_rulesets'
 import { capitalize, buildUpgradedSkillsList } from 'utilities'
 import CharacterBioForm from "2-CharacterBioForm"
@@ -6,6 +6,7 @@ import CharacterClassForm from "3-CharacterClassForm"
 import FormCheckbox from "shared/FormCheckbox"
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
+import useToggleOnCondition from 'hooks/useToggleOnCondition'
 import Toast from 'shared/Toast'
 import { v4 as uuid } from 'uuid'
 
@@ -28,6 +29,13 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
 
   const { classes } = useCharacterClasses(currentRulesets)
   const { ancestries } = useCharacterAncestries(currentRulesets)
+
+  const shouldDisplayClassForm = useToggleOnCondition(
+    ancestry !== 'default'
+    && characterName.length
+    && (currentAncestrySkills.length || 0) >= (ancestries[ancestry].skills || 0)
+    && (Object.keys(currentAncestrySpells).length || 0) >= (ancestries[ancestry].spells || 0)
+  )
 
   function validate() {
     const valErrs = []
@@ -131,7 +139,9 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
 
       <br/>
 
-      <CharacterClassForm {...{
+      <CharacterClassForm
+      displayCondition={shouldDisplayClassForm}
+      {...{
         currentRulesets,
         currentClassKey,
         setCurrentClassKey,
@@ -145,6 +155,8 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
         setCurrentExpertise,
         classes
       }} />
+
+      <br/>
 
       <input
         type="submit"

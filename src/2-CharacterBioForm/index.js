@@ -24,6 +24,20 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           onChange={e => setCharacterName(e.target.value)}
         />
 
+        <FormInput
+          name="character-quirk"
+          labelText="Character Quirk: "
+          value={characterQuirk}
+          onChange={e => setCharacterQuirk(e.target.value)}
+        />
+
+        <FormInput
+          name="character-history"
+          labelText="Character History: "
+          value={characterHistory}
+          onChange={e => setCharacterHistory(e.target.value)}
+        />
+
         <BioAncestryForm ancestry={ancestry} setAncestry={setAncestry} ancestries={ancestries}/>
 
         <BioAncestryDisplay displayCondition={ancestryObj} ancestry={ancestryObj}/>
@@ -42,20 +56,6 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           currentSkills={currentAncestrySkills}
           setCurrentSkills={setCurrentAncestrySkills}
           maxSkills={ancestryObj?.skills}
-        />
-
-        <FormInput
-          name="character-quirk"
-          labelText="Character Quirk: "
-          value={characterQuirk}
-          onChange={e => setCharacterQuirk(e.target.value)}
-        />
-
-        <FormInput
-          name="character-history"
-          labelText="Character History: "
-          value={characterHistory}
-          onChange={e => setCharacterHistory(e.target.value)}
         />
 
       </div>

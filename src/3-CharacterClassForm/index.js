@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import FormSelect from 'shared/FormSelect'
 import ClassDetailsDisplay from './ClassDetailsDisplay'
 import SpellsInputs from 'shared/SpellsInputs'
@@ -6,12 +6,18 @@ import SkillsInputs from 'shared/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import useSpells from 'hooks/useSpells'
+import useToggleOnCondition from 'hooks/useToggleOnCondition'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 
 function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise, classes}) {
 
   const { spells } = useSpells(currentRulesets)
   const currentClass = classes[currentClassKey]
   const maxSpells = classes[currentClassKey]?.spells
+
+  const shouldDisplaySkills = useToggleOnCondition(currentClass && Object.keys(currentSpells).length >= (maxSpells || 0))
+
+  const shouldDisplayEquipment = useToggleOnCondition(currentClass && currentSkills.length >= (currentClass?.skillSlots || 0))
 
   useEffect(() => {
     if (!classes[currentClassKey]) {
@@ -71,7 +77,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
       />
 
       <SkillsInputs
-        displayCondition={currentClass?.skillSlots}
+        displayCondition={shouldDisplaySkills && currentClass?.skillSlots}
         label={`Choose ${currentClass?.skillSlots - currentSkills.length} more skills to upgrade to d8`}
         possibleSkills={currentClass?.skills}
         currentSkills={currentSkills}
@@ -81,7 +87,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
       />
 
       <SkillsInputs
-        displayCondition={currentClass?.expertise && currentSkills.length}
+        displayCondition={shouldDisplaySkills && currentClass?.expertise && currentSkills.length}
         label={`Choose ${currentClass?.expertise - currentExpertise.length} more skills to upgrade to d10`}
         possibleSkills={currentSkills}
         currentSkills={currentExpertise}
@@ -90,7 +96,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
       />
 
       <ClassEquipmentInputs
-        displayCondition={currentClass?.equipmentGroups || currentClass?.equipmentGuaranteed}
+        displayCondition={shouldDisplayEquipment && (currentClass?.equipmentGroups || currentClass?.equipmentGuaranteed)}
         currentItems={currentItems}
         setCurrentItems={setCurrentItems}
         equipmentGroups={currentClass?.equipmentGroups || []}
@@ -108,4 +114,4 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
 
 }
 
-export default CharacterClassForm
+export default ConditionalWrapper(CharacterClassForm)
