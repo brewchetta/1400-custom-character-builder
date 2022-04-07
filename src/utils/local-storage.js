@@ -4,7 +4,7 @@ const KEY = '1400-characters'
 // EXPORTS
 // getLocalCharacters() => [...characters]
 // setLocalCharacaters(characters) => [...characters]
-// addLocalCharacter(character) => [...characters, {character}]
+// addLocalCharacter(character) => {character}
 // findLocalCharacterById(id) => {character}
 // deleteLocalCharacter(character) => [...characters]
 // updateLocalCharacter(character) => [...characters]
@@ -20,8 +20,9 @@ export function setLocalCharacters(characters) {
 
 export function addLocalCharacter(character) {
   const currentChars = getLocalCharacters()
-  const updatedChars = [...curentChars, character]
-  return setLocalCharacters(updatedChars)
+  const updatedChars = [...currentChars, character]
+  setLocalCharacters(updatedChars)
+  return character
 }
 
 export function findLocalCharacterById(id) {

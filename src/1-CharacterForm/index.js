@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as rulesets from 'data/_rulesets'
 import { capitalize, buildUpgradedSkillsList } from 'utilities'
 import CharacterBioForm from "2-CharacterBioForm"
 import CharacterClassForm from "3-CharacterClassForm"
 import FormCheckbox from "shared/FormCheckbox"
+import Toast from 'shared/Toast'
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useToggleOnCondition from 'hooks/useToggleOnCondition'
-import Toast from 'shared/Toast'
+import { addLocalCharacter } from 'utils/local-storage'
 import { v4 as uuid } from 'uuid'
 
-function CharacterForm({setCurrentCharacter, currentCharacter}) {
+function CharacterForm() {
+
+  const navigate = useNavigate()
 
   const [currentRulesets, setCurrentRulesets] = useState([rulesets.core])
   const [characterName, setCharacterName] = useState('')
@@ -83,7 +87,8 @@ function CharacterForm({setCurrentCharacter, currentCharacter}) {
   function handleSubmit(e) {
     e.preventDefault()
     if (!validate().length) {
-      setCurrentCharacter(buildCharacterObject())
+      const { id } = addLocalCharacter(buildCharacterObject())
+      navigate(`/characters/${id}`)
     }
   }
 

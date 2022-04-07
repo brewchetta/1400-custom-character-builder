@@ -1,34 +1,16 @@
 import { useState } from 'react'
-import CharacterForm from '1-CharacterForm'
+import AppRoutes from "./AppRoutes"
+import AppNavbar from "./AppNavbar"
 import CharacterSheet from '4-CharacterSheet'
 
 function App() {
 
-  const [currentCharacter, setCurrentCharacter] = useState(null)
-
   return (
     <div className="App">
 
-      {
-        !currentCharacter
-        ?
-        <CharacterForm
-          setCurrentCharacter={setCurrentCharacter}
-        />
-        :
-        null
-      }
+      <AppNavbar />
 
-      {
-        currentCharacter
-        ?
-        <CharacterSheet
-          currentCharacter={currentCharacter}
-          setCurrentCharacter={setCurrentCharacter}
-        />
-        :
-        null
-      }
+      <AppRoutes />
 
     </div>
   );
