@@ -1,30 +1,29 @@
 import CharacterBioEdit from "./CharacterBioEdit"
 import saveIcon from 'assets/images/file-save.png'
 import { useEditableContext } from 'context/EditableContext'
+import { useCharacterContext } from 'context/CharacterContext'
 
-function CharacterBio({character, setCharacter}) {
+function CharacterBio() {
+
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
 
   const { editable, setEditable } = useEditableContext()
 
-  const handleChangeBio = (newBio) => {
-    setCharacter(prev => ({...prev, ...newBio}))
-  }
-
   return (
     <div>
-      <h2>{character.name} - {character.ancestry} {character.className} <button onClick={() => setEditable(prev => !prev)}>{editable ? <img src={saveIcon} alt="Save Changes" style={{height: '1em'}} /> : '📝'}</button></h2>
+      <h2>{currentCharacter.name} - {currentCharacter.ancestry} {currentCharacter.className} <button onClick={() => setEditable(prev => !prev)}>{editable ? <img src={saveIcon} alt="Save Changes" style={{height: '1em'}} /> : '📝'}</button></h2>
 
-      { character.ancestrySpecial && <p>{character.ancestrySpecial}</p> }
+      { currentCharacter.ancestrySpecial && <p>{currentCharacter.ancestrySpecial}</p> }
 
       {
         !editable
         ?
         <>
-        <p>Quirk: {character.quirk}</p>
-        <p>History: {character.history}</p>
+        <p>Quirk: {currentCharacter.quirk}</p>
+        <p>History: {currentCharacter.history}</p>
         </>
         :
-        <CharacterBioEdit {...{character, handleChangeBio}} />
+        <CharacterBioEdit {...{currentCharacter}} />
       }
 
 

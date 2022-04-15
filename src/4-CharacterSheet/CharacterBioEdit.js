@@ -1,20 +1,27 @@
 import { useState } from 'react'
 import FormInput from 'shared/FormInput'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
+import { useCharacterContext } from 'context/CharacterContext'
 
-function CharacterBioEdit({character, handleChangeBio}) {
+function CharacterBioEdit() {
+
+  // TODO: should edit the character when edit mode is turned off rather than when this particular save button
+
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
 
   const [formState, setFormState] = useState({
-    quirk: character.quirk,
-    history: character.history,
-    name: character.name
+    quirk: currentCharacter.quirk,
+    history: currentCharacter.history,
+    name: currentCharacter.name
   })
 
   const handleChange = e => setFormState(prev => ({...prev, [e.target.name]: e.target.value}))
 
   const handleSubmit = e => {
     e.preventDefault()
-    handleChangeBio(formState)
+    console.log(formState);
+    console.log({...currentCharacter, ...formState});
+    setCurrentCharacter(prev => ({...prev, ...formState}))
   }
 
   return (
