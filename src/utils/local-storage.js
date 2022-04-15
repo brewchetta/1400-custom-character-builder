@@ -7,7 +7,7 @@ const KEY = '1400-characters'
 // addLocalCharacter(character) => {character}
 // findLocalCharacterById(id) => {character}
 // deleteLocalCharacter(character) => [...characters]
-// updateLocalCharacter(character) => [...characters]
+// updateLocalCharacter(character) => {character}
 
 export function getLocalCharacters() {
   return JSON.parse(localStorage.getItem(KEY)) || []
