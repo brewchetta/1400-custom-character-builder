@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import CharacterBio from './CharacterBio'
 import CharacterSkills from "./CharacterSkills"
 import CharacterEquipment from "./CharacterEquipment"

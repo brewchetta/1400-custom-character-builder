@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import allSpells from 'data/_spellsCore'
 import { useCharacterContext } from 'context/CharacterContext'

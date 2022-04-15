@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { useCharacterContext } from 'context/CharacterContext'
 import allSkills from 'data/_skillsCore'

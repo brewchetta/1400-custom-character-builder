@@ -12,7 +12,7 @@ function CharacterBio() {
     ancestrySpecial,
     quirk,
     history
-  }, setCurrentCharacter } = useCharacterContext()
+  } } = useCharacterContext()
 
   const { editable, setEditable } = useEditableContext()
 
