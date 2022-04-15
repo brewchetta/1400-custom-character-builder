@@ -1,3 +1,5 @@
+import CurrentEquipment from "./CurrentEquipment"
+
 function EquipmentStore({currentItems, currentGold, setCurrentItems, setCurrentGold}) {
 
   return (

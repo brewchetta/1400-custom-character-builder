@@ -12,10 +12,6 @@ function CharacterStatusConditions() {
       {statusConditions.hindered ? "Remove Hindered" : "Hindered"}
       </button>
 
-      <button onClick={() => handleToggleCondition('injured')}>
-      {statusConditions.injured ? "Remove Injured" : "Injured"}
-      </button>
-
       <button onClick={() => handleToggleCondition('helped')}>
       {statusConditions.helped ? "Remove Helped By Circumstance" : "Helped By Circumstance"}
       </button>

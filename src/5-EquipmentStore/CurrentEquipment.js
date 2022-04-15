@@ -2,7 +2,7 @@ import CurrentEquipmentItem from "./CurrentEquipmentItem"
 
 function CurrentEquipment({currentItems}) {
 
-  const renderedEquipment = equipment.map(item => <CurrentEquipmentItem key={item.key} item={item} />)
+  const renderedEquipment = currentItems.map(item => <CurrentEquipmentItem key={item.key} item={item} />)
 
   return (
 

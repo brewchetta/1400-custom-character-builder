@@ -4,6 +4,7 @@ import CharacterSkills from "./CharacterSkills"
 import CharacterEquipment from "./CharacterEquipment"
 import CharacterSpells from "./CharacterSpells"
 import CharacterStatusConditions from "./CharacterStatusConditions"
+import EquipmentStore from "../5-EquipmentStore"
 import { EditableContextProvider } from 'context/EditableContext'
 import { StatusConditionsContextProvider } from 'context/StatusConditionsContext'
 import * as localStore from 'utils/local-storage'
@@ -68,6 +69,7 @@ function CharacterSheet() {
             {...{handleAddSpell, handleRemoveSpell}}
           />
           <CharacterEquipment equipment={currentCharacter.items} gold={currentCharacter.gold} />
+          <EquipmentStore currentItems={currentCharacter.items} currentGold={currentCharacter.gold} setCurrentItems={() => alert('TODO: build a setter')} setCurrentGold={() => alert('TODO: build a setter')} />
         </div>
 
       </EditableContextProvider>
