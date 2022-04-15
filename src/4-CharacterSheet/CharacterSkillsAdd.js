@@ -4,15 +4,17 @@ import { useCharacterContext } from 'context/CharacterContext'
 import allSkills from 'data/_skillsCore'
 
 
-function CharacterSkillsAdd({currentSkills}) {
+function CharacterSkillsAdd() {
+
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
-  const availableSkills = allSkills.filter(s => !Object.keys(currentSkills).includes(s))
+  const { skills } = currentCharacter
+  const availableSkills = allSkills.filter(s => !Object.keys(skills).includes(s))
 
   function handleAddSkill(skillName) {
-    const skills = {...currentCharacter.skills}
-    skills[skillName] = 8
-    setCurrentCharacter(prev => ({...prev, skills}))
+    const updatedSkills = {...skills}
+    updatedSkills[skillName] = 8
+    setCurrentCharacter(prev => ({...prev, skills: updatedSkills}))
   }
 
   const renderedAvailableSkills = availableSkills.map(skill => (
