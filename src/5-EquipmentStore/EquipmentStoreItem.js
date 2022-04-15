@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react'
 
-function EquipmentStoreItem({item}) {
+function EquipmentStoreItem({item, addItem, buyItem, currentGold}) {
   return (
-    <p>Equipment Store Item goes here</p>
+    <>
+      <button>Buy for X gold</button>
+      <button>Add</button>
+      <p>Equipment Store Item goes here</p>
+    </>
   )
 }
 
