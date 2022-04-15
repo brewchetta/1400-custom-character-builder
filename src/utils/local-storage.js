@@ -45,5 +45,6 @@ export function updateLocalCharacter(updatedCharacter) {
     :
     character
   ))
+  setLocalCharacters(updatedChars)
   return updatedCharacter
 }

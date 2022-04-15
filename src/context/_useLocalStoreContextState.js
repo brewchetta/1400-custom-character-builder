@@ -8,9 +8,9 @@ function CreateStatefulContextWrapper(defaultState, stateName='state', callback)
     const [state, setState] = useState(defaultState)
 
     function setLocalState(newState) {
-      setState(
-        callback(newState)
-      )
+      // the set state here needs to take into account the normal setState can take in a function callback with `prev` or it can take in an argument
+      console.log('TODO: Check the comment written above this log');
+      setState( prev => callback(newState) )
     }
 
     return (
