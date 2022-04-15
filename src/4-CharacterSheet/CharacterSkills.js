@@ -1,13 +1,30 @@
 import CharacterSkillsAdd from './CharacterSkillsAdd'
 import { useEditableContext } from 'context/EditableContext'
 import { useStatusConditionsContext } from 'context/StatusConditionsContext'
+import { useCharacterContext } from 'context/CharacterContext'
 
-function CharacterSkills({skills, handleChangeSkill, handleAddSkill}) {
+function CharacterSkills() {
 
   const { editable } = useEditableContext()
   const { statusConditions: {hindered, injured, helped} } = useStatusConditionsContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
 
+  const { skills } = currentCharacter
   const skillNames = Object.keys(skills)
+
+  function handleChangeSkill(skillKey, numericChange) {
+
+    const updatedSkills = {...skills}
+    const updatedValue = updatedSkills[skillKey] + numericChange
+
+    if (updatedValue <= 6) {
+      delete updatedSkills[skillKey]
+    } else if (updatedValue <= 12) {
+      updatedSkills[skillKey] = updatedValue
+    }
+
+    setCurrentCharacter(prev => ({...prev, skills: updatedSkills}))
+  }
 
   const renderedSkills = skillNames.map(skillKey => (
     <li key={skillKey} className="skill-item">
@@ -37,7 +54,7 @@ function CharacterSkills({skills, handleChangeSkill, handleAddSkill}) {
 
       </ul>
 
-      <CharacterSkillsAdd displayCondition={editable} currentSkills={skills} handleAddSkill={handleAddSkill} />
+      <CharacterSkillsAdd displayCondition={editable} currentSkills={skills} />
 
     </>
   )

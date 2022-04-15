@@ -9,49 +9,26 @@ import { EditableContextProvider } from 'context/EditableContext'
 import { StatusConditionsContextProvider } from 'context/StatusConditionsContext'
 import * as localStore from 'utils/local-storage'
 import { useParams } from 'react-router-dom'
+import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterSheet() {
 
-  const [currentCharacter, setCurrentCharacter] = useState({})
+  const {currentCharacter, setCurrentCharacter} = useCharacterContext()
 
   const params = useParams()
 
   useEffect(() => {
-    setCurrentCharacter(localStore.findLocalCharacterById(params.id))
-  }, [])
-
-  function setCharacter(character) {
     setCurrentCharacter(
-      localStore.updateLocalCharacter(character)
+      localStore.findLocalCharacterById(params.id)
     )
-  }
-
-  function handleChangeSkill(skillKey, numericChange) {
-
-    const skills = {...currentCharacter.skills}
-    const updatedValue = skills[skillKey] + numericChange
-
-    if (updatedValue <= 6) {
-      delete skills[skillKey]
-    } else if (updatedValue <= 12) {
-      skills[skillKey] = updatedValue
-    }
-
-    setCharacter(prev => ({...prev, skills}))
-  }
-
-  function handleAddSkill(skillName) {
-    const skills = {...currentCharacter.skills}
-    skills[skillName] = 8
-    setCharacter(prev => ({...prev, skills}))
-  }
+  }, [params.id])
 
   function handleAddSpell(spell) {
-    setCharacter(prev => ({...prev, spells: [...prev.spells, spell]}))
+    setCurrentCharacter(prev => ({...prev, spells: [...prev.spells, spell]}))
   }
 
   function handleRemoveSpell(spell) {
-    setCharacter(prev => ({...prev, spells: prev.spells.filter(s => s !== spell)}))
+    setCurrentCharacter(prev => ({...prev, spells: prev.spells.filter(s => s !== spell)}))
   }
 
   if (currentCharacter.id) {
@@ -60,8 +37,8 @@ function CharacterSheet() {
       <EditableContextProvider>
 
         <div>
-          <CharacterBio character={currentCharacter} setCharacter={setCharacter} />
-          <CharacterSkills skills={currentCharacter.skills} handleChangeSkill={handleChangeSkill} handleAddSkill={handleAddSkill} />
+          <CharacterBio character={currentCharacter} setCurrentCharacter={setCurrentCharacter} />
+          <CharacterSkills />
           <CharacterStatusConditions />
           <CharacterSpells
             displayCondition={currentCharacter.spells.length}
