@@ -23,14 +23,6 @@ function CharacterSheet() {
     )
   }, [params.id])
 
-  function handleAddSpell(spell) {
-    setCurrentCharacter(prev => ({...prev, spells: [...prev.spells, spell]}))
-  }
-
-  function handleRemoveSpell(spell) {
-    setCurrentCharacter(prev => ({...prev, spells: prev.spells.filter(s => s !== spell)}))
-  }
-
   if (currentCharacter.id) {
     return (
       <StatusConditionsContextProvider>
@@ -40,11 +32,7 @@ function CharacterSheet() {
           <CharacterBio character={currentCharacter} setCurrentCharacter={setCurrentCharacter} />
           <CharacterSkills />
           <CharacterStatusConditions />
-          <CharacterSpells
-            displayCondition={currentCharacter.spells.length}
-            spells={currentCharacter.spells}
-            {...{handleAddSpell, handleRemoveSpell}}
-          />
+          <CharacterSpells displayCondition={currentCharacter.spells.length} />
           <CharacterEquipment equipment={currentCharacter.items} gold={currentCharacter.gold} />
           <EquipmentStore currentItems={currentCharacter.items} currentGold={currentCharacter.gold} setCurrentItems={() => alert('TODO: build a setter')} setCurrentGold={() => alert('TODO: build a setter')} />
         </div>

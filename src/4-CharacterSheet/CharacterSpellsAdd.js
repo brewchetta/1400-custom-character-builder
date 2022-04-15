@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import allSpells from 'data/_spellsCore'
+import { useCharacterContext } from 'context/CharacterContext'
 
-function CharacterSpellsAdd({currentSpells, handleAddSpell}) {
+function CharacterSpellsAdd() {
 
-  const availableSpells = Object.keys(allSpells).filter(s => !currentSpells.includes(s))
+  const {currentCharacter, setCurrentCharacter} = useCharacterContext()
+  const { spells } = currentCharacter
+
+  const availableSpells = Object.keys(allSpells).filter(s => !spells.includes(s))
 
   const renderedSpells = availableSpells.map(spellKey => (
     <button key={spellKey} onClick={() => handleAddSpell(spellKey)}>
       {allSpells[spellKey].name}
     </button>
   ))
+
+  function handleAddSpell(spell) {
+    setCurrentCharacter(prev => ({...prev, spells: [...prev.spells, spell]}))
+  }
 
   return (
     <>

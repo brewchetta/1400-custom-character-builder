@@ -4,10 +4,18 @@ import { toSpinalCase } from 'utilities'
 import spellsObj from 'data/_spellsCore'
 import CharacterSpellsAdd from './CharacterSpellsAdd'
 import { useEditableContext } from 'context/EditableContext'
+import { useCharacterContext } from 'context/CharacterContext'
 
-function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
+function CharacterSpells() {
+
+  const {currentCharacter, setCurrentCharacter} = useCharacterContext()
+  const { spells } = currentCharacter
 
   const { editable } = useEditableContext()
+
+  function handleRemoveSpell(spell) {
+    setCurrentCharacter(prev => ({...prev, spells: prev.spells.filter(s => s !== spell)}))
+  }
 
   const renderedSpells = spells.map(spell => (
       editable
@@ -36,7 +44,7 @@ function CharacterSpells({spells, handleAddSpell, handleRemoveSpell}) {
 
       </ul>
 
-      <CharacterSpellsAdd displayCondition={editable} currentSpells={spells} handleAddSpell={handleAddSpell} />
+      <CharacterSpellsAdd displayCondition={editable} />
 
     </>
   )
