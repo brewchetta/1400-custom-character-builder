@@ -5,8 +5,7 @@ import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterSpellsAdd() {
 
-  const {currentCharacter, setCurrentCharacter} = useCharacterContext()
-  const { spells } = currentCharacter
+  const {currentCharacter: { spells }, setCurrentCharacter} = useCharacterContext()
 
   const availableSpells = Object.keys(allSpells).filter(s => !spells.includes(s))
 

@@ -29,7 +29,7 @@ function CharacterSheet() {
       <EditableContextProvider>
 
         <div>
-          <CharacterBio character={currentCharacter} setCurrentCharacter={setCurrentCharacter} />
+          <CharacterBio />
           <CharacterSkills />
           <CharacterStatusConditions />
           <CharacterSpells displayCondition={currentCharacter.spells.length} />

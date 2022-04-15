@@ -8,8 +8,7 @@ import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterSpells() {
 
-  const {currentCharacter, setCurrentCharacter} = useCharacterContext()
-  const { spells } = currentCharacter
+  const {currentCharacter: { spells }, setCurrentCharacter} = useCharacterContext()
 
   const { editable } = useEditableContext()
 

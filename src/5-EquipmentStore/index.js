@@ -1,12 +1,7 @@
-import CurrentEquipment from "./CurrentEquipment"
-
-function EquipmentStore({currentItems, currentGold, setCurrentItems, setCurrentGold}) {
+function EquipmentStore() {
 
   return (
     <div>
-      <h2>Current Equipment</h2>
-
-      <CurrentEquipment currentItems={currentItems} />
 
       <h2>Buy Equipment</h2>
 

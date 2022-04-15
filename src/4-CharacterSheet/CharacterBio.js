@@ -5,25 +5,32 @@ import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterBio() {
 
-  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter: {
+    name,
+    ancestry,
+    className,
+    ancestrySpecial,
+    quirk,
+    history
+  }, setCurrentCharacter } = useCharacterContext()
 
   const { editable, setEditable } = useEditableContext()
 
   return (
     <div>
-      <h2>{currentCharacter.name} - {currentCharacter.ancestry} {currentCharacter.className} <button onClick={() => setEditable(prev => !prev)}>{editable ? <img src={saveIcon} alt="Save Changes" style={{height: '1em'}} /> : '📝'}</button></h2>
+      <h2>{name} - {ancestry} {className} <button onClick={() => setEditable(prev => !prev)}>{editable ? <img src={saveIcon} alt="Save Changes" style={{height: '1em'}} /> : '📝'}</button></h2>
 
-      { currentCharacter.ancestrySpecial && <p>{currentCharacter.ancestrySpecial}</p> }
+      { ancestrySpecial && <p>{ancestrySpecial}</p> }
 
       {
         !editable
         ?
         <>
-        <p>Quirk: {currentCharacter.quirk}</p>
-        <p>History: {currentCharacter.history}</p>
+        <p>Quirk: {quirk}</p>
+        <p>History: {history}</p>
         </>
         :
-        <CharacterBioEdit {...{currentCharacter}} />
+        <CharacterBioEdit />
       }
 
 

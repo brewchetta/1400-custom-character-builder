@@ -7,8 +7,7 @@ import allSkills from 'data/_skillsCore'
 function CharacterSkillsAdd() {
 
 
-  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
-  const { skills } = currentCharacter
+  const { currentCharacter: { skills }, setCurrentCharacter } = useCharacterContext()
   const availableSkills = allSkills.filter(s => !Object.keys(skills).includes(s))
 
   function handleAddSkill(skillName) {

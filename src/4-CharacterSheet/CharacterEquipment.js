@@ -1,13 +1,19 @@
-function CharacterEquipment({equipment, gold}) {
+import { useCharacterContext } from 'context/CharacterContext'
+import { useEditableContext } from 'context/EditableContext'
 
-  function renderEquipment() {
-    return equipment.map(item => <li key={item.key} className="skill-item">{item.name}{item.special ? ` [${item.special}]` : null}</li>)
-  }
+function CharacterEquipment() {
+
+  const { editable } = useEditableContext()
+
+  const { currentCharacter: { items, gold } } = useCharacterContext()
+
+  const renderedEquipment = items.map(item => (
+    <li key={item.key} className="skill-item">{item.name}{item.special ? ` [${item.special}]` : null}{ editable && <button>Remove</button> }</li>
+  ))
 
   return (
 
     <>
-
 
       <h3>Equipment:</h3>
 
@@ -15,7 +21,7 @@ function CharacterEquipment({equipment, gold}) {
 
         <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
 
-        {renderEquipment()}
+        {renderedEquipment}
 
       </ul>
 

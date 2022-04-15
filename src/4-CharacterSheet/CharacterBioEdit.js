@@ -7,20 +7,18 @@ function CharacterBioEdit() {
 
   // TODO: should edit the character when edit mode is turned off rather than when this particular save button
 
-  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter: {
+    name,
+    quirk,
+    history
+  }, setCurrentCharacter } = useCharacterContext()
 
-  const [formState, setFormState] = useState({
-    quirk: currentCharacter.quirk,
-    history: currentCharacter.history,
-    name: currentCharacter.name
-  })
+  const [formState, setFormState] = useState({ quirk, history, name })
 
   const handleChange = e => setFormState(prev => ({...prev, [e.target.name]: e.target.value}))
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(formState);
-    console.log({...currentCharacter, ...formState});
     setCurrentCharacter(prev => ({...prev, ...formState}))
   }
 
