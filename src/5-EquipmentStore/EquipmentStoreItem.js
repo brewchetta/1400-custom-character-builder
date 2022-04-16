@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
-function EquipmentStoreItem({item, addItem, buyItem, currentGold}) {
+function EquipmentStoreItem({ item }) {
   return (
-    <>
-      <button>Buy for X gold</button>
-      <button>Add</button>
-      <p>Equipment Store Item goes here</p>
-    </>
+    <div className="border-dark-yellow">
+      <p>{ item.name }</p>
+      <button>Buy for { item.cost || 1 } gold</button>
+      <button>Add For Free</button>
+    </div>
   )
 }
 

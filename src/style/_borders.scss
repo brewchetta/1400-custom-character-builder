@@ -1,0 +1,9 @@
+@mixin border-colored($color) {
+  border: solid $color $standard-border-width;
+}
+
+@each $color-name, $color-value in $colors {
+  .border-#{$color-name} {
+    @include border-colored($color-value);
+  }
+}

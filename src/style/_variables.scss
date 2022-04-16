@@ -16,12 +16,35 @@ $light-yellow: #FFFF55;
 $light-grey: #555555;
 $white: #FFF;
 
+$colors: (
+"black": $black,
+"dark-blue": $dark-blue,
+"dark-green": $dark-green,
+"dark-cyan": $dark-cyan,
+"dark-red": $dark-red,
+"dark-magenta": $dark-magenta,
+"dark-yellow": $dark-yellow,
+"dark-grey": $dark-grey,
+"light-blue": $light-blue,
+"light-green": $light-green,
+"light-cyan": $light-cyan,
+"light-red": $light-red,
+"light-magenta": $light-magenta,
+"light-yellow": $light-yellow,
+"light-grey": $light-grey,
+"white": $white,
+);
+
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 $main-font: 'Syne Mono', monospace;
 
 // body
 $body-padding: 1em;
+
+// standard gaps / margins / widths
+$standard-margin: 1em;
+$standard-border-width: 2px;
 
 // screen sizes
 $tiny-screen: 0px;

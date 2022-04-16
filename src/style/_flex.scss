@@ -3,8 +3,14 @@
   flex-wrap: wrap;
 }
 
-.flex-centered {
+.centered {
   justify-content: center;
+  text-align: center;
+}
+
+.standard-gap {
+  grid-column-gap: $standard-margin;
+  grid-row-gap: $standard-margin;
 }
 
 .grid-columns-small {
@@ -52,5 +58,29 @@
 
   @include gigantic-screen-only {
     grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+.grid-columns-large {
+  display: grid;
+
+  @include tiny-screen-only {
+    grid-template-columns: 1fr;
+  }
+
+  @include small-screen-only {
+    grid-template-columns: 1fr;
+  }
+
+  @include medium-screen-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include large-screen-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include gigantic-screen-only {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
