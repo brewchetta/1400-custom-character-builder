@@ -30,7 +30,7 @@ function CharacterSheet() {
         <div className="grid-columns-large standard-gap">
           <CharacterBio />
           <CharacterSkills />
-          <CharacterSpells displayCondition={currentCharacter.spells.length} />
+          <CharacterSpells displayCondition={editable || currentCharacter.spells.length} />
           <CharacterEquipment />
         </div>
 

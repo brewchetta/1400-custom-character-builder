@@ -4,8 +4,6 @@ import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterBioEdit() {
 
-  // TODO: should edit the character when edit mode is turned off rather than when this particular save button
-
   const { currentCharacter: {
     name,
     quirk,
