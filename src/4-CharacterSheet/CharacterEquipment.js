@@ -17,7 +17,7 @@ function CharacterEquipment() {
   const handleScrollToStore = () => document.querySelector('#equipment-store-header').scrollIntoView({behavior: "smooth", block: "start"})
 
   const renderedItems = items.map(item => (
-    <li key={item.key} className="skill-item">
+    <li key={item.key} className={ item.maxDurability && !item.durability && "crossed-out" }>
       {item.name}
       {
         item.special

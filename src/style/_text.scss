@@ -16,6 +16,10 @@
 
 }
 
+.crossed-out {
+  text-decoration: line-through;
+}
+
 @each $color-name, $color-value in $colors {
   .text-#{$color-name} {
     @include text-colored($color-value);
