@@ -13,38 +13,38 @@ export function getLocalCharacters() {
   return JSON.parse(localStorage.getItem(KEY)) || []
 }
 
-export function setLocalCharacters(characters) {
-  localStorage.setItem(KEY, JSON.stringify(characters))
+export function setLocalCharacters( characters ) {
+  localStorage.setItem( KEY, JSON.stringify(characters) )
   return characters
 }
 
-export function addLocalCharacter(character) {
+export function addLocalCharacter( character ) {
   const currentChars = getLocalCharacters()
   const updatedChars = [...currentChars, character]
-  setLocalCharacters(updatedChars)
+  setLocalCharacters( updatedChars )
   return character
 }
 
-export function findLocalCharacterById(id) {
+export function findLocalCharacterById( id ) {
   const currentChars = getLocalCharacters()
-  return currentChars.find(c => c.id === id)
+  return currentChars.find( c => c.id === id )
 }
 
-export function deleteLocalCharacter(deletedCharacter) {
+export function deleteLocalCharacter( deletedCharacter ) {
   const currentChars = getLocalCharacters()
-  const updatedChars = currentChars.filter(c => c.id !== deletedCharacter.id)
+  const updatedChars = currentChars.filter( c => c.id !== deletedCharacter.id )
   return setLocalCharacters(updatedChars)
 }
 
-export function updateLocalCharacter(updatedCharacter) {
+export function updateLocalCharacter( updatedCharacter ) {
   const currentChars = getLocalCharacters()
-  const updatedChars = currentChars.map(character => (
+  const updatedChars = currentChars.map( character => (
     character.id === updatedCharacter.id
     ?
     updatedCharacter
     :
     character
   ))
-  setLocalCharacters(updatedChars)
+  setLocalCharacters( updatedChars )
   return updatedCharacter
 }
