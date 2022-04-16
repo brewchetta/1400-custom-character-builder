@@ -7,3 +7,7 @@
     @include border-colored($color-value);
   }
 }
+
+.border-none {
+  border: none;
+}

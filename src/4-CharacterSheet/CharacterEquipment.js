@@ -23,7 +23,7 @@ function CharacterEquipment() {
         {
           editable
           &&
-          <button className="text-dark-red" onClick={ () => handleRemoveItem( item ) }>X</button>
+          <button className="text-dark-red border-none" onClick={ () => handleRemoveItem( item ) }>X</button>
         }
         <div>
           {

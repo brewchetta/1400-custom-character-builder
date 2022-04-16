@@ -17,14 +17,14 @@ function CurrentGold() {
   return (
     !editable
     ?
-    <div>
+    <div className="padding-small border-dark-grey flex-column space-between">
       <span>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</span>
       <br/>
       <span className="italic text-dark-grey">Currency</span>
     </div>
     :
     (
-      <div>
+      <div className="padding-small border-dark-grey flex-column space-between">
         <FormInput
           name="Gold"
           inputType="number"
