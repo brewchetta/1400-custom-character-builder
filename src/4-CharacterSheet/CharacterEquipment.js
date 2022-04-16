@@ -15,7 +15,19 @@ function CharacterEquipment() {
   const handleScrollToStore = () => document.querySelector('#equipment-store-header').scrollIntoView({behavior: "smooth", block: "start"})
 
   const renderedItems = items.map(item => (
-    <li key={item.key} className="skill-item">{item.name}{item.special ? ` [${item.special}]` : null}{ editable && <button onClick={ () => handleRemoveItem( item ) }>Remove</button> }</li>
+    <li key={item.key} className="skill-item">
+      {item.name}
+      {
+        item.special
+        &&
+        ` [${item.special}]`
+      }
+      {
+        editable
+        &&
+        <button onClick={ () => handleRemoveItem( item ) }>Remove</button>
+      }
+    </li>
   ))
 
   return (
@@ -26,15 +38,15 @@ function CharacterEquipment() {
 
         <h3>Equipment:</h3>
 
-        <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
-
-        {renderedItems}
-
         {
           editable
           &&
           <button onClick={handleScrollToStore}>Buy Equipment</button>
         }
+
+        <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
+
+        {renderedItems}
 
       </ul>
 

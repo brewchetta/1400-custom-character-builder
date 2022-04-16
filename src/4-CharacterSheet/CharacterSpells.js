@@ -37,7 +37,7 @@ function CharacterSpells() {
 
       <h3>Spells:</h3>
 
-      <ul className="skills-list grid-columns-small">
+      <ul className="skills-list grid-columns-large">
 
         {renderedSpells}
 
