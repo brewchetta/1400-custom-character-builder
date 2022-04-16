@@ -14,15 +14,12 @@ function CurrentGold() {
     }
   }
 
-  if (!editable) {
-
-    return (
-      <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
-    )
-
-  } else {
-
-    return (
+  return (
+    !editable
+    ?
+    <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
+    :
+    (
       <li>
         <FormInput
           name="Gold"
@@ -34,7 +31,7 @@ function CurrentGold() {
       </li>
     )
 
-  }
+  )
 
 }
 
