@@ -15,7 +15,7 @@ function EquipmentStore() {
   return (
     <div>
 
-      <h2>Buy Equipment</h2>
+      <h2 id="equipment-store-header" className="centered">Equipment Store</h2>
 
       <div className="grid-columns-large standard-gap">
 

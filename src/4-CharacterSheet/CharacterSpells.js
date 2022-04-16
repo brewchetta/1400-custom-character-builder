@@ -33,7 +33,7 @@ function CharacterSpells() {
 
   return (
 
-    <>
+    <div className="border-black">
 
       <h3>Spells:</h3>
 
@@ -45,7 +45,7 @@ function CharacterSpells() {
 
       <CharacterSpellsAdd displayCondition={editable} />
 
-    </>
+    </div>
   )
 }
 

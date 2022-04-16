@@ -12,6 +12,8 @@ function CharacterEquipment() {
     setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
   }
 
+  const handleScrollToStore = () => document.querySelector('#equipment-store-header').scrollIntoView({behavior: "smooth", block: "start"})
+
   const renderedItems = items.map(item => (
     <li key={item.key} className="skill-item">{item.name}{item.special ? ` [${item.special}]` : null}{ editable && <button onClick={ () => handleRemoveItem( item ) }>Remove</button> }</li>
   ))
@@ -20,13 +22,19 @@ function CharacterEquipment() {
 
     <>
 
-      <h3>Equipment:</h3>
-
       <ul className="equipment-list">
+
+        <h3>Equipment:</h3>
 
         <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
 
         {renderedItems}
+
+        {
+          editable
+          &&
+          <button onClick={handleScrollToStore}>Buy Equipment</button>
+        }
 
       </ul>
 

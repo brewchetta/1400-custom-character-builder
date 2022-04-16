@@ -1,4 +1,5 @@
 import { useStatusConditionsContext } from 'context/StatusConditionsContext'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 
 function CharacterStatusConditions() {
 
@@ -19,4 +20,4 @@ function CharacterStatusConditions() {
   )
 }
 
-export default CharacterStatusConditions
+export default ConditionalWrapper(CharacterStatusConditions)

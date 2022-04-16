@@ -43,11 +43,12 @@ function CharacterSkills() {
 
   return (
 
-    <>
+    <div className="border-black">
 
       <h3>Skills:</h3>
 
-      <ul className="skills-list grid-columns-small">
+      <ul className="skills-list grid-columns-large">
+
 
         {renderedSkills}
 
@@ -55,7 +56,7 @@ function CharacterSkills() {
 
       <CharacterSkillsAdd displayCondition={editable} currentSkills={skills} />
 
-    </>
+    </div>
   )
 }
 

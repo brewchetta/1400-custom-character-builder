@@ -3,7 +3,6 @@ import CharacterBio from './CharacterBio'
 import CharacterSkills from "./CharacterSkills"
 import CharacterEquipment from "./CharacterEquipment"
 import CharacterSpells from "./CharacterSpells"
-import CharacterStatusConditions from "./CharacterStatusConditions"
 import EquipmentStore from "../5-EquipmentStore"
 import { EditableContextProvider } from 'context/EditableContext'
 import { StatusConditionsContextProvider } from 'context/StatusConditionsContext'
@@ -29,10 +28,9 @@ function CharacterSheet() {
     return (
       <StatusConditionsContextProvider>
 
-        <div className="">
+        <div className="grid-columns-large standard-gap">
           <CharacterBio />
           <CharacterSkills />
-          <CharacterStatusConditions />
           <CharacterSpells displayCondition={currentCharacter.spells.length} />
           <CharacterEquipment />
         </div>
