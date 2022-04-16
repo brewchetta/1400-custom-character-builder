@@ -7,7 +7,7 @@ function EquipmentStoreItem({ item }) {
   const cost = item.cost || 1
 
   const handleTakeItem = () => {
-    setCurrentCharacter( prev => ({ ...prev, items: [ ...prev.items, item ] }) )
+    setCurrentCharacter( prev => ({ ...prev, items: [ ...prev.items, {...item} ] }) )
   }
 
   const handleBuyItem = () => {
@@ -15,7 +15,7 @@ function EquipmentStoreItem({ item }) {
       setCurrentCharacter( prev => ({
         ...prev,
         gold: prev.gold - cost,
-        items: [ ...prev.items, item ]
+        items: [ ...prev.items, {...item} ]
       }) )
     }
   }
