@@ -1,4 +1,5 @@
 import CurrentGold from "./CurrentGold"
+import CharacterEquipmentDurability from "./CharacterEquipmentDurability"
 import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
 
@@ -27,6 +28,11 @@ function CharacterEquipment() {
         editable
         &&
         <button onClick={ () => handleRemoveItem( item ) }>Remove</button>
+      }
+      {
+        item.maxDurability
+        &&
+        <CharacterEquipmentDurability item={item} />
       }
     </li>
   ))
