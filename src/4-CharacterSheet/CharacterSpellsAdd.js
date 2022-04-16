@@ -1,28 +1,41 @@
+import { Fragment } from 'react'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import allSpells from 'data/_spellsCore'
 import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterSpellsAdd() {
 
-  const {currentCharacter: { spells }, setCurrentCharacter} = useCharacterContext()
+  const {currentCharacter: { spells, gold }, setCurrentCharacter} = useCharacterContext()
 
   const availableSpells = Object.keys(allSpells).filter(s => !spells.includes(s))
 
-  const renderedSpells = availableSpells.map(spellKey => (
-    <button key={spellKey} onClick={() => handleAddSpell(spellKey)}>
-      {allSpells[spellKey].name}
-    </button>
-  ))
-
-  function handleAddSpell(spell) {
-    setCurrentCharacter(prev => ({...prev, spells: [...prev.spells, spell]}))
+  const handleAddSpell = spell => {
+    setCurrentCharacter( prev => ({ ...prev, spells: [ ...prev.spells, spell ] }))
   }
+
+  const handleBuySpell = spell => {
+    if ( gold >= 2 ) {
+      setCurrentCharacter( prev => ({ ...prev, spells: [ ...prev.spells, spell ], gold: prev.gold - 2 }) )
+    }
+  }
+
+  const renderedSpells = availableSpells.map(spellKey => (
+    <div className="" key={ spellKey }>
+      <button disabled={ gold < 2 } onClick={ () => handleBuySpell(spellKey) }>
+        Buy
+      </button>
+      <button onClick={ () => handleAddSpell(spellKey) }>
+        Take
+      </button>
+      <span>{ allSpells[spellKey].name }</span>
+    </div>
+  ))
 
   return (
     <>
-      <h4>Add New Spells:</h4>
+      <h4>Learn New Spells (Cost 2 Gold):</h4>
 
-      <div className="flex-wrap-container">
+      <div className="flex-wrap-container standard-gap">
         {renderedSpells}
       </div>
 
