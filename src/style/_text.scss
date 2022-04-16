@@ -1,0 +1,23 @@
+@mixin text-colored($color) {
+
+  color: $color;
+
+  &:link {
+    color: $color;
+  }
+
+  &:visited {
+    color: $color;
+  }
+
+  &:active {
+    color: $color;
+  }
+
+}
+
+@each $color-name, $color-value in $colors {
+  .text-#{$color-name} {
+    @include text-colored($color-value);
+  }
+}
