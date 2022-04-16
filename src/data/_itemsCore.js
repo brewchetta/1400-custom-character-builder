@@ -217,28 +217,28 @@ export const vehicles = {
     name: 'Cart',
     tags: ['Vehicle', 'Heavy'],
     cost: 2,
-    ridingSpace: 2
+    special: "Enough room for 2"
   },
   wagon: {
     key:'wagon',
     name: 'Wagon',
     tags: ['Vehicle', 'Heavy'],
     cost: 4,
-    ridingSpace: 4
+    special: "Enough room for 4"
   },
   rowboat: {
     key:'rowboat',
     name: 'Rowboat',
     tags: ['Vehicle', 'Heavy'],
     cost: 3,
-    ridingSpace: 3
+    special: "Enough room for 3"
   },
   ship: {
     key:'ship',
     name: 'Ship',
     tags: ['Vehicle', 'Heavy'],
     cost: 10,
-    ridingSpace: 10
+    special: "Enough room for 10"
   },
 }
 
