@@ -5,7 +5,7 @@ function EquipmentStore() {
 
   const items = useItems()
 
-  console.log('ITEMS: ', items);
+  // console.log('ITEMS: ', items);
 
   const renderedCategories = Object.keys( items ).map( key => (
     <EquipmentStoreCategory key={ key } name={ key } items={ items[key] } />

@@ -5,10 +5,15 @@ function CharacterEquipment() {
 
   const { editable } = useEditableContext()
 
-  const { currentCharacter: { items, gold } } = useCharacterContext()
+  const { currentCharacter: { items, gold }, setCurrentCharacter } = useCharacterContext()
 
-  const renderedEquipment = items.map(item => (
-    <li key={item.key} className="skill-item">{item.name}{item.special ? ` [${item.special}]` : null}{ editable && <button>Remove</button> }</li>
+  const handleRemoveItem = item => {
+    const updatedItems = items.filter( i => i !== item )
+    setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
+  }
+
+  const renderedItems = items.map(item => (
+    <li key={item.key} className="skill-item">{item.name}{item.special ? ` [${item.special}]` : null}{ editable && <button onClick={ () => handleRemoveItem( item ) }>Remove</button> }</li>
   ))
 
   return (
@@ -21,7 +26,7 @@ function CharacterEquipment() {
 
         <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
 
-        {renderedEquipment}
+        {renderedItems}
 
       </ul>
 
