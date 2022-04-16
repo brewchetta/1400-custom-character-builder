@@ -22,7 +22,7 @@ function CharacterSpellsAdd() {
     <>
       <h4>Add New Spells:</h4>
 
-      <div className="grid-columns-medium">
+      <div className="flex-wrap-container">
         {renderedSpells}
       </div>
 

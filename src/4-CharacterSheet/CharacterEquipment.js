@@ -1,3 +1,4 @@
+import CurrentGold from "./CurrentGold"
 import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
 
@@ -44,7 +45,7 @@ function CharacterEquipment() {
           <button onClick={handleScrollToStore}>Buy Equipment</button>
         }
 
-        <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
+        <CurrentGold />
 
         {renderedItems}
 
