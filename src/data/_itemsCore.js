@@ -61,13 +61,15 @@ export const armours = {
     key:'leather',
     name: 'Leather Armour',
     tags: ['Armour', 'Worn'],
-    durability: 1
+    durability: 1,
+    maxDurability: 1
   },
   chain: {
     key:'chain',
     name: 'Chain Armour',
     tags: ['Armour', 'Worn'],
     durability: 2,
+    maxDurability: 2,
     special: 'Hinders sneaking'
   },
   plate: {
@@ -75,6 +77,7 @@ export const armours = {
     name: 'Plate Armour',
     tags: ['Armour', 'Heavy', 'Worn'],
     durability: 3,
+    maxDurability: 3,
     special: 'Hinders sneaking',
     cost: 2
   },
@@ -82,7 +85,8 @@ export const armours = {
     key:'shield',
     name: 'Shield',
     tags: ['Armour', 'One Hand'],
-    durability: 1
+    durability: 1,
+    maxDurability: 1
   }
 }
 
@@ -169,7 +173,8 @@ export const supplies = {
     key:'ironSpike',
     name: 'Iron Spike (x2)',
     tags: ['Supply'],
-    durability: 2
+    durability: 2,
+    maxDurability: 2
   },
   fourPersonTent: {
     key:'fourPersonTent',
@@ -191,7 +196,8 @@ export const supplies = {
     key:'torch',
     name: 'Torch (x5)',
     tags: ['Supply'],
-    durability: 5
+    durability: 5,
+    maxDurability: 5
   },
   waterskin: {
     key:'waterskin',
