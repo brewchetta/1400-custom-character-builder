@@ -12,7 +12,7 @@ function AppRoutes(props) {
     <Routes>
       <Route path='/' element={<CharactersIndex />} />
       <Route path='create-character' element={<CharacterForm />} />
-      <Route path='characters/:id' element={
+      <Route path='characters/:nameSlug/:id' element={
         <EditableContextProvider>
           <CharacterContextProvider>
             <CharacterSheet />

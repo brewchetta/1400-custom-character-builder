@@ -10,6 +10,7 @@ import useCharacterClasses from 'hooks/useCharacterClasses'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useToggleOnCondition from 'hooks/useToggleOnCondition'
 import { addLocalCharacter } from 'utils/local-storage'
+import { toSpinalCase } from 'utilities'
 import { v4 as uuid } from 'uuid'
 
 function CharacterForm() {
@@ -87,8 +88,8 @@ function CharacterForm() {
   function handleSubmit(e) {
     e.preventDefault()
     if (!validate().length) {
-      const { id } = addLocalCharacter(buildCharacterObject())
-      navigate(`/characters/${id}`)
+      const { id, name } = addLocalCharacter(buildCharacterObject())
+      navigate(`/characters/${toSpinalCase(name)}/${id}`)
     }
   }
 

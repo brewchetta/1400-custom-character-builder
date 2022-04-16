@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getLocalCharacters } from 'utils/local-storage'
+import { toSpinalCase } from 'utilities'
 
 function CharactersIndex(props) {
 
@@ -19,7 +20,7 @@ function CharactersIndex(props) {
       <div className="flex-wrap-container space-around">
 
       {
-        characters.map(c => <Link to={`characters/${c.id}`} className="text-dark-cyan">{c.name}</Link>)
+        characters.map(c => <Link to={`characters/${toSpinalCase(c.name)}/${c.id}`} className="text-dark-cyan">{c.name}</Link>)
       }
 
       </div>
