@@ -3,8 +3,19 @@
   flex-wrap: wrap;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .space-around {
   justify-content: space-around;
+  align-content: space-around;
+}
+
+.space-between {
+  align-content: space-between;
+  justify-content: space-between;
 }
 
 .centered {

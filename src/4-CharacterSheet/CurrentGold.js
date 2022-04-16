@@ -17,10 +17,14 @@ function CurrentGold() {
   return (
     !editable
     ?
-    <li>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</li>
+    <div>
+      <span>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</span>
+      <br/>
+      <span className="italic text-dark-grey">Currency</span>
+    </div>
     :
     (
-      <li>
+      <div>
         <FormInput
           name="Gold"
           inputType="number"
@@ -28,7 +32,9 @@ function CurrentGold() {
           value={gold}
           onChange={handleChangeGold}
         />
-      </li>
+        <br/>
+        <span className="italic text-dark-grey">Currency</span>
+      </div>
     )
 
   )

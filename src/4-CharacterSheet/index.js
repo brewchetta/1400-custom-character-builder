@@ -31,9 +31,9 @@ function CharacterSheet() {
           <CharacterBio />
           <CharacterSkills />
           <CharacterSpells displayCondition={editable || currentCharacter.spells.length} />
-          <CharacterEquipment />
         </div>
 
+        <CharacterEquipment />
         <EquipmentStore displayCondition={editable} />
 
       </StatusConditionsContextProvider>

@@ -17,45 +17,56 @@ function CharacterEquipment() {
   const handleScrollToStore = () => document.querySelector('#equipment-store-header').scrollIntoView({behavior: "smooth", block: "start"})
 
   const renderedItems = items.map(item => (
-    <li key={item.key} className={ item.maxDurability && !item.durability && "crossed-out" }>
-      {item.name}
+    <div key={item.key} className="padding-small border-dark-grey flex-column space-between">
+      <span className={ item.maxDurability && !item.durability ? "crossed-out" : null }>
+        { item.name }
+        {
+          editable
+          &&
+          <button className="text-dark-red" onClick={ () => handleRemoveItem( item ) }>X</button>
+        }
+        <div>
+          {
+            item.special
+            &&
+            <>
+            <span> [{item.special}]</span>
+            </>
+          }
+        </div>
+        <div>
+          {
+            item.maxDurability
+            &&
+            <CharacterEquipmentDurability item={item} />
+          }
+        </div>
+      </span>
+      <span className="italic text-dark-grey">
       {
-        item.special
-        &&
-        ` [${item.special}]`
+        item.tags.join(', ')
       }
-      {
-        editable
-        &&
-        <button onClick={ () => handleRemoveItem( item ) }>Remove</button>
-      }
-      {
-        item.maxDurability
-        &&
-        <CharacterEquipmentDurability item={item} />
-      }
-    </li>
+      </span>
+    </div>
   ))
 
   return (
 
     <>
 
-      <ul className="equipment-list">
+      <h3>Equipment {
+        editable
+        &&
+        <button onClick={handleScrollToStore}>Buy Equipment</button>
+      }</h3>
 
-        <h3>Equipment:</h3>
-
-        {
-          editable
-          &&
-          <button onClick={handleScrollToStore}>Buy Equipment</button>
-        }
+      <div className="grid-columns-medium standard-gap">
 
         <CurrentGold />
 
         {renderedItems}
 
-      </ul>
+      </div>
 
     </>
   )

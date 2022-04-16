@@ -1,4 +1,3 @@
-import FormCheckbox from 'shared/FormCheckbox'
 import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterEquipmentDurability({ item }) {

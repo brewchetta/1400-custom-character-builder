@@ -6,7 +6,7 @@ $dark-cyan: #00AAAA;
 $dark-red: #AA0000;
 $dark-magenta: #AA00AA;
 $dark-yellow: #AA5500;
-$dark-grey: #AAAAAA;
+$dark-grey: #444;
 $light-blue: #5555FF;
 $light-green: #55FF55;
 $light-cyan: #55FFFF;
@@ -42,8 +42,18 @@ $main-font: 'Syne Mono', monospace;
 // body
 $body-padding: 1em;
 
-// standard gaps / margins / widths
-$standard-margin: 1em;
+// standard gaps / margins / paddings / widths
+$spacing-small: 0.5em;
+$spacing-medium: 1em;
+$spacing-large: 2em;
+
+$spacings: (
+  "small": $spacing-small,
+  "medium": $spacing-medium,
+  "large": $spacing-large,
+);
+
+$standard-margin: $spacing-medium;
 $standard-border-width: 2px;
 
 // screen sizes
@@ -60,6 +70,9 @@ $screen-sizes: (
 "large-screen": $large-screen,
 "gigantic-screen": $gigantic-screen
 );
+
+// lists
+$list-style: none;
 
 // inputs
 $color-transition-timing: color 0.3s;

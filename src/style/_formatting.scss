@@ -1,0 +1,13 @@
+@mixin padding-and-margin($name, $size) {
+  .padding-#{$name} {
+    padding: $size;
+  }
+
+  .margin-#{$name} {
+    margin: $size;
+  }
+}
+
+@each $name, $size in $spacings {
+  @include padding-and-margin($name, $size);
+}
