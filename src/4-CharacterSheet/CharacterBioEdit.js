@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import FormInput from 'shared/FormInput'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { useCharacterContext } from 'context/CharacterContext'
@@ -13,27 +12,18 @@ function CharacterBioEdit() {
     history
   }, setCurrentCharacter } = useCharacterContext()
 
-  const [formState, setFormState] = useState({ quirk, history, name })
-
-  const handleChange = e => setFormState(prev => ({...prev, [e.target.name]: e.target.value}))
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    setCurrentCharacter(prev => ({...prev, ...formState}))
-  }
+  const handleChange = e => setCurrentCharacter(prev => ({...prev, [e.target.name]: e.target.value}))
 
   return (
-    <form onSubmit={handleSubmit} className="labeled-input-section">
+    <div className="labeled-input-section">
 
-      <FormInput name='name' labelText='Name: ' onChange={handleChange} value={formState.name} />
+      <FormInput name='name' labelText='Name: ' onChange={handleChange} value={name} />
 
-      <FormInput name='quirk' labelText='Quirk: ' onChange={handleChange} value={formState.quirk} />
+      <FormInput name='quirk' labelText='Quirk: ' onChange={handleChange} value={quirk} />
 
-      <FormInput name='history' labelText='History: ' onChange={handleChange} value={formState.history} />
+      <FormInput name='history' labelText='History: ' onChange={handleChange} value={history} />
 
-      <input type="submit" value="Save" />
-
-    </form>
+    </div>
   )
 }
 
