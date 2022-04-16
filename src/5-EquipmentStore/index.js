@@ -1,4 +1,5 @@
 import EquipmentStoreCategory from "./EquipmentStoreCategory"
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 import useItems from 'hooks/useItems'
 
 function EquipmentStore() {
@@ -28,4 +29,4 @@ function EquipmentStore() {
 
 }
 
-export default EquipmentStore
+export default ConditionalWrapper(EquipmentStore)

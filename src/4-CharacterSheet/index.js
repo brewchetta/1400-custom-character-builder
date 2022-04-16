@@ -10,10 +10,12 @@ import { StatusConditionsContextProvider } from 'context/StatusConditionsContext
 import * as localStore from 'utils/local-storage'
 import { useParams } from 'react-router-dom'
 import { useCharacterContext } from 'context/CharacterContext'
+import { useEditableContext } from 'context/EditableContext'
 
 function CharacterSheet() {
 
-  const {currentCharacter, setCurrentCharacter} = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { editable } = useEditableContext()
 
   const params = useParams()
 
@@ -26,18 +28,17 @@ function CharacterSheet() {
   if (currentCharacter.id) {
     return (
       <StatusConditionsContextProvider>
-      <EditableContextProvider>
 
-        <div>
+        <div className="">
           <CharacterBio />
           <CharacterSkills />
           <CharacterStatusConditions />
           <CharacterSpells displayCondition={currentCharacter.spells.length} />
-          <CharacterEquipment equipment={currentCharacter.items} gold={currentCharacter.gold} />
-          <EquipmentStore currentItems={currentCharacter.items} currentGold={currentCharacter.gold} setCurrentItems={() => alert('TODO: build a setter')} setCurrentGold={() => alert('TODO: build a setter')} />
+          <CharacterEquipment />
         </div>
 
-      </EditableContextProvider>
+        <EquipmentStore displayCondition={editable} />
+
       </StatusConditionsContextProvider>
     )
   } else {
