@@ -1,5 +1,4 @@
 import CharacterBioEdit from "./CharacterBioEdit"
-import CharacterStatusConditions from "./CharacterStatusConditions"
 import saveIcon from 'assets/images/file-save.png'
 import { capitalize } from 'utilities'
 import { useEditableContext } from 'context/EditableContext'
@@ -34,8 +33,6 @@ function CharacterBio() {
         :
         <CharacterBioEdit />
       }
-
-      <CharacterStatusConditions displayCondition={!editable} />
 
     </div>
   )

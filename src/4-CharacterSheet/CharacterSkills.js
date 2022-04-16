@@ -1,3 +1,4 @@
+import CharacterStatusConditions from "./CharacterStatusConditions"
 import CharacterSkillsAdd from './CharacterSkillsAdd'
 import { useEditableContext } from 'context/EditableContext'
 import { useStatusConditionsContext } from 'context/StatusConditionsContext'
@@ -49,10 +50,11 @@ function CharacterSkills() {
 
       <ul className="skills-list grid-columns-large">
 
-
         {renderedSkills}
 
       </ul>
+
+      <CharacterStatusConditions displayCondition={!editable} />
 
       <CharacterSkillsAdd displayCondition={editable} currentSkills={skills} />
 
