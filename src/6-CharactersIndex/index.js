@@ -11,15 +11,20 @@ function CharactersIndex(props) {
   }, [])
 
   return (
-    <div>
 
-    <h2>Your Tavern</h2>
+    <>
 
-    {
-      characters.map(c => <Link to={`characters/${c.id}`}>{c.name}</Link>)
-    }
+      <h2 className="centered">Your Tavern</h2>
 
-    </div>
+      <div className="flex-wrap-container space-around">
+
+      {
+        characters.map(c => <Link to={`characters/${c.id}`} className="text-dark-cyan">{c.name}</Link>)
+      }
+
+      </div>
+
+    </>
   )
 }
 
