@@ -20,8 +20,6 @@ function EquipmentStoreItem({ item }) {
     }
   }
 
-  console.log(gold - cost >= 0);
-
   return (
     <div className="border-dark-yellow">
       <p>{ item.name }</p>
