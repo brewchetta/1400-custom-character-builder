@@ -6,7 +6,7 @@ export default function useItems(ruleset = core) {
   const [items, setItems] = useState(itemsCore)
 
   useEffect(() => {
-    let currentItems = {...items}
+    let currentItems = items
 
     // if (ruleset.includes(extendedDND)) {
     //   currentItems = {...currentItems}

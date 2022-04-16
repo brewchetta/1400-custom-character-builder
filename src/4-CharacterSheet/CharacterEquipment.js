@@ -6,7 +6,7 @@ function CharacterEquipment() {
 
   const { editable } = useEditableContext()
 
-  const { currentCharacter: { items, gold }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter: { items }, setCurrentCharacter } = useCharacterContext()
 
   const handleRemoveItem = item => {
     const updatedItems = items.filter( i => i !== item )
