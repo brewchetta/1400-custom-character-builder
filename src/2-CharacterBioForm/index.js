@@ -60,6 +60,7 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           currentSpells={currentAncestrySpells}
           setCurrentSpells={setCurrentAncestrySpells}
           maxSpells={ancestryObj?.spells}
+          checkboxClass="checkmark"
         />
 
         <SkillsInputs
@@ -68,6 +69,7 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           currentSkills={currentAncestrySkills}
           setCurrentSkills={setCurrentAncestrySkills}
           maxSkills={ancestryObj?.skills}
+          checkboxClass="checkmark"
         />
 
       </div>

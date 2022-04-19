@@ -2,7 +2,7 @@ import FormCheckbox from 'shared/FormCheckbox'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { toSpinalCase, randomAttribute } from 'utilities'
 
-function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill, label}) {
+function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill, label, checkboxClass}) {
 
   const skillsLeftToChoose = maxSkills - currentSkills.length
 
@@ -24,6 +24,7 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
         checked={isChosen}
         onChange={() => handleChange(skill, isChosen)}
         disabled={!skillsLeftToChoose && !isChosen}
+        className={checkboxClass}
       />
     )
   })
@@ -50,6 +51,7 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
           labelText={defaultSkill}
           checked={true}
           disabled={true}
+          className={checkboxClass}
         />
         :
         null

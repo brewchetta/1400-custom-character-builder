@@ -111,6 +111,7 @@ function CharacterForm() {
         onChange={() => toggleRuleset(rule)}
         checked={currentRulesets.includes(rulesets[rule])}
         disabled={rule === "core"}
+        className="checkmark"
       />
      )
   })
