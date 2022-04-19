@@ -13,7 +13,7 @@ button, input[type=button] {
     border-color: $dark-grey;
   }
 
-  &:hover {
+  &:hover:enabled {
     background-color: black;
     color: white;
 
@@ -21,4 +21,10 @@ button, input[type=button] {
       filter: invert(1);
     }
   }
+}
+
+select {
+  background: none;
+  border: solid black 1px;
+  border-radius: 5px;
 }

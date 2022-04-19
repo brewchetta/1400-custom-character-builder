@@ -29,3 +29,7 @@
     @include text-colored($color-value);
   }
 }
+
+.hand-written {
+  font-family: $hand-written-font;
+}

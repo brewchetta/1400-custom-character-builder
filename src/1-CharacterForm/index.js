@@ -117,7 +117,7 @@ function CharacterForm() {
   })
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="hand-written">
 
       <p>Rulesets:</p>
 

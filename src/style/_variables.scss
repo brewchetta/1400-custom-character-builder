@@ -36,8 +36,10 @@ $colors: (
 );
 
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Syne+Mono&display=swap');
+
 $main-font: 'Syne Mono', monospace;
+$hand-written-font: 'Architects Daughter', cursive;
 
 // body
 $body-padding: 1em;
