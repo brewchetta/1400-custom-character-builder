@@ -1,13 +1,14 @@
 input[type="checkbox"] {
   -webkit-appearance: none;
   appearance: none;
-  position: relative;
   color: $checkbox-color;
+  cursor: pointer;
   width: $checkbox-size;
   height: $checkbox-size;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(0.3em);
+  position: relative;
 
   &.boxmark::before {
     display: block;
@@ -43,6 +44,7 @@ input[type="checkbox"] {
   }
 
   &:disabled {
+    cursor: default;
     filter: contrast(0);
   }
 
