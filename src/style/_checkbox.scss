@@ -9,6 +9,14 @@ input[type="checkbox"] {
   border-radius: 0.15em;
   transform: translateY(0.3em);
   position: relative;
+  background-image: url('../assets/images/checkbox-frame.png');
+  background-size: contain;
+  background-position: left;
+
+  &.crossmark, &.checkmark {
+    border: none;
+    padding: 0.15em;
+  }
 
   &.boxmark::before {
     display: block;
@@ -40,6 +48,22 @@ input[type="checkbox"] {
   }
 
   &.checkmark:checked::before {
+    opacity: 1;
+  }
+
+  &.crossmark::before {
+    display: block;
+    content: "";
+    width: $checkbox-mark-size;
+    height: $checkbox-mark-size;
+    background-size: cover;
+    opacity: 0;
+    background-image: url('../assets/images/checkbox-X.png');
+    transform: scale(3) translateX(10%) translateY(20%);
+    transition: opacity 0.1s;
+  }
+
+  &.crossmark:checked::before {
     opacity: 1;
   }
 
