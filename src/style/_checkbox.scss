@@ -9,11 +9,12 @@ input[type="checkbox"] {
   border-radius: 0.15em;
   transform: translateY(0.3em);
   position: relative;
-  background-image: url('../assets/images/checkbox-frame.png');
+  // background-image: url('../assets/images/checkbox-frame.png');
   background-size: contain;
   background-position: left;
 
   &.crossmark, &.checkmark {
+    background-image: url('../assets/images/checkbox-frame.png');
     border: none;
     padding: 0.15em;
   }
