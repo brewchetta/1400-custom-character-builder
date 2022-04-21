@@ -1,3 +1,13 @@
+//// color backgrounds ////
+
+@each $name, $value in $colors {
+  .#{$name}-background {
+    background-color: $value;
+  }
+}
+
+//// specialty backgrounds ////
+
 .chalk-background {
   background-image: url('../assets/images/chalk-swatch.png');
   background-size: 100vw 100%;
@@ -8,8 +18,8 @@
 .tavern-background {
   background-image: url('../assets/images/tavern-exterior.png');
   background-repeat: no-repeat;
-  background-size: 40%;
-  background-position: bottom right;
+  background-size: 50%;
+  background-position: bottom center;
 }
 
 .fields-background {
@@ -24,4 +34,5 @@
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: bottom right;
+  background-attachment: fixed;
 }
