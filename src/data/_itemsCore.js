@@ -17,7 +17,7 @@ export const weapons = {
   shortbow: {
     key:'shortbow',
     name: 'Shortbow',
-    tags: ['Light Weapon', 'Weapon', 'bow', 'One Hand']
+    tags: ['Light Weapon', 'Weapon', 'Bow', 'One Hand']
   },
   bastardSword: {
     key:'bastardSword',
@@ -43,14 +43,14 @@ export const weapons = {
   longbow: {
     key:'longbow',
     name: 'Longbow',
-    tags: ['Martial Weapon', 'Weapon', 'Heavy', 'bow', 'Two Hand'],
+    tags: ['Martial Weapon', 'Weapon', 'Heavy', 'Bow', 'Two Hand'],
     cost: 2,
     special: '+1 to Archery rolls'
   },
   crossbow: {
     key:'crossbow',
     name: 'Crossbow',
-    tags: ['Martial Weapon', 'Weapon', 'Heavy', 'bow', 'Two Hand'],
+    tags: ['Martial Weapon', 'Weapon', 'Heavy', 'Bow', 'Two Hand'],
     cost: 2,
     special: '+1 to Archery rolls'
   }
