@@ -23,7 +23,25 @@ function EquipmentStoreItem({ item }) {
   return (
     <div className="border-dark-yellow">
       <p>{ item.name }</p>
-      <button onClick={ handleBuyItem } disabled={gold - cost < 0}>Buy for { item.cost || 1 } gold</button>
+
+      <div>
+        { item.special && <span> [{item.special}]</span> }
+      </div>
+
+      <div>
+        { item.maxDurability && <span>{item.maxDurability} durability</span> }
+      </div>
+
+      <span className="italic text-dark-grey">
+      { item.tags.join(', ') }
+      </span>
+
+      <br/>
+
+      <button onClick={ handleBuyItem } disabled={gold - cost < 0}>
+        Buy for { item.cost || 1 } gold
+      </button>
+
       <button onClick={ handleTakeItem }>Add For Free</button>
     </div>
   )
