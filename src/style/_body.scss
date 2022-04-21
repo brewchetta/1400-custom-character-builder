@@ -4,6 +4,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: $main-font;
   padding: $body-padding;
+  min-height: 90vh;
+}
+
+.App {
+  min-height: 90vh;
 }
 
 li {

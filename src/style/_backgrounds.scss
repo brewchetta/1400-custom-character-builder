@@ -2,4 +2,26 @@
   background-image: url('../assets/images/chalk-swatch.png');
   background-size: 100vw 100%;
   min-height: 50vh;
+  background-position: center;
+}
+
+.tavern-background {
+  background-image: url('../assets/images/tavern-exterior.png');
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: bottom right;
+}
+
+.fields-background {
+  background-image: url('../assets/images/wheat-field.png');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: bottom right;
+}
+
+.castle-ruins-background {
+  background-image: url('../assets/images/castle-ruins.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }
