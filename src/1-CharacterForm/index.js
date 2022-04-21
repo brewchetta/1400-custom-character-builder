@@ -111,12 +111,13 @@ function CharacterForm() {
         onChange={() => toggleRuleset(rule)}
         checked={currentRulesets.includes(rulesets[rule])}
         disabled={rule === "core"}
+        className="checkmark"
       />
      )
   })
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="hand-written">
 
       <p>Rulesets:</p>
 

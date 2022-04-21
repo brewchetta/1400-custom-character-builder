@@ -2,7 +2,7 @@ import FormCheckbox from 'shared/FormCheckbox'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { toSpinalCase, randomAttribute } from 'utilities'
 
-function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
+function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells, checkboxClass}) {
 
   const spellsLeftToChoose = maxSpells - Object.keys(currentSpells).length
 
@@ -34,6 +34,7 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells}) {
         checked={spellIsChosen}
         onChange={() => handleChange(spell)}
         disabled={!spellsLeftToChoose && !spellIsChosen}
+        className={checkboxClass}
       />
     )
   })

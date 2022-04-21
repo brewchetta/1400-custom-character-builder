@@ -36,8 +36,10 @@ $colors: (
 );
 
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Syne+Mono&display=swap');
+
 $main-font: 'Syne Mono', monospace;
+$hand-written-font: 'Architects Daughter', cursive;
 
 // body
 $body-padding: 1em;
@@ -84,6 +86,7 @@ $checkbox-color: $black;
 $disabled-checkbox-color: $dark-grey;
 $checkbox-size: 1.2em;
 $checkbox-mark-size: 0.5em;
+$checkbox-border-width: 0.15em;
 
 // forms
 $input-label-margin-top: 0.5em;

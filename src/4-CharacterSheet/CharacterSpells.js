@@ -28,6 +28,7 @@ function CharacterSpells() {
         <Checkbox
           name={`spell-${toSpinalCase(spell)}`}
           labelText={spellsObj[spell]?.name}
+          className="crossmark"
         />
       </div>
   ))

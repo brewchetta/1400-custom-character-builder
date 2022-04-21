@@ -18,12 +18,13 @@ function FormCheckbox({name, labelText, onChange, value, checked, disabled, clas
         onChange={onChange}
         checked={value || checked}
         disabled={disabled}
+        className={className || 'boxmark'}
       />
 
       {
         labelText
         ?
-        <label htmlFor={name} onClick={handleClickLabel}>{labelText}</label> 
+        <label htmlFor={name} onClick={handleClickLabel}>{labelText}</label>
         :
         null
       }

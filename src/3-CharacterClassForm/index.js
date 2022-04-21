@@ -74,6 +74,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         currentSpells={currentSpells}
         setCurrentSpells={setCurrentSpells}
         maxSpells={maxSpells}
+        checkboxClass={"checkmark"}
       />
 
       <SkillsInputs
@@ -84,6 +85,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         setCurrentSkills={setCurrentSkills}
         maxSkills={currentClass?.skillSlots}
         defaultSkill={currentClass?.coreskill}
+        checkboxClass={"checkmark"}
       />
 
       <SkillsInputs
@@ -93,6 +95,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         currentSkills={currentExpertise}
         setCurrentSkills={setCurrentExpertise}
         maxSkills={currentClass?.expertise}
+        checkboxClass={"checkmark"}
       />
 
       <ClassEquipmentInputs

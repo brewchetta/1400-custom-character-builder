@@ -30,6 +30,7 @@ function CharacterEquipmentDurability({ item }) {
           name='item-checkbox'
           onChange={ () => handleClickBox(isChecked) }
           checked={ isChecked }
+          className="crossmark"
         />
       )
     }
