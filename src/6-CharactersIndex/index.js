@@ -13,19 +13,27 @@ function CharactersIndex(props) {
 
   return (
 
-    <>
+    <div className="text-white chalkboard chalk-background">
 
       <h2 className="centered">Your Tavern</h2>
 
-      <div className="flex-wrap-container space-around">
+      <div className="grid-columns-medium padding-medium">
 
       {
-        characters.map(c => <Link to={`characters/${toSpinalCase(c.name)}/${c.id}`} className="text-dark-cyan">{c.name}</Link>)
+        characters.map(c => (
+          <Link key={c.id}
+          to={`characters/${toSpinalCase(c.name)}/${c.id}`}
+          className="text-white chalkboard no-decoration centered border-white-hover padding-medium" style={{borderRadius: '50%'}}>
+            <span>{c.name}</span>
+            <br/>
+            <span style={{fontSize: '0.8em'}}>{c.ancestry} {c.className}</span>
+          </Link>
+        ))
       }
 
       </div>
 
-    </>
+    </div>
   )
 }
 

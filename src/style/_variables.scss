@@ -15,6 +15,7 @@ $light-magenta: #FF55FF;
 $light-yellow: #FFFF55;
 $light-grey: #555555;
 $white: #FFF;
+$transparent: #0000;
 
 $colors: (
 "black": $black,
@@ -33,13 +34,21 @@ $colors: (
 "light-yellow": $light-yellow,
 "light-grey": $light-grey,
 "white": $white,
+"transparent": $transparent
 );
 
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Permanent+Marker&family=Syne+Mono&display=swap');
 
 $main-font: 'Syne Mono', monospace;
 $hand-written-font: 'Architects Daughter', cursive;
+$chalkboard-font: 'Permanent Marker', cursive;
+
+$fonts: (
+"main": $main-font,
+"hand-written": $hand-written-font,
+"chalkboard": $chalkboard-font
+);
 
 // body
 $body-padding: 1em;
