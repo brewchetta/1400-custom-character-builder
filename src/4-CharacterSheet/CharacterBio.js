@@ -1,6 +1,5 @@
 import CharacterBioEdit from "./CharacterBioEdit"
-import saveIcon from 'assets/images/file-save.png'
-import editIcon from 'assets/images/pencil-paper-edit.png'
+import SaveAndEditButton from "./SaveAndEditButton"
 import { capitalize } from 'utilities'
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
@@ -16,11 +15,11 @@ function CharacterBio() {
     history
   } } = useCharacterContext()
 
-  const { editable, setEditable } = useEditableContext()
+  const { editable } = useEditableContext()
 
   return (
     <div>
-      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <button onClick={() => setEditable(prev => !prev)}>{editable ? <img src={saveIcon} alt="Save Changes Button" style={{height: '1em'}} /> : <img src={editIcon} alt="Edit Character Button" style={{height: '1em'}} />}</button></h2>
+      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/></h2>
 
       { ancestrySpecial && <p>{ancestrySpecial}</p> }
 
