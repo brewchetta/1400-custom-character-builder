@@ -8,6 +8,16 @@
   }
 }
 
+@each $color-name, $color-value in $colors {
+  .border-#{$color-name}-hover {
+    @include border-colored($transparent);
+
+    &:hover {
+      @include border-colored($color-value);
+    }
+  }
+}
+
 .border-none {
   border: none;
 }
