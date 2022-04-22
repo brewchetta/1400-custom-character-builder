@@ -8,13 +8,13 @@
 
 //// specialty backgrounds ////
 
-@mixin image-background-mixin($url, $position) {
+@mixin image-background-mixin($url, $position, $size: 50%) {
   @include small-screen-only {
     background-image: url($url);;
     background-repeat: no-repeat;
-    background-size: 50%;
+    background-size: $size;
     background-position: $position;
-    background-attachment: fixed;
+    // background-attachment: ;
   }
 }
 
@@ -35,4 +35,8 @@
 
 .castle-ruins-background {
   @include image-background-mixin('../assets/images/castle-ruins.png', bottom right);
+}
+
+.alchemy-symbols-background {
+  @include image-background-mixin('../assets/images/alchemy-symbols.png', center center, 20%);
 }

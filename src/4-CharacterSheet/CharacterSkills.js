@@ -44,7 +44,7 @@ function CharacterSkills() {
 
   return (
 
-    <div className="border-black background-white">
+    <div className="border-black background-white padding-small">
 
       <h3>Skills:</h3>
 

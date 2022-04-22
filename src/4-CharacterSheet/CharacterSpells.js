@@ -35,7 +35,7 @@ function CharacterSpells() {
 
   return (
 
-    <div className="border-black">
+    <div className="border-black background-white alchemy-symbols-background padding-small">
 
       <h3>Spells:</h3>
 

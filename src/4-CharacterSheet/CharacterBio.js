@@ -18,7 +18,7 @@ function CharacterBio() {
   const { editable } = useEditableContext()
 
   return (
-    <div>
+    <div className="padding-small">
       <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/></h2>
 
       { ancestrySpecial && <p>{ancestrySpecial}</p> }

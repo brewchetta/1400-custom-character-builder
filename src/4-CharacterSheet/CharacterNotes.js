@@ -23,7 +23,7 @@ function CharacterNotes() {
       </h3>
 
       <textarea
-        className="border-none"
+        className="border-light-grey"
         onChange={handleChange}
         style={{width: "100%"}}
         value={ notes && JSON.parse(notes) }
