@@ -8,6 +8,16 @@
 
 //// specialty backgrounds ////
 
+@mixin image-background-mixin($url, $position) {
+  @include small-screen-only {
+    background-image: url($url);;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: $position;
+    background-attachment: fixed;
+  }
+}
+
 .chalk-background {
   background-image: url('../assets/images/chalk-swatch.png');
   background-size: 100vw 100%;
@@ -16,23 +26,13 @@
 }
 
 .tavern-background {
-  background-image: url('../assets/images/tavern-exterior.png');
-  background-repeat: no-repeat;
-  background-size: 50%;
-  background-position: bottom center;
+  @include image-background-mixin('../assets/images/tavern-exterior.png', bottom center);
 }
 
 .fields-background {
-  background-image: url('../assets/images/windmill-road.png');
-  background-repeat: no-repeat;
-  background-size: 50%;
-  background-position: bottom right;
+  @include image-background-mixin('../assets/images/windmill-road.png', bottom right);
 }
 
 .castle-ruins-background {
-  background-image: url('../assets/images/castle-ruins.png');
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-attachment: fixed;
+  @include image-background-mixin('../assets/images/castle-ruins.png', bottom right);
 }
