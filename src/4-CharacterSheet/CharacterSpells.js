@@ -21,7 +21,7 @@ function CharacterSpells() {
       ?
       <div key={spell}>
         <span>{spellsObj[spell]?.name}</span>
-        <button className="border-none text-dark-red" onClick={() => handleRemoveSpell(spell)}>X</button>
+        <button className="border-none text-dark-red background-white" onClick={() => handleRemoveSpell(spell)}>X</button>
       </div>
       :
       <div key={spell} className="crossable-checkbox">

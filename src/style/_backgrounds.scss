@@ -1,7 +1,7 @@
 //// color backgrounds ////
 
 @each $name, $value in $colors {
-  .#{$name}-background {
+  .background-#{$name} {
     background-color: $value;
   }
 }

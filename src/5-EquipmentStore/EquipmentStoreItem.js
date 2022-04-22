@@ -21,7 +21,7 @@ function EquipmentStoreItem({ item }) {
   }
 
   return (
-    <div className="border-dark-yellow">
+    <div className="border-dark-yellow background-white">
       <p>{ item.name }</p>
 
       <div>
