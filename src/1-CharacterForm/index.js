@@ -38,8 +38,8 @@ function CharacterForm() {
   const shouldDisplayClassForm = useToggleOnCondition(
     ancestry !== 'default'
     && characterName.length
-    && (currentAncestrySkills.length || 0) >= (ancestries[ancestry].skills || 0)
-    && (Object.keys(currentAncestrySpells).length || 0) >= (ancestries[ancestry].spells || 0)
+    && (currentAncestrySkills.length || 0) >= (ancestries[ancestry]?.skills || 0)
+    && (Object.keys(currentAncestrySpells).length || 0) >= (ancestries[ancestry]?.spells || 0)
   )
 
   function validate() {
