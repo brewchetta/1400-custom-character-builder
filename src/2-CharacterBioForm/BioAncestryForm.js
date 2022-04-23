@@ -1,19 +1,23 @@
 import { useEffect } from 'react'
+
 import FormSelect from 'shared/FormSelect'
+
+import { randomArrayItem } from 'utilities'
+
 function BioAncestryForm({ancestry, setAncestry, ancestries}) {
 
   useEffect(() => {
     setAncestry('default')
   }, [ancestries])
 
-  function handleChange(e) {
-    setAncestry(e.target.value)
-  }
+  const handleChange = e => setAncestry( e.target.value )
 
-  const ancestryOptions = Object.keys(ancestries).map(aKey => {
+  const handleRandomAncestry = () => setAncestry( randomArrayItem( Object.keys( ancestries ) ) )
+
+  const ancestryOptions = Object.keys( ancestries ).map(aKey => {
     return (
-      <option key={`ancestry-${aKey}`} value={aKey}>
-        {ancestries[aKey].name}
+      <option key={`ancestry-${ aKey }`} value={ aKey }>
+        { ancestries[aKey].name }
       </option>)
   })
 
@@ -27,6 +31,7 @@ function BioAncestryForm({ancestry, setAncestry, ancestries}) {
       >
         {ancestryOptions}
       </FormSelect>
+      <input type="button" onClick={handleRandomAncestry} value="Random Ancestry"/>
     </>
   )
 
