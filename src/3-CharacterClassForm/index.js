@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react'
+
 import FormSelect from 'shared/FormSelect'
 import ClassDetailsDisplay from './ClassDetailsDisplay'
 import SpellsInputs from 'shared/SpellsInputs'
 import SkillsInputs from 'shared/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
+import ConditionalWrapper from 'shared/ConditionalWrapper'
+
 import useSpells from 'hooks/useSpells'
 import useToggleOnCondition from 'hooks/useToggleOnCondition'
-import ConditionalWrapper from 'shared/ConditionalWrapper'
+
+import { randomArrayItem } from 'utilities'
 
 function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKey, currentSpells, setCurrentSpells, currentSkills, setCurrentSkills, currentItems, setCurrentItems, currentExpertise, setCurrentExpertise, classes}) {
 
@@ -51,6 +55,8 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
     setCurrentClassKey(e.target.value)
   }
 
+  const handleChooseRandomClass = () => setCurrentClassKey( randomArrayItem( Object.keys( classes ) ) )
+
   return (
     <>
 
@@ -62,6 +68,8 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
       >
         {Object.keys(classes).map(c => <option key={c} value={c}>{classes[c].name}</option>)}
       </FormSelect>
+
+      <input type="button" value='Random Class' onClick={handleChooseRandomClass}/>
 
       <ClassDetailsDisplay
         displayCondition={currentClass}
