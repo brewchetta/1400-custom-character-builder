@@ -29,7 +29,7 @@ function CharactersIndex(props) {
         characters.map(c => (
           <Link key={c.id}
           to={`characters/${toSpinalCase(c.name)}/${c.id}`}
-          className="text-white chalkboard no-decoration centered padding-medium swatch-hover-background-alternating" style={{borderRadius: '50%'}}>
+          className="text-white chalkboard no-decoration centered padding-medium swatch-hover-background-alternating">
             <span>{c.name}</span>
             <br/>
             <span style={{fontSize: '0.8em'}}>{c.ancestry} {c.className}</span>
