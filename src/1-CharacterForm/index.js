@@ -64,7 +64,7 @@ function CharacterForm() {
       className: currentClassKey,
       quirk: characterQuirk,
       history: characterHistory,
-      skills: buildUpgradedSkillsList({}, ...currentSkills, ...currentExpertise, ...currentAncestrySkills),
+      skills: buildUpgradedSkillsList({}, ...currentSkills, ...currentExpertise, ...currentAncestrySkills, classes[currentClassKey]?.coreskill),
       spells: [...Object.keys(currentSpells), ...Object.keys(currentAncestrySpells)],
       items: [
         ...classes[currentClassKey].equipmentGuaranteed,
