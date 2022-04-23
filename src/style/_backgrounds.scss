@@ -40,3 +40,72 @@
 .alchemy-symbols-background {
   @include image-background-mixin('../assets/images/alchemy-symbols.png', center center, 20%);
 }
+
+//// PAINT SWATCH ON HOVER ////
+
+@mixin swatch-hover-mixin( $hue-rotate, $grayscale, $brightness ) {
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 0%;
+    height: 100%;
+    background-image: url('../assets/images/paint-swatch-2.png');
+    background-size: 15em 100%;
+    background-repeat: no-repeat;
+    // background-position: center;
+    z-index: -1;
+    transition: width 0.2s;
+    filter: hue-rotate($hue-rotate) grayscale($grayscale) brightness($brightness);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+$swatch-rotations-light: (
+  "pink": 0deg,
+  "orange": 30deg,
+  "yellow": 60deg,
+  "lime": 90deg,
+  "green": 120deg,
+  "aqua": 150deg,
+  "cyan": 180deg,
+  "sky-blue": 210deg,
+  "lavender": 240deg,
+  "purple": 270deg,
+  "hot-pink": 300deg,
+);
+
+@each $name, $rotation in $swatch-rotations-light {
+  .swatch-hover-background-#{$name} {
+    @include swatch-hover-mixin($rotation, 0, 1);
+  }
+}
+
+
+.swatch-hover-background-alternating {
+  &:nth-child(6n) {
+    @include swatch-hover-mixin(0deg, 0, 1);
+  }
+  &:nth-child(6n - 1) {
+    @include swatch-hover-mixin(60deg, 0, 1);
+  }
+  &:nth-child(6n - 2) {
+    @include swatch-hover-mixin(120deg, 0, 1);
+  }
+  &:nth-child(6n - 3) {
+    @include swatch-hover-mixin(180deg, 0, 1);
+  }
+  &:nth-child(6n - 4) {
+    @include swatch-hover-mixin(240deg, 0, 1);
+  }
+  &:nth-child(6n - 5) {
+    @include swatch-hover-mixin(270deg, 0, 1);
+  }
+}
