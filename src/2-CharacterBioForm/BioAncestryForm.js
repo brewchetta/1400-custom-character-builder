@@ -8,6 +8,7 @@ function BioAncestryForm({ancestry, setAncestry, ancestries}) {
 
   useEffect(() => {
     setAncestry('default')
+    // eslint-disable-next-line
   }, [ancestries])
 
   const handleChange = e => setAncestry( e.target.value )

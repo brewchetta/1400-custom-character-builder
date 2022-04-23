@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 import FormSelect from 'shared/FormSelect'
 import ClassDetailsDisplay from './ClassDetailsDisplay'
@@ -30,6 +30,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
       setCurrentSkills([])
       setCurrentItems({})
     }
+    // eslint-disable-next-line
   }, [classes, currentClassKey])
 
   useEffect(() => {
@@ -38,10 +39,12 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         setCurrentExpertise(prev => prev.filter(ex => ex !== expertise))
       }
     }
+    // eslint-disable-next-line
   }, [currentSkills, currentExpertise])
 
   useEffect(() => {
     setCurrentSpells({})
+    // eslint-disable-next-line
   }, [spells])
 
   function resetClassAttributes() {
