@@ -1,4 +1,3 @@
-import {useEffect} from 'react'
 import { useCharacterContext } from 'context/CharacterContext'
 
 function CharacterNotes() {
