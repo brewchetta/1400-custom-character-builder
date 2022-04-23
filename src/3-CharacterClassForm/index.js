@@ -30,7 +30,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
 
   useEffect(() => {
     for (let expertise of currentExpertise) {
-      if (!currentSkills.includes(expertise)) {
+      if (!currentSkills.includes(expertise) && currentClass?.coreskill !== expertise) {
         setCurrentExpertise(prev => prev.filter(ex => ex !== expertise))
       }
     }
@@ -79,7 +79,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
 
       <SkillsInputs
         displayCondition={shouldDisplaySkills && currentClass?.skillSlots}
-        label={`Choose ${currentClass?.skillSlots - currentSkills.length} more skills to upgrade to d8`}
+        label={`Choose ${currentClass?.skillSlots - currentSkills.length} more skills to upgrade`}
         possibleSkills={currentClass?.skills}
         currentSkills={currentSkills}
         setCurrentSkills={setCurrentSkills}
@@ -90,8 +90,8 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
 
       <SkillsInputs
         displayCondition={shouldDisplaySkills && currentClass?.expertise && currentSkills.length}
-        label={`Choose ${currentClass?.expertise - currentExpertise.length} more skills to upgrade to d10`}
-        possibleSkills={currentSkills}
+        label={`Choose ${currentClass?.expertise - currentExpertise.length} more skills to upgrade again`}
+        possibleSkills={[...currentSkills, currentClass?.coreskill]}
         currentSkills={currentExpertise}
         setCurrentSkills={setCurrentExpertise}
         maxSkills={currentClass?.expertise}
