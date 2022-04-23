@@ -30,7 +30,7 @@
 }
 
 .fields-background {
-  @include image-background-mixin('../assets/images/windmill-road.png', bottom right);
+  @include image-background-mixin('../assets/images/windmill-road.png', top right);
 }
 
 .castle-ruins-background {
