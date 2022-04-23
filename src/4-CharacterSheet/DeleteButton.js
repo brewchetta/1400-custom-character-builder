@@ -6,8 +6,10 @@ function DeleteButton({character}) {
   const navigate = useNavigate()
 
   const handleDelete = () => {
+    if ( window.confirm( "Are you sure?" ) ) {
       deleteLocalCharacter(character)
       navigate('/')
+    }
   }
 
   return (

@@ -20,7 +20,11 @@ function CharacterBio() {
 
   return (
     <div className="padding-small">
-      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/><DeleteButton character={currentCharacter}/></h2>
+      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/>{
+        editable
+        &&
+        <DeleteButton character={currentCharacter}/>
+      }</h2>
 
       { ancestrySpecial && <p>{ancestrySpecial}</p> }
 
