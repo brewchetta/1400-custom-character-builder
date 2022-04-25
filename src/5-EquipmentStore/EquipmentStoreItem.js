@@ -21,29 +21,31 @@ function EquipmentStoreItem({ item }) {
   }
 
   return (
-    <div className="border-dark-yellow background-white">
-      <p>{ item.name }</p>
+    <tr className="background-black text-white">
+      <td className="padding-small">{ item.name }</td>
 
-      <div>
+      <td className="padding-small">
         { item.special && <span> [{item.special}]</span> }
-      </div>
+      </td>
 
-      <div>
+      <td className="padding-small">
         { item.maxDurability && <span>{item.maxDurability} durability</span> }
-      </div>
+      </td>
 
-      <span className="italic text-dark-grey">
-      { item.tags.join(', ') }
-      </span>
+      <td className="italic text-light-grey padding-small">
+        { item.tags.join(', ') }
+      </td>
 
-      <br/>
+      <td className="padding-small">
+        <button className="text-white border-white" onClick={ handleBuyItem } disabled={gold - cost < 0}>
+          Buy for { item.cost || 1 } gold
+        </button>
+      </td>
 
-      <button onClick={ handleBuyItem } disabled={gold - cost < 0}>
-        Buy for { item.cost || 1 } gold
-      </button>
-
-      <button onClick={ handleTakeItem }>Add For Free</button>
-    </div>
+      <td className="padding-small">
+        <button className="text-white border-white" onClick={ handleTakeItem }>Add For Free</button>
+      </td>
+    </tr>
   )
 }
 

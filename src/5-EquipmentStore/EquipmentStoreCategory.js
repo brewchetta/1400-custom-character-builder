@@ -10,13 +10,25 @@ function EquipmentStoreCategory({ name, items }) {
   return (
     <div>
 
-      <h3 className="centered">{ capitalize( name ) }</h3>
+      <h3>{ capitalize( name ) }</h3>
 
-      <div className="flex-wrap-container standard-gap centered">
+      <table>
+        <tbody>
 
-        { renderedItems }
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Durability</th>
+            <th>Tags</th>
+            <th>Buy With Money</th>
+            <th>Add For Free</th>
+          </tr>
 
-      </div>
+          { renderedItems }
+
+        </tbody>
+
+      </table>
 
     </div>
   )

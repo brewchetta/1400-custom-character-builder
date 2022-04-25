@@ -22,7 +22,7 @@ function CharacterNotes() {
       </h3>
 
       <textarea
-        spellcheck="false"
+        spellCheck="false"
         className="border-light-grey"
         onChange={handleChange}
         style={{width: "100%"}}

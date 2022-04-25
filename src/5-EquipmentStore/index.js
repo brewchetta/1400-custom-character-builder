@@ -17,7 +17,7 @@ function EquipmentStore() {
 
       <h2 id="equipment-store-header" className="centered">Equipment Store</h2>
 
-      <div className="grid-columns-large standard-gap">
+      <div>
 
         { renderedCategories }
 
