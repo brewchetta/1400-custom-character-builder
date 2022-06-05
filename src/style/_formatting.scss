@@ -11,3 +11,10 @@
 @each $name, $size in $spacings {
   @include padding-and-margin($name, $size);
 }
+
+// HAS ADDITIONAL RULES IN FLEX.SCSS
+.half-large-screen {
+  @include large-screen-only {
+    max-width: 50%;
+  }
+}

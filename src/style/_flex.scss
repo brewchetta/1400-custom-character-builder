@@ -50,6 +50,7 @@
   @include gigantic-screen-only {
     grid-template-columns: repeat(10, 1fr);
   }
+
 }
 
 .grid-columns-medium {
@@ -98,4 +99,23 @@
   @include gigantic-screen-only {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+// DEFINED IN FORMATTING.SCSS
+.half-large-screen {
+
+  .grid-columns-small {
+    @include medium-screen-only {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include large-screen-only {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include gigantic-screen-only {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
 }
