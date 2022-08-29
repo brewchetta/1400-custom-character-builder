@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import AppRoutes from "./AppRoutes"
 import AppNavbar from "./AppNavbar"
-import CharacterSheet from '4-CharacterSheet'
 
 function App() {
 

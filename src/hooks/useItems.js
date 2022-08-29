@@ -14,7 +14,7 @@ export default function useItems(ruleset = core) {
 
     setItems(currentItems)
 
-  }, [ruleset])
+  }, [ruleset]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return items
 
