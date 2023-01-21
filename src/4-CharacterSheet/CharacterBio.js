@@ -1,6 +1,7 @@
 import CharacterBioEdit from "./CharacterBioEdit"
 import SaveAndEditButton from "./SaveAndEditButton"
 import DeleteButton from "./DeleteButton"
+import HelpButton from "shared/HelpButton"
 import { capitalize } from 'utilities'
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
@@ -17,10 +18,12 @@ function CharacterBio() {
   } } = useCharacterContext()
 
   const { editable } = useEditableContext()
+  const helpToEdit = "You can edit your character by hitting the button next to me"
+  const helpWhenEdit = "I am information about editing"
 
   return (
     <div className="padding-small">
-      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/>{
+      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/><HelpButton info={editable ? helpToEdit : helpWhenEdit}/> {
         editable
         &&
         <DeleteButton character={currentCharacter}/>
