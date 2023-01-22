@@ -33,8 +33,9 @@ const rulesPlay = {
     `you don’t know how to solve. Move the spotlight to give everyone time to shine. Test periodically for bad luck (e.g., run out of ammo, or into guards) roll d6 to check for (1–2) trouble now or (3–4) signs of trouble.`
   ],
   'custom rules': {
-    'extended D&D classes': `Adds additional classes based on those found in dungeons and dragons.`,
-    'draochtlan': `Replaces ancestries to match Nate's custom Draochtlan setting. Cannot be used with other rules that change ancestries.`,
+    'ancestries expanded': `Adds additional ancestries for player characters to choose from.`,
+    'extended D&D classes': `Adds additional classes based on those found in dungeons and dragons. (Made by Nate)`,
+    'draochtlan': `Replaces ancestries to match the custom Draochtlan setting. Cannot be used with other rules that change ancestries. (Made by Nate)`,
   }
 }
 
