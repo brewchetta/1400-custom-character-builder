@@ -1,6 +1,8 @@
 import FormCheckbox from 'shared/FormCheckbox'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { toSpinalCase, randomAttribute } from 'utilities'
+import HelpButton from 'shared/HelpButton'
+import { rulesPlay } from 'data/rules'
 
 function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells, checkboxClass}) {
 
@@ -42,7 +44,7 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells, check
   return (
     <div>
 
-      <h4>Spells left: {spellsLeftToChoose}</h4>
+      <h4><HelpButton info={rulesPlay.spells} /> Spells left: {spellsLeftToChoose}</h4>
 
       <div className="grid-columns-small">
 

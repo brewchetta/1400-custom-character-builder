@@ -30,7 +30,11 @@ const rulesPlay = {
     `Lead the group in setting lines not to cross in play. Fast-forward, pause, or rewind`,
     `redo scenes for pacing and safety, and invite players to do likewise. Present dilemmas and problems`,
     `you don’t know how to solve. Move the spotlight to give everyone time to shine. Test periodically for bad luck (e.g., run out of ammo, or into guards) roll d6 to check for (1–2) trouble now or (3–4) signs of trouble.`
-  ]
+  ],
+  'custom rules': {
+    'extended D&D classes': `Adds additional classes based on those found in dungeons and dragons.`,
+    'draochtlan': `Replaces ancestries to match Nate's custom Draochtlan setting. Cannot be used with other rules that change ancestries.`,
+  }
 }
 
 export default rulesPlay;

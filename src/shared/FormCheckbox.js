@@ -1,6 +1,7 @@
 import { useRef } from 'react'
+import HelpButton from 'shared/HelpButton'
 
-function FormCheckbox({name, labelText, onChange, value, checked, disabled, className}) {
+function FormCheckbox({name, info, labelText, onChange, value, checked, disabled, className}) {
 
   const input = useRef()
 
@@ -24,7 +25,7 @@ function FormCheckbox({name, labelText, onChange, value, checked, disabled, clas
       {
         labelText
         ?
-        <label htmlFor={name} onClick={handleClickLabel}>{labelText}</label>
+        <label htmlFor={name} onClick={handleClickLabel}>{info ? <HelpButton info={info} /> : null} {labelText}</label>
         :
         null
       }
