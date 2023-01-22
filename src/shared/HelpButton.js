@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import HelpPopup from './HelpPopup'
+import helpIcon from 'assets/images/help-icon.png'
 
 function HelpButton({ info, className="", style={} }) {
 
@@ -17,12 +18,12 @@ function HelpButton({ info, className="", style={} }) {
   const handleMouseLeave = () => setOpen(false)
 
   return (
-    <button className={className}
+    <button className={`help-button ${className}`}
       style={style}
       onClick={handleOpenHelp}
       onMouseLeave={handleMouseLeave}
     >
-      ?{ open ? <HelpPopup info={info} position={cursorPos} /> : null }
+      <img src={helpIcon} alt={'?'} />{ open ? <HelpPopup info={info} position={cursorPos} /> : null }
     </button>
   )
 
