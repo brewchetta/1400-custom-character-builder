@@ -56,8 +56,8 @@ const classes = {
     skillSlots: 2,
     equipmentGuaranteed: [supplies.backpack, supplies.waterskin],
     equipmentGroups: [armours, weapons],
-    specialText: 'Can carry 2 heavy items without hindrance',
-    description: "Increase (d8) Melee Combat and any 2 of Intimidate, Run and Jump, Archery, Vehicles. Can carry 2 heavy items without hindrance. Take a piece of armour and a weapon."
+    specialText: 'Can carry an additional heavy item without hindrance',
+    description: "Increase (d8) Melee Combat and any 2 of Intimidate, Run and Jump, Archery, Vehicles. Can carry an additional heavy item without hindrance. Take a piece of armour and a weapon."
   },
 }
 

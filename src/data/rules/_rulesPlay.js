@@ -12,6 +12,7 @@ const rulesPlay = {
   spells: [
     'Spells are described by their name. When you cast a spell, work with the storyteller to determine how the spell acts and any limitations it may have.',
     'The storyteller may impose a challenge if the spell presents any sort of risk. This can include overexerting your character\'s magic and being unable to cast the spell until they replenish their powers.',
+    'If the spell has any risk associated to it, the roll for its challenge is Spellcasting',
     'If a spell is currently unavailable, you can disable it by clicking the checkmark.'
   ],
   load: [
