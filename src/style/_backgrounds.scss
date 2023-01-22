@@ -29,10 +29,6 @@
   @include image-background-mixin('../assets/images/tavern-exterior.png', bottom center);
 }
 
-.fields-background {
-  @include image-background-mixin('../assets/images/windmill-road.png', top right);
-}
-
 .castle-ruins-background {
   @include image-background-mixin('../assets/images/castle-ruins.png', bottom right);
 }
@@ -43,6 +39,10 @@
 
 .quill-background {
   @include image-background-mixin('../assets/images/quill-drawing.png', center center, 20%);
+}
+
+.flock-background {
+  @include image-background-mixin('../assets/images/flock.png', top right, 20%)
 }
 
 //// PAINT SWATCH ON HOVER ////

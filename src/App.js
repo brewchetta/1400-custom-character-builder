@@ -14,7 +14,7 @@ function App() {
       case '/':
         return 'tavern-background'
       case '/create-character':
-        return 'fields-background'
+        return 'flock-background'
       case location.pathname.match(/\/characters\/\S+/)?.input:
         return 'castle-ruins-background'
       default:
