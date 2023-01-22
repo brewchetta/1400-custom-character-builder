@@ -1,3 +1,5 @@
+import { capitalize } from 'utilities'
+
 function HelpPopup({info, position}) {
 
   // position = [cursorX,cursorY]
@@ -11,10 +13,12 @@ function HelpPopup({info, position}) {
     zIndex: 1
   }
 
+  const classNames = "text-black text-align-left margin-medium"
+
   const renderedInfo = (
-    Array.isArray(info) ? info.map(section => <p>{section}</p>)
-    : typeof info === "object" ? Object.keys(info).map(key => <p>{key} - {info[key]}</p>)
-    : info
+    Array.isArray(info) ? info.map(section => <p className={classNames}>{section}</p>)
+    : typeof info === "object" ? Object.keys(info).map(key => <p className={classNames}><i>{capitalize(key)}</i><br/>{info[key]}</p>)
+    : <p className={classNames}>{info}</p>
   )
 
   return (
@@ -23,7 +27,7 @@ function HelpPopup({info, position}) {
       style={calculatedStyle}
     >
 
-      <p className="text-black margin-small">{renderedInfo}</p>
+      {renderedInfo}
 
     </div>
   )
