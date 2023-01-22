@@ -3,7 +3,7 @@ const rulesPlay = {
     'Players describe what their characters do. The GM advises when their action is impossible, requires extra steps, demands a cost, or presents a risk. Players only roll to avoid risks.'
   ],
   rolling: [
-    `Roll a d6 skill die - higher with a relevant skill, or d4 if hindered by injury or circumstances. If helped by circumstances, roll an  extra d6; if helped by an ally, they roll their skill die and share the risk. Take the highest die.`,
+    `When faced with a challenge, roll a d6 skill die - higher with a relevant skill, or d4 if hindered by injury or circumstances. If helped by circumstances, roll an  extra d6; if helped by an ally, they roll their skill die and share the risk. Take the highest die.`,
     `1-2 Disaster. Suffer the full risk. GM decides if you succeed at all. If risking death, you die.`,
     `3-4 Setback. A lesser consequence or partial success. If risking death, you're maimed.`,
     `5+ Success. The higher the roll, the better.`,
@@ -13,7 +13,7 @@ const rulesPlay = {
     `Carry as much as makes sense, but more than one heavy item may hinder you at times.`
   ],
   advancement: [
-    `After an adventure, increase a skill (none→d8→d10→d12), gain d6 gold pieces (GP), and +1 guild rep. Roll d20 ≤ a fitting rep to check if someone recognizes you.`
+    `After an adventure, increase a skill (none→d8→d10→d12). At the discretion of the storyteller, gain d6 gold pieces (GP).`
   ],
   defence: [
     `Say how one of your items breaks to turn a hit into a brief hindrance. Broken gear is useless until repaired.`
