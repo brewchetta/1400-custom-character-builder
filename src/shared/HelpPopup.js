@@ -11,8 +11,11 @@ function HelpPopup({info, position}) {
     zIndex: 1
   }
 
-  const renderedInfo = Array.isArray(info) ? info.map(section => <p>{section}</p>) : info
-  console.log(renderedInfo);
+  const renderedInfo = (
+    Array.isArray(info) ? info.map(section => <p>{section}</p>)
+    : typeof info === "object" ? Object.keys(info).map(key => <p>{key} - {info[key]}</p>)
+    : info
+  )
 
   return (
     <div
