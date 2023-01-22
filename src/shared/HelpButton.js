@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import HelpPopup from './HelpPopup'
 
-function HelpButton({info}) {
+function HelpButton({ info, className="", style={} }) {
 
   const [open, setOpen] = useState(false)
   const [cursorPos, setCursorPos] = useState([0,0])
@@ -16,10 +16,13 @@ function HelpButton({info}) {
   const handleMouseLeave = () => setOpen(false)
 
   return (
-    <>
-      <button onClick={handleOpenHelp} onMouseLeave={handleMouseLeave}>?{ open ? <HelpPopup info={info} position={cursorPos} /> : null }</button>
-
-    </>
+    <button className={className}
+      style={style}
+      onClick={handleOpenHelp}
+      onMouseLeave={handleMouseLeave}
+    >
+      ?{ open ? <HelpPopup info={info} position={cursorPos} /> : null }
+    </button>
   )
 
 }
