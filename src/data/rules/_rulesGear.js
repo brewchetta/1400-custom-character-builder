@@ -45,6 +45,7 @@ const rulesGear = {
   },
   'magic companion descriptions': {
     'magic companion': `Act as characters in their own right. Magic companions will follow your commands but may act of their own accord, be injured, or die at the storyteller's discretion.`,
+    familiar: `A smaller companion bound magically to your will.`,
     'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
   },
   'magic vehicle descriptions': {
