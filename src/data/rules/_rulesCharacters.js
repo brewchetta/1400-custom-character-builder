@@ -1,4 +1,4 @@
-const rulesClasses = {
+const rulesCharacters = {
   'using a class': [
     `Each class increases a skills and may also learn spells as well as get equipment.`
   ],
