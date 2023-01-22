@@ -47,24 +47,24 @@ const spells = {
     name: 'Invisibility',
     cost: 2
   },
-  lighningStorm: {
+  lightningStorm: {
     name: 'Lightning Storm',
-    cost: 2
-  },
-  remoteViewing: {
-    name: 'Remote Viewing',
     cost: 2
   },
   resizeCreature: {
     name: 'Resize Creature',
     cost: 2
   },
+  remoteViewing: {
+    name: 'Remote Viewing',
+    cost: 2
+  },
   shatter: {
     name: 'Shatter',
     cost: 2
   },
-  summonBeast: {
-    name: 'Summon Beast',
+  summonElemental: {
+    name: 'Summon Elemental',
     cost: 2
   },
   telepathy: {

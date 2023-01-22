@@ -16,6 +16,12 @@ function EquipmentStoreCategory({ name, items }) {
     : name === "supplies" ? <HelpButton info={rulesGear['supply descriptions']} />
     : name === "vehicles" ? <HelpButton info={rulesGear['vehicle descriptions']} />
     : name === "animals" ? <HelpButton info={rulesGear['animal companion descriptions']} />
+    : name === "magic companions" ? <HelpButton info={rulesGear['magic companion descriptions']} />
+    : name === "magic vehicles" ? <HelpButton info={rulesGear['magic vehicle descriptions']} />
+    : name === "magic tools" ? <HelpButton info={rulesGear['magic tool descriptions']} />
+    : name === "magic supplies" ? <HelpButton info={rulesGear['magic supply descriptions']} />
+    : name === "magic weapons" ? <HelpButton info={rulesGear['magic weapon descriptions']} />
+    : name === "magic armor" ? <HelpButton info={rulesGear['magic armor descriptions']} />
     : <HelpButton info={"Could not find information for that..."} />
   )
 
