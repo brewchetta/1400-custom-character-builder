@@ -3,7 +3,9 @@ const rulesGear = {
     `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`
   ],
   costs: [
-    `All items cost one GP (gold piece) unless its cost is otherwise mentioned. You can usually get more GP by finishing adventures.`
+    `You can collect gold pieces during your adventures or as a reward for completing them. Things like food, drinks, and rooms are considered negligible costs and aren't generally tracked. `,
+    `The storyteller may occasionally make losing gold a risk as part of a rolled challenge.`,
+    `You can spend gold in the store for additional items or spells.`
   ],
   management: [
     `If a character's equipment loses durability, click on one of its checkmarks. If it breaks it cannot be used.`,

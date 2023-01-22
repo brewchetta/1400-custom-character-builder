@@ -20,13 +20,6 @@ export const weapons = {
     maxDurability: 1,
     tags: ['Light Weapon', 'Weapon', 'One Hand']
   },
-  shortbow: {
-    key:'shortbow',
-    name: 'Shortbow',
-    durability: 1,
-    maxDurability: 1,
-    tags: ['Light Weapon', 'Weapon', 'Bow', 'One Hand']
-  },
   bastardSword: {
     key:'bastardSword',
     name: 'Bastard Sword',
@@ -73,6 +66,13 @@ export const weapons = {
     special: '+1 to Archery rolls'
   }
 }
+
+export const lightWeapons = Object.keys(weapons).reduce((acc, currKey) => {
+  if ( weapons[currKey].tags.includes('Light Weapon') ) {
+    acc[currKey] = weapons[currKey]
+  }
+  return acc
+}, {})
 
 export const armours = {
   leather: {
