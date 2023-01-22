@@ -16,8 +16,8 @@ function HelpPopup({info, position}) {
   const classNames = "text-black text-align-left margin-medium"
 
   const renderedInfo = (
-    Array.isArray(info) ? info.map(section => <p className={classNames}>{section}</p>)
-    : typeof info === "object" ? Object.keys(info).map(key => <p className={classNames}><i>{capitalize(key)}</i><br/>{info[key]}</p>)
+    Array.isArray(info) ? info.map((section, i) => <p key={i} className={classNames}>{section}</p>)
+    : typeof info === "object" ? Object.keys(info).map(key => <p key={key} className={classNames}><i>{capitalize(key)}</i><br/>{info[key]}</p>)
     : <p className={classNames}>{info}</p>
   )
 
