@@ -8,7 +8,7 @@ function ClassEquipmentDisplay({currentItems, equipmentGroups}) {
     <div>
 
       {Object.values(currentItems).map((item, i) => {
-        const foundItem = equipmentGroups[i][item.key]
+        const foundItem = item && equipmentGroups[i][item.key]
         if (foundItem) {
           return <EquipmentDisplay key={toSpinalCase(foundItem.name)} item={foundItem}/>
         } else {
