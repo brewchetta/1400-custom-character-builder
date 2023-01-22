@@ -23,7 +23,7 @@ function HelpPopup({info, position}) {
       style={calculatedStyle}
     >
 
-      <p className="text-black">{renderedInfo}</p>
+      <p className="text-black margin-small">{renderedInfo}</p>
 
     </div>
   )
