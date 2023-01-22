@@ -9,6 +9,11 @@ const rulesPlay = {
     `5+ Success. The higher the roll, the better.`,
     `If success can't get you what you want, you'll at least get useful info or set up an advantage.`
   ],
+  spells: [
+    'Spells are described by their name. When you cast a spell, work with the storyteller to determine how the spell acts and any limitations it may have.',
+    'The storyteller may impose a challenge if the spell presents any sort of risk. This can include overexerting your character\'s magic and being unable to cast the spell until they replenish their powers.',
+    'If a spell is currently unavailable, you can disable it by clicking the checkmark.'
+  ],
   load: [
     `Carry as much as makes sense, but more than one heavy item may hinder you at times.`
   ],
