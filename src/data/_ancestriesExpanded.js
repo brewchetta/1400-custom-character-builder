@@ -23,6 +23,12 @@ const ancestries = {
     specialText: 'You can carry an additional heavy item.',
     skills: 1
   },
+  dryad: {
+    name: 'Dryad',
+    description: 'Learn 1 spell. You can understand and speak to plants.',
+    specialText: 'You can understand and speak to plants.',
+    spells: 1
+  }
 }
 
 export default ancestries
