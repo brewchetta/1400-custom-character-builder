@@ -1,5 +1,7 @@
 import CurrentGold from "./CurrentGold"
 import CharacterEquipmentDurability from "./CharacterEquipmentDurability"
+import HelpButton from "shared/HelpButton"
+import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
 
@@ -56,8 +58,12 @@ function CharacterEquipment() {
 
       <h3>Equipment {
         editable
-        &&
-        <button onClick={handleScrollToStore}>Buy Equipment</button>
+        ?
+        <>
+          <button onClick={handleScrollToStore}>Buy Equipment</button>
+        </>
+        :
+        <HelpButton info={rulesGear.management} />
       }</h3>
 
       <div className="grid-columns-medium standard-gap">

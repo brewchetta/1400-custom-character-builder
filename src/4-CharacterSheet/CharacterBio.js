@@ -18,12 +18,12 @@ function CharacterBio() {
   } } = useCharacterContext()
 
   const { editable } = useEditableContext()
-  const helpToEdit = "You can edit your character by hitting the button next to me"
-  const helpWhenEdit = "I am information about editing"
+  const helpToEdit = "You can edit your character by clicking the button next to me"
+  const helpWhenEdit = "You can save your character by clicking the button next to me"
 
   return (
     <div className="padding-small">
-      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/><HelpButton info={editable ? helpToEdit : helpWhenEdit}/> {
+      <h2>{name} - {capitalize(ancestry)} {capitalize(className)} <SaveAndEditButton/><HelpButton info={editable ? helpWhenEdit : helpToEdit }/> {
         editable
         &&
         <DeleteButton character={currentCharacter}/>
