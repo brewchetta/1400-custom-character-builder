@@ -5,6 +5,8 @@ import spellsObj from 'data/_spellsCore'
 import CharacterSpellsAdd from './CharacterSpellsAdd'
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
+import HelpButton from 'shared/HelpButton'
+import { rulesPlay } from 'data/rules'
 
 function CharacterSpells() {
 
@@ -35,9 +37,14 @@ function CharacterSpells() {
 
   return (
 
-    <div className="border-black background-white alchemy-symbols-background padding-small">
+    <div className="border-black background-white alchemy-symbols-background padding-small relative">
 
       <h3>Spells:</h3>
+
+      <HelpButton
+        className="position-top-right"
+        info={rulesPlay.spells}
+      />
 
       <ul className="skills-list grid-columns-large">
 
