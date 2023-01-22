@@ -25,7 +25,7 @@ function CharacterNotes() {
         spellCheck="false"
         className="border-light-grey"
         onChange={handleChange}
-        style={{width: "100%"}}
+        style={{minWidth: "100%", minHeight: "10em"}}
         value={ notes && JSON.parse(notes) }
         placeholder='Write your notes here...'
       />
