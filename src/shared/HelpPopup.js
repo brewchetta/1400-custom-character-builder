@@ -11,13 +11,16 @@ function HelpPopup({info, position}) {
     zIndex: 1
   }
 
+  const renderedInfo = Array.isArray(info) ? info.map(section => <p>{section}</p>) : info
+  console.log(renderedInfo);
+
   return (
     <div
       className="border-black background-white"
       style={calculatedStyle}
     >
 
-      <p className="text-black">{info}</p>
+      <p className="text-black">{renderedInfo}</p>
 
     </div>
   )
