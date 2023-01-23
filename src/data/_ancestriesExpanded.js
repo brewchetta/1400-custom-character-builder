@@ -17,6 +17,12 @@ const ancestries = {
     specialText: 'You are immune to fire and cold.',
     spells: 1
   },
+  dragonkin: {
+    name: 'Dragonkin',
+    description: 'Learn 1 skill. You can breathe fire and can\'t be hurt by it.',
+    specialText: 'You can breathe fire and can\'t be hurt by it.',
+    skills: 1
+  },
   centaur: {
     name: 'Centaur',
     description: 'Learn 1 skill. You can carry an additional heavy item.',
@@ -28,7 +34,13 @@ const ancestries = {
     description: 'Learn 1 spell. You can understand and speak to plants.',
     specialText: 'You can understand and speak to plants.',
     spells: 1
-  }
+  },
+  beastkin: {
+    name: 'Beastkin',
+    description: 'Learn 4 skills. You are hindered on any skill roll that you haven\'t learned.',
+    specialText: 'You are hindered on any skill roll that you haven\'t learned.',
+    skills: 4
+  },
 }
 
 export default ancestries
