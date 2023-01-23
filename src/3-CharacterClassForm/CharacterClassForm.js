@@ -61,7 +61,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
   const handleChooseRandomClass = () => setCurrentClassKey( randomArrayItem( Object.keys( classes ) ) )
 
   return (
-    <>
+    <div className="border-black padding-small margin-small background-white">
 
       <FormSelect
         value={currentClassKey}
@@ -85,7 +85,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         currentSpells={currentSpells}
         setCurrentSpells={setCurrentSpells}
         maxSpells={maxSpells}
-        checkboxClass={"checkmark"}
+        checkboxClass={"checkmark padding-small"}
       />
 
       <SkillsInputs
@@ -96,7 +96,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         setCurrentSkills={setCurrentSkills}
         maxSkills={currentClass?.skillSlots}
         defaultSkill={currentClass?.coreskill}
-        checkboxClass={"checkmark"}
+        checkboxClass={"checkmark padding-small"}
       />
 
       <SkillsInputs
@@ -106,7 +106,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         currentSkills={currentExpertise}
         setCurrentSkills={setCurrentExpertise}
         maxSkills={currentClass?.expertise}
-        checkboxClass={"checkmark"}
+        checkboxClass={"checkmark padding-small"}
       />
 
       <ClassEquipmentInputs
@@ -123,7 +123,7 @@ function CharacterClassForm({currentRulesets, currentClassKey, setCurrentClassKe
         equipmentGroups={currentClass?.equipmentGroups}
       />
 
-    </>
+    </div>
   )
 
 }

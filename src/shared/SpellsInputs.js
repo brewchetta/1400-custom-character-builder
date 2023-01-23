@@ -46,7 +46,7 @@ function SpellsInputs({spells, currentSpells, setCurrentSpells, maxSpells, check
 
       <h4><HelpButton info={rulesPlay.spells} /> Spells left: {spellsLeftToChoose}</h4>
 
-      <div className="grid-columns-small">
+      <div className="flex-wrap-container">
 
         {renderedSpellCheckboxes}
 

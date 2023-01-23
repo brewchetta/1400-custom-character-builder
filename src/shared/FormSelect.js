@@ -7,7 +7,7 @@ function FormInput({name, info, labelText, onChange, value, children, defaultTex
   return (
     <>
 
-      {labelText ? <label htmlFor={name}>{info ? <HelpButton info={info} /> : null} {labelText}</label> : null}
+      {labelText ? <label htmlFor={name}>{labelText} {info ? <HelpButton info={info} /> : null}</label> : null}
 
       <select
         name={name}

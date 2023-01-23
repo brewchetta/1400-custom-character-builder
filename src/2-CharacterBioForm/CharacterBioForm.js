@@ -23,10 +23,11 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
   return (
     <>
 
-      <div className="labeled-input-section">
+      <div className="labeled-input-section padding-small margin-small">
 
         <FormInput
           name="character-name"
+          info="This is the name of your character"
           labelText="Character Name"
           value={characterName}
           onChange={e => setCharacterName(e.target.value)}
@@ -34,6 +35,7 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
 
         <FormInput
           name="character-quirk"
+          info="Give your character a defining quirk"
           labelText="Character Quirk: "
           value={characterQuirk}
           onChange={e => setCharacterQuirk(e.target.value)}
@@ -43,6 +45,7 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
 
         <FormInput
           name="character-history"
+          info="A three or four word summary of what led your character to adventure"
           labelText="Character History: "
           value={characterHistory}
           onChange={e => setCharacterHistory(e.target.value)}
@@ -60,7 +63,7 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           currentSpells={currentAncestrySpells}
           setCurrentSpells={setCurrentAncestrySpells}
           maxSpells={ancestryObj?.spells}
-          checkboxClass="checkmark"
+          checkboxClass="checkmark padding-small"
         />
 
         <SkillsInputs
@@ -69,7 +72,7 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           currentSkills={currentAncestrySkills}
           setCurrentSkills={setCurrentAncestrySkills}
           maxSkills={ancestryObj?.skills}
-          checkboxClass="checkmark"
+          checkboxClass="checkmark padding-small"
         />
 
       </div>

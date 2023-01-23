@@ -129,6 +129,9 @@ function CharacterForm() {
 
       <br/>
 
+      <div className="grid-columns-large">
+
+
       <CharacterBioForm {...{
         currentRulesets,
         characterName,
@@ -145,8 +148,6 @@ function CharacterForm() {
         setCharacterHistory,
         ancestries
       }}/>
-
-      <br/>
 
       <CharacterClassForm
       displayCondition={shouldDisplayClassForm}
@@ -165,7 +166,7 @@ function CharacterForm() {
         classes
       }} />
 
-      <br/>
+      </div>
 
       <input
         type="submit"
