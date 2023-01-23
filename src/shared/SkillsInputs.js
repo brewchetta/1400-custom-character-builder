@@ -1,6 +1,8 @@
 import FormCheckbox from 'shared/FormCheckbox'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import { toSpinalCase, randomAttribute } from 'utilities'
+import HelpButton from 'shared/HelpButton'
+import { rulesPlay } from 'data/rules'
 
 function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkills, defaultSkill, label, checkboxClass}) {
 
@@ -39,7 +41,7 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
   return (
     <>
 
-      <h4>{label}</h4>
+      {label ? <h4><HelpButton info={rulesPlay.rolling} /> {label}</h4> : null}
 
       <div className="grid-columns-small">
 

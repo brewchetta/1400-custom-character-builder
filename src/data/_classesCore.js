@@ -1,4 +1,4 @@
-import { weapons, armours, tools, supplies, animals } from './_itemsCore'
+import { weapons, lightWeapons, armours, tools, supplies, animals } from './_itemsCore'
 
 const classes = {
   bard: {
@@ -26,7 +26,7 @@ const classes = {
     skillSlots: 1,
     spells: 3,
     equipmentGuaranteed: [supplies.backpack, supplies.waterskin],
-    equipmentGroups: [{...weapons, ...tools}],
+    equipmentGroups: [{...lightWeapons, ...tools}],
     description: "Increase (d8) Religion and any 1 of Spellcasting, Melee Combat, Medicine. Learn 3 spells. Take a weapon or a tool."
   },
   scout: {
@@ -44,7 +44,7 @@ const classes = {
     skills: ['Traps', 'Sleight of Hand', 'Deceive', 'Disguise', 'Climb'],
     skillSlots: 3,
     equipmentGuaranteed: [supplies.backpack, supplies.waterskin],
-    equipmentGroups: [weapons, tools],
+    equipmentGroups: [lightWeapons, tools],
     expertise: 2,
     specialText: 'Increase two skills an additional time (d10)',
     description: "Increase (d8) Sneak and any 3 of Traps, Sleight of Hand, Deceive, Disguise, Climb. Then increase (d10) two of them again. Take a light weapon and a tool."
@@ -56,8 +56,8 @@ const classes = {
     skillSlots: 2,
     equipmentGuaranteed: [supplies.backpack, supplies.waterskin],
     equipmentGroups: [armours, weapons],
-    specialText: 'Can carry 2 heavy items without hindrance',
-    description: "Increase (d8) Melee Combat and any 2 of Intimidate, Run and Jump, Archery, Vehicles. Can carry 2 heavy items without hindrance. Take a piece of armour and a weapon."
+    specialText: 'Can carry an additional heavy item without hindrance',
+    description: "Increase (d8) Melee Combat and any 2 of Intimidate, Run and Jump, Archery, Vehicles. Can carry an additional heavy item without hindrance. Take a piece of armour and a weapon."
   },
 }
 

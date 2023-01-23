@@ -10,7 +10,7 @@ function Toast({messages, toastType}) {
     if (!open) {
       setOpen(true)
     }
-  }, [messages])
+  }, [messages]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const createMessages = () => (
     messages.constructor === Array
@@ -20,7 +20,6 @@ function Toast({messages, toastType}) {
     (<span>{messages.message}</span>))
 
   const openOrClosed = open ? "" : " closed"
-  const className = "toast " + toastType
 
   return (
     <div

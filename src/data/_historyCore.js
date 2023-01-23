@@ -12,7 +12,7 @@ const histories = [
 	'Noble on hard times',
 	'On the run',
 	'Pirate',
-	'Raised by wolves',
+	'Raised by wild animals',
 	'Raising funds',
 	'Searching',
 	'Signed a contract',

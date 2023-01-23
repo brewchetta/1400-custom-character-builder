@@ -7,7 +7,7 @@ export default function useToggleOnCondition(condition) {
     if (!isOn && condition) {
       setIsOn(true)
     }
-  }, [condition])
+  }, [condition]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return isOn
 }

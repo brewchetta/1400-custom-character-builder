@@ -11,3 +11,31 @@
 @each $name, $size in $spacings {
   @include padding-and-margin($name, $size);
 }
+
+.position-top-left {
+  position: absolute;
+  top: $spacing-small;
+  left: $spacing-small;
+}
+
+.position-top-right {
+  position: absolute;
+  top: $spacing-small;
+  right: $spacing-small;
+}
+
+.position-bottom-left {
+  position: absolute;
+  bottom: $spacing-small;
+  left: $spacing-small;
+}
+
+.position-bottom-right {
+  position: absolute;
+  bottom: $spacing-small;
+  right: $spacing-small;
+}
+
+.relative {
+  position: relative;
+}

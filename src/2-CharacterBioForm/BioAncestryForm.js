@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-
 import FormSelect from 'shared/FormSelect'
-
 import { randomArrayItem } from 'utilities'
+import { rulesAncestries } from 'data/rules'
 
 function BioAncestryForm({ancestry, setAncestry, ancestries}) {
 
@@ -27,8 +26,9 @@ function BioAncestryForm({ancestry, setAncestry, ancestries}) {
       <FormSelect
         onChange={handleChange}
         value={ancestry}
-        labelText={"Ancestry: "}
+        labelText={"Ancestry"}
         defaultText={'---Choose an ancestry---'}
+        info={rulesAncestries.ancestry}
       >
         {ancestryOptions}
       </FormSelect>

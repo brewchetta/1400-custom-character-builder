@@ -1,5 +1,7 @@
 import CharacterStatusConditions from "./CharacterStatusConditions"
 import CharacterSkillsAdd from './CharacterSkillsAdd'
+import HelpButton from 'shared/HelpButton'
+import { rulesPlay } from 'data/rules'
 import { useEditableContext } from 'context/EditableContext'
 import { useStatusConditionsContext } from 'context/StatusConditionsContext'
 import { useCharacterContext } from 'context/CharacterContext'
@@ -44,7 +46,12 @@ function CharacterSkills() {
 
   return (
 
-    <div className="border-black background-white padding-small quill-background">
+    <div className="border-black background-white padding-small quill-background relative">
+
+      <HelpButton
+        className="position-top-right"
+        info={rulesPlay.rolling}
+      />
 
       <h3>Skills:</h3>
 

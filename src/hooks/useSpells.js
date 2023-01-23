@@ -15,7 +15,7 @@ export default function useSpells(ruleset = core) {
 
     setSpells(currentSpells)
 
-  }, [ruleset])
+  }, [ruleset]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return { spells }
 

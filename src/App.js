@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import AppRoutes from "./AppRoutes"
 import AppNavbar from "./AppNavbar"
-import CharacterSheet from '4-CharacterSheet'
 
 function App() {
 
@@ -16,7 +14,7 @@ function App() {
       case '/':
         return 'tavern-background'
       case '/create-character':
-        return 'fields-background'
+        return 'flock-background'
       case location.pathname.match(/\/characters\/\S+/)?.input:
         return 'castle-ruins-background'
       default:

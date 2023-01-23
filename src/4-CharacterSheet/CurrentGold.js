@@ -1,6 +1,8 @@
 import FormInput from "shared/FormInput"
 import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
+import HelpButton from 'shared/HelpButton'
+import { rulesGear } from 'data/rules'
 
 function CurrentGold() {
 
@@ -17,7 +19,8 @@ function CurrentGold() {
   return (
     !editable
     ?
-    <div className="padding-small border-dark-grey flex-column space-between">
+    <div className="padding-small border-dark-grey flex-column space-between relative">
+      <HelpButton info={rulesGear.costs} className="position-top-right" />
       <span>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</span>
       <br/>
       <span className="italic text-dark-grey">Currency</span>

@@ -1,4 +1,4 @@
-import { weapons, supplies } from './_itemsCore'
+import { weapons, lightWeapons,supplies } from './_itemsCore'
 
 const classes = {
   druid: {
@@ -18,7 +18,7 @@ const classes = {
     skillSlots: 2,
     spells: 3,
     equipmentGuaranteed: [supplies.backpack, supplies.waterskin],
-    equipmentGroups: [weapons],
+    equipmentGroups: [lightWeapons],
     specialText: 'You can take a harm to gain advantage on casting a spell.',
     description: "Increase (d8) Spellcasting and any 2 of Deceive, Disguise, Intimidate, Religion, Lore. Learn 3 spells. Can take a harm to gain an advantage on casting a spell. Take a weapon."
   },

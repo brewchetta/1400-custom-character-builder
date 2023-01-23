@@ -12,6 +12,8 @@ import useToggleOnCondition from 'hooks/useToggleOnCondition'
 import { addLocalCharacter } from 'utils/local-storage'
 import { toSpinalCase } from 'utilities'
 import { v4 as uuid } from 'uuid'
+import HelpButton from 'shared/HelpButton'
+import { rulesPlay } from 'data/rules'
 
 function CharacterForm() {
 
@@ -119,7 +121,7 @@ function CharacterForm() {
   return (
     <form onSubmit={handleSubmit} className="hand-written">
 
-      <p>Rulesets:</p>
+      <p><HelpButton info={rulesPlay['custom rules']} /> Rulesets:</p>
 
       <div className="flex-wrap-container">
         {renderedRulesets}
