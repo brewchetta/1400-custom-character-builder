@@ -4,7 +4,7 @@ import CharacterSkills from "./CharacterSkills"
 import CharacterEquipment from "./CharacterEquipment"
 import CharacterSpells from "./CharacterSpells"
 import CharacterNotes from "./CharacterNotes"
-import EquipmentStore from "../5-EquipmentStore"
+import EquipmentStore from "./EquipmentStore"
 import { StatusConditionsContextProvider } from 'context/StatusConditionsContext'
 import * as localStore from 'utils/local-storage'
 import { useParams } from 'react-router-dom'

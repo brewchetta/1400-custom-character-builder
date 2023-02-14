@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as rulesets from 'data/_rulesets'
 import { capitalize, buildUpgradedSkillsList } from 'utilities'
-import CharacterBioForm from "2-CharacterBioForm"
-import CharacterClassForm from "3-CharacterClassForm"
-import FormCheckbox from "shared/FormCheckbox"
+import CharacterBioForm from './CharacterBioForm'
+import CharacterClassForm from './CharacterClassForm'
+import FormCheckbox from 'shared/FormCheckbox'
 import Toast from 'shared/Toast'
 import useCharacterClasses from 'hooks/useCharacterClasses'
 import useCharacterAncestries from 'hooks/useCharacterAncestries'
@@ -15,7 +15,7 @@ import { v4 as uuid } from 'uuid'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
 
-function CharacterForm() {
+function NewCharacterForm() {
 
   const navigate = useNavigate()
 
@@ -184,4 +184,4 @@ function CharacterForm() {
 
 }
 
-export default CharacterForm
+export default NewCharacterForm
