@@ -1,14 +1,28 @@
+import { useState, useEffect, useRef } from 'react'
 import { capitalize } from 'utilities'
 
 function HelpPopup({info, position}) {
 
-  // position = [cursorX,cursorY]
+  const div = useRef(null)
+
+  // useRef will begin as null so we use state to do one re-render to register the div
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setLoaded(true)
+  }, [])
+
+  // position => [cursorX,cursorY]
+
   const windowWidth = window.innerWidth
+  const windowHeight = window.innerHeight
+  const divHeight = div.current?.scrollHeight || 0
+
   const calculatedStyle = {
     position: "fixed",
     left: `${windowWidth - (position[0] + 250) > 40 ? position[0] : null }px`,
     right: `${windowWidth - (position[0] + 250) > 40 ? null : windowWidth - position[0] }px`,
-    top: `${position[1]}px`,
+    top: `${position[1] + divHeight < windowHeight ? position[1] : position[1] - divHeight }px`,
     width: '250px',
     zIndex: 1
   }
@@ -23,6 +37,7 @@ function HelpPopup({info, position}) {
 
   return (
     <div
+      ref={div}
       className="border-black background-white"
       style={calculatedStyle}
     >

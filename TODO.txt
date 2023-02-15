@@ -1,4 +1,3 @@
-- fix help buttons sending text beyond the bottom of the screen
 - decouple store from editing character
 - more colors
 - implement rituals
