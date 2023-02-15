@@ -1,4 +1,8 @@
 const spells = {
+  acidCloud: {
+    name: 'Acid Cloud',
+    cost: 2
+  },
   animalForm: {
     name: 'Animal Form',
     cost: 2
@@ -15,6 +19,14 @@ const spells = {
     name: 'Darkness',
     cost: 2
   },
+  earthSpike: {
+    name: 'Earth Spike',
+    cost: 2
+  },
+  elementalShield: {
+    name: 'Elemental Shield',
+    cost: 2
+  },
   fear: {
     name: 'Fear',
     cost: 2
@@ -25,6 +37,10 @@ const spells = {
   },
   flight: {
     name: 'Flight',
+    cost: 2
+  },
+  floatingHand: {
+    name: 'Floating Hand',
     cost: 2
   },
   fogCloud: {
@@ -47,6 +63,10 @@ const spells = {
     name: 'Gale Wind',
     cost: 2
   },
+  haste: {
+    name: 'Haste',
+    cost: 2
+  },
   heal: {
     name: 'Heal',
     cost: 2
@@ -63,12 +83,28 @@ const spells = {
     name: 'Levitate Other',
     cost: 2
   },
+  magicGuide: {
+    name: 'Magic Guide',
+    cost: 2
+  },
   magicMessenger: {
     name: 'Magic Messenger',
     cost: 2
   },
-  thunderBolt: {
-    name: 'Thunder Bolt',
+  magicSwarm: {
+    name: 'Magic Swarm',
+    cost: 2
+  },
+  mistForm: {
+    name: 'Mist Form',
+    cost: 2
+  },
+  pacify: {
+    name: 'Pacify',
+    cost: 2
+  },
+  petrify: {
+    name: 'Petrify',
     cost: 2
   },
   resizeCreature: {
@@ -79,6 +115,10 @@ const spells = {
     name: 'Remote Viewing',
     cost: 2
   },
+  rotAndSickness: {
+    name: 'Rot And Sickness',
+    cost: 2
+  },
   shatter: {
     name: 'Shatter',
     cost: 2
@@ -87,12 +127,24 @@ const spells = {
     name: 'Silence',
     cost: 2
   },
+  tanglingVines: {
+    name: 'Tangling Vines',
+    cost: 2
+  },
+  thunderBolt: {
+    name: 'Thunder Bolt',
+    cost: 2
+  },
   telepathy: {
     name: 'Telepathy',
     cost: 2
   },
   visualIllusion: {
     name: 'Visual Illusion',
+    cost: 2
+  },
+  wordOfCommand: {
+    name: 'Word of Command',
     cost: 2
   },
 }

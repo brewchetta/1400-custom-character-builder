@@ -1,4 +1,12 @@
 const rituals = {
+  alarmWard: {
+    name: 'Alarm Ward',
+    cost: 3
+  },
+  arcaneLock: {
+    name: 'Arcane Lock',
+    cost: 3
+  },
   changeWeather: {
     name: 'changeWeather',
     cost: 10
@@ -11,8 +19,8 @@ const rituals = {
     name: 'Circle Of Imprisonment',
     cost: 10
   },
-  fleetingClone: {
-    name: 'fleeting Clone',
+  explodingGlyph: {
+    name: 'Exploding Glyph',
     cost: 10
   },
   magicFeast: {
@@ -21,6 +29,10 @@ const rituals = {
   },
   illusionaryPlace: {
     name: 'Illusionary Place',
+    cost: 10
+  },
+  openDemiplane: {
+    name: 'Open Demiplane',
     cost: 10
   },
   raiseUndeadServant: {
@@ -33,6 +45,14 @@ const rituals = {
   },
   seance: {
     name: 'Seance',
+    cost: 5
+  },
+  simulacrum: {
+    name: 'Simulacrum',
+    cost: 10
+  },
+  speakLanguages: {
+    name: 'Speak Languages',
     cost: 5
   },
   summonElemental: {
@@ -65,7 +85,7 @@ const rituals = {
   },
   waterBreathing: {
     name: 'Water Breathing',
-    cost: 5
+    cost: 3
   },
 }
 

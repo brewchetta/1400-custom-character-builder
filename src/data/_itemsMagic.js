@@ -76,6 +76,15 @@ export const magicArmor = {
     tags: ['Worn', 'Magic Item'],
     special: 'Cannot be beguiled, put to sleep by magic, affected by remote viewing, or affected by telepathy.'
   },
+  bootsOfFeatherFall: {
+    key: 'bootsOfFeatherFall',
+    name: 'Boots of Feather Fall',
+    durability: 1,
+    maxDurability: 1,
+    cost: 50,
+    tags: ['Worn', 'Magic Item'],
+    special: 'The small wings on these boots keep you from falling at a speed that would harm you.'
+  },
 }
 
 export const magicTools = {
@@ -87,7 +96,16 @@ export const magicTools = {
     cost: 50,
     tags: ['Tool', 'Magic Item'],
     special: 'Magically holds any number of heavy items except vehicles.'
-  }
+  },
+  eyeOfInfiltration: {
+    key:'eyeOfInfiltration',
+    name: 'Eye of Infiltration',
+    durability: 1,
+    maxDurability: 1,
+    cost: 50,
+    tags: ['Tool', 'Magic Item'],
+    special: 'A winged glass eye that follows your commands. You can see whatever it sees.'
+  },
 }
 
 export const magicCompanions = {
@@ -135,9 +153,18 @@ export const magicVehicles = {
     name: 'Airship',
     durability: 10,
     maxDurability: 10,
-    cost: 50,
+    cost: 150,
     tags: ['Vehicle', 'Heavy', 'Magic Item'],
     special: 'Enough room for 10. Can fly.'
+  },
+  flyingBroom: {
+    key:'flyingBroom',
+    name: 'Flying Broom',
+    durability: 1,
+    maxDurability: 1,
+    cost: 50,
+    tags: ['Vehicle', 'Magic Item'],
+    special: 'Enough room for 1. Can fly.'
   },
 }
 
