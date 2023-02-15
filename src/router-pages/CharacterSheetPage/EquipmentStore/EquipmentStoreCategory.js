@@ -35,7 +35,11 @@ function EquipmentStoreCategory({ name, items }) {
   return (
     <div>
 
-      <h3><CollapsibleOpenButton toggleOpen={toggleOpen} isOpen={isOpen} /> { capitalize( name ) } {renderedHelpButton}</h3>
+      <h3>
+        <CollapsibleOpenButton toggleOpen={toggleOpen} isOpen={isOpen} />
+        {" "}<span onClick={toggleOpen} style={{cursor: "pointer"}}>{ capitalize( name ) }</span>
+        {" "}{renderedHelpButton}
+      </h3>
 
       <CollapsibleWrapper isOpen={isOpen}>
         <table>

@@ -8,6 +8,16 @@
   }
 }
 
+@mixin border-top-colored($color) {
+  border-top: solid $color $standard-border-width;
+}
+
+@each $color-name, $color-value in $colors {
+  .border-top-#{$color-name} {
+    @include border-top-colored($color-value);
+  }
+}
+
 @each $color-name, $color-value in $colors {
   .border-#{$color-name}-hover {
     @include border-colored($transparent);
