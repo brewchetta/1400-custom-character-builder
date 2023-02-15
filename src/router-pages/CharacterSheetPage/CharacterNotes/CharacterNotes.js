@@ -14,7 +14,7 @@ function CharacterNotes() {
   }
 
   return (
-    <div className="padding-small">
+    <div className="padding-small border-black">
 
       <h3 className="flex-wrap-container space-between">
         <span>Notes:</span>
@@ -23,7 +23,7 @@ function CharacterNotes() {
 
       <textarea
         spellCheck="false"
-        className="border-light-grey"
+        className="border-none"
         onChange={handleChange}
         style={{minWidth: "100%", minHeight: "10em"}}
         value={ notes && JSON.parse(notes) }

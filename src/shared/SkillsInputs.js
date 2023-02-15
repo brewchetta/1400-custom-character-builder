@@ -43,7 +43,7 @@ function SkillsInputs({possibleSkills, currentSkills, setCurrentSkills, maxSkill
 
       {label ? <h4><HelpButton info={rulesPlay.rolling} /> {label}</h4> : null}
 
-      <div className="grid-columns-small">
+      <div className="flex-wrap-container">
 
       {defaultSkill
         ?
