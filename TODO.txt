@@ -1,5 +1,7 @@
 - make store sections collapsible
+- decouple store from editing character
 - more colors
 - implement rituals
 - tutorial page (front page if no characters)
 - toasts
+- dark mode

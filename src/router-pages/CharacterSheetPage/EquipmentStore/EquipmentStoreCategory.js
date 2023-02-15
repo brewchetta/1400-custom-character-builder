@@ -1,9 +1,16 @@
-import EquipmentStoreItem from "./EquipmentStoreItem"
+import { useState, useRef } from 'react'
+import EquipmentStoreItem from './EquipmentStoreItem'
 import HelpButton from 'shared/HelpButton'
 import { rulesGear } from 'data/rules'
 import { capitalize } from 'utilities'
+import CollapsibleWrapper from 'shared/CollapsibleWrapper'
+import CollapsibleOpenButton from 'shared/CollapsibleOpenButton'
 
 function EquipmentStoreCategory({ name, items }) {
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleOpen = () => setIsOpen(isOpen => !isOpen)
 
   const renderedItems = Object.values( items ).map( item => (
     <EquipmentStoreItem key={ item.key } item={ item } />
@@ -28,25 +35,28 @@ function EquipmentStoreCategory({ name, items }) {
   return (
     <div>
 
-      <h3>{ capitalize( name ) } {renderedHelpButton}</h3>
+      <h3><CollapsibleOpenButton toggleOpen={toggleOpen} isOpen={isOpen} /> { capitalize( name ) } {renderedHelpButton}</h3>
 
-      <table>
-        <tbody>
+      <CollapsibleWrapper isOpen={isOpen}>
+        <table>
+          <tbody>
 
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Durability</th>
-            <th>Tags</th>
-            <th>Buy With Money</th>
-            <th>Add For Free</th>
-          </tr>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Durability</th>
+              <th>Tags</th>
+              <th>Buy With Money</th>
+              <th>Add For Free</th>
+            </tr>
 
-          { renderedItems }
+            { renderedItems }
 
-        </tbody>
+          </tbody>
 
-      </table>
+        </table>
+
+      </CollapsibleWrapper>
 
     </div>
   )

@@ -1,0 +1,31 @@
+.collapsible {
+  transition: max-height 1s;
+  overflow-y: hidden;
+  &.closed {
+    max-height: 0em;
+  }
+}
+
+.collapsible-button {
+
+  position: relative;
+  top: -0.1rem;
+
+  & img {
+    height: 0.7em;
+  }
+
+  transform: rotate(-90deg);
+
+  &.open {
+    transform: rotate(0deg);
+  }
+
+  transition: transform 0.5s;
+
+  &:hover:enabled {
+    background-color: rgba(0,0,0,0);
+    // color: black;
+    filter: invert(1);
+  }
+}
