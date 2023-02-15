@@ -1,0 +1,5 @@
+- make store sections collapsible
+- more colors
+- implement rituals
+- tutorial page (front page if no characters)
+- toasts
