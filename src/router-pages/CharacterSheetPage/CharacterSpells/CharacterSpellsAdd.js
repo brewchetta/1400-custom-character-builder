@@ -3,6 +3,7 @@ import ConditionalWrapper from 'shared/ConditionalWrapper'
 import allSpells from 'data/_spellsCore'
 import { useCharacterContext } from 'context/CharacterContext'
 
+// CURRENTLY UNUSED //
 function CharacterSpellsAdd() {
 
   const {currentCharacter: { spells, gold }, setCurrentCharacter} = useCharacterContext()

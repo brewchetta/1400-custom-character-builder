@@ -52,8 +52,6 @@ function CharacterSpells() {
 
       </ul>
 
-      <CharacterSpellsAdd displayCondition={editable} />
-
     </div>
   )
 }
