@@ -7,8 +7,16 @@ const spells = {
     name: 'Animate Object',
     cost: 2
   },
+  controlWater: {
+    name: 'Control Water',
+    cost: 2
+  },
   darkness: {
     name: 'Darkness',
+    cost: 2
+  },
+  fear: {
+    name: 'Fear',
     cost: 2
   },
   fireball: {
@@ -23,20 +31,20 @@ const spells = {
     name: 'Fog Cloud',
     cost: 2
   },
-  freezingBolt: {
-    name: 'Freezing Bolt',
+  freezingBeam: {
+    name: 'Freezing Beam',
     cost: 2
   },
   friendship: {
     name: 'Friendship',
     cost: 2
   },
-  frighteningVisage: {
-    name: 'Frightening Visage',
-    cost: 2
-  },
   grease: {
     name: 'Grease',
+    cost: 2
+  },
+  galeWind: {
+    name: 'Gale Wind',
     cost: 2
   },
   heal: {
@@ -47,8 +55,20 @@ const spells = {
     name: 'Invisibility',
     cost: 2
   },
-  lightningStorm: {
-    name: 'Lightning Storm',
+  light: {
+    name: 'Light',
+    cost: 2
+  },
+  levitateOther: {
+    name: 'Levitate Other',
+    cost: 2
+  },
+  magicMessenger: {
+    name: 'Magic Messenger',
+    cost: 2
+  },
+  thunderBolt: {
+    name: 'Thunder Bolt',
     cost: 2
   },
   resizeCreature: {
@@ -63,16 +83,12 @@ const spells = {
     name: 'Shatter',
     cost: 2
   },
-  summonElemental: {
-    name: 'Summon Elemental',
+  silence: {
+    name: 'Silence',
     cost: 2
   },
   telepathy: {
     name: 'Telepathy',
-    cost: 2
-  },
-  teleport: {
-    name: 'Teleport',
     cost: 2
   },
   visualIllusion: {
