@@ -33,6 +33,10 @@
   @include image-background-mixin('../assets/images/castle-ruins.png', bottom right);
 }
 
+.magic-circle-background {
+  @include image-background-mixin('../assets/images/magic-circle.png', center center, 20%);
+}
+
 .alchemy-symbols-background {
   @include image-background-mixin('../assets/images/alchemy-symbols.png', center center, 20%);
 }

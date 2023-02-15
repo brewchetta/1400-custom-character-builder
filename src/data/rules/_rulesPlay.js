@@ -15,6 +15,10 @@ const rulesPlay = {
     'If the spell has any risk associated to it, the roll for its challenge is Spellcasting',
     'If a spell is currently unavailable, you can disable it by clicking the checkmark.'
   ],
+  rituals: [
+    'A learned ritual takes ten minutes to prepare and requires special components that the spell burns away. The components can be summoner’s chalk (2g), magic salt (2g), elemental dust (2g), the blood of a recently killed person, or the sacrifice of a rare animal or plant.',
+    'You roll a spellcasting challenge to see how successfully you prepared the ritual.',
+  ],
   load: [
     `Carry as much as makes sense, but more than one heavy item may hinder you at times.`
   ],

@@ -17,6 +17,33 @@ export const magicSupplies = {
     tags: ['Supply', 'Potion', 'Magic Item'],
     special: 'Regain the power to cast your spells if any are disabled. Discard after use.'
   },
+  summonersChalk: {
+    key:'summonersChalk',
+    name: 'Summoner\'s Chalk',
+    durability: 1,
+    maxDurability: 1,
+    cost: 2,
+    tags: ['Supply', 'Magic Item'],
+    special: 'Used in rituals. Discard after use.'
+  },
+  magicSalt: {
+    key:'magicSalt',
+    name: 'Magic Salt',
+    durability: 1,
+    maxDurability: 1,
+    cost: 2,
+    tags: ['Supply', 'Magic Item'],
+    special: 'Used in rituals. Discard after use.'
+  },
+  elementalDust: {
+    key:'elementalDust',
+    name: 'Elemental Dust',
+    durability: 1,
+    maxDurability: 1,
+    cost: 2,
+    tags: ['Supply', 'Magic Item'],
+    special: 'Used in rituals. Discard after use.'
+  },
 }
 
 export const magicWeapons = {
@@ -74,7 +101,7 @@ export const magicArmor = {
     maxDurability: 1,
     cost: 50,
     tags: ['Worn', 'Magic Item'],
-    special: 'Cannot be beguiled, put to sleep by magic, affected by remote viewing, or affected by telepathy.'
+    special: 'Cannot be beguiled, put to sleep by magic, seen or heard by scrying, or affected by telepathy.'
   },
   bootsOfFeatherFall: {
     key: 'bootsOfFeatherFall',
@@ -125,7 +152,7 @@ export const magicCompanions = {
     maxDurability: 1,
     cost: 50,
     tags: ['Magic Companion', 'Familiar'],
-    special: 'A small glowing fairy familiar.'
+    special: 'A small fairy familiar that can shine bright as a torch.'
   },
   skeletonServant: {
     key: 'skeletonServant',
