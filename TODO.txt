@@ -4,4 +4,3 @@
 - more colors
 - toasts
 - dark mode
-- add new panel for adding new skills and remove from current skills panel
