@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useCharacterContext } from 'context/CharacterContext'
 import EquipmentStoreSpellItem from './EquipmentStoreSpellItem'
 import HelpButton from 'shared/HelpButton'
