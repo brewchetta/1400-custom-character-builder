@@ -6,10 +6,11 @@ function HelpPopup({info, position}) {
   const div = useRef(null)
 
   // useRef will begin as null so we use state to do one re-render to register the div
-  const [loaded, setLoaded] = useState(false)
+  const setLoaded = useState(false)[1]
 
   useEffect(() => {
     setLoaded(true)
+    // eslint-disable-next-line
   }, [])
 
   // position => [cursorX,cursorY]

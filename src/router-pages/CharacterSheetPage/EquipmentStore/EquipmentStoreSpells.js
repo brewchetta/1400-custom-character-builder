@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useCharacterContext } from 'context/CharacterContext'
 import EquipmentStoreSpellItem from './EquipmentStoreSpellItem'
 import HelpButton from 'shared/HelpButton'
@@ -15,13 +15,13 @@ function EquipmentStoreSpells({ category = "spells", spells = [] }) {
   const toggleOpen = () => setIsOpen(isOpen => !isOpen)
 
   const characterSpells = category === "spells"
-  ? characterContext.currentCharacter.spells
-  : characterContext.currentCharacter.rituals
+  ? characterContext.currentCharacter.spells || []
+  : characterContext.currentCharacter.rituals || []
 
   const availableSpells = Object.keys(spells).filter(s => !characterSpells.includes(s))
 
   const renderedSpells = availableSpells.map( spellKey => (
-    <EquipmentStoreSpellItem key={ spellKey } spell={ spells[spellKey] } spellKey={ spellKey } />
+    <EquipmentStoreSpellItem key={ spellKey } spell={ spells[spellKey] } spellKey={ spellKey } category={category} />
   ) )
 
   const renderedHelpButton = (

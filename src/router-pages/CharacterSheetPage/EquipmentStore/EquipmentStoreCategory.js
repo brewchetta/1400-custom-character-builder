@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import EquipmentStoreItem from './EquipmentStoreItem'
 import HelpButton from 'shared/HelpButton'
 import { rulesGear } from 'data/rules'

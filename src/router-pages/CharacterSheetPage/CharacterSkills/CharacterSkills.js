@@ -5,6 +5,7 @@ import { rulesPlay } from 'data/rules'
 import { useEditableContext } from 'context/EditableContext'
 import { useStatusConditionsContext } from 'context/StatusConditionsContext'
 import { useCharacterContext } from 'context/CharacterContext'
+import triangleIcon from 'assets/images/triangle-icon.png'
 
 function CharacterSkills() {
 
@@ -29,15 +30,21 @@ function CharacterSkills() {
   }
 
   const renderedSkills = skillNames.map(skillKey => (
-    <li key={skillKey} className="skill-item">
+    <li key={skillKey} className={`skill-item margin-bottom-small ${editable ? 'centered' : null}`}
+    style={{fontSize: '0.9em'}}>
       {skillKey} [d{(!hindered && !injured) || editable ? skills[skillKey] : 4}{helped && ' + d6'}]
       {
         editable
         ?
-        <>
-          <button onClick={() => handleChangeSkill(skillKey, -2)}>-</button>
-          <button onClick={() => handleChangeSkill(skillKey, 2)}>+</button>
-        </>
+        <div className="centered">
+          <button className="border-none background-none" onClick={() => handleChangeSkill(skillKey, -2)}>
+            <img src={triangleIcon} alt={'decrease'} style={{ width: '0.6rem' }} />
+          </button>
+
+          <button className="border-none background-none" onClick={() => handleChangeSkill(skillKey, 2)}>
+            <img src={triangleIcon} alt={'increase'} style={{ width: '0.6rem', transform: 'rotate(180deg)' }} />
+          </button>
+        </div>
         :
         null
       }
