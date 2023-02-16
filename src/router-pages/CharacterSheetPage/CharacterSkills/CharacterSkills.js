@@ -1,5 +1,4 @@
 import CharacterStatusConditions from "./CharacterStatusConditions"
-import CharacterSkillsAdd from './CharacterSkillsAdd'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
 import { useEditableContext } from 'context/EditableContext'
@@ -69,8 +68,6 @@ function CharacterSkills() {
       </ul>
 
       <CharacterStatusConditions displayCondition={!editable} />
-
-      <CharacterSkillsAdd displayCondition={editable} currentSkills={skills} />
 
     </div>
   )

@@ -10,14 +10,14 @@ function CharacterStatusConditions() {
   return (
     <div>
       <button onClick={() => handleToggleCondition('hindered')}>
-      {statusConditions.hindered ? "Remove Hindered" : "Hindered"}
+      {statusConditions.hindered ? "Remove Injured/Hindered" : "Injured/Hindered"}
       </button>
 
-      <button onClick={() => handleToggleCondition('helped')}>
-      {statusConditions.helped ? "Remove Helped By Circumstance" : "Helped By Circumstance"}
-      </button>
     </div>
   )
 }
+// <button onClick={() => handleToggleCondition('helped')}>
+// {statusConditions.helped ? "Remove Helped By Circumstance" : "Helped By Circumstance"}
+// </button>
 
 export default ConditionalWrapper(CharacterStatusConditions)

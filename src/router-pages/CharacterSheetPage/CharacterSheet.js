@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import CharacterBio from './CharacterBio'
+import CharacterSkillsAdd from './CharacterSkillsAdd'
 import CharacterSkills from "./CharacterSkills"
 import CharacterEquipment from "./CharacterEquipment"
 import CharacterSpells from "./CharacterSpells"
@@ -33,6 +34,7 @@ function CharacterSheet() {
           <CharacterBio />
           <CharacterNotes />
           <CharacterSkills />
+          <CharacterSkillsAdd displayCondition={editable} />
           <CharacterSpells displayCondition={editable || currentCharacter.spells?.length} />
           <CharacterRituals displayCondition={editable || currentCharacter.rituals?.length} />
         </div>
