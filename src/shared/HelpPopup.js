@@ -6,7 +6,7 @@ function HelpPopup({info, position}) {
   const div = useRef(null)
 
   // useRef will begin as null so we use state to do one re-render to register the div
-  const setLoaded = useState(false)[0]
+  const setLoaded = useState(false)[1]
 
   useEffect(() => {
     setLoaded(true)
