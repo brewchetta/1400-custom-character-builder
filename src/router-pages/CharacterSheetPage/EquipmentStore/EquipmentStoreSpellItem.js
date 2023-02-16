@@ -9,9 +9,9 @@ function EquipmentStoreItem({ spell, spellKey, category = "spells" }) {
 
   const handleTakeSpell = () => {
     if (category === "spells") {
-      setCurrentCharacter( prev => ({ ...prev, spells: [ ...prev.spells, spellKey ] }))
+      setCurrentCharacter( prev => ({ ...prev, spells: [ ...prev.spells || [], spellKey ] }))
     } else if (category === "rituals") {
-      setCurrentCharacter( prev => ({ ...prev, rituals: [ ...prev.rituals, spellKey ] }))
+      setCurrentCharacter( prev => ({ ...prev, rituals: [ ...prev.rituals || [], spellKey ] }))
     }
   }
 

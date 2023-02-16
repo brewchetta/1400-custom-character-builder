@@ -2,6 +2,7 @@ import EquipmentStoreCategory from './EquipmentStoreCategory'
 import EquipmentStoreSpells from './EquipmentStoreSpells'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import spells from 'data/_spellsCore'
+import rituals from 'data/_ritualsCore'
 import useItems from 'hooks/useItems'
 
 function EquipmentStore() {
@@ -23,7 +24,8 @@ function EquipmentStore() {
 
         { renderedCategories }
 
-        <EquipmentStoreSpells name="spells" spells={spells} />
+        <EquipmentStoreSpells category="spells" spells={spells} />
+        <EquipmentStoreSpells category="rituals" spells={rituals} />
 
       </div>
 
