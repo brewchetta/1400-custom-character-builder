@@ -3,6 +3,7 @@ import CharacterBio from './CharacterBio'
 import CharacterSkills from "./CharacterSkills"
 import CharacterEquipment from "./CharacterEquipment"
 import CharacterSpells from "./CharacterSpells"
+import CharacterRituals from "./CharacterRituals"
 import CharacterNotes from "./CharacterNotes"
 import EquipmentStore from "./EquipmentStore"
 import { StatusConditionsContextProvider } from 'context/StatusConditionsContext'
@@ -32,7 +33,8 @@ function CharacterSheet() {
           <CharacterBio />
           <CharacterNotes />
           <CharacterSkills />
-          <CharacterSpells displayCondition={editable || currentCharacter.spells.length} />
+          <CharacterSpells displayCondition={editable || currentCharacter.spells?.length} />
+          <CharacterRituals displayCondition={editable || currentCharacter.rituals?.length} />
         </div>
 
         <CharacterEquipment />

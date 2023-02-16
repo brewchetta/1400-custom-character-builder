@@ -2,7 +2,6 @@ import ConditionalWrapper from 'shared/ConditionalWrapper'
 import Checkbox from 'shared/FormCheckbox'
 import { toSpinalCase } from 'utilities'
 import spellsObj from 'data/_spellsCore'
-import CharacterSpellsAdd from './CharacterSpellsAdd'
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
@@ -51,6 +50,8 @@ function CharacterSpells() {
         {renderedSpells}
 
       </ul>
+
+      { !spells?.length ? <span>You have no spells. You may pay to learn them from the shop.</span> : null }
 
     </div>
   )

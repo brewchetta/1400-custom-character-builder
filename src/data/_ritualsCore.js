@@ -89,4 +89,4 @@ const rituals = {
   },
 }
 
-export default spells
+export default rituals
