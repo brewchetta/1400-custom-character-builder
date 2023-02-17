@@ -17,8 +17,6 @@ function CharacterEquipment({ setStoreOpen }) {
     setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
   }
 
-  const handleScrollToStore = () => document.querySelector('#equipment-store-header').scrollIntoView({behavior: "smooth", block: "start"})
-
   const renderedItems = items.map(item => (
     <div key={item.key} className="background-white padding-small border-dark-grey flex-column space-between">
       <span className={ item.maxDurability && !item.durability ? "crossed-out" : null }>
