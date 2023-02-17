@@ -1,6 +1,5 @@
 import EquipmentStoreCategory from './EquipmentStoreCategory'
 import EquipmentStoreSpells from './EquipmentStoreSpells'
-import ConditionalWrapper from 'shared/ConditionalWrapper'
 import spells from 'data/_spellsCore'
 import rituals from 'data/_ritualsCore'
 import useItems from 'hooks/useItems'
@@ -35,4 +34,4 @@ function EquipmentStore() {
 
 }
 
-export default ConditionalWrapper(EquipmentStore)
+export default EquipmentStore

@@ -4,8 +4,9 @@ import HelpButton from "shared/HelpButton"
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
+import chestIcon from 'assets/images/chest-icon.png'
 
-function CharacterEquipment() {
+function CharacterEquipment({ setStoreOpen }) {
 
   const { editable } = useEditableContext()
 
@@ -56,15 +57,12 @@ function CharacterEquipment() {
 
     <>
 
-      <h3>Equipment {
-        editable
-        ?
-        <>
-          <button onClick={handleScrollToStore}>Buy Equipment</button>
-        </>
-        :
+      <h3>Equipment
+        <button onClick={ () => setStoreOpen(true) } className='help-button'>
+          <img src={chestIcon} alt={'Buy Equipment'} />
+        </button>
         <HelpButton info={rulesGear.management} />
-      }</h3>
+      </h3>
 
       <div className="grid-columns-medium standard-gap">
 

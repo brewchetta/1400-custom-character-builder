@@ -9,7 +9,6 @@ function SideDrawer({ isOpen=false, setIsOpen=setIsOpenNotDefinedWarning, childr
   const handleTransitionEnd = e => {
     if (!isOpen) {
       setVisible(false)
-      console.log("should be invisible");
     }
   }
 
