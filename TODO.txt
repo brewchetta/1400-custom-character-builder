@@ -1,5 +1,5 @@
-- decouple store from editing character
-- implement rituals
+- can manage equipment and gold from store
+- rewrite help blurbs to be more condensed
 - tutorial page (front page if no characters)
 - more colors
 - toasts
