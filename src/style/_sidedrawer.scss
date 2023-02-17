@@ -4,22 +4,22 @@
 
   position: fixed;
   top: 0;
-  height: 90vh;
+  height: 95vh;
   width: 90vw;
 
   background-color: white;
   box-shadow: -3px -5px 8px black;
 
-  transition: left 1s;
+  transition: right 1s;
 
   overflow-y: auto;
 
   &.open {
-    left: 10vw;
+    right: 0vw;
   }
 
   &.closed {
-    left: 100vw;
+    right: -100vw;
   }
 
 }
