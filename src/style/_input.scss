@@ -1,5 +1,11 @@
 input {
   transition: $color-transition-timing;
+
+  &:before {
+    position: relative;
+    z-index: -1;
+  }
+
 }
 
 button, input[type=button] {
@@ -35,9 +41,10 @@ button.icon-button {
   opacity: 0.7;
   transition: opacity 0.15s;
   z-index: 1;
+  width: $icon-button-size;
 
   img {
-    width: $icon-button-size;
+    width: inherit;
   }
 
   &:hover {
