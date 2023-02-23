@@ -3,20 +3,21 @@ const rulesPlay = {
     'Players describe what their characters do. The GM advises when their action is impossible, requires extra steps, demands a cost, or presents a risk. Players only roll to avoid risks.'
   ],
   rolling: [
-    `When faced with a challenge, roll a d6 skill die - higher with a relevant skill, or d4 if hindered by injury or circumstances. If helped by circumstances, roll an  extra d6; if helped by an ally, they roll their skill die and share the risk. Take the highest die.`,
-    `1-2 Disaster. Suffer the full risk. GM decides if you succeed at all. If risking death, you die.`,
-    `3-4 Setback. A lesser consequence or partial success. If risking death, you're maimed.`,
+    `When faced with a challenge, roll a d6 skill die - higher with a relevant skill, or d4 if injured or hindered.`,
+    `1-2 Disaster. Suffer the full risk. Storyteller decides if you succeed at all.`,
+    `3-4 Setback. A lesser consequence or partial success.`,
     `5+ Success. The higher the roll, the better.`,
-    `If success can't get you what you want, you'll at least get useful info or set up an advantage.`
+    `If success can't get you what you want, you'll at least get useful info or set up an advantage. The storyteller might increase how high you need to roll for difficult challenges.`
   ],
   spells: [
-    'Spells are described by their name. When you cast a spell, work with the storyteller to determine how the spell acts and any limitations it may have.',
-    'The storyteller may impose a challenge if the spell presents any sort of risk. This can include overexerting your character\'s magic and being unable to cast the spell until they replenish their powers.',
-    'If the spell has any risk associated to it, the roll for its challenge is Spellcasting',
-    'If a spell is currently unavailable, you can disable it by clicking the checkmark.'
+    'A spell\'s name describes it. Describe the spell when you cast it and the storyteller determines its limitations.',
+    'The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character\'s magic and being unable to cast the spell for a while.',
+    'If the spell has any risk, the roll is Spellcasting',
+    'You can disable a spell by clicking the checkmark.'
   ],
   rituals: [
-    'A learned ritual takes ten minutes to prepare and requires special components that the spell burns away. The components can be summoner’s chalk (2g), magic salt (2g), elemental dust (2g), the blood of a recently killed person, or the sacrifice of a rare animal or plant.',
+    'A ritual takes ten minutes to cast and uses up a magical supply with the ritual tag.',
+    'The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted for a magical supply.',
     'You roll a spellcasting challenge to see how successfully you prepared the ritual.',
   ],
   load: [
