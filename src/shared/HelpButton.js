@@ -18,7 +18,7 @@ function HelpButton({ info, className="", style={} }) {
   const handleMouseLeave = () => setOpen(false)
 
   return (
-    <button className={`help-button ${className}`}
+    <button className={`icon-button ${className}`}
       style={style}
       onClick={handleOpenHelp}
       onMouseLeave={handleMouseLeave}

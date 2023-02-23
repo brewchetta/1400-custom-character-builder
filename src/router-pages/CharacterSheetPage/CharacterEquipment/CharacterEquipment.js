@@ -56,7 +56,7 @@ function CharacterEquipment({ setStoreOpen }) {
     <>
 
       <h3>Equipment
-        <button onClick={ () => setStoreOpen(true) } className='help-button'>
+        <button onClick={ () => setStoreOpen(true) } className='icon-button'>
           <img src={chestIcon} alt={'Buy Equipment'} />
         </button>
         <HelpButton info={rulesGear.management} />
