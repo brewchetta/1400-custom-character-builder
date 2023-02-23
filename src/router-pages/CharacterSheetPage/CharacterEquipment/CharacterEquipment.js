@@ -1,5 +1,5 @@
 import CurrentGold from "./CurrentGold"
-import CharacterEquipmentDurability from "./CharacterEquipmentDurability"
+import CharacterEquipmentTile from "./CharacterEquipmentTile"
 import HelpButton from "shared/HelpButton"
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
@@ -18,38 +18,8 @@ function CharacterEquipment({ setStoreOpen }) {
   }
 
   const renderedItems = items.map(item => (
-    <div key={item.key} className="background-white padding-small border-dark-grey flex-column space-between">
-      <span className={ item.maxDurability && !item.durability ? "crossed-out" : null }>
-        { item.name }
-        {
-          editable
-          &&
-          <button className="text-dark-red border-none" onClick={ () => handleRemoveItem( item ) }>X</button>
-        }
-        <div>
-          {
-            item.special
-            &&
-            <>
-            <span> [{item.special}]</span>
-            </>
-          }
-        </div>
-        <div>
-          {
-            item.maxDurability
-            &&
-            <CharacterEquipmentDurability item={item} />
-          }
-        </div>
-      </span>
-      <span className="italic text-dark-grey">
-      {
-        item.tags.join(', ')
-      }
-      </span>
-    </div>
-  ))
+    <CharacterEquipmentTile key={item.key} item={item} handleRemoveItem={handleRemoveItem}  />
+  ) )
 
   return (
 

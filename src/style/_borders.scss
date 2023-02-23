@@ -12,9 +12,19 @@
   border-top: solid $color $standard-border-width;
 }
 
+@mixin border-bottom-colored($color) {
+  border-bottom: solid $color $standard-border-width;
+}
+
 @each $color-name, $color-value in $colors {
   .border-top-#{$color-name} {
     @include border-top-colored($color-value);
+  }
+}
+
+@each $color-name, $color-value in $colors {
+  .border-bottom-#{$color-name} {
+    @include border-bottom-colored($color-value);
   }
 }
 

@@ -10,7 +10,7 @@ const rulesGear = {
   management: [
     `If a character's equipment loses durability, click on one of its checkmarks. If it breaks it cannot be used.`,
     `You may replace or repair equipment at the storyteller's discretion.`,
-    `Click the chest icon to open the equipment store.`
+    `Click the chest icon to manage your equipment.`
   ],
   'common descriptions': {
     heavy: `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`,

@@ -16,30 +16,45 @@ function CurrentGold() {
     }
   }
 
+  // return (
+  //   !editable
+  //   ?
+  //   <div className="padding-small border-dark-grey flex-column space-between relative">
+  //     <HelpButton info={rulesGear.costs} className="position-top-right" />
+  //     <span>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</span>
+  //     <br/>
+  //     <span className="italic text-dark-grey">Currency</span>
+  //   </div>
+  //   :
+  //   (
+  //     <div className="padding-small border-dark-grey flex-column space-between">
+  //       <FormInput
+  //         name="Gold"
+  //         inputType="number"
+  //         labelText="Gold:"
+  //         value={gold}
+  //         onChange={handleChangeGold}
+  //       />
+  //       <br/>
+  //       <span className="italic text-dark-grey">Currency</span>
+  //     </div>
+  //   )
+  //
+  // )
+
   return (
-    !editable
-    ?
     <div className="padding-small border-dark-grey flex-column space-between relative">
       <HelpButton info={rulesGear.costs} className="position-top-right" />
-      <span>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</span>
+      <FormInput
+        name="Gold"
+        inputType="number"
+        labelText="Gold:"
+        value={gold}
+        onChange={handleChangeGold}
+      />
       <br/>
       <span className="italic text-dark-grey">Currency</span>
     </div>
-    :
-    (
-      <div className="padding-small border-dark-grey flex-column space-between">
-        <FormInput
-          name="Gold"
-          inputType="number"
-          labelText="Gold:"
-          value={gold}
-          onChange={handleChangeGold}
-        />
-        <br/>
-        <span className="italic text-dark-grey">Currency</span>
-      </div>
-    )
-
   )
 
 }

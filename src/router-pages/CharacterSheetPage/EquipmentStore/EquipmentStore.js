@@ -1,3 +1,4 @@
+import EquipmentStoreCharacterItems from './EquipmentStoreCharacterItems'
 import EquipmentStoreCategory from './EquipmentStoreCategory'
 import EquipmentStoreSpells from './EquipmentStoreSpells'
 import spells from 'data/_spellsCore'
@@ -8,8 +9,6 @@ function EquipmentStore() {
 
   const items = useItems()
 
-  // console.log('ITEMS: ', items);
-
   const renderedCategories = Object.keys( items ).map( key => (
     <EquipmentStoreCategory key={ key } name={ key } items={ items[key] } />
   ) )
@@ -18,6 +17,8 @@ function EquipmentStore() {
     <div>
 
       <h2 id="equipment-store-header" className="centered">Equipment Store</h2>
+
+      <EquipmentStoreCharacterItems />
 
       <div>
 
