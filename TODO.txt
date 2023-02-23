@@ -1,4 +1,5 @@
 - can manage equipment and gold from store
+- make drawers responsive
 - rewrite help blurbs to be more condensed
 - tutorial page (front page if no characters)
 - more colors
