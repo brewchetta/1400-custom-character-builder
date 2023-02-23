@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import BackButton from 'shared/BackButton'
 
 const setIsOpenNotDefinedWarning = () => console.warn('setIsOpen is not defined for SideDrawer.\nMake sure you pass it down as a prop.');
 
@@ -19,6 +20,7 @@ function SideDrawer({ isOpen=false, setIsOpen=setIsOpenNotDefinedWarning, childr
   return (
     <>
 
+
       { isOpen ? <div className="drawer-mask" onClick={ () => setIsOpen(false) } /> : null }
 
       <div
@@ -26,7 +28,7 @@ function SideDrawer({ isOpen=false, setIsOpen=setIsOpenNotDefinedWarning, childr
       onTransitionEnd={handleTransitionEnd}
       style={style}
       >
-
+        <BackButton onClick={() => setIsOpen(false)} />
 
         { visible ? children : null }
 
