@@ -11,8 +11,10 @@ function CharacterEquipmentTile({ item, handleRemoveItem, removeable=false }) {
         { item.name }
         {
           editable || removeable
-          &&
+          ?
           <button className="text-dark-red border-none" onClick={ () => handleRemoveItem( item ) }>X</button>
+          :
+          null
         }
         <div>
           {

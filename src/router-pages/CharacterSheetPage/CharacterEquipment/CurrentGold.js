@@ -1,12 +1,9 @@
 import FormInput from "shared/FormInput"
 import { useCharacterContext } from 'context/CharacterContext'
-import { useEditableContext } from 'context/EditableContext'
 import HelpButton from 'shared/HelpButton'
 import { rulesGear } from 'data/rules'
 
 function CurrentGold() {
-
-  const { editable } = useEditableContext()
 
   const { currentCharacter: { gold }, setCurrentCharacter } = useCharacterContext()
 

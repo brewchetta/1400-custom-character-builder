@@ -3,12 +3,9 @@ import CharacterEquipmentTile from "./CharacterEquipmentTile"
 import HelpButton from "shared/HelpButton"
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
-import { useEditableContext } from 'context/EditableContext'
 import chestIcon from 'assets/images/chest-icon.png'
 
 function CharacterEquipment({ setStoreOpen }) {
-
-  const { editable } = useEditableContext()
 
   const { currentCharacter: { items }, setCurrentCharacter } = useCharacterContext()
 
