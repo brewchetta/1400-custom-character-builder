@@ -3,9 +3,9 @@ const rulesGear = {
     `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`
   ],
   costs: [
-    `You can collect gold pieces during your adventures or as a reward for completing them. Things like food, drinks, and rooms are considered negligible costs and aren't generally tracked. `,
-    `The storyteller may occasionally make losing gold a risk as part of a rolled challenge.`,
-    `You can spend gold in the store for additional items or spells.`
+    `Collect gold during your adventures or as rewards.`,
+    `Food, drinks, and rooms are negligible costs and aren't tracked.`,
+    `You can spend gold in the store for additional items or to learn spells.`
   ],
   management: [
     `If a character's equipment loses durability, click on one of its checkmarks. If it breaks it cannot be used.`,
@@ -13,69 +13,69 @@ const rulesGear = {
     `Click the chest icon to manage your equipment.`
   ],
   'common descriptions': {
-    heavy: `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`,
+    heavy: `Characters can carry one heavy item at a time.`,
     'one hand': `Characters can hold two one handed items at a time.`,
     'two hand': `Characters can hold only one two handed item at a time.`,
-    weapon: `This item is a weapon. Without a weapon, you cannot fight enemies in combat challenges.`,
-    armour: `When a character would be injured, a piece of armour is instead damaged. Mark off one piece of its durability.`,
-    worn: `Characters must wear this item to gain its benefits. Only one piece of armour can be worn at a time.`,
+    weapon: `This item is a weapon. You can't fight without one.`,
+    armour: `Mark off one piece of armour durability to avoid being injured.`,
+    worn: `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`,
   },
   'armour descriptions': {
-    armour: `When a character would be injured and they're wearing armour that still has durability, a piece of armour of their choice is damaged instead. Mark off one durability for it.`,
-    worn: `Characters must wear this item to gain its benefits. Only one piece of armour can be worn at a time.`,
+    armour: `Mark off one piece of armour durability to avoid being injured.`,
+    worn: `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`,
     'one hand': `Characters can hold two one handed items at a time.`,
-    heavy: `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`,
+    heavy: `Characters can carry one heavy item at a time.`,
   },
   'weapon descriptions': {
-    weapon: `This item is a weapon. Without a weapon, you cannot fight enemies in combat challenges.`,
+    weapon: `This item is a weapon. You can't fight without one.`,
     'light weapon': `A smaller one handed weapon that anyone can pick up and use.`,
-    'martial weapon': `A heavy weapon that grants a bonus to certain types of combat rolls.`,
-    bow: `This weapon can attack enemies at a range. Characters always have enough ammunition unless they have lost it as part of the risk in a challenge.`,
-    heavy: `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`,
+    'martial weapon': `A strong weapon that grants a bonus in combat.`,
+    bow: `Can attack enemies at a range. Characters always have enough ammunition for it.`,
+    heavy: `Characters can carry one heavy item at a time.`,
   },
   'tool descriptions': {
-    tool: `An item with a variety of uses.`
+    tool: `An item with a variety of uses. Can be used up or broken.`
   },
   'supply descriptions': {
-    supply: `An item that may be destroyed or consumed as they're used or as part of a risk. They can be refilled or repaired at the storyteller's discretion.`
+    supply: `Items that may be destroyed or consumed as they're used or as part of a risk. Can be refilled or repaired.`
   },
   'vehicle descriptions':  {
-    vehicle: `Can be used to more easily move from location to location. Vehicles can only transport a certain number of characters and can only be carried at the storyteller's discretion.`
+    vehicle: `Can be used to more quickly get around. Vehicles can only transport a certain number of characters.`
   },
   'animal companion descriptions': {
-    'animal companion': `Act as characters in their own right. Animal companions will follow your commands but may act of their own accord, be injured, or die at the storyteller's discretion.`
+    'animal companion': `Will follow your commands but may act on their own, be injured, or die.`
   },
   'magic companion descriptions': {
-    'magic companion': `Act as characters in their own right. Magic companions will follow your commands but may act of their own accord, be injured, or die at the storyteller's discretion.`,
+    'magic companion': `Will follow your commands but may act on their own, be injured, or die.`,
     familiar: `A smaller companion bound magically to your will.`,
-    'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
   },
   'magic vehicle descriptions': {
-    vehicle: `Can be used to more easily move from location to location. Vehicles can only transport a certain number of characters and can only be carried at the storyteller's discretion.`,
-    'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    vehicle: `Can be used to more quickly get around. Vehicles can only transport a certain number of characters.`,
+    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
   },
   'magic tool descriptions': {
-    tool: `An item with a variety of uses.`,
-    'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    tool: `An item with a variety of uses. Can be used up or broken.`,
+    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
   },
   'magic supply descriptions': {
-    supply: `An item that may be destroyed or consumed as they're used or as part of a risk. They can be refilled or repaired at the storyteller's discretion.`,
-    potion: `A brewed item that has an immediate magic effect when completely consumed.`,
-    'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    supply: `Items that may be destroyed or consumed as they're used or as part of a risk. Can be refilled or repaired.`,
+    potion: `Brewed item that has an immediate magic effect when completely consumed.`,
+    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
   },
   'magic weapon descriptions': {
-    weapon: `This item is a weapon. Without a weapon, you cannot fight enemies in combat challenges.`,
+    weapon: `This item is a weapon. You can't fight without one.`,
     'light weapon': `A smaller one handed weapon that anyone can pick up and use.`,
-    'martial weapon': `A heavy weapon that grants a bonus to certain types of combat rolls.`,
-    bow: `This weapon can attack enemies at a range. Characters always have enough ammunition unless they have lost it as part of the risk in a challenge.`,
-    heavy: `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`,
-    'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    'martial weapon': `A strong weapon that grants a bonus in combat.`,
+    bow: `Can attack enemies at a range. Characters always have enough ammunition for it.`,
+    heavy: `Characters can carry one heavy item at a time.`,
+    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
   },
   'magic armor descriptions': {
-    armour: `When a character would be injured and they're wearing armour that still has durability, a piece of armour of their choice is damaged instead. Mark off one durability for it.`,
-    worn: `Characters must wear this item to gain its benefits. Only one piece of armour can be worn at a time.`,
+    armour: `Mark off one piece of armour durability to avoid being injured.`,
+    worn: `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`,
     'one hand': `Characters can hold two one handed items at a time.`,
-    heavy: `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`,
+    heavy: `Characters can carry one heavy item at a time.`,
     'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
   },
 
