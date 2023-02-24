@@ -1,11 +1,26 @@
 import FormInput from "shared/FormInput"
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
+import IconButton from 'shared/IconButton'
 import { rulesGear } from 'data/rules'
+import plusIcon from 'assets/images/plus-circle.png'
+import minusIcon from 'assets/images/minus-circle.png'
 
 function CurrentGold() {
 
   const { currentCharacter: { gold }, setCurrentCharacter } = useCharacterContext()
+
+  const handleAddGold = () => {
+    if (gold < 999) {
+      setCurrentCharacter( prev => ({...prev, gold: prev.gold + 1}) )
+    }
+  }
+
+  const handleSubtractGold = () => {
+    if (gold > 0) {
+      setCurrentCharacter( prev => ({...prev, gold: prev.gold - 1}) )
+    }
+  }
 
   const handleChangeGold = ({ target: { value } }) => {
     if ( parseInt(value) >= 0 ) {
@@ -13,42 +28,16 @@ function CurrentGold() {
     }
   }
 
-  // return (
-  //   !editable
-  //   ?
-  //   <div className="padding-small border-dark-grey flex-column space-between relative">
-  //     <HelpButton info={rulesGear.costs} className="position-top-right" />
-  //     <span>{gold ? `${gold} Gold` : 'An Empty Coin Purse'}</span>
-  //     <br/>
-  //     <span className="italic text-dark-grey">Currency</span>
-  //   </div>
-  //   :
-  //   (
-  //     <div className="padding-small border-dark-grey flex-column space-between">
-  //       <FormInput
-  //         name="Gold"
-  //         inputType="number"
-  //         labelText="Gold:"
-  //         value={gold}
-  //         onChange={handleChangeGold}
-  //       />
-  //       <br/>
-  //       <span className="italic text-dark-grey">Currency</span>
-  //     </div>
-  //   )
-  //
-  // )
-
   return (
     <div className="padding-small border-dark-grey flex-column space-between relative">
       <HelpButton info={rulesGear.costs} className="position-top-right" />
-      <FormInput
-        name="Gold"
-        inputType="number"
-        labelText="Gold:"
-        value={gold}
-        onChange={handleChangeGold}
-      />
+      <label>Gold:</label>
+      <p>
+        <IconButton src={minusIcon} onClick={handleSubtractGold} style={{top: '0.1em', position: 'relative'}} />
+        {` ${gold}`}
+        <IconButton src={plusIcon} onClick={handleAddGold} style={{top: '0.1em', position: 'relative'}} />
+      </p>
+
       <br/>
       <span className="italic text-dark-grey">Currency</span>
     </div>
