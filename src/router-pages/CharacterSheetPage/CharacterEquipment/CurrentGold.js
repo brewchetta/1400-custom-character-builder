@@ -1,4 +1,3 @@
-import FormInput from "shared/FormInput"
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
 import IconButton from 'shared/IconButton'
@@ -10,21 +9,11 @@ function CurrentGold() {
 
   const { currentCharacter: { gold }, setCurrentCharacter } = useCharacterContext()
 
-  const handleAddGold = () => {
-    if (gold < 999) {
-      setCurrentCharacter( prev => ({...prev, gold: prev.gold + 1}) )
-    }
-  }
+  const handleAddGold = () => setCurrentCharacter( prev => ({...prev, gold: prev.gold + 1}) )
 
   const handleSubtractGold = () => {
     if (gold > 0) {
       setCurrentCharacter( prev => ({...prev, gold: prev.gold - 1}) )
-    }
-  }
-
-  const handleChangeGold = ({ target: { value } }) => {
-    if ( parseInt(value) >= 0 ) {
-      setCurrentCharacter( prev => ({ ...prev, gold: parseInt(value) }) )
     }
   }
 
