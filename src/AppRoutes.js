@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import NewCharacterForm from 'router-pages/NewCharacterFormPage'
 import CharacterSheet from 'router-pages/CharacterSheetPage/'
 import CharactersIndex from 'router-pages/CharactersIndexPage'
+import Rulebook from 'router-pages/RulebookPage'
 import { CharacterContextProvider } from 'context/CharacterContext'
 import { EditableContextProvider } from 'context/EditableContext'
 
@@ -22,6 +23,7 @@ function AppRoutes(props) {
           </CharacterContextProvider>
         </EditableContextProvider>
       } />
+      <Route path='rulebook' element={<Rulebook />} />      
     </Routes>
   )
 }
