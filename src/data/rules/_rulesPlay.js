@@ -7,7 +7,8 @@ const rulesPlay = {
     `1-2 Disaster. Suffer the full risk. Storyteller decides if you succeed at all.`,
     `3-4 Setback. A lesser consequence or partial success.`,
     `5+ Success. The higher the roll, the better.`,
-    `If success can't get you what you want, you'll at least get useful info or set up an advantage. The storyteller might increase how high you need to roll for difficult challenges.`
+    `If success can't get you what you want, you'll at least get useful info or set up an advantage.`,
+    `The storyteller might increase how high you need to roll for more difficult challenges.`
   ],
   spells: [
     'A spell\'s name describes it. Describe the spell when you cast it and the storyteller determines its limitations.',
@@ -24,13 +25,13 @@ const rulesPlay = {
     `Carry as much as makes sense, but more than one heavy item may hinder you at times.`
   ],
   advancement: [
-    `After an adventure, increase a skill (none→d8→d10→d12). At the discretion of the storyteller, gain d6 gold pieces (GP).`
+    `After an adventure, increase a skill by editing your character (none→d8→d10→d12). Your storyteller may award you gold as well (usually d6 to each member).`
   ],
   defence: [
     `Say how one of your items breaks to turn a hit into a brief hindrance. Broken gear is useless until repaired.`
   ],
   harm: [
-    `Injuries hinder, and heal with time or aid. If killed, make a new character to be introduced ASAP. Favour inclusion over realism.`
+    `Injuries hinder, and heal with time, magic, or potions. If killed, make a new character to be introduced ASAP. Favour inclusion over realism.`
   ],
   'game mastery': [
     `Lead the group in setting lines not to cross in play. Fast-forward, pause, or rewind`,
