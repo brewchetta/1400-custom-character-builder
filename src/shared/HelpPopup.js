@@ -6,7 +6,7 @@ function HelpPopup({info, position}) {
   const div = useRef(null)
 
   // useRef will begin as null so we use state to do one re-render to register the div
-  const setLoaded = useState(false)[1]
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     setLoaded(true)
@@ -25,7 +25,8 @@ function HelpPopup({info, position}) {
     right: `${windowWidth - (position[0] + 250) > 40 ? null : windowWidth - position[0] }px`,
     top: `${position[1] + divHeight < windowHeight ? position[1] : position[1] - divHeight }px`,
     width: '250px',
-    zIndex: 1
+    zIndex: 1,
+    display: loaded ? null : 'hidden'
   }
 
   const classNames = "text-black text-align-left margin-medium"
