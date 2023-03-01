@@ -40,6 +40,7 @@ const rulesPlay = {
   ],
   'custom rules': {
     'ancestries expanded': `Adds additional ancestries for player characters to choose from.`,
+    'skygarden': `Adds additional ancestries for players to choose from based on the custom Skygarden setting.`,
     'extended D&D classes': `Adds additional classes based on those found in dungeons and dragons. (Made by Nate)`,
     'draochtlan': `Replaces ancestries to match the custom Draochtlan setting. Cannot be used with other rules that change ancestries. (Made by Nate)`,
   }
