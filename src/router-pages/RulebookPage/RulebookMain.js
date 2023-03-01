@@ -7,7 +7,7 @@ function TutorialMain(props) {
 
       <RulePanel rule={rules.play} />
 
-      <RulePanel rule={rules.rolling} />
+      <RulePanel rule={rules.rolling} className="dice-background" />
 
       <RulePanel rule={rules.spells} />
 
