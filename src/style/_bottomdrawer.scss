@@ -3,9 +3,9 @@
   z-index: 10;
 
   position: fixed;
-  top: 20svh;
+  top: 10svh;
   left: 50svw;
-  height: 95svh;
+  height: 85svh;
   width: 90svw;
 
   transition: top 1s;
@@ -15,7 +15,7 @@
   overflow-y: auto;
 
   &.open {
-    top: 20svh;
+    top: 10svh;
   }
 
   &.closed {

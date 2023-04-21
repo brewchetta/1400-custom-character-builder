@@ -14,6 +14,16 @@ function CharactersIndex(props) {
     setCharacters(getLocalCharacters())
   }, [])
 
+  const renderCharacters = characters.map(c => (
+    <Link key={c.id}
+    to={`characters/${toSpinalCase(c.name)}/${c.id}`}
+    className="text-white chalkboard no-decoration centered padding-medium swatch-hover-background-alternating">
+      <span>{c.name}</span>
+      <br/>
+      <span style={{fontSize: '0.8em'}}>{c.ancestry} {c.className}</span>
+    </Link>
+  ))
+
   return (
 
     <div className="text-white chalkboard chalk-background padding-large" style={{position: 'relative'}}>
@@ -25,17 +35,7 @@ function CharactersIndex(props) {
 
       <div className="grid-columns-medium padding-medium">
 
-      {
-        characters.map(c => (
-          <Link key={c.id}
-          to={`characters/${toSpinalCase(c.name)}/${c.id}`}
-          className="text-white chalkboard no-decoration centered padding-medium swatch-hover-background-alternating">
-            <span>{c.name}</span>
-            <br/>
-            <span style={{fontSize: '0.8em'}}>{c.ancestry} {c.className}</span>
-          </Link>
-        ))
-      }
+        { renderCharacters }
 
       </div>
 

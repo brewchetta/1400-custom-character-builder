@@ -1,4 +1,4 @@
-const rulesPlay = {
+const rulesTutorial = {
   welcome: [
     `This is 1400 plus. This is a tabletop roleplaying game (TTRPG) set in a fantasy world of your choosing.`,
     `You can play this game with any number of people but we recommend between 3 and 7 players. One of you will be the storyteller who is similar to the dungeon master or game master while everyone else roleplays as an adventurer of their own invention.`,
@@ -55,4 +55,4 @@ const rulesPlay = {
   }
 }
 
-export default rulesPlay;
+export default rulesTutorial;

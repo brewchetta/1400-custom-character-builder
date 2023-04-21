@@ -1,4 +1,4 @@
-import rules from 'data/rules/_rulesPlay'
+import rules from 'data/rules/_rulesTutorial'
 import RulebookNav from "./RulebookNav"
 import RulePanel from "./RulePanel"
 
