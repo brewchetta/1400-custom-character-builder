@@ -1,6 +1,11 @@
+import { Link, useParams } from 'react-router-dom'
 import { capitalize } from 'utilities'
 
-function RulePanel({ rule, style={}, className='' }) {
+function RulePanel({ rule, style={}, className='', nav }) {
+
+  const params = useParams()
+
+  const isOpen = nav === params.nav ? 'open' : 'closed'
 
   const renderedInfo = (
     Array.isArray(rule) ? rule.map((section, i) => <p key={i} >{section}</p>)
@@ -9,7 +14,10 @@ function RulePanel({ rule, style={}, className='' }) {
   )
 
   return (
-    <div className={`${className} border-black background-white padding-medium margin-medium`} style={style}>
+    <div className={`${className} border-black background-white padding-medium bottom-drawer ${isOpen}`}
+    style={{...style }}>
+      <Link to="/rulebook">Back</Link>
+      <h1 className="text-align-center">{capitalize(nav)}</h1>
       { renderedInfo }
     </div>
   )

@@ -10,6 +10,7 @@ import { EditableContextProvider } from 'context/EditableContext'
 // - NewCharacterForm
 // - CharactersIndex
 // - CharacterSheet
+// - Rulebook (with activeCard param too)
 
 function AppRoutes(props) {
   return (
@@ -23,7 +24,8 @@ function AppRoutes(props) {
           </CharacterContextProvider>
         </EditableContextProvider>
       } />
-      <Route path='rulebook' element={<Rulebook />} />      
+      <Route path='rulebook' element={<Rulebook />} />
+      <Route path='rulebook/:nav' element={<Rulebook />} />
     </Routes>
   )
 }

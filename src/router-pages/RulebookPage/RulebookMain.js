@@ -1,27 +1,33 @@
 import rules from 'data/rules/_rulesPlay'
+import RulebookNav from "./RulebookNav"
 import RulePanel from "./RulePanel"
 
 function TutorialMain(props) {
+
+  const navOptions = ['play', 'rolling', 'spells', 'rituals', 'load', 'advancement', 'defense', 'harm', 'game mastery']
+
   return (
-    <div className="grid-columns-large">
+    <div className="">
 
-      <RulePanel rule={rules.play} />
+      <RulebookNav navOptions={navOptions} nav={''} />
 
-      <RulePanel rule={rules.rolling} className="dice-background" />
+      <RulePanel rule={rules.play} nav={'play'} />
 
-      <RulePanel rule={rules.spells} />
+      <RulePanel rule={rules.rolling} nav={'rolling'} className="dice-background" />
 
-      <RulePanel rule={rules.rituals} />
+      <RulePanel rule={rules.spells} nav={'spells'} />
 
-      <RulePanel rule={rules.load} />
+      <RulePanel rule={rules.rituals} nav={'rituals'} />
 
-      <RulePanel rule={rules.advancement} />
+      <RulePanel rule={rules.load} nav={'load'} />
 
-      <RulePanel rule={rules.defence} />
+      <RulePanel rule={rules.advancement} nav={'advancement'} />
 
-      <RulePanel rule={rules.harm} />
+      <RulePanel rule={rules.defence} nav={'defense'} />
 
-      <RulePanel rule={rules['game mastery']} />
+      <RulePanel rule={rules.harm} nav={'harm'} />
+
+      <RulePanel rule={rules['game mastery']} nav={'game mastery'} />
 
     </div>
   )
