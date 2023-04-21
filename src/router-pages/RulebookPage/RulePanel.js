@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import BackButton from 'shared/BackButton'
 import { capitalize } from 'utilities'
 
 function RulePanel({ rule, style={}, className='', nav }) {
@@ -16,7 +17,9 @@ function RulePanel({ rule, style={}, className='', nav }) {
   return (
     <div className={`${className} border-black background-white padding-medium bottom-drawer ${isOpen}`}
     style={{...style }}>
-      <Link to="/rulebook">Back</Link>
+      <Link to="/rulebook">
+        <BackButton onClick={() => 'clicked!'} />
+      </Link>
       <h1 className="text-align-center">{capitalize(nav)}</h1>
       { renderedInfo }
     </div>

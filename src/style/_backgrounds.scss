@@ -57,6 +57,14 @@
   @include image-background-mixin('../assets/images/dice-sizes.png', center center)
 }
 
+.searching-background {
+  @include image-background-mixin('../assets/images/searching-docs.png', center center)
+}
+
+.spellbook-background {
+  @include image-background-mixin('../assets/images/spellbook.png', center center)
+}
+
 //// PAINT SWATCH ON HOVER ////
 
 @mixin swatch-hover-mixin( $hue-rotate, $grayscale, $brightness ) {
