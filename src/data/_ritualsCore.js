@@ -1,14 +1,14 @@
 const rituals = {
   alarmWard: {
     name: 'Alarm Ward',
-    cost: 3
+    cost: 5
   },
   arcaneLock: {
     name: 'Arcane Lock',
-    cost: 3
+    cost: 5
   },
   changeWeather: {
-    name: 'changeWeather',
+    name: 'Change Weather',
     cost: 10
   },
   circleOfPlantGrowth: {
@@ -85,7 +85,7 @@ const rituals = {
   },
   waterBreathing: {
     name: 'Water Breathing',
-    cost: 3
+    cost: 5
   },
 }
 

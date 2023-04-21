@@ -35,10 +35,6 @@ const spells = {
     name: 'Fireball',
     cost: 2
   },
-  flight: {
-    name: 'Flight',
-    cost: 2
-  },
   floatingHand: {
     name: 'Floating Hand',
     cost: 2
@@ -141,6 +137,10 @@ const spells = {
   },
   visualIllusion: {
     name: 'Visual Illusion',
+    cost: 2
+  },
+  wingsOfFlight: {
+    name: 'Wings of Flight',
     cost: 2
   },
   wordOfCommand: {
