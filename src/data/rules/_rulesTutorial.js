@@ -4,27 +4,32 @@ const rulesTutorial = {
     `You can play this game with any number of people but we recommend between 3 and 7 players. One of you will be the storyteller who is similar to the dungeon master or game master while everyone else roleplays as an adventurer of their own invention.`,
   ],
   storyteller: [
-    `In some way the storyteller wears many hats during the adventure. They describe the places you are, they roleplay as the characters your adventurers will meet.`,
-    `A storyteller also embodies the dangers you face along the way whether they're monsters, traps, or evil magics. They will throw obstacles in your way to heighten the challenge and make the story more exciting. They're not meant to be an adversary, just to make the story that much more interesting.`,
-    `Gameplay generally revolves around the adventurers with the storyteller filling in the details of the world and setting up challenges to overcome. While the storyteller may do things to move the story forward, it's up to the players to move forward and pursue their quests.`,
+    `The storyteller wears many hats during the adventure. They describe the places you are and roleplay the characters you will meet.`,
+    `A storyteller also embodies the dangers you face along the way whether they're monsters, traps, or evil magics. They'll also throw obstacles in your way to heighten the challenge and make the story more exciting. It's important to remember that the storyteller isn't your adversary, they're just there to make the story more interesting.`,
+    `Gameplay revolves around your adventurers while the storyteller fills in the details of the world and sets challenges to overcome. While the storyteller may do things to facilitate, it's up to the players to move forward and pursue their quests.`,
   ],
-  challenges: [
+  dice: [
+    `There are many types of dice in this game and you'll use all of them at one point or another.`,
+    `A dice's size is determined by the number of sides it has. We use a special notation to show how big a dice is. A d4 is a four sided dice, a d6 is a six sided dice, so on and so forth. The largest dice in this game is the d20, a special dice for special occasions.`,
+    `Dice are most often used for character skills. If a skill is a d8 for example, you'll roll with a d8 when you roll for that skill.`
+  ],
+  "dice challenges": [
     `Players embody their characters in the game's world. Whenever you'd like to do something, just tell everyone what it is you'd like to do.`,
     `The storyteller will tell you if something is impossible. For example, just stating you'd like to jump to the roof of a ten story building without tools or magic probably won't work.`,
-    `If something is possible but challenging you'll a dice for your challenge depending on the type of skill you want to use for it. For example, if you wanted to defeat an animated skeleton with a sword the storyteller will tell you the risks and ask you to roll for melee combat. If you succeed then you destroy the skeleton, if you fail then...`,
-    `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. Not rolling well enough means you suffer the risk's consequences. In the example above, the risk might be that the skeleton injures you with the crude club in its hand.`,
-    `The storyteller should always mention the risk when giving you a challenge in addition to the skill you need to roll (for example melee combat like above). The skill determines which dice you roll. If you're not trained in a skill then you roll a d6, if you're hindered or injured you roll a d4, if you're especially well trained you might roll a d12.`,
+    `If something is possible but challenging you'll roll a dice depending on the skill you want to overcome it with. For example, if you wanted to defeat an undead skeleton and you had a sword then you could declare you want to fight it in Melee Combat and the storyteller tells you the risks. You roll that skill and if you succeed then you destroy the skeleton, if you fail then you suffer the risk.`,
+    `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. If you don't succed or only partially succeed then you'll suffer the risk's consequences. In the example above, the risk might be that the skeleton injures you. The storyteller should always mention the risk when giving a challenge.`,
+    `Each skill will have a dice size associated with it, and that's the dice you'll roll for the skill. If you're not trained in a skill then you roll a d6 and if you're hindered or injured you roll a d4. Normally the highest you can roll for a skill is a d12.`,
+    `When you roll a dice, consult below to determine what happens:`,
     `1-2 Disaster. Suffer the full risk. Storyteller decides if you succeed at all.`,
     `3-4 Setback. A lesser consequence or partial success.`,
     `5+ Success. The higher the roll, the better.`,
-    `If success can't get you what you want, you'll at least get useful info or set up an advantage.`,
-    `The storyteller might increase these numbers for more difficult challenges.`
+    `If success can't get you what you want, you'll at least get useful info or set up some sort of future advantage for the people around you. At the very least you'll be rewarded with knowledge.`,
+    `The storyteller might increase these numbers for more difficult challenges but will inform you beforehand.`
   ],
   spells: [
-    'A spell\'s name describes it. Describe the spell when you cast it and the storyteller determines its limitations.',
-    'The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character\'s magic and being unable to cast the spell for a while.',
-    'If the spell has any risk, the roll is Spellcasting',
-    'You can disable a spell by clicking the checkmark.'
+    'A spell\'s name describes what it does. You can add your own more specific description or interpretation to the spell when you cast it and the storyteller determines its limitations.',
+    'The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character\'s magic and being unable to cast the spell for a while. You can disable a spell by clicking the checkmark.',
+    'If the spell has any risk, the roll is Spellcasting.',
   ],
   rituals: [
     'A ritual takes ten minutes to cast and uses up a magical supply with the ritual tag.',
