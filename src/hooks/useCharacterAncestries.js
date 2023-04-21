@@ -3,7 +3,7 @@ import coreAncestries from 'data/_ancestriesCore'
 import draochtlanAncestries from 'data/_ancestriesDraochtlan'
 import expandedAncestries from 'data/_ancestriesExpanded'
 import skygardenAncestries from 'data/_ancestriesSkygarden'
-import { core, draochtlan, ancestriesExpanded, skygarden } from 'data/_rulesets'
+import { core, draochtlan, ancestriesExpanded, /*skygarden*/ } from 'data/_rulesets'
 
 export default function useCharacterAncestries(ruleset = core) {
   const [ancestries, setAncestries] = useState(coreAncestries)
@@ -12,9 +12,9 @@ export default function useCharacterAncestries(ruleset = core) {
 
     setAncestries(prev => coreAncestries)
 
-    if (ruleset.includes(skygarden)) {
-      setAncestries(prev => ({...prev, ...skygardenAncestries}))
-    }
+    // if (ruleset.includes(skygarden)) {
+    //   setAncestries(prev => ({...prev, ...skygardenAncestries}))
+    // }
 
     if (ruleset.includes(draochtlan)) {
       setAncestries(prev => draochtlanAncestries)
