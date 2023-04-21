@@ -7,7 +7,7 @@ function RulebookNav({navOptions}) {
   const isOpen = !params.nav ? 'open' : 'closed'
 
   return (
-    <div className={`border-black background-white padding-medium bottom-drawer text-align-center ${isOpen}`}>
+    <div className={`border-black padding-medium bottom-drawer text-align-center semi-transparent-background ${isOpen}`}>
       <h1>Rulebook</h1>
       <div className='grid-columns-medium padding-top-small' style={{gridGap: '3em'}}>
         {
