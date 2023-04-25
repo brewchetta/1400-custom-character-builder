@@ -1,22 +1,26 @@
 const rulesTutorial = {
   welcome: [
     `This is 1400 plus. This is a tabletop roleplaying game (TTRPG) set in a fantasy world of your choosing.`,
-    `You can play this game with any number of people but we recommend between 3 and 7 players. One of you will be the storyteller who is similar to the dungeon master or game master while everyone else roleplays as an adventurer of their own invention.`,
+    `You can play this game with any number of people but we recommend between 3 and 7 players. One of you will be the storyteller who is similar to the dungeon master or game master in other games while everyone else roleplays as an adventurer of their own invention.`,
+    `You can learn more about the players, characters, storyteller, and the world in other sections of the tutorial.`,
+    `If a rule in this guide conflicts with another rule, the more specific rule takes precedence.`
   ],
   storyteller: [
     `The storyteller wears many hats during the adventure. They describe the places you are and roleplay the characters you will meet.`,
-    `A storyteller also embodies the dangers you face along the way whether they're monsters, traps, or evil magics. They'll also throw obstacles in your way to heighten the challenge and make the story more exciting. It's important to remember that the storyteller isn't your adversary, they're just there to make the story more interesting.`,
+    `A storyteller also embodies the dangers you face along the way whether they're monsters, traps, or evil magics. These obstacles heighten the challenge and make the story more exciting. It's important to remember that the storyteller isn't your adversary, they're just there to make the story more interesting.`,
     `Gameplay revolves around your adventurers while the storyteller fills in the details of the world and sets challenges to overcome. While the storyteller may do things to facilitate, it's up to the players to move forward and pursue their quests.`,
+    `Finally, the storyteller also arbitrates the rules, if you could consider a world with elves, orcs, and magic to be something with rules. It's up to the storyteller to decide whether an action is reasonable or unrealistic.`,
   ],
   dice: [
     `There are many types of dice in this game and you'll use all of them at one point or another.`,
     `A dice's size is determined by the number of sides it has. We use a special notation to show how big a dice is. A d4 is a four sided dice, a d6 is a six sided dice, so on and so forth. The largest dice in this game is the d20, a special dice for special occasions.`,
-    `Dice are most often used for character skills. If a skill is a d8 for example, you'll roll with a d8 when you roll for that skill.`
+    `Dice are most often used for character skills. If a skill is a d8 for example, any attempts you make with that skill uses a d8 to roll.`,
+    `Every once in a while your character might be hindered. This might happen when you're attempting Ranged Combat in a heavy fog, Sneaking in plain sight, or you've been injured and struggle to cast your spells. When hindered, your character rolls ALL skills with a d4 regardless of their training.`
   ],
-  "dice challenges": [
+  challenges: [
     `Players embody their characters in the game's world. Whenever you'd like to do something, just tell everyone what it is you'd like to do.`,
     `The storyteller will tell you if something is impossible. For example, just stating you'd like to jump to the roof of a ten story building without tools or magic probably won't work.`,
-    `If something is possible but challenging you'll roll a dice depending on the skill you want to overcome it with. For example, if you wanted to defeat an undead skeleton and you had a sword then you could declare you want to fight it in Melee Combat and the storyteller tells you the risks. You roll that skill and if you succeed then you destroy the skeleton, if you fail then you suffer the risk.`,
+    `If something is possible but challenging you'll roll a dice depending on the skill you want to use to overcome. For example, if you wanted to defeat an undead skeleton and you had a sword then you could declare you want to fight it in Melee Combat and the storyteller tells you the risks. You roll that skill and if you succeed then you destroy the skeleton, if you fail then you suffer the stated risk.`,
     `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. If you don't succed or only partially succeed then you'll suffer the risk's consequences. In the example above, the risk might be that the skeleton injures you. The storyteller should always mention the risk when giving a challenge.`,
     `Each skill will have a dice size associated with it, and that's the dice you'll roll for the skill. If you're not trained in a skill then you roll a d6 and if you're hindered or injured you roll a d4. Normally the highest you can roll for a skill is a d12.`,
     `When you roll a dice, consult below to determine what happens:`,
@@ -26,32 +30,40 @@ const rulesTutorial = {
     `If success can't get you what you want, you'll at least get useful info or set up some sort of future advantage for the people around you. At the very least you'll be rewarded with knowledge.`,
     `The storyteller might increase these numbers for more difficult challenges but will inform you beforehand.`
   ],
+  inventory: [
+    `Your character can carry as much as makes sense for their adventure. There aren't any strict rules on how much you can carry with the exception of Heavy items.`,
+    `A character can only bring one heavy item with them at a time or else they're Hindered on their rolls (all of their rolls are made with a d4). Realistically, some heavy items shouldn't be carried at all. It probably wouldn't make sense for a character to lug around a sailboat while on dry land for example.`,
+    `The storyteller is the ultimate arbiter of what can and cannot be carried.`,
+    `Characters can find or purchase new equipment on their journeys. You can open the shop by clicking the chest icon near your inventory. The storyteller may occasionally give characters items as rewards.`
+  ],
   spells: [
     'A spell\'s name describes what it does. You can add your own more specific description or interpretation to the spell when you cast it and the storyteller determines its limitations.',
-    'The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character\'s magic and being unable to cast the spell for a while. You can disable a spell by clicking the checkmark.',
+    'The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character\'s magic for larger effects and being unable to cast the spell for a while. You can disable a spell by clicking the checkmark.',
     'If the spell has any risk, the roll is Spellcasting.',
+    `Characters can learn new spells in exchange for gold in the equipment shop.`
   ],
   rituals: [
-    'A ritual takes ten minutes to cast and uses up a magical supply with the ritual tag.',
-    'The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted for a magical supply.',
+    `Rituals tend to be more powerful or niche than spells. Characters don't begin their adventure knowing rituals but can learn them by spending hard earned gold.`,
+    'A ritual takes ten minutes in game to cast and uses up a magical item with the ritual tag.',
+    `The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted if your character doesn't have the magical supplies they need.`,
     'You roll a spellcasting challenge to see how successfully you prepared the ritual.',
   ],
-  load: [
-    `Carry as much as makes sense, but more than one heavy item may hinder you at times.`
-  ],
   advancement: [
-    `After an adventure, increase a skill by editing your character (none→d8→d10→d12). Your storyteller may award you gold as well (usually d6 to each member).`
+    `There's are no "levels" in this game in the same way that you may be used to in other games. Instead, characters improve a skill at the end of every adventure.`,
+    `One an adventure is over, increase one of the skills of your character by editing them. You can either choose a new skill to train in or improve one of your existing skills (none→d8→d10→d12).`,
+    `The storyteller may also award you gold for finding loot and for any services rendered. The payout is usually agreed upon at the beginning of the adventure and an adventurer might find items each worth an additional d4 gold in the course of their quest.`,
+    `You can use the gold to buy new items in the equipment store in any town. Some of the more valuable magic items might not be available unless you find them in the course of your adventures.`
   ],
-  defence: [
-    `Say how one of your items breaks to turn a hit into a brief hindrance. Broken gear is useless until repaired.`
+  health: [
+    `Given how dangerous your adventures are, injury is often a risk. There are no health bars or hit points, a character is either healthy, injured, or dead.`,
+    `When a character suffers physical harm, they have some defense against it. If they're wearing armor then the armor can lose a point of durability and the character remains unharmed. Once armor has lost all durability it becomes broken and loses any abilities it once had. You can repair armor with an appropriate craftsperson.`,
+    `If a character does become injured during the game, they become hindered (they can only roll with a d4). Characters can heal from their injuries with enough time. You can also heal injuries with the Ritual of Restoration or a Potion of Healing.`,
+    `A character who's injured is at risk of death. If they would suffer harm again, they don't become more injured... they die!`,
   ],
-  harm: [
-    `Injuries hinder, and heal with time, magic, or potions. If killed, make a new character to be introduced ASAP. Favour inclusion over realism.`
-  ],
-  'game mastery': [
-    `Lead the group in setting lines not to cross in play. Fast-forward, pause, or rewind`,
-    `redo scenes for pacing and safety, and invite players to do likewise. Present dilemmas and problems`,
-    `you don’t know how to solve. Move the spotlight to give everyone time to shine. Test periodically for bad luck (e.g., run out of ammo, or into guards) roll d6 to check for (1–2) trouble now or (3–4) signs of trouble.`
+  luck: [
+    `Players get one luck dice per adventure. This is a d20 that the player can roll to replace any poor roll they've just made. Players then set aside the luck dice and can't use it again.`,
+    `Once a luck dice is used, the storyteller can return it to the player as a reward for good roleplaying, acts of sacrifice, or any other reason at all.`,
+    `Players always get their luck dice back at the end of an adventure or between gaming sessions.`
   ],
   'custom rules': {
     'ancestries expanded': `Adds additional ancestries for player characters to choose from.`,

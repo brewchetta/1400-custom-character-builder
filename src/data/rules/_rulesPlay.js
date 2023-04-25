@@ -31,7 +31,7 @@ const rulesPlay = {
     'You can disable a spell by clicking the checkmark.'
   ],
   rituals: [
-    'A ritual takes ten minutes to cast and uses up a magical supply with the ritual tag.',
+    'A ritual takes ten minutes in game to cast and uses up a magical supply with the ritual tag.',
     'The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted for a magical supply.',
     'You roll a spellcasting challenge to see how successfully you prepared the ritual.',
   ],
