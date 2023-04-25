@@ -65,6 +65,28 @@ const rulesTutorial = {
     `Once a luck dice is used, the storyteller can return it to the player as a reward for good roleplaying, acts of sacrifice, or any other reason at all.`,
     `Players always get their luck dice back at the end of an adventure or between gaming sessions.`
   ],
+  'session zero': {
+    'session zero': `Session zero is often considered an important first session for your group of adventurers. It serves several important functions, first it creates a safe space for everyone to play. Secondly, it introduces the world to the players. Thirdly, it establishes the rules.`,
+    'storyteller': `This might seem like an obvious step but it's an important step nonetheless. The storyteller serves an important function in the game and players need to decide who will take on that role.`,
+    'lines and veils': `The first task in any session is to define lines and veils. A line is something that you never want to see in your game while a veil is something that's only alluded to. Make a list of these things for everyone to reference. Common themes include sexual content, harm to children or animals, drugs, political topics, racism, etc.`,
+    'worldbuilding': `An important first task for this game is to build the world for everyone. While the world can be as specific or general as you'd like, we recommend looking at the Worldbuilding section of the rulebook for an idea of how to quickly and inclusively build a setting.`,
+    'making your character': `Once everyone has gone through the rulebook it's time for the players to build their first characters!`
+  },
+  worldbuilding: [
+    `Whether you're playing a one-shot or a longer campaign, worldbuilding plays an integral role to your story. This is a suggested guide to worldbuilding to make everyone feel like they have some ownership over the lands that they'll be adventuring in.`,
+    `The storyteller asks players to take turns answering prompts below until each player has answered three. Multiple players can answer the same prompt and they're allowed to collaborate with each other (and the storyteller) on their answers.`,
+    `For example, if two players want to answer "Describe a distant land" they might each describe a foreign kingdom and then collaborate, deciding their kingdoms have been at war with each other for the past hundred years.`,
+    `1. Describe a distant land.`,
+    `2. Describe the town, village or city that your adventurer came from.`,
+    `3. What is the name of a tavern your adventurer frequents? Describe its characteristics.`,
+    `4. Describe an upcoming festival or holy day that the people in this area celebrates.`,
+    `5. What important event happened before your adventurer was born? How did it change the people or land around you?`,
+    `6. Describe some nearby ruins and the rumors that surround them.`,
+    `7. Monsters/villains have attacked recently. Who are they?`,
+    `8. Name a god who protects these lands. Alternately name an evil god who covets these lands.`,
+    `9. Name and describe a public figure like a monarch or a civil leader.`,
+    `10. Make up a prompt and answer it!`,
+  ],
   'custom rules': {
     'ancestries expanded': `Adds additional ancestries for player characters to choose from.`,
     'extended D&D classes': `Adds additional classes based on those found in dungeons and dragons. (Made by Nate)`,
