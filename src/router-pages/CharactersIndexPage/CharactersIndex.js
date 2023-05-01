@@ -12,8 +12,6 @@ function CharactersIndex(props) {
   const [characters, setCharacters] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
 
-  console.log(modalOpen);
-
   useEffect(() => {
     const c = getLocalCharacters()
     setCharacters(c)
