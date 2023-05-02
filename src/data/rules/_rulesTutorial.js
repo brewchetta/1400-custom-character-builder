@@ -57,7 +57,7 @@ const rulesTutorial = {
   health: [
     `Given how dangerous your adventures are, injury is often a risk. There are no health bars or hit points, a character is either healthy, injured, or dead.`,
     `When a character suffers physical harm, they have some defense against it. If they're wearing armor then the armor can lose a point of durability and the character remains unharmed. Once armor has lost all durability it becomes broken and loses any abilities it once had. You can repair armor with an appropriate craftsperson.`,
-    `If a character does become injured during the game, they become hindered (they can only roll with a d4). Characters can heal from their injuries with enough time. You can also heal injuries with the Ritual of Restoration or a Potion of Healing.`,
+    `If a character does become injured during the game, they become hindered (they can only roll with a d4). Characters can heal from their injuries with enough time. You can also heal injuries with the Healing Ritual or a Potion of Healing.`,
     `A character who's injured is at risk of death. If they would suffer harm again, they don't become more injured... they die!`,
   ],
   luck: [

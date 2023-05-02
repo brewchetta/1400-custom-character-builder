@@ -23,6 +23,10 @@ const rituals = {
     name: 'Exploding Glyph',
     cost: 10
   },
+  healingRitual: {
+    name: 'Healing Ritual',
+    cost: 10
+  },
   magicFeast: {
     name: 'Magic Feast',
     cost: 5
