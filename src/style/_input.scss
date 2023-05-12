@@ -40,6 +40,10 @@ button.icon-button {
   background: none;
   width: $icon-button-size;
 
+  @include small-screen-only {
+    width: $icon-button-size * 1.2;
+  }
+
   img {
     width: inherit;
   }
