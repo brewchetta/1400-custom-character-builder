@@ -1,7 +1,6 @@
+- add checkbox for luck dice
 - rewrite help blurbs to be more condensed
-- tutorial page (front page if no characters) --> WORKING ON STYLING
 - random name generator
 - for equipment create a tile button that leads to the equipment store
-- more colors and styling
 - toasts
 - dark mode (apparently every site needs a dork mode :P )

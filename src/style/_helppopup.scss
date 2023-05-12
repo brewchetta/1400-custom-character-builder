@@ -4,7 +4,6 @@
   z-index: 1;
 
   @include small-screen-only {
-    // bottom: 0 !important;
     padding-top: 5em;
     padding-bottom: 5em;
     opacity: 0.97;
@@ -12,6 +11,8 @@
     border-left: none;
     border-right: none;
     right: 0 !important;
+    left: 0 !important;
     width: 100% !important;
   }
+
 }
