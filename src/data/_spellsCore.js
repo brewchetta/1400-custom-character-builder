@@ -63,10 +63,6 @@ const spells = {
     name: 'Haste',
     cost: 2
   },
-  heal: {
-    name: 'Heal',
-    cost: 2
-  },
   invisiblity: {
     name: 'Invisibility',
     cost: 2

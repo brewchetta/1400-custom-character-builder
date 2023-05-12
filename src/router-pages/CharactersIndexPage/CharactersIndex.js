@@ -13,13 +13,11 @@ function CharactersIndex(props) {
   const [modalOpen, setModalOpen] = useState(false)
 
   useEffect(() => {
-    if (!characters.length) {
+    const c = getLocalCharacters()
+    setCharacters(c)
+    if (!c.length) {
       setModalOpen(true)
     }
-  }, [])
-
-  useEffect(() => {
-    setCharacters(getLocalCharacters())
   }, [])
 
   const renderCharacters = characters.map(c => (
