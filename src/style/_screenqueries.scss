@@ -1,12 +1,20 @@
-@mixin tiny-screen-only {
+@mixin tiny-screen-and-larger {
   @media (min-width: #{$tiny-screen}) { @content; }
 }
 
-@mixin small-screen-only {
+@mixin tiny-screen-only {
+  @media (max-width: #{$tiny-screen}) { @content; }
+}
+
+@mixin small-screen-and-larger {
   @media (min-width: #{$small-screen}) { @content; }
 }
 
-@mixin medium-screen-only {
+@mixin small-screen-only {
+  @media (max-width: #{$small-screen}) { @content; }
+}
+
+@mixin medium-screen-and-larger {
   @media (min-width: #{$medium-screen}) { @content; }
 }
 

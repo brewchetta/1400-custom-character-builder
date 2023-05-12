@@ -9,13 +9,13 @@
 //// specialty backgrounds ////
 
 @mixin image-background-mixin($url, $position, $size: 50%) {
-  @include small-screen-only {
+  // @include small-screen-and-larger {
     background-image: url($url);;
     background-repeat: no-repeat;
     background-size: $size;
     background-position: $position;
     // background-attachment: ;
-  }
+  // }
 }
 
 .semi-transparent-background {

@@ -20,12 +20,9 @@ function HelpPopup({info, position}) {
   const divHeight = div.current?.scrollHeight || 0
 
   const calculatedStyle = {
-    position: "fixed",
     left: `${windowWidth - (position[0] + 250) > 40 ? position[0] : null }px`,
     right: `${windowWidth - (position[0] + 250) > 40 ? null : windowWidth - position[0] }px`,
     top: `${position[1] + divHeight < windowHeight ? position[1] : position[1] - divHeight }px`,
-    width: '250px',
-    zIndex: 1,
     display: loaded ? null : 'hidden'
   }
 
@@ -40,7 +37,7 @@ function HelpPopup({info, position}) {
   return (
     <div
       ref={div}
-      className="border-black background-white"
+      className="help-popup border-black background-white"
       style={calculatedStyle}
     >
 

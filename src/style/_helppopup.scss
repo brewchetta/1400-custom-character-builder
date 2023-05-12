@@ -1,0 +1,17 @@
+.help-popup {
+  position: fixed;
+  width: 250px;
+  z-index: 1;
+
+  @include small-screen-only {
+    // bottom: 0 !important;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    opacity: 0.97;
+    top: 10% !important;
+    border-left: none;
+    border-right: none;
+    right: 0 !important;
+    width: 100% !important;
+  }
+}
