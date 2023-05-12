@@ -14,6 +14,10 @@
     background-repeat: no-repeat;
     background-size: $size;
     background-position: $position;
+
+    @include small-screen-only {
+      background-size: 50%;
+    }
     // background-attachment: ;
   // }
 }
