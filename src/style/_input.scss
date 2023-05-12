@@ -38,9 +38,7 @@ select {
 button.icon-button {
   border: none;
   background: none;
-  opacity: 0.7;
   transition: opacity 0.15s;
-  // z-index: 1;
   width: $icon-button-size;
 
   img {
@@ -50,7 +48,6 @@ button.icon-button {
   &:hover {
     color: black;
     background: none;
-    opacity: 1;
 
     img {
       filter: invert(0);
