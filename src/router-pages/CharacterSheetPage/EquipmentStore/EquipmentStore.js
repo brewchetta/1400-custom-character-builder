@@ -14,7 +14,7 @@ function EquipmentStore() {
   ) )
 
   return (
-    <div>
+    <div className="town-skyline-background">
 
       <h2 id="equipment-store-header" className="centered">Equipment Store</h2>
 
