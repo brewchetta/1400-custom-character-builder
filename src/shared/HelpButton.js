@@ -11,6 +11,7 @@ function HelpButton({ info, className="", style={} }) {
 
   const handleOpenHelp = event =>  {
     event.preventDefault()
+    event.stopPropagation()
     toggleOpen()
     setCursorPos([event.clientX, event.clientY])
   }
