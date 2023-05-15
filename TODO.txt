@@ -1,4 +1,3 @@
-- add checkbox for luck dice
 - rewrite help blurbs to be more condensed
 - random name generator
 - for equipment create a tile button that leads to the equipment store

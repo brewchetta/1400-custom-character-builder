@@ -25,7 +25,7 @@ function FormCheckbox({name, info, labelText, onChange, value, checked, disabled
       {
         labelText
         ?
-        <label htmlFor={name} onClick={handleClickLabel}>{info ? <HelpButton info={info} /> : null} {labelText}</label>
+        <label htmlFor={name} onClick={handleClickLabel}> {labelText} {info ? <HelpButton info={info} /> : null}</label>
         :
         null
       }

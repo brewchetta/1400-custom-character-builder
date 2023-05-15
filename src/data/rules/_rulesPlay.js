@@ -21,8 +21,9 @@ const rulesPlay = {
     `The storyteller might increase how high you need to roll for more difficult challenges.`
   ],
   luck: [
-    `Once per adventure a character can use their luck.`,
-    `When a character rolls a die they can spend their luck for a better result: they roll a d20 and substitute the new roll in place of the old one.`
+    `Once per adventure a character can use their luck dice (d20).`,
+    `When a character rolls a die they can spend their luck for a better result: they roll a d20 and substitute the new roll in place of the old one.`,
+    `The storyteller can return players their luck dice for good roleplaying, generosity, sacrifice, or any other reason.`
   ],
   spells: [
     'A spell\'s name describes it. Describe the spell when you cast it and the storyteller determines its limitations.',
@@ -48,7 +49,8 @@ const rulesPlay = {
     `If your character is hindered, either in the short or long term, roll with a d4 instead of a larger dice.`
   ],
   harm: [
-    `Injuries hinder, and heal with time, magic, or potions. If killed, make a new character to be introduced ASAP. Favour inclusion over realism.`
+    `Injuries hinder (roll with a d4 for all skill challenges), and heal with time, magic, or potions.`,
+    `If killed, make a new character to be introduced ASAP. Favour inclusion over realism.`
   ],
   'game mastery': [
     `Lead the group in setting lines not to cross in play. Fast-forward, pause, or rewind`,
