@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/1400-custom-character-builder/static/css/main.9946be6b.css",
-    "main.js": "/1400-custom-character-builder/static/js/main.37e3efe7.js",
+    "main.js": "/1400-custom-character-builder/static/js/main.6a366878.js",
     "static/media/tavern-exterior.png": "/1400-custom-character-builder/static/media/tavern-exterior.a22adaf4624fc836b5e1.png",
     "static/media/spellbook.png": "/1400-custom-character-builder/static/media/spellbook.b565c23fe3407e900a2d.png",
     "static/media/castle-ruins.png": "/1400-custom-character-builder/static/media/castle-ruins.96298f918425b5f56d9f.png",
@@ -21,10 +21,10 @@
     "static/media/chest-icon.png": "/1400-custom-character-builder/static/media/chest-icon.a6b25a6d8a3d95b892ab.png",
     "index.html": "/1400-custom-character-builder/index.html",
     "main.9946be6b.css.map": "/1400-custom-character-builder/static/css/main.9946be6b.css.map",
-    "main.37e3efe7.js.map": "/1400-custom-character-builder/static/js/main.37e3efe7.js.map"
+    "main.6a366878.js.map": "/1400-custom-character-builder/static/js/main.6a366878.js.map"
   },
   "entrypoints": [
     "static/css/main.9946be6b.css",
-    "static/js/main.37e3efe7.js"
+    "static/js/main.6a366878.js"
   ]
 }
