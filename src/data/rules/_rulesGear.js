@@ -10,7 +10,7 @@ const rulesGear = {
   management: [
     `If a character's equipment loses durability, click on one of its checkmarks. If it breaks it cannot be used.`,
     `You may replace or repair equipment at the storyteller's discretion.`,
-    `Click the chest icon to manage your equipment.`
+    `You can manage equipment by opening the equipment store.`
   ],
   'common descriptions': {
     heavy: `Characters can carry one heavy item at a time.`,

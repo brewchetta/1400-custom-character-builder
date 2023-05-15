@@ -1,5 +1,6 @@
 import CurrentGold from "./CurrentGold"
 import CharacterEquipmentTile from "./CharacterEquipmentTile"
+import CharacterEquipmentOpenStoreTile from "./CharacterEquipmentOpenStoreTile"
 import HelpButton from "shared/HelpButton"
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
@@ -14,6 +15,8 @@ function CharacterEquipment({ setStoreOpen }) {
     setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
   }
 
+  const toggleStoreOpen = () => setStoreOpen(prev => !prev)
+
   const renderedItems = items.map(item => (
     <CharacterEquipmentTile key={item.key} item={item} handleRemoveItem={handleRemoveItem}  />
   ) )
@@ -23,9 +26,6 @@ function CharacterEquipment({ setStoreOpen }) {
     <>
 
       <h3>Equipment
-        <button onClick={ () => setStoreOpen(true) } className='icon-button'>
-          <img src={chestIcon} alt={'Buy Equipment'} />
-        </button>
         <HelpButton info={rulesGear.management} />
       </h3>
 
@@ -34,6 +34,8 @@ function CharacterEquipment({ setStoreOpen }) {
         <CurrentGold />
 
         {renderedItems}
+
+        <CharacterEquipmentOpenStoreTile toggleStoreOpen={ toggleStoreOpen } />
 
       </div>
 

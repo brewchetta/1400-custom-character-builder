@@ -66,6 +66,10 @@
   @include image-background-mixin('../assets/images/spellbook.png', center center)
 }
 
+.scratchwallpaper-background {
+  @include image-background-mixin('../assets/images/scratch-wallpaper.png', center center, cover);
+}
+
 //// PAINT SWATCH ON HOVER ////
 
 @mixin swatch-hover-mixin( $hue-rotate, $grayscale, $brightness ) {
