@@ -2,13 +2,17 @@
 
 This is a character creation app for the 1400 TTRPG system and allows for the creation, altering, and viewing of characters built for that system. This includes several systems designed to make it easy to add new settings and content.
 
-## Installation
+## Webpage
+
+You can see the live webpage at [TODO: insert page here](#)
+
+## Local Installation
 
 Once you've cloned this app down you can run it with `npm install` followed by `npm start`. Note that this uses localStorage in order to work and both localStorage and Javascript must be enabled to run.
 
-## Creating Additional Content
+## Credits
 
-TODO: Expand this section.
+Based on the lo-fi roleplaying system 1400 Quest by James Lennox-Gordon. Also based on the 24XX SRD with rule text by Jason Tocci.
 
 ## Assets
 
