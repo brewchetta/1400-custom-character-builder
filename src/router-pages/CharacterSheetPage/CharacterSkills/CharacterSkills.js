@@ -9,7 +9,7 @@ import triangleIcon from 'assets/images/triangle-icon.png'
 function CharacterSkills() {
 
   const { editable } = useEditableContext()
-  const { statusConditions: {hindered, injured, helped, luck} } = useStatusConditionsContext()
+  const { statusConditions: {hindered, injured, helped} } = useStatusConditionsContext()
   const { currentCharacter: { skills }, setCurrentCharacter } = useCharacterContext()
 
   const skillNames = Object.keys(skills)

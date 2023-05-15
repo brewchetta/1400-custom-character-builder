@@ -1,6 +1,3 @@
-import CharacterEquipmentDurability from './CharacterEquipmentDurability'
-import IconButton from 'shared/IconButton'
-import { useEditableContext } from 'context/EditableContext'
 import chest from 'assets/images/chest-icon.png'
 
 function CharacterEquipmentOpenStoreTile({ toggleStoreOpen }) {

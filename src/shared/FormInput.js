@@ -15,7 +15,7 @@ function FormInput({name, info, inputType="text", labelText, onChange, value}) {
       {
         labelText
         ?
-        <label htmlFor={name}>{labelText}{info ? <HelpButton info={info} /> : null}</label>
+        <label htmlFor={name} onClick={ handleClickLabel }>{labelText}{info ? <HelpButton info={info} /> : null}</label>
         :
         null
       }
