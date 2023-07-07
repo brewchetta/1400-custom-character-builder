@@ -193,6 +193,15 @@ export const magicVehicles = {
     tags: ['Vehicle', 'Magic Item'],
     special: 'Enough room for 1. Can fly.'
   },
+  shipInABottle: {
+    key:'shipInABottle',
+    name: 'Ship In A Bottle',
+    durability: 1,
+    maxDurability: 1,
+    cost: 50,
+    tags: ['Vehicle', 'Magic Item'],
+    special: 'Enough room for 10. The ship can shrink to fit inside its magic bottle or grow to become full sized.'
+  },
 }
 
 export const allMagicItems = {...magicSupplies, ...magicArmor, ...magicTools, ...magicWeapons, ...magicCompanions, ...magicVehicles}

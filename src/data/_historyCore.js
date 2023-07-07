@@ -18,7 +18,8 @@ const histories = [
 	'Signed a contract',
 	'Prophesied',
 	'Travelling merchant',
-	'Unrequited love'
+	'Unrequited love',
+  'Gambling debt'
 ]
 
 export default histories
