@@ -1,8 +1,8 @@
 const ancestries = {
   orc: {
     name: 'Orc',
-    description: 'Increase 1 skill. If you would be harmed, roll a d20. On a 10 or higher, you shrug off the injury.',
-    specialText: 'If you would be harmed, roll a d20. On a 10 or higher, you shrug off the injury.',
+    description: 'Increase 1 skill. If you would be harmed, roll a d6. On a 5 or higher, you shrug off the injury.',
+    specialText: 'If you would be harmed, roll a d6. On a 5 or higher, you shrug off the injury.',
     skills: 1
   },
   goblin: {
