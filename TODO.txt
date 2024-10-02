@@ -3,3 +3,4 @@
 - for equipment create a tile button that leads to the equipment store
 - toasts
 - dark mode (apparently every site needs a dork mode :P )
+- rules rewrite
