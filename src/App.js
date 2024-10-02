@@ -1,13 +1,21 @@
 import { useLocation } from 'react-router-dom'
+import { useState, useMemo } from 'react'
+
+import { getLocalDarkMode } from 'utils/local-storage'
 
 import AppRoutes from "./AppRoutes"
 import AppNavbar from "./AppNavbar"
 
 function App() {
 
-  const location = useLocation()
+  const initialDarkMode = useMemo(() => {
+    const browserDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    return getLocalDarkMode() !== null ? getLocalDarkMode() : browserDarkMode
+  }, [])
 
-  // console.log('LOCATION: ', location);
+  const [darkMode, setDarkMode] = useState(initialDarkMode)
+
+  const location = useLocation()
 
   const determinedBackground = () => {
     switch (location.pathname) {
@@ -25,9 +33,9 @@ function App() {
   }
 
   return (
-    <div className={`App ${determinedBackground()}`}>
+    <div className={`App ${determinedBackground()} ${darkMode ? 'dark-mode' : ''}`}>
 
-      <AppNavbar />
+      <AppNavbar setDarkMode={setDarkMode} darkMode={darkMode} />
 
       <AppRoutes />
 

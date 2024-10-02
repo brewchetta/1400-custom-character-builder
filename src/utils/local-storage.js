@@ -8,6 +8,8 @@ const KEY = '1400-characters'
 // findLocalCharacterById(id) => {character}
 // deleteLocalCharacter(character) => [...characters]
 // updateLocalCharacter(character) => {character}
+// getDarkMode() => boolean
+// setDarkMode(boolean) => boolean
 
 export function getLocalCharacters() {
   return JSON.parse(localStorage.getItem(KEY)) || []
@@ -47,4 +49,13 @@ export function updateLocalCharacter( updatedCharacter ) {
   ))
   setLocalCharacters( updatedChars )
   return updatedCharacter
+}
+
+export function getLocalDarkMode() {
+  return JSON.parse(localStorage.getItem('1400-dark-mode'))
+}
+
+export function setLocalDarkMode( bool ) {
+  localStorage.setItem('1400-dark-mode', bool)
+  return bool
 }
