@@ -21,8 +21,8 @@ const rulesTutorial = {
   challenges: [
     `Players embody their characters in the game's world. Whenever you'd like to do something, just tell everyone what it is you'd like to do.`,
     `The storyteller will tell you if something is impossible. For example, just stating you'd like to jump to the roof of a ten story building without tools or magic probably won't work.`,
-    `If something is possible but challenging you'll roll a dice depending on the skill you want to use. For example, if you wanted to defeat an undead skeleton and you had a sword then you could declare you want to fight it in Melee Combat and the storyteller tells you the risks. You roll that skill and if you succeed then you destroy the skeleton, if you fail then you suffer the consequences.`,
-    `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. If you don't succed or only partially succeed then you'll suffer the risk's consequences. In the example above, the risk might be that the skeleton injures you. The storyteller should always mention the risk when giving a challenge.`,
+    `If something is possible but challenging you'll roll a dice depending on the skill you want to use. For example, if you wanted to persuade a troll to let you pass you would you would roll the appropriate skill and if you succeed then you may pass, if you fail then you suffer the consequences.`,
+    `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. If you don't succed or only partially succeed then you'll suffer the risk's consequences. In the example above, the risk might be that the troll attacks and injures you. The storyteller should always hint at a risk when giving a challenge.`,
     `Each skill will have a dice size associated with it, and that's the dice you'll roll for the skill. If you're not trained in a skill then you roll a d6 and if you're hindered or injured you roll a d4. Normally the highest you can roll for a skill is a d12.`,
     `When you roll a dice, consult below to determine what happens:`,
     `1-2 Disaster. Suffer the full risk. Storyteller decides if you succeed at all.`,
@@ -30,6 +30,17 @@ const rulesTutorial = {
     `5+ Success. The higher the roll, the better.`,
     `If success can't get you what you want, you'll at least get useful information or set up some sort of future advantage for the people around you. At the very least you'll be rewarded with knowledge.`,
     `The storyteller might increase these numbers for more difficult challenges but will inform you beforehand.`
+  ],
+  combat: [
+    'Combat in this system is narrative rather than mechanical. For those used to more mechanical battles you may have to deprogram certain concepts like initiative, health points, and attacking things until their health bar goes to zero. Instead, when encountering enemies, the player characters will need to describe how they succeed against those enemies using their skills and teamwork to end the fight.', 
+    'One at a time, players describe actions they take to aid each other, build on previous attacks, cover for failures, and set up a decisive victory. The storyteller tracks each success and failure. Partial successes don\'t count either way.',
+    'Players can be injured or suffer damage to their armor and items like normal during these challenges.',
+    'Certain skills like Melee Combat will require items like a Short Sword. Attempting to attack with your bare fists or an improvised weapon may raise the difficulty of a challenge.',
+    'Overusing skills, for example two characters using Melee Combat in a row, might incur additional difficulty as enemies adapt to your strategies. Using creative strategies however can be rewarded with additional successes if they succeed.',
+    'Combat normally ends after each player has a chance to act, although the storyteller might end the battle early or demand additional challenges depending on the foe. A player can\'t act again until every player has gone.', 
+    'At the end, if the players had more successes than failures they may narrate their victory which may be peaceful, violent, or somewhere in between.',
+    'By contrast if there were more failures than successes, the storyteller narrates how the characters are routed, captured, or suffer other negative consequences.',
+    'If the successes and failures are tied, players continue attempting challenges until the next success or failure.',
   ],
   inventory: [
     `Your character can carry as much as makes sense for their adventure. There aren't any strict rules on how much you can carry with the exception of Heavy items.`,
@@ -44,10 +55,12 @@ const rulesTutorial = {
     `Characters can learn new spells in exchange for gold in the equipment shop.`
   ],
   rituals: [
-    `Rituals tend to be more powerful or niche than spells. Characters don't begin their adventure knowing rituals but can learn them by spending hard earned gold.`,
-    'A ritual takes ten minutes in game to cast and uses up a magical item with the ritual tag.',
-    `The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted if your character doesn't have the magical supplies they need.`,
+    'A ritual takes ten minutes in game to cast and uses up a magical supply with the ritual tag.',
+    'The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted for a magical supply.',
     'You roll a spellcasting challenge to see how successfully you prepared the ritual.',
+    'Multiple people can take part in a ritual in which case they all roll and the highest roll counts.',
+    'Communal ritual casting connects the people casting it. Before the ritual ends you learn one truth about another participant in the ritual.',
+    'To "learn one truth" ask a player a question about their character and they must answer truthfully. Only one question can be asked of each character.',
   ],
   advancement: [
     `There's are no "levels" in this game. Instead, characters improve a skill at the end of every adventure.`,
@@ -57,7 +70,7 @@ const rulesTutorial = {
   ],
   health: [
     `Given how dangerous your adventures are, injury is often a risk. There are no health bars or hit points, a character is either healthy, injured, or dead.`,
-    `When a character suffers physical harm, they have some defense against it. If they're wearing armor then the armor can lose a point of durability and the character remains unharmed. Once armor has lost all durability it becomes broken and loses any abilities it once had. You can repair armor with an appropriate craftsperson.`,
+    `When a character suffers physical harm, they have some defense against it. If they're wearing armor then the armor can lose a point of durability and the character remains unharmed. Once armor has lost all durability it becomes broken and loses any abilities it once had. You can repair armor with an appropriate craftsperson for one gold.`,
     `If a character does become injured during the game, they become hindered (they can only roll with a d4). Characters can heal from their injuries with enough time. You can also heal injuries with the Healing Ritual or a Potion of Healing.`,
     `A character who's injured is at risk of death. If they would suffer harm again, they don't become more injured... they die!`,
     `Beyond character health, risks might also include damage to equipment. You can mark off equipment durability by clicking its checkboxes. Once a piece of equipment loses all durability, it's broken and can't be used.`
@@ -65,8 +78,13 @@ const rulesTutorial = {
   luck: [
     `A player gets one luck dice per adventure. This is a d20 that the player can roll to replace any poor roll they've just made. That player then sets aside the luck dice and can't use it again.`,
     `Once a luck dice is used, the storyteller can return it to the player as a reward for good roleplaying, acts of sacrifice, or any other reason at all.`,
+    'Players can also regain their luck dice for describing dangers during travel or a meal during downtime (see Travel & Rest).',
     `Players always get their luck dice back at the end of an adventure or between gaming sessions.`
   ],
+  'travel & rest': {
+    'travel': 'While travelling from one place to another, each player describes something of interest like a vista, another group of travelers, or a distant wolf howling. If the storyteller decides there is danger involved, the player rolls a d6 and on a 1-2 the group must contend with that danger. Regardless of the outcome, the player regains their luck die.',
+    'rest': 'When the group rests they briefly describe their accomodations. One player chosen by the group then describes a meal that is made and served. The character can turn back time briefly to describe collecting, harvesting, or buying rare ingredients. The player who described the meal regains their luck die.'
+  },
   'session zero': {
     'session zero': `Session zero is often considered an important first session for your group of adventurers. It serves several important functions: first it creates a safe space for everyone to play; secondly, it introduces the world to the players; thirdly, it establishes the rules.`,
     'storyteller': `This might seem obvious but choosing the storyteller is an important step nonetheless. The storyteller serves an important function in the game and players need to decide who will take on that role.`,
