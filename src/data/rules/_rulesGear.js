@@ -1,4 +1,17 @@
 const magicItemsGenericDescription = `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+const heavyItemsGenericDescription = `Characters can carry one heavy item at a time.`
+const oneHandItemsGenericDescription = `Characters can hold two one handed items at a time.`
+const twoHandItemsGenericDescription = `Characters can hold only one two handed item at a time.`
+const weaponItemsGenericDescription = `This item is a weapon. You can't fight without one.`
+const armourItemsGenericDescription = `Mark off one piece of armour durability to avoid being injured.`
+const wornItemsGenericDescription = `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`
+const lightItemsGenericDescription = `A smaller one handed weapon that anyone can pick up and use.`
+const martialItemsGenericDescription = `A strong weapon that grants a bonus in combat.`
+const bowItemsGenericDescription = `Can attack enemies at a range. Characters have ammunition unless they've run out as part of a failure.`
+const vehicleItemsGenericDescription = `Can be used to more quickly get around. Vehicles can only transport a certain number of characters.`
+const companionsGenericDescription = `Will follow your commands but may act on their own, be injured, or die.`
+const toolItemsGenericDescription = `An item with a variety of uses. Can be used up or broken.`
+const supplyItemsGenericDescription = `Items that may be destroyed or consumed as they're used or as part of a risk. Can be refilled or repaired.`
 
 const rulesGear = {
   'heavy items': [
@@ -11,74 +24,74 @@ const rulesGear = {
   ],
   management: [
     `If a character's equipment loses durability, click on one of its checkmarks. If it breaks it cannot be used.`,
-    `You may replace or repair equipment at the storyteller's discretion.`,
+    `You may replace or repair equipment at the storyteller's discretion. Often you will need to pay one gold per item repaired.`,
     `You can manage equipment by opening the equipment store.`
   ],
   'common descriptions': {
-    heavy: `Characters can carry one heavy item at a time.`,
-    'one hand': `Characters can hold two one handed items at a time.`,
-    'two hand': `Characters can hold only one two handed item at a time.`,
-    weapon: `This item is a weapon. You can't fight without one.`,
-    armour: `Mark off one piece of armour durability to avoid being injured.`,
-    worn: `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`,
+    heavy: heavyItemsGenericDescription,
+    'one hand': oneHandItemsGenericDescription,
+    'two hand': twoHandItemsGenericDescription,
+    weapon: weaponItemsGenericDescription,
+    armour: armourItemsGenericDescription,
+    worn: wornItemsGenericDescription,
   },
   'armour descriptions': {
-    armour: `Mark off one piece of armour durability to avoid being injured.`,
-    worn: `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`,
-    'one hand': `Characters can hold two one handed items at a time.`,
-    heavy: `Characters can carry one heavy item at a time.`,
+    armour: armourItemsGenericDescription,
+    worn: wornItemsGenericDescription,
+    'one hand': oneHandItemsGenericDescription,
+    heavy: heavyItemsGenericDescription,
   },
   'weapon descriptions': {
-    weapon: `This item is a weapon. You can't fight without one.`,
-    'light weapon': `A smaller one handed weapon that anyone can pick up and use.`,
-    'martial weapon': `A strong weapon that grants a bonus in combat.`,
-    bow: `Can attack enemies at a range. Characters always have enough ammunition for it.`,
-    heavy: `Characters can carry one heavy item at a time.`,
+    weapon: weaponItemsGenericDescription,
+    'light weapon': lightItemsGenericDescription,
+    'martial weapon': martialItemsGenericDescription,
+    bow: bowItemsGenericDescription,
+    heavy: heavyItemsGenericDescription,
   },
   'tool descriptions': {
-    tool: `An item with a variety of uses. Can be used up or broken.`
+    tool: toolItemsGenericDescription
   },
   'supply descriptions': {
-    supply: `Items that may be destroyed or consumed as they're used or as part of a risk. Can be refilled or repaired.`
+    supply: supplyItemsGenericDescription
   },
   'vehicle descriptions':  {
-    vehicle: `Can be used to more quickly get around. Vehicles can only transport a certain number of characters.`
+    vehicle: vehicleItemsGenericDescription
   },
   'animal companion descriptions': {
-    'animal companion': `Will follow your commands but may act on their own, be injured, or die.`
+    'animal companion': companionsGenericDescription
   },
   'magic companion descriptions': {
-    'magic companion': `Will follow your commands but may act on their own, be injured, or die.`,
+    'magic companion': companionsGenericDescription,
     familiar: `A smaller companion bound magically to your will.`,
     'magic item': magicItemsGenericDescription
   },
   'magic vehicle descriptions': {
-    vehicle: `Can be used to more quickly get around. Vehicles can only transport a certain number of characters.`,
+    vehicle: vehicleItemsGenericDescription,
     'magic item': magicItemsGenericDescription
   },
   'magic tool descriptions': {
-    tool: `An item with a variety of uses. Can be used up or broken.`,
+    tool: toolItemsGenericDescription,
     'magic item': magicItemsGenericDescription
   },
   'magic supply descriptions': {
-    supply: `Items that may be destroyed or consumed as they're used or as part of a risk. Can be refilled or repaired.`,
+    supply: supplyItemsGenericDescription,
     potion: `Brewed item that has an immediate magic effect when completely consumed.`,
     'magic item': magicItemsGenericDescription
   },
   'magic weapon descriptions': {
-    weapon: `This item is a weapon. You can't fight without one.`,
-    'light weapon': `A smaller one handed weapon that anyone can pick up and use.`,
-    'martial weapon': `A strong weapon that grants a bonus in combat.`,
-    bow: `Can attack enemies at a range. Characters always have enough ammunition for it.`,
-    heavy: `Characters can carry one heavy item at a time.`,
+    weapon: weaponItemsGenericDescription,
+    'light weapon': lightItemsGenericDescription,
+    'martial weapon': martialItemsGenericDescription,
+    bow: bowItemsGenericDescription,
+    heavy: heavyItemsGenericDescription,
     'magic item': magicItemsGenericDescription
   },
   'magic armor descriptions': {
-    armour: `Mark off one piece of armour durability to avoid being injured.`,
-    worn: `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`,
-    'one hand': `Characters can hold two one handed items at a time.`,
-    heavy: `Characters can carry one heavy item at a time.`,
-    'magic item': `Magic items are rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    armour: armourItemsGenericDescription,
+    worn: wornItemsGenericDescription,
+    'one hand': oneHandItemsGenericDescription,
+    heavy: heavyItemsGenericDescription,
+    'magic item': magicItemsGenericDescription
   },
 
 }
