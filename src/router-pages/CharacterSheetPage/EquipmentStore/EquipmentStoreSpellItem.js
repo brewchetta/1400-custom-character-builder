@@ -19,7 +19,7 @@ function EquipmentStoreItem({ spell, spellKey, category = "spells" }) {
     if (category === "spells" && gold >= spell.cost) {
       setCurrentCharacter( prev => ({ ...prev, spells: [ ...prev.spells, spellKey ], gold: prev.gold - spell.cost }) )
     } else if (category === "rituals" && gold >= spell.cost) {
-      setCurrentCharacter( prev => ({ ...prev, rituals: [ ...prev.rituals, spellKey ], gold: prev.gold - spell.cost }) )
+      setCurrentCharacter( prev => ({ ...prev, rituals: prev.rituals ? [ ...prev.rituals, spellKey ] : [spellKey], gold: prev.gold - spell.cost }) )
     }
   }
 
