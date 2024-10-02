@@ -3,12 +3,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $main-font;
-  padding: $body-padding;
-  min-height: 90vh;
+  // min-height: 100vh;
+  // overflow: hidden;
+  // padding: $body-padding;
 }
 
 .App {
-  min-height: 90vh;
+  margin: 0;
+  padding: $body-padding;
+  min-height: 100vh;
+  background-color: $white;
+}
+
+.App.dark-mode {
+  background-color: $black;
 }
 
 li {
