@@ -1,3 +1,5 @@
+const magicItemsGenericDescription = `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+
 const rulesGear = {
   'heavy items': [
     `A character can only carry one heavy item at a time unless a more specific rule says they can carry more. If a character attempts to carry more than one, they may be hindered in their rolls.`
@@ -48,20 +50,20 @@ const rulesGear = {
   'magic companion descriptions': {
     'magic companion': `Will follow your commands but may act on their own, be injured, or die.`,
     familiar: `A smaller companion bound magically to your will.`,
-    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    'magic item': magicItemsGenericDescription
   },
   'magic vehicle descriptions': {
     vehicle: `Can be used to more quickly get around. Vehicles can only transport a certain number of characters.`,
-    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    'magic item': magicItemsGenericDescription
   },
   'magic tool descriptions': {
     tool: `An item with a variety of uses. Can be used up or broken.`,
-    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    'magic item': magicItemsGenericDescription
   },
   'magic supply descriptions': {
     supply: `Items that may be destroyed or consumed as they're used or as part of a risk. Can be refilled or repaired.`,
     potion: `Brewed item that has an immediate magic effect when completely consumed.`,
-    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    'magic item': magicItemsGenericDescription
   },
   'magic weapon descriptions': {
     weapon: `This item is a weapon. You can't fight without one.`,
@@ -69,7 +71,7 @@ const rulesGear = {
     'martial weapon': `A strong weapon that grants a bonus in combat.`,
     bow: `Can attack enemies at a range. Characters always have enough ammunition for it.`,
     heavy: `Characters can carry one heavy item at a time.`,
-    'magic item': `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+    'magic item': magicItemsGenericDescription
   },
   'magic armor descriptions': {
     armour: `Mark off one piece of armour durability to avoid being injured.`,
