@@ -62,4 +62,12 @@
     @include border-colored($light-grey)
   }
 
+  .border-dark-red {
+    @include border-colored($light-red)
+  }
+
+  .border-light-red {
+    @include border-colored($dark-red)
+  }
+
 }

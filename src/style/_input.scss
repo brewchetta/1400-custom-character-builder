@@ -50,7 +50,7 @@ button.icon-button {
   }
 
   &:hover {
-    color: black;
+    color: $black;
     background: none;
 
     img {
@@ -66,6 +66,9 @@ button.icon-button {
 
   button.icon-button {
     filter: invert(1);
+    &:hover {
+      color: $white;
+    }
   }
 
   select {

@@ -13,7 +13,7 @@ function DeleteButton({character}) {
   }
 
   return (
-    <button onClick={handleDelete}>Delete Character</button>
+    <button className="border-dark-red text-dark-red" onClick={handleDelete}>Delete Character</button>
   )
 
 }

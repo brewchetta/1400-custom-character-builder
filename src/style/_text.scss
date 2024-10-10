@@ -51,6 +51,14 @@
     @include text-colored($light-grey)
   }
 
+  .text-light-red {
+    @include text-colored($dark-red)
+  }
+
+  .text-dark-red {
+    @include text-colored($light-red)
+  }
+
 }
 
 @each $font-name, $font-value in $fonts {

@@ -7,7 +7,7 @@ function SaveAndEditButton(props) {
   const { editable, setEditable } = useEditableContext()
 
   return (
-    <button onClick={() => setEditable(prev => !prev)}>
+    <button className="icon-button" onClick={() => setEditable(prev => !prev)}>
       {
         editable
         ?
