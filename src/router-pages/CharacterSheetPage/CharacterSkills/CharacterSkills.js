@@ -36,11 +36,11 @@ function CharacterSkills() {
         editable
         ?
         <div className="centered">
-          <button className="border-none background-none" onClick={() => handleChangeSkill(skillKey, -2)}>
+          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skillKey, -2)}>
             <img src={triangleIcon} alt={'decrease'} style={{ width: '0.6rem' }} />
           </button>
 
-          <button className="border-none background-none" onClick={() => handleChangeSkill(skillKey, 2)}>
+          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skillKey, 2)}>
             <img src={triangleIcon} alt={'increase'} style={{ width: '0.6rem', transform: 'rotate(180deg)' }} />
           </button>
         </div>

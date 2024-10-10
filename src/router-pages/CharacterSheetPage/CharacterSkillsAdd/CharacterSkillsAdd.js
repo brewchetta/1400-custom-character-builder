@@ -18,7 +18,7 @@ function CharacterSkillsAdd() {
   }
 
   const renderedAvailableSkills = availableSkills.map(skill => (
-    <button key={skill} onClick={() => handleAddSkill(skill)}>{skill}</button>
+    <button className="text-black border-black" key={skill} onClick={() => handleAddSkill(skill)}>{skill}</button>
   ))
 
   return (

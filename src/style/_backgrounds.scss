@@ -26,44 +26,85 @@
   background-position: center;
 }
 
-.tavern-background {
-  @include image-background-mixin('../assets/images/tavern-exterior.png', bottom center);
+.alchemy-symbols-background {
+  @include image-background-mixin('../assets/images/alchemy-symbols.png', center center, 20%);
 }
 
 .castle-ruins-background {
   @include image-background-mixin('../assets/images/castle-ruins.png', bottom right);
 }
 
-.magic-circle-background {
-  @include image-background-mixin('../assets/images/magic-circle.png', center center, 20%);
-}
-
-.alchemy-symbols-background {
-  @include image-background-mixin('../assets/images/alchemy-symbols.png', center center, 20%);
-}
-
-.quill-background {
-  @include image-background-mixin('../assets/images/quill-drawing.png', center center, 20%);
+.dice-background {
+  @include image-background-mixin('../assets/images/dice-sizes.png', center center)
 }
 
 .flock-background {
   @include image-background-mixin('../assets/images/flock.png', top right, 20%)
 }
 
-.town-skyline-background {
-  @include image-background-mixin('../assets/images/medeival-town-skyline.png', bottom right, 60%)
+.magic-circle-background {
+  @include image-background-mixin('../assets/images/magic-circle.png', center center, 20%);
 }
 
-.dice-background {
-  @include image-background-mixin('../assets/images/dice-sizes.png', center center)
+.quill-background {
+  @include image-background-mixin('../assets/images/quill-drawing.png', center center, 20%);
+}
+
+.scratchwallpaper-background {
+  @include image-background-mixin('../assets/images/scratch-wallpaper.png', center center, cover);
 }
 
 .spellbook-background {
   @include image-background-mixin('../assets/images/spellbook.png', center center)
 }
 
-.scratchwallpaper-background {
-  @include image-background-mixin('../assets/images/scratch-wallpaper.png', center center, cover);
+.tavern-background {
+  @include image-background-mixin('../assets/images/tavern-exterior.png', bottom center);
+}
+
+.town-skyline-background {
+  @include image-background-mixin('../assets/images/medeival-town-skyline.png', bottom right, 60%)
+}
+
+// DARK MODE VERSIONS
+
+.dark-mode {
+  
+  &.alchemy-symbols-background, .alchemy-symbols-background {
+    @include image-background-mixin('../assets/images/alchemy-symbols-dark.png', center center, 20%);
+  }
+
+  &.castle-ruins-background, .castle-ruins-background {
+    @include image-background-mixin('../assets/images/castle-ruins-dark.png', bottom right);
+  }
+
+  &.magic-circle-background, .magic-circle-background {
+    @include image-background-mixin('../assets/images/magic-circle-dark.png', center center, 20%);
+  }
+  
+  &.flock-background, .flock-background {
+    @include image-background-mixin('../assets/images/flock-dark.png', top right, 20%)
+  }
+  
+  &.quill-background, .quill-background {
+    @include image-background-mixin('../assets/images/quill-drawing-dark.png', center center, 20%);
+  }
+
+  &.scratchwallpaper-background, .scratchwallpaper-background {
+    @include image-background-mixin('../assets/images/scratch-wallpaper-dark.png', center center, cover);
+  }
+
+  &.spellbook-background, .spellbook-background {
+    @include image-background-mixin('../assets/images/spellbook-dark.png', center center)
+  }
+
+  &.tavern-background, .tavern-background {
+    @include image-background-mixin('../assets/images/tavern-exterior-dark.png', bottom center);
+  }
+
+  &.town-skyline-background, .town-skyline-background {
+    @include image-background-mixin('../assets/images/medeival-town-skyline-dark.png', bottom right, 60%)
+  }
 }
 
 //// PAINT SWATCH ON HOVER ////
