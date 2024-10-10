@@ -32,6 +32,27 @@
   }
 }
 
+
+.dark-mode {
+
+  .text-black {
+    @include text-colored($white)
+  }
+
+  .text-white {
+    @include text-colored($black)
+  }
+
+  .text-light-grey {
+    @include text-colored($dark-grey)
+  }
+
+  .text-dark-grey {
+    @include text-colored($light-grey)
+  }
+
+}
+
 @each $font-name, $font-value in $fonts {
   .#{$font-name} {
     font-family: $font-value;

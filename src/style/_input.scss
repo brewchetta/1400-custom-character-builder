@@ -58,3 +58,11 @@ button.icon-button {
   }
 
 }
+
+//// DARK MODE ////
+/// 
+ .dark-mode {
+  button.icon-button {
+    filter: invert(1);
+  }
+ }

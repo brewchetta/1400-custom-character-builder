@@ -135,3 +135,25 @@ $swatch-rotations-light: (
     @include swatch-hover-mixin(270deg, 0, 1);
   }
 }
+
+//// DARK MODE STYLES ////
+
+.dark-mode {
+  .chalk-background {
+    h2, span {
+      color: white;
+    }
+  }
+  
+  .semi-transparent-background {
+    background-color: #222e;
+  }
+
+  .background-black {
+    background-color: $white;
+  }
+
+  .background-white {
+    background-color: $black;
+  }
+}

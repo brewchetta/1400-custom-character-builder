@@ -15,7 +15,7 @@ function RulePanel({ rule, style={}, className='', nav }) {
   )
 
   return (
-    <div className={`${className} border-black background-white padding-medium bottom-drawer semi-transparent-background ${isOpen}`}
+    <div className={`${className} border-black semi-transparent-background padding-medium bottom-drawer semi-transparent-background ${isOpen}`}
     style={{...style }}>
       <Link to="/rulebook">
         <BackButton onClick={() => 'clicked!'} />

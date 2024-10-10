@@ -41,3 +41,25 @@
 .border-none {
   border: none;
 }
+
+//// DARK MODE STYLES ////
+
+.dark-mode {
+
+  .border-black {
+    @include border-colored($light-grey)
+  }
+
+  .border-white {
+    @include border-colored($black)
+  }
+
+  .border-light-grey {
+    @include border-colored($dark-grey)
+  }
+
+  .border-dark-grey {
+    @include border-colored($light-grey)
+  }
+
+}
