@@ -18,3 +18,20 @@
   }
 
 }
+
+// DARK MODE //
+//
+.dark-mode {
+  input:not([type="checkbox"]), select {
+    color: $white;
+    border-color: $white;
+  }
+
+  input[type="text"], input[type="number"], input[type="password"], input[type="email"] {
+    background-color: $black;
+  }
+
+  input[type="submit"] {
+    background-color: $dark-grey;
+  }
+}

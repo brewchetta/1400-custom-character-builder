@@ -31,8 +31,9 @@ button, input[type=button] {
 
 select {
   background: none;
-  border: solid black 1px;
+  border: solid $black 1px;
   border-radius: 5px;
+  color: $black;
 }
 
 button.icon-button {
@@ -62,7 +63,14 @@ button.icon-button {
 //// DARK MODE ////
 /// 
  .dark-mode {
+
   button.icon-button {
     filter: invert(1);
   }
- }
+
+  select {
+    border: solid $white 1px;
+    color: $white;
+  }
+
+}
