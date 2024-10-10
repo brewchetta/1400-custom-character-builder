@@ -7,13 +7,13 @@
   height: 95svh;
   width: 90svw;
 
-  background-color: white;
-  box-shadow: -3px -5px 8px black;
-
+  background-color: $white;
+  box-shadow: -3px -5px 8px $black;
+  
   transition: right 1s;
-
+  
   overflow-y: auto;
-
+  
   &.open {
     right: 0svw;
   }
@@ -21,7 +21,7 @@
   &.closed {
     right: -120svw;
   }
-
+  
 }
 
 .drawer-mask {
@@ -30,4 +30,10 @@
   left: 0;
   height: 100svh;
   width: 100svw;
+}
+
+.dark-mode {
+  .side-drawer {
+    box-shadow: -3px -5px 8px $dark-grey;    
+  }
 }

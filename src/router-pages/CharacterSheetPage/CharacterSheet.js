@@ -44,7 +44,7 @@ function CharacterSheet() {
 
         <CharacterEquipment setStoreOpen={setStoreOpen} />
 
-        <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen}>
+        <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen} className="background-white">
           <EquipmentStore displayCondition={storeOpen} />
         </SideDrawer>
 
