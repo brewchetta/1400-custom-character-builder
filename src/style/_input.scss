@@ -8,7 +8,8 @@ input {
 
 }
 
-button, input[type=button] {
+button,
+input[type=button] {
   cursor: pointer;
   border: solid $black 1px;
   border-radius: 5px;
@@ -23,7 +24,8 @@ button, input[type=button] {
     background-color: black;
     color: white;
 
-    img, span {
+    img,
+    span {
       filter: invert(1);
     }
   }
@@ -60,12 +62,147 @@ button.icon-button {
 
 }
 
+// // DARK MODE BUTTON VERSION 1 //
+
+// button.darkmode-button {
+//   background: $black;
+//   color: $white;
+//   z-index: 2;
+//   transition: background 0.2s linear, color 0.2s linear;
+//   width: 3em;
+//   height: 1.5em;
+//   position: absolute;
+//   top: 1em;
+//   right: 0;
+//   border: none;
+
+//   transition: color 0s;
+//   transform: rotate(-90deg);
+
+//   span {
+//     position: absolute;
+//     top: 0;
+//   }
+
+//   span:nth-child(3) {
+//     left: 0.3em;
+//     transform: rotate(-90deg);
+//   }
+
+//   span:nth-child(2) {
+//     right: 0.3em;
+//   }
+
+//   div {
+//     position: absolute;
+//     width: 1.5em;
+//     height: 1.5em;
+//     background-color: $light-grey;
+//     top: 0;
+//     left: -0.1em;
+//     border-radius: 4px;
+//     transition: left 0.2s;
+//   }
+
+//   &:hover {
+//     color: $black;
+//   }
+
+// }
+
+// .dark-mode {
+//   button.darkmode-button {
+//     background: $white;
+//     color: $black;
+
+//     &:hover {
+//       color: $white;
+//     }
+
+//     div {
+//       left: 50%;
+//     }
+//   }
+// }
+
+// DARK MODE BUTTON VERSION 2 //
+
+button.darkmode-button {
+
+  width: 4em;
+  height: 4em;
+  background-color: $light-grey;
+  background-color: $dark-grey;
+  border-radius: 100%;
+  position: absolute;
+  border: none;
+  top: -2em;
+  right: 1em;
+  z-index: 2;
+  animation: rotate-day 1s ease-in;
+  transform: rotate(0deg);
+  
+  &:hover {
+    background-color: $light-grey;
+
+    span {
+      filter: invert(0);
+    }
+  }
+
+  span {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    color: $white;
+    font-size: 1.6em;
+    
+  }
+  
+  span:nth-child(1) {
+    top: 0;
+  }
+  
+  span:nth-child(2) {
+    bottom: 0;
+  }
+
+  @include small-screen-only {
+    right: auto;
+    left: 0;
+  }
+
+}
+
+button.darkmode-button.night {
+  animation: rotate-night 1s ease-in;
+  transform: rotate(180deg);
+}
+  
+button.darkmode-button.day {
+  animation: rotate-day 1s ease-in;
+  transform: rotate(0deg);
+}
+
+@keyframes rotate-night {
+  0% { transform: rotate(0deg) }
+  95% { transform: rotate(200deg) }
+  100% { transform: rotate(180deg) }
+}
+
+@keyframes rotate-day {
+  0% { transform: rotate(180deg) }
+  95% { transform: rotate(370deg) }
+  100% { transform: rotate(360deg) }
+}
+
 //// DARK MODE ////
 /// 
- .dark-mode {
+.dark-mode {
 
   button.icon-button {
     filter: invert(1);
+
     &:hover {
       color: $white;
     }
