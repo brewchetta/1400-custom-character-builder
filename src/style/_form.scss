@@ -21,7 +21,7 @@
 
 // DARK MODE //
 //
-.dark-mode {
+.App.dark-mode {
   input:not([type="checkbox"]), select {
     color: $white;
     border-color: $white;
@@ -33,5 +33,13 @@
 
   input[type="submit"] {
     background-color: $dark-grey;
+  }
+  
+  label {
+    color: $white;
+  }
+
+  input[type="checkbox"] {
+    color: $white;
   }
 }

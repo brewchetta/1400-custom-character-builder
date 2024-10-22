@@ -5,3 +5,4 @@
 - dark mode (apparently every site needs a dork mode :P )
  - dark mode dependant on browser settings preferably
 - rules rewrite for more narrative play
+- display none for drawer mask element unless active

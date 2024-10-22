@@ -24,10 +24,10 @@ input[type=button] {
     background-color: black;
     color: white;
 
-    img,
-    span {
-      filter: invert(1);
-    }
+    // img,
+    // span {
+    //   filter: invert(1);
+    // }
   }
 }
 
@@ -56,7 +56,7 @@ button.icon-button {
     background: none;
 
     img {
-      filter: invert(0);
+      // filter: invert(0);
     }
   }
 
@@ -97,7 +97,7 @@ button.icon-button {
 //     position: absolute;
 //     width: 1.5em;
 //     height: 1.5em;
-//     background-color: $light-grey;
+//     background-color: $medium-grey;
 //     top: 0;
 //     left: -0.1em;
 //     border-radius: 4px;
@@ -131,7 +131,7 @@ button.darkmode-button {
 
   width: 4em;
   height: 4em;
-  background-color: $light-grey;
+  background-color: $medium-grey;
   background-color: $dark-grey;
   border-radius: 100%;
   position: absolute;
@@ -143,10 +143,10 @@ button.darkmode-button {
   transform: rotate(0deg);
   
   &:hover {
-    background-color: $light-grey;
+    background-color: $medium-grey;
 
     span {
-      filter: invert(0);
+      // filter: invert(0);
     }
   }
 
@@ -201,7 +201,7 @@ button.darkmode-button.day {
 .dark-mode {
 
   button.icon-button {
-    filter: invert(1);
+    // filter: invert(1);
 
     &:hover {
       color: $white;

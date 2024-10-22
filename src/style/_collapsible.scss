@@ -26,7 +26,7 @@
   &:hover:enabled {
     background-color: rgba(0,0,0,0);
     // color: black;
-    filter: invert(1);
+    // filter: invert(1);
   }
 }
 
@@ -34,6 +34,6 @@
 
 .dark-mode {
   .collapsible-button {
-    filter: invert(1);
+    // filter: invert(1);
   }
 }

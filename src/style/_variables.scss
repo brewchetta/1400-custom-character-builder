@@ -7,13 +7,14 @@ $dark-red: #AA0000;
 $dark-magenta: #AA00AA;
 $dark-yellow: #AA5500;
 $dark-grey: #444;
+$medium-grey: #555555;
 $light-blue: #5555FF;
 $light-green: #55FF55;
 $light-cyan: #55FFFF;
 $light-red: #FF5555;
 $light-magenta: #FF55FF;
 $light-yellow: #FFFF55;
-$light-grey: #555555;
+$light-grey: #aaa;
 $white: #FFF;
 $transparent: #0000;
 
@@ -32,7 +33,7 @@ $colors: (
 "light-red": $light-red,
 "light-magenta": $light-magenta,
 "light-yellow": $light-yellow,
-"light-grey": $light-grey,
+"medium-grey": $medium-grey,
 "white": $white,
 "transparent": $transparent
 );

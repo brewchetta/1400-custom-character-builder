@@ -32,7 +32,7 @@ function EquipmentStoreItem({ item }) {
         { item.maxDurability && <span>{item.maxDurability} durability</span> }
       </td>
 
-      <td className="italic text-light-grey padding-small">
+      <td className="italic text-medium-grey padding-small">
         { item.tags.join(', ') }
       </td>
 

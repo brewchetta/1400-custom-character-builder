@@ -18,7 +18,7 @@ function RulePanel({ rule, style={}, className='', nav }) {
     <div className={`${className} border-black semi-transparent-background padding-medium bottom-drawer semi-transparent-background ${isOpen}`}
     style={{...style }}>
       <Link to="/rulebook">
-        <BackButton onClick={() => 'clicked!'} />
+        <BackButton className="invert-on-darkmode" onClick={() => 'clicked!'} />
       </Link>
       <h1 className="text-align-center">{capitalize(nav)}</h1>
       { renderedInfo }

@@ -8,7 +8,7 @@ function BackButton({onClick, className="", style={}, text}) {
       {
         text
         ?
-        <button className={`icon-button ${className}`} style={style}>{text}</button> 
+        <button className={`icon-button invert-on-darkmode ${className}`} style={style}>{text}</button> 
         :
         null
       }

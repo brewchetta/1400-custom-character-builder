@@ -37,11 +37,11 @@ function CharacterSkills() {
         ?
         <div className="centered">
           <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skillKey, -2)}>
-            <img src={triangleIcon} alt={'decrease'} style={{ width: '0.6rem' }} />
+            <img className="invert-on-darkmode" src={triangleIcon} alt={'decrease'} style={{ width: '0.6rem' }} />
           </button>
 
           <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skillKey, 2)}>
-            <img src={triangleIcon} alt={'increase'} style={{ width: '0.6rem', transform: 'rotate(180deg)' }} />
+            <img className="invert-on-darkmode" src={triangleIcon} alt={'increase'} style={{ width: '0.6rem', transform: 'rotate(180deg)' }} />
           </button>
         </div>
         :

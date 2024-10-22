@@ -18,7 +18,7 @@ function CharacterNotes() {
 
       <h3 className="flex-wrap-container space-between">
         <span>Notes:</span>
-        <button onClick={clearNotes}>Clear</button>
+        <button className="invert-on-darkmode" onClick={clearNotes}>Clear</button>
       </h3>
 
       <textarea

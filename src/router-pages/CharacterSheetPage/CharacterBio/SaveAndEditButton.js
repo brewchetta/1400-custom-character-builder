@@ -11,9 +11,9 @@ function SaveAndEditButton(props) {
       {
         editable
         ?
-        <img src={saveIcon} alt="Save Changes Button" style={{height: '1em'}} />
+        <img className="invert-on-darkmode" src={saveIcon} alt="Save Changes Button" style={{height: '1em'}} />
         :
-        <img src={editIcon} alt="Edit Character Button" style={{height: '1em'}} />
+        <img className="invert-on-darkmode" src={editIcon} alt="Edit Character Button" style={{height: '1em'}} />
       }
     </button>
   )

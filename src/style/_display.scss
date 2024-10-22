@@ -2,6 +2,15 @@
   display: none;
 }
 
-.no-invert {
+.no-filter {
   filter: none !important;
+}
+
+
+.App.dark-mode {
+
+  .invert-on-darkmode {
+    filter: invert(1);
+  }
+
 }

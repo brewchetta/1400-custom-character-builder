@@ -87,10 +87,17 @@ input[type="checkbox"] {
   }
 }
 
-.dark-mode input[type="checkbox"] {
-  filter: invert(1);
-  
-  & + label {
-    filter: invert(1);
+.App.dark-mode input[type="checkbox"] {
+
+  &.crossmark, &.checkmark {
+    background-image: url('../assets/images/checkbox-frame-dark.png');
+  }
+
+  &.checkmark::before {
+    background-image: url('../assets/images/checkmark-dark.png');
+  }
+
+  &.crossmark::before {
+    background-image: url('../assets/images/checkbox-X-dark.png');
   }
 }

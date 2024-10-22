@@ -22,9 +22,9 @@ function CurrentGold() {
       <HelpButton info={rulesGear.costs} className="position-top-right" />
       <label>Gold:</label>
       <p>
-        <IconButton src={minusIcon} onClick={handleSubtractGold} style={{top: '0.1em', position: 'relative'}} />
+        <IconButton className="invert-on-darkmode" src={minusIcon} onClick={handleSubtractGold} style={{top: '0.1em', position: 'relative'}} />
         {` ${gold}`}
-        <IconButton src={plusIcon} onClick={handleAddGold} style={{top: '0.1em', position: 'relative'}} />
+        <IconButton className="invert-on-darkmode" src={plusIcon} onClick={handleAddGold} style={{top: '0.1em', position: 'relative'}} />
       </p>
 
       <br/>

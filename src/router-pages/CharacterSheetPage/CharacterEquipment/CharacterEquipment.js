@@ -4,7 +4,6 @@ import CharacterEquipmentOpenStoreTile from "./CharacterEquipmentOpenStoreTile"
 import HelpButton from "shared/HelpButton"
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
-import chestIcon from 'assets/images/chest-icon.png'
 
 function CharacterEquipment({ setStoreOpen }) {
 

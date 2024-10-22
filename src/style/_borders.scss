@@ -47,19 +47,19 @@
 .dark-mode {
 
   .border-black {
-    @include border-colored($light-grey)
+    @include border-colored($medium-grey)
   }
 
   .border-white {
     @include border-colored($black)
   }
 
-  .border-light-grey {
+  .border-medium-grey {
     @include border-colored($dark-grey)
   }
 
   .border-dark-grey {
-    @include border-colored($light-grey)
+    @include border-colored($medium-grey)
   }
 
   .border-dark-red {

@@ -8,7 +8,7 @@ function CharacterEquipmentOpenStoreTile({ toggleStoreOpen }) {
     onClick={ toggleStoreOpen }>
       <p>Open Equipment Store</p>
       <p>
-        <img src={chest} alt="button to open store" style={{width: '1.7em'}}/>
+        <img className="invert-on-darkmode" src={chest} alt="button to open store" style={{width: '1.7em'}}/>
       </p>
     </div>
   )

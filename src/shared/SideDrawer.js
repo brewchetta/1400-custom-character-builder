@@ -28,7 +28,7 @@ function SideDrawer({ isOpen=false, setIsOpen=setIsOpenNotDefinedWarning, childr
       onTransitionEnd={handleTransitionEnd}
       style={style}
       >
-        <BackButton onClick={() => setIsOpen(false)} />
+        <BackButton className="invert-on-darkmode" onClick={() => setIsOpen(false)} />
 
         { visible ? children : null }
 
