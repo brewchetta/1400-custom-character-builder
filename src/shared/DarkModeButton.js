@@ -1,27 +1,9 @@
-// VERSION 1
-
-// function DarkModeButton({ darkMode, setDarkMode }) {
-
-//     return (
-//         <button className="darkmode-button" onClick={() => setDarkMode(!darkMode)}>
-
-//             <div/>
-//             <span>☀</span>
-//             <span>☾</span>
-
-//         </button>
-//     )
-
-// }
-
-// VERSION 2
-
-function DarkModeButton({ darkMode, setDarkMode }) {
+function DarkModeButton({ darkMode, handleDarkModeClick }) {
 
     const className = darkMode ? "darkmode-button night" : "darkmode-button day"
 
     return (
-        <button className={className} onClick={() => setDarkMode(!darkMode)}>
+        <button className={className} onClick={() => handleDarkModeClick()}>
 
             <span>★</span>
             <span>☀</span>
