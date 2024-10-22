@@ -19,15 +19,15 @@ function HelpButton({ info, className="", style={} }) {
   const handleMouseLeave = () => setOpen(false)
 
   return (
-    <button className={`icon-button ${className}`}
+    <button className={`icon-button  no-invert ${className}`}
       style={style}
       onClick={handleOpenHelp}
       onMouseLeave={handleMouseLeave}
-    >
+      >
       <img src={helpIcon} alt={'?'} />{ open ? <HelpPopup info={info} position={cursorPos} /> : null }
     </button>
   )
-
+  
 }
 
 export default HelpButton
