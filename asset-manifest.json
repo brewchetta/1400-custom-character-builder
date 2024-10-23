@@ -1,30 +1,41 @@
 {
   "files": {
-    "main.css": "/1400-custom-character-builder/static/css/main.9946be6b.css",
-    "main.js": "/1400-custom-character-builder/static/js/main.642b7582.js",
+    "main.css": "/1400-custom-character-builder/static/css/main.0908e4b5.css",
+    "main.js": "/1400-custom-character-builder/static/js/main.bc1bd163.js",
     "static/media/tavern-exterior.png": "/1400-custom-character-builder/static/media/tavern-exterior.a22adaf4624fc836b5e1.png",
-    "static/media/spellbook.png": "/1400-custom-character-builder/static/media/spellbook.b565c23fe3407e900a2d.png",
-    "static/media/castle-ruins.png": "/1400-custom-character-builder/static/media/castle-ruins.96298f918425b5f56d9f.png",
+    "static/media/tavern-exterior-dark.png": "/1400-custom-character-builder/static/media/tavern-exterior-dark.c98a11afa201e18969f0.png",
+    "static/media/spellbook.png": "/1400-custom-character-builder/static/media/spellbook.21f12e4e25874b99e0c3.png",
+    "static/media/spellbook-dark.png": "/1400-custom-character-builder/static/media/spellbook-dark.eb1ec835866f54501e68.png",
+    "static/media/castle-ruins.png": "/1400-custom-character-builder/static/media/castle-ruins.0cc1b0c1fcf0e7a27d8e.png",
+    "static/media/castle-ruins-dark.png": "/1400-custom-character-builder/static/media/castle-ruins-dark.c8fb56ccc75049c292aa.png",
     "static/media/chalk-swatch.png": "/1400-custom-character-builder/static/media/chalk-swatch.48c40961d54f81ff559c.png",
+    "static/media/scratch-wallpaper-dark.png": "/1400-custom-character-builder/static/media/scratch-wallpaper-dark.b96adffeb712f5a8b584.png",
     "static/media/scratch-wallpaper.png": "/1400-custom-character-builder/static/media/scratch-wallpaper.7138aba220d9516dcdf1.png",
     "static/media/paint-swatch-2.png": "/1400-custom-character-builder/static/media/paint-swatch-2.a2e2e86fd80657a6e597.png",
     "static/media/magic-circle.png": "/1400-custom-character-builder/static/media/magic-circle.b498d3397894effb26eb.png",
+    "static/media/magic-circle-dark.png": "/1400-custom-character-builder/static/media/magic-circle-dark.2e0e6714adddadd4115b.png",
     "static/media/hops-4.png": "/1400-custom-character-builder/static/media/hops-4.161592955ff535436135.png",
     "static/media/hops-1.png": "/1400-custom-character-builder/static/media/hops-1.eec218603c1986723e1f.png",
     "static/media/dice-sizes.png": "/1400-custom-character-builder/static/media/dice-sizes.b01e92d0e5561030120d.png",
-    "static/media/alchemy-symbols.png": "/1400-custom-character-builder/static/media/alchemy-symbols.dd599157cb5fb53966e2.png",
+    "static/media/alchemy-symbols.png": "/1400-custom-character-builder/static/media/alchemy-symbols.6b8cc3316fd9d91c1905.png",
+    "static/media/alchemy-symbols-dark.png": "/1400-custom-character-builder/static/media/alchemy-symbols-dark.0e1031e59c3294c1a4e3.png",
     "static/media/quill-drawing.png": "/1400-custom-character-builder/static/media/quill-drawing.888d363b850193ae31e9.png",
+    "static/media/quill-drawing-dark.png": "/1400-custom-character-builder/static/media/quill-drawing-dark.9f22a5814cdaf27cff8d.png",
     "static/media/flock.png": "/1400-custom-character-builder/static/media/flock.c3fc5677fe93ec92f941.png",
     "static/media/checkbox-frame.png": "/1400-custom-character-builder/static/media/checkbox-frame.cad3cec8adc7d1b66445.png",
+    "static/media/medeival-town-skyline-dark.png": "/1400-custom-character-builder/static/media/medeival-town-skyline-dark.d06fd09991a4f097653a.png",
+    "static/media/flock-dark.png": "/1400-custom-character-builder/static/media/flock-dark.19d17b6928851ad3abd1.png",
     "static/media/help-icon.png": "/1400-custom-character-builder/static/media/help-icon.9d4ef1980759446fa30a.png",
     "static/media/medeival-town-skyline.png": "/1400-custom-character-builder/static/media/medeival-town-skyline.b975d1dd5bc2be08730d.png",
+    "static/media/checkbox-X-dark.png": "/1400-custom-character-builder/static/media/checkbox-X-dark.d2dc2964a5844cc9d46f.png",
+    "static/media/checkbox-frame-dark.png": "/1400-custom-character-builder/static/media/checkbox-frame-dark.74e962b326d5a67889a7.png",
     "static/media/chest-icon.png": "/1400-custom-character-builder/static/media/chest-icon.a6b25a6d8a3d95b892ab.png",
     "index.html": "/1400-custom-character-builder/index.html",
-    "main.9946be6b.css.map": "/1400-custom-character-builder/static/css/main.9946be6b.css.map",
-    "main.642b7582.js.map": "/1400-custom-character-builder/static/js/main.642b7582.js.map"
+    "main.0908e4b5.css.map": "/1400-custom-character-builder/static/css/main.0908e4b5.css.map",
+    "main.bc1bd163.js.map": "/1400-custom-character-builder/static/js/main.bc1bd163.js.map"
   },
   "entrypoints": [
-    "static/css/main.9946be6b.css",
-    "static/js/main.642b7582.js"
+    "static/css/main.0908e4b5.css",
+    "static/js/main.bc1bd163.js"
   ]
 }
