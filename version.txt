@@ -1,1 +1,2 @@
+241023 - Darkmode + bug fixes
 230515 - Initial Release
