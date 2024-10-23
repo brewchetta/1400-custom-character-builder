@@ -1,9 +1,5 @@
 - rewrite help blurbs to be more condensed
 - random name generator
-- for equipment create a tile button that leads to the equipment store
 - toasts
-- dark mode (apparently every site needs a dork mode :P )
- - dark mode dependant on browser settings preferably
 - rules rewrite for more narrative play
-- display none for drawer mask element unless active
 - item store search
