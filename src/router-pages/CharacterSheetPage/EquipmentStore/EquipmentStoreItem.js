@@ -21,7 +21,7 @@ function EquipmentStoreItem({ item }) {
   }
 
   return (
-    <tr className="background-black text-white">
+    <tr className="text-black background-light-grey">
       <td className="padding-small">{ item.name }</td>
 
       <td className="padding-small">
@@ -32,18 +32,18 @@ function EquipmentStoreItem({ item }) {
         { item.maxDurability && <span>{item.maxDurability} durability</span> }
       </td>
 
-      <td className="italic text-light-grey padding-small">
+      <td className="italic text-dark-grey padding-small">
         { item.tags.join(', ') }
       </td>
 
       <td className="padding-small">
-        <button className="text-white border-white" onClick={ handleBuyItem } disabled={gold - cost < 0}>
+        <button className="text-black border-black" onClick={ handleBuyItem } disabled={gold - cost < 0}>
           Buy for { item.cost || 1 } gold
         </button>
       </td>
 
       <td className="padding-small">
-        <button className="text-white border-white" onClick={ handleTakeItem }>Add For Free</button>
+        <button className="text-black border-black" onClick={ handleTakeItem }>Add For Free</button>
       </td>
     </tr>
   )

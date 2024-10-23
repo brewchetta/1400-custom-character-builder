@@ -46,6 +46,10 @@
   .text-medium-grey {
     @include text-colored($dark-grey)
   }
+  
+  .text-light-grey {
+    @include text-colored($dark-grey)
+  }
 
   .text-dark-grey {
     @include text-colored($light-grey)

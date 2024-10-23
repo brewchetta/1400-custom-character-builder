@@ -197,4 +197,12 @@ $swatch-rotations-light: (
   .background-white {
     background-color: $black;
   }
+
+  .background-dark-grey {
+    background-color: $light-grey;
+  }
+
+  .background-light-grey {
+    background-color: $dark-grey;
+  }
 }

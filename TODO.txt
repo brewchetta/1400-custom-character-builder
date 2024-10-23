@@ -6,3 +6,4 @@
  - dark mode dependant on browser settings preferably
 - rules rewrite for more narrative play
 - display none for drawer mask element unless active
+- item store search

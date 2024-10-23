@@ -24,17 +24,17 @@ function EquipmentStoreItem({ spell, spellKey, category = "spells" }) {
   }
 
   return (
-    <tr className="background-black text-white">
+    <tr className="background-light-grey text-black">
       <td className="padding-small">{ spell.name }</td>
 
       <td className="padding-small">
-        <button className="text-white border-white" onClick={ handleBuySpell } disabled={gold - cost < 0}>
+        <button className="text-black border-black" onClick={ handleBuySpell } disabled={gold - cost < 0}>
           Learn for { spell.cost || 1 } gold
         </button>
       </td>
 
       <td className="padding-small">
-        <button className="text-white border-white" onClick={ handleTakeSpell }>Learn For Free</button>
+        <button className="text-black border-black" onClick={ handleTakeSpell }>Learn For Free</button>
       </td>
     </tr>
   )

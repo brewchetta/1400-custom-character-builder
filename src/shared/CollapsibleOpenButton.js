@@ -6,7 +6,7 @@ function CollapsibleOpenButton({ isOpen, toggleOpen }) {
     onClick={ toggleOpen }
     className={ `collapsible-button border-none background-none ${isOpen ? 'open' : 'closed' }` }
     >
-      <img src={arrow} alt={'arrow to toggle collapsible'} />
+      <img className="invert-on-darkmode" src={arrow} alt={'arrow to toggle collapsible'} />
     </button>
   )
 }
