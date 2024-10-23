@@ -14,7 +14,7 @@ function EquipmentStoreCharacterItems(props) {
   }
 
   const renderedItems = items.map(item => (
-    <CharacterEquipmentTile key={item.key} item={item} handleRemoveItem={handleRemoveItem} removeable={true}  />
+    <CharacterEquipmentTile key={item.epoch_stamp || item.key} item={item} handleRemoveItem={handleRemoveItem} removeable={true}  />
   ) )
 
   return (

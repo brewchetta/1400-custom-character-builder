@@ -7,7 +7,7 @@ function EquipmentStoreItem({ item }) {
   const cost = item.cost || 1
 
   const handleTakeItem = () => {
-    setCurrentCharacter( prev => ({ ...prev, items: [ ...prev.items, {...item} ] }) )
+    setCurrentCharacter( prev => ({ ...prev, items: [ ...prev.items, {...item, epoch_stamp: Date.now()} ] }) )
   }
 
   const handleBuyItem = () => {
@@ -15,7 +15,7 @@ function EquipmentStoreItem({ item }) {
       setCurrentCharacter( prev => ({
         ...prev,
         gold: prev.gold - cost,
-        items: [ ...prev.items, {...item} ]
+        items: [ ...prev.items, {...item, epoch_stamp: Date.now() } ]
       }) )
     }
   }
@@ -32,7 +32,7 @@ function EquipmentStoreItem({ item }) {
         { item.maxDurability && <span>{item.maxDurability} durability</span> }
       </td>
 
-      <td className="italic text-medium-grey padding-small">
+      <td className="italic text-light-grey padding-small">
         { item.tags.join(', ') }
       </td>
 
