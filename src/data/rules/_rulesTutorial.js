@@ -76,7 +76,7 @@ const rulesTutorial = {
     `Beyond character health, risks might also include damage to equipment. You can mark off equipment durability by clicking its checkboxes. Once a piece of equipment loses all durability, it's broken and can't be used.`
   ],
   luck: [
-    `A player gets one luck dice per adventure. This is a d20 that the player can roll to replace any poor roll they've just made. That player then sets aside the luck dice and can't use it again.`,
+    `A player gets one luck dice per adventure. This is a d20 that the player can roll to replace any poor roll they've just made. That player then sets aside the luck dice and can't use it again. On a roll of 20 they keep don't set aside the dice.`,
     `Once a luck dice is used, the storyteller can return it to the player as a reward for good roleplaying, acts of sacrifice, or any other reason at all.`,
     'Players can also regain their luck dice for describing dangers during travel or a meal during downtime (see Travel & Rest).',
     `Players always get their luck dice back at the end of an adventure or between gaming sessions.`
