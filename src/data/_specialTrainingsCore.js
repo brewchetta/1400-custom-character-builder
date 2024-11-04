@@ -1,12 +1,16 @@
 // specialized trainings for characters
 const specialTrainings = {
-    berkerker: {
-        name: "Berzerker",
-        description: "Whenever anything dies by your hand you regain your luck dice."
+    bloodthirsty: {
+        name: "Bloodthirsty",
+        description: "Whenever anything dies by your hand you regain your Luck Dice."
     },
     brawler: {
         name: "Brawler",
         description: "You get +1 to Melee Combat when you aren't armed with weapons."
+    },
+    chef: {
+        name: "Chef",
+        description: "When describing an end of day meal, make a Cooking challenge. On a 3+, all players regain their Luck Dice."
     },
     druid: {
         name: "Druid",
@@ -14,11 +18,7 @@ const specialTrainings = {
     },
     lucky: {
         name: "Lucky",
-        description: "You have two luck dice instead of one. When you regain a luck dice, you only regain one at a time."
-    },
-    likeable: {
-        name: "Likeable",
-        description: "Gain a +1 to Persuasion and Deception"
+        description: "You have two Luck Dice instead of one. When you regain a Luck Dice, you only regain one at a time."
     },
     magicalMusician: {
         name: "Magical Musician",
@@ -30,7 +30,7 @@ const specialTrainings = {
     },
     ritualist: {
         name: "Ritualist",
-        description: "If you are part of a ritual and you aren't injured, you can use your own blood in the place of the ritual items. Doing so injures you."
+        description: "If you are part of a Ritual and you aren't injured, you can use your own blood in the place of the Ritual Item. Doing so injures you."
     },
 }
 
