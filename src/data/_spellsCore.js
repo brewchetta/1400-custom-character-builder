@@ -3,10 +3,6 @@ const spells = {
     name: 'Acid Cloud',
     cost: 2
   },
-  animalForm: {
-    name: 'Animal Form',
-    cost: 2
-  },
   animateObject: {
     name: 'Animate Object',
     cost: 2

@@ -1,12 +1,16 @@
 // specialized trainings for characters
 const specialTrainings = {
+    berkerker: {
+        name: "Berzerker",
+        description: "Whenever anything dies by your hand you regain your luck dice."
+    },
     brawler: {
         name: "Brawler",
         description: "You get +1 to Melee Combat when you aren't armed with weapons."
     },
     druid: {
         name: "Druid",
-        description: "Choose an animal no larger than a bear and no smaller than a mouse when you get this special training. You can shapeshift into that animal at will."
+        description: "Choose an animal no larger than a bear and no smaller than a mouse when you learn this ability. You can shapeshift into that animal at will."
     },
     lucky: {
         name: "Lucky",
@@ -28,10 +32,6 @@ const specialTrainings = {
         name: "Ritualist",
         description: "If you are part of a ritual and you aren't injured, you can use your own blood in the place of the ritual items. Doing so injures you."
     },
-    berkerker: {
-        name: "Berzerker",
-        description: "Whenever anything dies by your hand you regain your luck dice."
-    }
 }
 
 export default specialTrainings
