@@ -1,6 +1,5 @@
 const skills = [
   "Arcane Lore",
-  "Brawling",
   "Climbing",
   "Cooking",
   "Crafting",
