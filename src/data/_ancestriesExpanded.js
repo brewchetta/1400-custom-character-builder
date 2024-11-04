@@ -37,8 +37,8 @@ const ancestries = {
   },
   beastkin: {
     name: 'Beastkin',
-    description: 'Learn 4 skills. You are hindered on any skill roll that you haven\'t learned.',
-    specialText: 'You are hindered on any skill roll that you haven\'t learned.',
+    description: 'Learn 4 skills. You are hindered when using any skill you aren\'t trained in.',
+    specialText: 'You are hindered when using any skill you aren\'t trained in.',
     skills: 4
   },
 }
