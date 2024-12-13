@@ -45,10 +45,12 @@ const rulesTutorial = {
   inventory: [
     `Your character can carry as much as makes sense for their adventure. There aren't any strict rules on how much you can carry with the exception of Heavy items.`,
     `A character can only bring one heavy item with them at a time or else they're Hindered on their rolls (all of their rolls are made with a d4). Realistically, some heavy items shouldn't be carried at all. It probably wouldn't make sense for a character to lug around a sailboat while on dry land for example.`,
+    `Additionally, a character wielding a two handed weapon or equipped with heavy armor may be hindered as well without the proper training.`,
     `The storyteller is the ultimate arbiter of what can and cannot be carried.`,
     `Characters can find or purchase new equipment on their journeys. You can open the shop by clicking the chest icon near your inventory. The storyteller may occasionally give characters items as rewards.`
   ],
   spells: [
+    'A character can only learn two spells without special training',
     'A spell\'s name describes what it does. You can add your own more specific description or interpretation to the spell when you cast it and the storyteller determines its limitations.',
     `The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character\'s magic for larger effects and being unable to cast the spell for a while. You can disable a spell by clicking on it in your character's page.`,
     'If the spell has any risk, the roll is Spellcasting.',
@@ -63,8 +65,10 @@ const rulesTutorial = {
     'To "learn one truth" ask a player a question about their character and they must answer truthfully. Only one question can be asked of each character.',
   ],
   advancement: [
-    `There's are no "levels" in this game. Instead, characters improve a skill at the end of every adventure.`,
-    `Once an adventure is over, increase one of the skills of your character by editing them. You can either choose a new skill to train in or improve one of your existing skills (none→d8→d10→d12).`,
+    `There's are no "levels" in this game. Instead, characters can either improve a skill at the end of every adventure or else gain a new training.`,
+    `Once an adventure is over, increase one of the skills or add a new training by editing your character.`,
+    `Improving Skills: You can either choose a new skill to train in or improve one of your existing skills (none→d8→d10→d12).`,
+    `Gain Training: TODO ADD TRAININGS`, // TODO: Add training instructions here
     `The storyteller may also award you gold for finding loot and for any services rendered. The payout is usually agreed upon with the quest giver and an adventurer might also find items each worth an additional d4 gold in the course of their quest.`,
     `You can use the gold to buy new items in the equipment store as long as you're somewhere that you can buy those items (this is up to the storyteller's discretion). Some of the more valuable magic items might not be available unless you find them in the course of your adventures.`
   ],
@@ -83,7 +87,7 @@ const rulesTutorial = {
   ],
   'travel & rest': {
     'travel': 'While travelling from one place to another, each player describes something of interest like a vista, another group of travelers, or a distant wolf howling. If the storyteller decides there is danger involved, the player rolls a d6 and on a 1-2 the group must contend with that danger. Regardless of the outcome, the player regains their luck die.',
-    'rest': 'When the group rests they briefly describe their accomodations. One player chosen by the group then describes a meal that is made and served. The character can turn back time briefly to describe collecting, harvesting, or buying rare ingredients. The player who described the meal regains their luck die.'
+    'rest': 'When the group rests they briefly describe their accomodations. Any player then describes a meal, song, or activity. The character can turn back time briefly to describe any preparation such as collecting ingredients for a meal. The player who described the activity regains their luck die.'
   },
   'session zero': {
     'session zero': `Session zero is often considered an important first session for your group of adventurers. It serves several important functions: first it creates a safe space for everyone to play; secondly, it introduces the world to the players; thirdly, it establishes the rules.`,

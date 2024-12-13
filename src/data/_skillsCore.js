@@ -6,8 +6,9 @@ const skills = [
   "Deception",
   "Disguise",
   "Engineering",
+  "Foraging",
   "Handwriting",
-  "Intimidate",
+  "Intimidation",
   "History Lore",
   "Medicine",
   "Melee Combat",
@@ -28,7 +29,6 @@ const skills = [
   "Swimming",
   "Tracking",
   "Trapping",
-  "Wild Foraging",
 ]
 
 export default skills

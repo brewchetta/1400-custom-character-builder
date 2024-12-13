@@ -1,24 +1,29 @@
 const quirks = [
   'Always cold',
-  'Deep voice',
+  'Always hot',
+  'Alcoholic',
   'Easily distracted',
   'Exaggerates',
   'Flowery speech',
   'Formal manner',
+  'Greedy',
   'Hates animals',
   'Hears voices',
+  'Hesitant',
   'Honourable',
-  'Vegetarian',
+  'Hungry',
+  'Laughs at own jokes',
   'Naive',
+  'Pedantic',
+  'Pessimistic',
   'Poor memory',
   'Quick to anger',
   'Reckless',
   'Resting bitch-face',
   'Ruthless',
   'Superstitious',
-  'Two eye colours',
   'Unfamiliar accent',
-  'Laughs at own jokes'
+  'Vegetarian',
 ]
 
 export default quirks

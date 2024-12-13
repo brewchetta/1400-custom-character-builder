@@ -1,21 +1,27 @@
 const ancestries = {
   human: {
-    name: 'Human',
-    description: 'Increase 2 skills at once.',
-    skills: 2
+    "name": "human",
+    "description": "Increase 2 skills at once.",
+    "skills": 2,
+    "tags": ["core"],
+    "rules": "core"
   },
   elf: {
-    name: 'Elf',
-    description: 'Learn 1 spell. You cannot be beguiled or put to sleep by magic.',
-    specialText: 'You cannot be beguiled or put to sleep by magic.',
-    spells: 1
+    "name": "elf",
+    "description": "Learn 1 spell. You cannot be beguiled or put to sleep by magic. You live twice as long as other ancestries.",
+    "specialText": "You cannot be beguiled or put to sleep by magic. You live twice as long as other ancestries.",
+    "spells": 1,
+    "tags": ["core"],
+    "rules": "core"
   },
   dwarf: {
-    name: 'Dwarf',
-    description: 'Increase 1 skill. You can see fine in low light and resist the effects of poisons and ale.',
-    specialText: 'You can see fine in low light and resist the effects of poisons and ale.',
-    skills: 1
-  }
+    "name": "dwarf",
+    "description": "Increase 1 skill. You can see fine in low light and resist the effects of poisons and ale.",
+    "specialText": "You can see fine in low light and resist the effects of poisons and ale.",
+    "skills": 1,
+    "tags": ["core"],
+    "rules": "core"
+  },
 }
 
 export default ancestries
