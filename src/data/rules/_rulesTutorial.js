@@ -52,7 +52,7 @@ const rulesTutorial = {
   spells: [
     'A character can only learn two spells without special training',
     'A spell\'s name describes what it does. You can add your own more specific description or interpretation to the spell when you cast it and the storyteller determines its limitations.',
-    `The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character\'s magic for larger effects and being unable to cast the spell for a while. You can disable a spell by clicking on it in your character's page.`,
+    `The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character's magic for larger effects and being unable to cast the spell for a while. You can disable a spell by clicking on it in your character's page.`,
     'If the spell has any risk, the roll is Spellcasting.',
     `Characters can learn new spells in exchange for gold in the equipment shop.`
   ],

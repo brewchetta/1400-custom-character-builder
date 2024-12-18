@@ -11,7 +11,7 @@ function Authenticator({children}) {
     const [loading, setLoading] = useState(true)
 
     async function authenticateCurrentUser() {
-        const response = await fetch('http://localhost:5000/users/current')
+        const response = await fetch('/users/current')
         if (response.status === 200) {
             const user = await response.json()
             setCurrentUser(user)
@@ -30,6 +30,7 @@ function Authenticator({children}) {
 
     useEffect(() => {
         authenticateCurrentUser()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (loading) {

@@ -39,8 +39,8 @@ function App() {
     <CurrentUserContextProvider>
       <div className={`App ${determinedBackground()} ${darkMode ? 'dark-mode' : ''}`}>
 
-        <AppNavbar setDarkMode={setDarkMode} darkMode={darkMode} />
         <Authenticator>
+          <AppNavbar setDarkMode={setDarkMode} darkMode={darkMode} />
           <AppRoutes />
         </Authenticator>
 

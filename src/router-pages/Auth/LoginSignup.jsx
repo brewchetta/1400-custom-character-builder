@@ -6,7 +6,7 @@ import { useCurrentUserContext } from 'context/CurrentUserContext'
 
 function LoginSignup() {
 
-    const { currentUser, setCurrentUser } = useCurrentUserContext()
+    const { setCurrentUser } = useCurrentUserContext()
 
     // FORM STATES
 
@@ -32,7 +32,7 @@ function LoginSignup() {
 
     async function handleSubmitLogin(e) {
         e.preventDefault()
-        const response = await fetch('http://localhost:5000/users/login', {
+        const response = await fetch('/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(loginFormState)
@@ -53,7 +53,7 @@ function LoginSignup() {
 
     async function handleSubmitSignup(e) {
         e.preventDefault()
-        const response = await fetch('http://localhost:5000/users', {
+        const response = await fetch('/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(signupFormState)
