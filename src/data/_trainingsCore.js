@@ -2,10 +2,10 @@ const trainings = {
     abjurerOfEvil: {
         name: "Abjurer of Evil",
         description: "Spirits, demons, and the undead cannot attempt to harm you directly unless they are especially powerful.",
-        prerequisites: [trainings.disciple]
+        prerequisites: ['disciple']
     },
-    armorer: {
-        name: "Armorer",
+    artisan: {
+        name: "Artisan",
         description: "You can mend damaged armor without the aid of an artisan. Each square of durability takes an hour to mend."
     },
     bloodthirsty: {
@@ -23,7 +23,7 @@ const trainings = {
     crusader: {
         name: "Crusader",
         description: "Whenever you defeat a spirit, demon, or the undead you regain your Luck Dice.",
-        prerequisites: [trainings.disciple]
+        prerequisites: ['disciple']
     },
     disciple: {
         name: "Disciple",
@@ -36,12 +36,12 @@ const trainings = {
     heavilyArmed: {
         name: "Heavily Armed",
         description: "You can wield two handed weapons without being hindered.",
-        prerequisites: [trainings.warrior]
+        prerequisites: ['warrior']
     },
     heavilyArmored: {
         name: "Heavily Armored",
         description: "You can wear heavy armor without being hindered.",
-        prerequisites: [trainings.warrior]
+        prerequisites: ['warrior']
     },
     lucky: {
         name: "Lucky",
@@ -58,16 +58,12 @@ const trainings = {
     mageAdept: {
         name: "Mage Adept",
         description: "You have room for 8 spells in your spellbook.",
-        prerequisites: [trainings.mageInitiate]
+        prerequisites: ['mageInitiate']
     },
     mageAscendant: {
         name: "Mage Ascendant",
         description: "You have room for any number of spells in your spellbook.",
-        prerequisites: [trainings.mageAdept]
-    },
-    packMule: {
-        name: "Pack Mule",
-        description: "You can carry an additional Heavy Item."
+        prerequisites: ['mageAdept']
     },
     ritualist: {
         name: "Ritualist",
@@ -76,6 +72,10 @@ const trainings = {
     skulkerThief: {
         name: "Skulker Thief",
         description: "Whenever you steal something valuable you regain your Luck Dice."
+    },
+    strong: {
+        name: "Pack Mule",
+        description: "You can carry an additional Heavy Item without hindrance."
     },
     tenacious: {
         name: "Tenacious",
@@ -88,12 +88,12 @@ const trainings = {
     wandererDruid: {
         name: "Wanderer Druid",
         description: "On gaining this training choose an animal no larger than a bear and no smaller than a mouse. You can shapeshift into that animal at will.",
-        prerequisites: [trainings.wanderer]
+        prerequisites: ['wanderer']
     },
     wandererTamer: {
         name: "Wanderer Tamer",
         description: "You have an animal companion who joins your adventure. The companion has its own health, personality and motives however it considers you a friend so long as you treat it well. You may also have a number of small animal companions like sparrows or squirrels.",
-        prerequisites: [trainings.wanderer]
+        prerequisites: ['wanderer']
     },
     warrior: {
         name: "Warrior",

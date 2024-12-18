@@ -5,6 +5,9 @@ import { getLocalDarkMode } from 'utils/local-storage'
 
 import AppRoutes from "./AppRoutes"
 import AppNavbar from "./AppNavbar"
+import Authenticator from 'router-pages/Auth'
+
+import { CurrentUserContextProvider } from 'context/CurrentUserContext'
 
 function App() {
 
@@ -33,13 +36,16 @@ function App() {
   }
 
   return (
-    <div className={`App ${determinedBackground()} ${darkMode ? 'dark-mode' : ''}`}>
+    <CurrentUserContextProvider>
+      <div className={`App ${determinedBackground()} ${darkMode ? 'dark-mode' : ''}`}>
 
-      <AppNavbar setDarkMode={setDarkMode} darkMode={darkMode} />
+        <AppNavbar setDarkMode={setDarkMode} darkMode={darkMode} />
+        <Authenticator>
+          <AppRoutes />
+        </Authenticator>
 
-      <AppRoutes />
-
-    </div>
+      </div>
+    </CurrentUserContextProvider>
   );
 }
 
