@@ -9,7 +9,6 @@ import CharacterNotes from "./CharacterNotes"
 import EquipmentStore from "./EquipmentStore"
 import SideDrawer from "shared/SideDrawer"
 import { StatusConditionsContextProvider } from 'context/StatusConditionsContext'
-import * as localStore from 'utils/local-storage'
 import { useParams } from 'react-router-dom'
 import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
@@ -23,35 +22,47 @@ function CharacterSheet() {
 
   const params = useParams()
 
-  useEffect(() => {
-    setCurrentCharacter(
-      localStore.findLocalCharacterById(params.id)
-    )
-  }, [params.id]) // eslint-disable-line react-hooks/exhaustive-deps
+  async function fetchCurrentCharacter() {
+    const res = await fetch(`/characters/${params.id}`)
+    if (res.ok) {
+      const char = await res.json()
+      setCurrentCharacter(char)
+    } else if (res.status === 404) {
+      alert('404 - Character not found')
+    } else {
+      alert('500 - Something went wrong...')
+    }
+  }
 
-  if (currentCharacter.id) {
+  useEffect(() => {
+    fetchCurrentCharacter()
+    // eslint-disable-line react-hooks/exhaustive-deps
+  }, [params.id]) 
+
+
+  if (currentCharacter._id) {
     return (
       <StatusConditionsContextProvider>
 
         <div className="grid-columns-large standard-gap">
           <CharacterBio />
-          <CharacterNotes />
+          {/* <CharacterNotes />
           <CharacterSkills />
           <CharacterSkillsAdd displayCondition={editable} />
           <CharacterSpells displayCondition={editable || currentCharacter.spells?.length} />
-          <CharacterRituals displayCondition={editable || currentCharacter.rituals?.length} />
+          <CharacterRituals displayCondition={editable || currentCharacter.rituals?.length} /> */}
         </div>
 
-        <CharacterEquipment setStoreOpen={setStoreOpen} />
+        {/* <CharacterEquipment setStoreOpen={setStoreOpen} /> */}
 
-        <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen} className="background-white">
+        {/* <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen} className="background-white">
           <EquipmentStore displayCondition={storeOpen} />
-        </SideDrawer>
+        </SideDrawer> */}
 
       </StatusConditionsContextProvider>
     )
   } else {
-    return <div>Loading character...</div>
+    return <div>Loading character...</div> // TODO: add short loading animation for incoming character
   }
 
 }

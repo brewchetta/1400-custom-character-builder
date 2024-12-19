@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getLocalCharacters } from 'utils/local-storage'
+// import { getLocalCharacters } from 'utils/local-storage'
 import { toSpinalCase } from 'utilities'
 import hops from 'assets/images/hops-1.png'
 import hopsTwo from 'assets/images/hops-4.png'
@@ -12,21 +12,33 @@ function CharactersIndex(props) {
   const [characters, setCharacters] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
 
-  useEffect(() => {
-    const c = getLocalCharacters()
-    setCharacters(c)
-    if (!c.length) {
-      setModalOpen(true)
+  async function fetchUserCharacters() {
+    const res = await fetch('/characters')
+
+    if (res.ok) {
+      const fetchedChars = await res.json()
+      if (!fetchedChars.length) {
+        setModalOpen(true)
+      } else {
+        setCharacters(fetchedChars)
+      }
+    } else {
+      alert("500 - Unable to fetch from server")
     }
+  }
+
+  useEffect(() => {
+    fetchUserCharacters()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const renderCharacters = characters.map(c => (
-    <Link key={c.id}
-    to={`characters/${toSpinalCase(c.name)}/${c.id}`}
+    <Link key={c._id}
+    to={`characters/${toSpinalCase(c.name)}/${c._id}`}
     className="text-white chalkboard no-decoration centered padding-medium swatch-hover-background-alternating">
       <span>{c.name}</span>
       <br/>
-      <span style={{fontSize: '0.8em'}}>{c.ancestry} {c.className}</span>
+      <span style={{fontSize: '0.8em'}}>{c.ancestry.name}</span>
     </Link>
   ))
 
