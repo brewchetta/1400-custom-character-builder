@@ -12,27 +12,27 @@ function CharacterSkills() {
   const { statusConditions: {hindered, injured, helped} } = useStatusConditionsContext()
   const { currentCharacter: { skills }, setCurrentCharacter } = useCharacterContext()
 
-  const skillNames = Object.keys(skills)
+  // TODO: add editable for skills
 
-  function handleChangeSkill(skillKey, numericChange) {
+  // function handleChangeSkill(skillKey, numericChange) {
 
-    const updatedSkills = {...skills}
-    const updatedValue = updatedSkills[skillKey] + numericChange
+  //   const updatedSkills = {...skills}
+  //   const updatedValue = updatedSkills[skillKey] + numericChange
 
-    if (updatedValue <= 6) {
-      delete updatedSkills[skillKey]
-    } else if (updatedValue <= 12) {
-      updatedSkills[skillKey] = updatedValue
-    }
+  //   if (updatedValue <= 6) {
+  //     delete updatedSkills[skillKey]
+  //   } else if (updatedValue <= 12) {
+  //     updatedSkills[skillKey] = updatedValue
+  //   }
 
-    setCurrentCharacter(prev => ({...prev, skills: updatedSkills}))
-  }
+  //   setCurrentCharacter(prev => ({...prev, skills: updatedSkills}))
+  // }
 
-  const renderedSkills = skillNames.map(skillKey => (
-    <li key={skillKey} className={`skill-item margin-bottom-small ${editable ? 'centered' : null}`}
+  const renderedSkills = skills.map(skill => (
+    <li key={skill.name} className={`skill-item margin-bottom-small ${editable ? 'centered' : null}`}
     style={{fontSize: '0.9em'}}>
-      {skillKey} [d{(!hindered && !injured) || editable ? skills[skillKey] : 4}{helped && ' + d6'}]
-      {
+      {skill.name} [d{(!hindered && !injured) || editable ? skill.diceSize : 4}{helped && ' + d6'}]
+      {/* {
         editable
         ?
         <div className="centered">
@@ -46,7 +46,7 @@ function CharacterSkills() {
         </div>
         :
         null
-      }
+      } */}
     </li>
   ))
 

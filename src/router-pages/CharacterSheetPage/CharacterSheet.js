@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import CharacterBio from './CharacterBio'
 // import CharacterSkillsAdd from './CharacterSkillsAdd'
-// import CharacterSkills from "./CharacterSkills"
+import CharacterSkills from "./CharacterSkills"
 // import CharacterEquipment from "./CharacterEquipment"
 // import CharacterSpells from "./CharacterSpells"
 // import CharacterRituals from "./CharacterRituals"
@@ -47,8 +47,8 @@ function CharacterSheet() {
         <div className="grid-columns-large standard-gap">
           <CharacterBio />
           <CharacterNotes />
-          {/* 
           <CharacterSkills />
+          {/* 
           <CharacterSkillsAdd displayCondition={editable} />
           <CharacterSpells displayCondition={editable || currentCharacter.spells?.length} />
           <CharacterRituals displayCondition={editable || currentCharacter.rituals?.length} /> 
