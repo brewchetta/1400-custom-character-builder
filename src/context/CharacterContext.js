@@ -1,6 +1,5 @@
 import CreateContextWrapper from './_useContextState'
-import * as localStore from 'utils/local-storage'
 
-const [useCharacterContext, CharacterContextProvider] = CreateContextWrapper({}, "currentCharacter", localStore.updateLocalCharacter)
+const [useCharacterContext, CharacterContextProvider] = CreateContextWrapper({}, "currentCharacter")
 
 export {useCharacterContext, CharacterContextProvider}

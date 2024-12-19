@@ -16,6 +16,9 @@ function CharacterNotes() {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ notes })
     })
+    if (res.ok) {
+      setCurrentCharacter(prev => ({...prev, notes: notesState}))
+    }
     if (!res.ok) {
       console.warn('Error saving notes!')
     } 

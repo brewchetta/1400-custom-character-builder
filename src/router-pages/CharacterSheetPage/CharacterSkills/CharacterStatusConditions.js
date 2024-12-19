@@ -1,35 +1,68 @@
-import { useStatusConditionsContext } from 'context/StatusConditionsContext'
+import { useCharacterContext } from 'context/CharacterContext'
 import FormCheckbox from 'shared/FormCheckbox'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
+import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
+import { patchCharacter } from 'fetch/characters'
 
 function CharacterStatusConditions() {
 
-  const { statusConditions, setStatusConditions } = useStatusConditionsContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
 
-  const handleToggleCondition = key => setStatusConditions(prev => ({...prev, [key]: !prev[key]}))
+  async function handleToggleInjured() {
+    setCurrentCharacter(prev => ({...prev, injured: !currentCharacter.injured}))
+    patchCharacter(currentCharacter._id, { injured: !currentCharacter.injured })
+  }
+  
+  async function handleChangeLuck(i) {
+    const { lucky, luckyMaximum } = currentCharacter
+    let newLucky
+    if (i <= lucky) {
+      newLucky = lucky > 0 ? lucky - 1 : 0
+      setCurrentCharacter(prev => ({ ...prev, lucky: newLucky }))
+    } else {
+      newLucky = luckyMaximum > lucky ? lucky + 1 : luckyMaximum
+      setCurrentCharacter(prev => ({...prev, lucky: newLucky }))
+    }
+    patchCharacter(currentCharacter._id, { lucky: newLucky })
+  }
+
+  // iterates up to max number of luck and shows that number of luck boxes
+  function renderLuckBoxes() {
+    const luckBoxArray = []
+    for (let i = 1; i <= (currentCharacter.luckyMaximum || i); i++) {
+      luckBoxArray.push(
+        <input
+        className="boxmark"
+        key={i}
+        type="checkbox"
+        name='lucky-checkbox'
+        onChange={() => handleChangeLuck(i)}
+        checked={currentCharacter.lucky >= i} />
+      )
+    }
+
+
+    return luckBoxArray
+  }
 
   return (
     <div>
-      <FormCheckbox
-      name={'lucky'}
-      labelText={'luck dice'}
-      info={rulesPlay.luck}
-      onChange={() => handleToggleCondition('luck')}
-      checked={statusConditions.luck} />
+
+      <div>
+        { renderLuckBoxes() }
+        <label htmlFor={'lucky'}> lucky <HelpButton info={rulesPlay.luck} /></label>
+      </div>
 
       <FormCheckbox
       name={'injured'}
       className="crossmark crossable-checkbox"
-      labelText={statusConditions.injured ? 'injured' : 'healthy'}
+      labelText={currentCharacter.injured ? 'injured' : 'healthy'}
       info={rulesPlay.harm}
-      onChange={() => handleToggleCondition('injured')}
-      checked={statusConditions.injured} />
+      onChange={() => handleToggleInjured('injured')}
+      checked={currentCharacter.injured} />
     </div>
   )
 }
-// <button onClick={() => handleToggleCondition('helped')}>
-// {statusConditions.helped ? "Remove Helped By Circumstance" : "Helped By Circumstance"}
-// </button>
 
 export default ConditionalWrapper(CharacterStatusConditions)

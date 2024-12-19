@@ -1,16 +1,14 @@
-import CharacterStatusConditions from "./CharacterStatusConditions"
 import HelpButton from 'shared/HelpButton'
+import CharacterStatusConditions from './CharacterStatusConditions'
 import { rulesPlay } from 'data/rules'
 import { useEditableContext } from 'context/EditableContext'
-import { useStatusConditionsContext } from 'context/StatusConditionsContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import triangleIcon from 'assets/images/triangle-icon.png'
 
 function CharacterSkills() {
 
   const { editable } = useEditableContext()
-  const { statusConditions: {hindered, injured, helped} } = useStatusConditionsContext()
-  const { currentCharacter: { skills }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter: { skills, hindered, injured, helped }, setCurrentCharacter } = useCharacterContext()
 
   // TODO: add editable for skills
 

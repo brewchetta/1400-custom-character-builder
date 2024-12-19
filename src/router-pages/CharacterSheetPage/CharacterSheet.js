@@ -42,8 +42,7 @@ function CharacterSheet() {
 
   if (currentCharacter._id) {
     return (
-      <StatusConditionsContextProvider>
-
+      <>
         <div className="grid-columns-large standard-gap">
           <CharacterBio />
           <CharacterNotes />
@@ -60,8 +59,7 @@ function CharacterSheet() {
         {/* <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen} className="background-white">
           <EquipmentStore displayCondition={storeOpen} />
         </SideDrawer> */}
-
-      </StatusConditionsContextProvider>
+      </>
     )
   } else {
     return <div>Loading character...</div> // TODO: add short loading animation for incoming character
