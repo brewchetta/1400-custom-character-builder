@@ -1,35 +1,53 @@
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import Checkbox from 'shared/FormCheckbox'
 import { toSpinalCase } from 'utilities'
-import ritualsObj from 'data/_ritualsCore'
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
+import { patchCharacterRitual, deleteCharacterRitual } from 'fetch/fetch-character-spells'
 
 function CharacterRituals() {
 
-  const {currentCharacter: { rituals }, setCurrentCharacter} = useCharacterContext()
+  const {currentCharacter, setCurrentCharacter} = useCharacterContext()
 
   const { editable } = useEditableContext()
 
-  function handleRemoveRitual(ritual) {
-    setCurrentCharacter(prev => ({...prev, rituals: prev.rituals.filter(r => r !== ritual)}))
+  async function handleRemoveRitual(ritual) {
+    const res = await deleteCharacterRitual(currentCharacter._id, ritual._id)
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({...prev, rituals: data.result}))
+    } else {
+      alert("Something went wrong...")
+    }
   }
 
-  const renderedRituals = rituals?.map(ritual => (
+  async function handleToggleRitual(ritual) {
+    const res = await patchCharacterRitual(currentCharacter._id, ritual._id, { exhausted: !ritual.exhausted })
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({...prev, rituals: data.result}))
+    } else {
+      alert("Something went wrong...")
+    }
+  }
+
+  const renderedRituals = currentCharacter.rituals?.map(ritual => (
       editable
       ?
-      <div key={ritual}>
-        <span>{ritualsObj[ritual]?.name}</span>
+      <div key={ritual._id}>
+        <span>{ritual.ritualData.name}</span>
         <button className="border-none text-dark-red background-white" onClick={() => handleRemoveRitual(ritual)}>X</button>
       </div>
       :
-      <div key={ritual} className="crossable-checkbox">
+      <div key={ritual._id} className="crossable-checkbox">
         <Checkbox
-          name={`spell-${toSpinalCase(ritual)}`}
-          labelText={ritualsObj[ritual]?.name}
+          name={`ritual-${toSpinalCase(ritual._id)}`}
+          labelText={ritual.ritualData.name}
           className="crossmark"
+          checked={ritual.exhausted}
+          onChange={() => handleToggleRitual(ritual)}
         />
       </div>
   ))
@@ -51,7 +69,7 @@ function CharacterRituals() {
 
       </ul>
 
-      { !rituals?.length ? <span>You have no rituals. You may pay to learn them from the shop.</span> : null }
+      { !currentCharacter.rituals?.length ? <span>You have no rituals. You may pay to learn them from the shop.</span> : null }
 
     </div>
   )

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-// import { getLocalCharacters } from 'utils/local-storage'
+import { getAllCharacters } from 'fetch/fetch-characters'
 import { toSpinalCase } from 'utilities'
 import hops from 'assets/images/hops-1.png'
 import hopsTwo from 'assets/images/hops-4.png'
@@ -13,7 +13,7 @@ function CharactersIndex(props) {
   const [modalOpen, setModalOpen] = useState(false)
 
   async function fetchUserCharacters() {
-    const res = await fetch('/characters')
+    const res = await getAllCharacters()
 
     if (res.ok) {
       const fetchedChars = await res.json()

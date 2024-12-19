@@ -3,6 +3,10 @@ const router = '/characters'
 const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' }
 
 
+export async function getAllCharacters() {
+    return await fetch(`${router}`)
+}
+
 export async function getCharacter(id) {
     return await fetch(`${router}/${id}`)
 }

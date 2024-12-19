@@ -1,35 +1,55 @@
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import Checkbox from 'shared/FormCheckbox'
 import { toSpinalCase } from 'utilities'
-import spellsObj from 'data/_spellsCore'
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
+import { patchCharacterSpell, deleteCharacterSpell } from 'fetch/fetch-character-spells'
 
 function CharacterSpells() {
 
-  const {currentCharacter: { spells }, setCurrentCharacter} = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter} = useCharacterContext()
 
   const { editable } = useEditableContext()
 
-  function handleRemoveSpell(spell) {
-    setCurrentCharacter(prev => ({...prev, spells: prev.spells.filter(s => s !== spell)}))
+  async function handleRemoveSpell(spell) {
+    const res = await deleteCharacterSpell(currentCharacter._id, spell._id)
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({...prev, spells: data.result}))
+    } else {
+      alert("Something went wrong...")
+    }
   }
 
-  const renderedSpells = spells.map(spell => (
+
+  async function handleToggleSpell(spell) {
+    const res = await patchCharacterSpell(currentCharacter._id, spell._id, { exhausted: !spell.exhausted })
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({...prev, spells: data.result}))
+    } else {
+      alert("Something went wrong...")
+    }
+  }
+
+  const renderedSpells = currentCharacter.spells.map(spell => (
       editable
       ?
-      <div key={spell}>
-        <span>{spellsObj[spell]?.name}</span>
-        <button className="border-none text-dark-red background-white" onClick={() => handleRemoveSpell(spell)}>X</button>
+      <div key={spell._id}>
+        <span>{spell.spellData.name}</span>
+        <button className="border-none text-dark-red background-white" 
+        onClick={() => handleRemoveSpell(spell)}>X</button>
       </div>
       :
-      <div key={spell} className="crossable-checkbox">
+      <div key={spell._id} className="crossable-checkbox">
         <Checkbox
-          name={`spell-${toSpinalCase(spell)}`}
-          labelText={spellsObj[spell]?.name}
+          name={`spell-${toSpinalCase(spell.spellData.name)}`}
+          labelText={spell.spellData.name}
           className="crossmark"
+          checked={spell.exhausted}
+          onChange={() => handleToggleSpell(spell)}
         />
       </div>
   ))
@@ -51,7 +71,7 @@ function CharacterSpells() {
 
       </ul>
 
-      { !spells?.length ? <span>You have no spells. You may pay to learn them from the shop.</span> : null }
+      { !currentCharacter.spells?.length ? <span>You have no spells. You may pay to learn them from the shop.</span> : null }
 
     </div>
   )
