@@ -1,17 +1,42 @@
 import { useCharacterContext } from 'context/CharacterContext'
+import { useCurrentUserContext } from 'context/CurrentUserContext'
+import { useState, useEffect } from 'react'
 
 function CharacterNotes() {
 
-  const { currentCharacter: { notes }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { currentUser } = useCurrentUserContext()
+  const isUserCharacter = currentUser._id === currentCharacter.user
 
-  const handleChange = e => {
-    const updatedNotes = JSON.stringify( e.target.value )
-    setCurrentCharacter( prev => ({ ...prev, notes: updatedNotes }) )
+  const [notesState, setNotesState] = useState(currentCharacter.notes || '')
+
+  async function fetchSaveNotes(notes) {
+    const res = await fetch(`/characters/${currentCharacter._id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ notes })
+    })
+    if (!res.ok) {
+      console.warn('Error saving notes!')
+    } 
   }
 
-  const clearNotes = () => {
-    setCurrentCharacter( prev => ({ ...prev, notes: JSON.stringify('') }) )
-  }
+
+  useEffect(() => {
+    if (notesState !== currentCharacter.notes) {
+      const timeout = setTimeout(() => {
+        fetchSaveNotes(notesState)
+      }, 5000) // TODO: add save animation for notes?
+  
+      return () => clearTimeout(timeout)
+    }
+  }, [notesState])
+
+
+  const handleChange = e => setNotesState(e.target.value)
+
+  const clearNotes = () => setNotesState('')
+
 
   return (
     <div className="padding-small border-black">
@@ -21,14 +46,22 @@ function CharacterNotes() {
         <button className="invert-on-darkmode" onClick={clearNotes}>Clear</button>
       </h3>
 
-      <textarea
-        spellCheck="false"
-        className="border-none"
-        onChange={handleChange}
-        style={{minWidth: "100%", minHeight: "10em"}}
-        value={ notes && JSON.parse(notes) }
-        placeholder='Write your notes here...'
-      />
+      {
+        isUserCharacter
+        ?
+        <textarea
+          spellCheck="false"
+          className="border-none"
+          onChange={handleChange}
+          style={{minWidth: "100%", minHeight: "10em"}}
+          value={ notesState }
+          placeholder='Write your notes here...'
+        />
+        :
+        <p>{currentCharacter.notes}</p>
+
+      }
+
 
     </div>
   )
