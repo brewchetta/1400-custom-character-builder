@@ -4,14 +4,20 @@ import CharacterEquipmentOpenStoreTile from "./CharacterEquipmentOpenStoreTile"
 import HelpButton from "shared/HelpButton"
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
+import { deleteCharacterItem } from "fetch/fetch-character-items"
+
 
 function CharacterEquipment({ setStoreOpen }) {
 
-  const { currentCharacter: { items }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { items } = currentCharacter
 
-  const handleRemoveItem = item => {
-    const updatedItems = items.filter( i => i !== item )
-    setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
+  async function handleRemoveItem(item) {
+    const res =  await deleteCharacterItem(currentCharacter._id, item.epochStamp)
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({...prev, items: data.result}))
+    }
   }
 
   const toggleStoreOpen = () => setStoreOpen(prev => !prev)

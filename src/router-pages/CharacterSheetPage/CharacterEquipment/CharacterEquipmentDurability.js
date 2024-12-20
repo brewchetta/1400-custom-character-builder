@@ -1,22 +1,28 @@
 import { useCharacterContext } from 'context/CharacterContext'
+import { patchCharacterItem } from 'fetch/fetch-character-items'
 
 function CharacterEquipmentDurability({ item }) {
 
-  const { setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
 
-  const handleClickBox = isChecked => {
+  async function handleClickBox(isChecked) {
     const { durability, maxDurability } = item
-    let updatedItem = item
+    let updatedDurability = item.durability
 
     if ( durability > 0 && !isChecked ) {
-      updatedItem = { ...item, durability: durability - 1 }
+      updatedDurability = durability - 1
     } else if ( durability < maxDurability && isChecked ) {
-      updatedItem = { ...item, durability: durability + 1 }
+      updatedDurability = durability + 1
     }
 
-    setCurrentCharacter( prev => {
-      return { ...prev, items: prev.items.map( i => i === item ? updatedItem : i ) }
-    })
+    const res = await patchCharacterItem(currentCharacter._id, item.epochStamp, { durability: updatedDurability })
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({ ...prev, items: data.result }))
+    } else {
+      console.log('Something went wrong...')
+    }
+
 
   }
 

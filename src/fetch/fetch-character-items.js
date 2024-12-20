@@ -21,7 +21,7 @@ export async function postCharacterItemBuy(id, payload) {
 }
 
 
-export async function patchCharacterSpell(id, itemID, payload) {
+export async function patchCharacterItem(id, itemID, payload) {
     return await fetch(`${router}/${id}/items/${itemID}`, {
         method: 'PATCH',
         headers,
@@ -30,7 +30,7 @@ export async function patchCharacterSpell(id, itemID, payload) {
 }
 
 
-export async function deleteCharacterSpell(id, itemID) {
+export async function deleteCharacterItem(id, itemID) {
     return await fetch(`${router}/${id}/items/${itemID}`, { method: 'DELETE' })
 
 }

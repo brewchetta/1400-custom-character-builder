@@ -3,14 +3,21 @@ import CharacterEquipmentTile from '../CharacterEquipment/CharacterEquipmentTile
 import CurrentGold from '../CharacterEquipment/CurrentGold'
 import HelpButton from 'shared/HelpButton'
 import { rulesGear } from 'data/rules'
+import { deleteCharacterItem } from 'fetch/fetch-character-items'
 
 function EquipmentStoreCharacterItems(props) {
 
-  const { currentCharacter: { items }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { items } = currentCharacter
 
-  const handleRemoveItem = item => {
-    // const updatedItems = items.filter( i => i !== item )
-    // setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
+  async function handleRemoveItem(item) {
+    const res =  await deleteCharacterItem(currentCharacter._id, item.epochStamp)
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({...prev, items: data.result}))
+    } else {
+      console.warn('Something went wrong...')
+    }
   }
 
   const renderedItems = items.map(item => (
