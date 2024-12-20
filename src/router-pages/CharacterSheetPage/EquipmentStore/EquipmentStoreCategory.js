@@ -17,18 +17,13 @@ function EquipmentStoreCategory({ name, items }) {
   ) )
 
   const renderedHelpButton = (
-    name === "weapons" ? <HelpButton info={rulesGear['weapon descriptions']} />
-    : name === "armours" ? <HelpButton info={rulesGear['armour descriptions']} />
-    : name === "tools" ? <HelpButton info={rulesGear['tool descriptions']} />
-    : name === "supplies" ? <HelpButton info={rulesGear['supply descriptions']} />
-    : name === "vehicles" ? <HelpButton info={rulesGear['vehicle descriptions']} />
-    : name === "animals" ? <HelpButton info={rulesGear['animal companion descriptions']} />
-    : name === "magic companions" ? <HelpButton info={rulesGear['magic companion descriptions']} />
-    : name === "magic vehicles" ? <HelpButton info={rulesGear['magic vehicle descriptions']} />
-    : name === "magic tools" ? <HelpButton info={rulesGear['magic tool descriptions']} />
-    : name === "magic supplies" ? <HelpButton info={rulesGear['magic supply descriptions']} />
-    : name === "magic weapons" ? <HelpButton info={rulesGear['magic weapon descriptions']} />
-    : name === "magic armor" ? <HelpButton info={rulesGear['magic armor descriptions']} />
+    name === "Weapon" ? <HelpButton info={rulesGear['weapon descriptions']} />
+    : name === "Armour" ? <HelpButton info={rulesGear['armour descriptions']} />
+    : name === "Tool" ? <HelpButton info={rulesGear['tool descriptions']} />
+    : name === "Supply" ? <HelpButton info={rulesGear['supply descriptions']} />
+    : name === "Vehicle" ? <HelpButton info={rulesGear['vehicle descriptions']} />
+    : name === "Animal Companion" ? <HelpButton info={rulesGear['animal companion descriptions']} />
+    : name === "Magic Companion" ? <HelpButton info={rulesGear['magic companion descriptions']} />
     : <HelpButton info={"Could not find information for that..."} />
   )
 

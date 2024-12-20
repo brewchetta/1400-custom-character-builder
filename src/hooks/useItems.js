@@ -1,29 +1,29 @@
 import { useState, useEffect } from 'react'
-import * as itemsCore from 'data/_itemsCore'
-import { magicWeapons, magicArmor, magicSupplies, magicTools, magicCompanions, magicVehicles } from 'data/_itemsMagic'
-import { core } from 'data/_rulesets'
+import { getItems } from 'fetch/fetch-item-templates'
 
-export default function useItems(ruleset = core) {
-  const [items, setItems] = useState({
-    ...itemsCore,
-    'magic supplies': magicSupplies,
-    'magic weapons': magicWeapons,
-    'magic armor': magicArmor,
-    'magic tools': magicTools,
-    'magic companions': magicCompanions,
-    'magic vehicles': magicVehicles,
-  })
+export default function useItems() {
+  const [items, setItems] = useState([])
+
+  function buildCategories(categories, items) {
+    return categories.map(category => {
+      const filteredItems = items.filter(item => item.tags.includes(category))
+      return { name: category, items: filteredItems }
+    })
+  }
+
+  async function fetchItems(params) {
+    const res = await getItems()
+    if (res.ok) {
+      const { categories, result } = await res.json()
+      const builtCategories = buildCategories(categories, result)
+      setItems( builtCategories )
+    } else {
+    }
+  }
 
   useEffect(() => {
-    let currentItems = items
-
-    // if (ruleset.includes(magicItems)) {
-    //   currentItems = {...currentItems}
-    // }
-
-    setItems(currentItems)
-
-  }, [ruleset]) // eslint-disable-line react-hooks/exhaustive-deps
+    fetchItems()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return items
 

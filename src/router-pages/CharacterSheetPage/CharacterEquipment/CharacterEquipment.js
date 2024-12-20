@@ -17,10 +17,8 @@ function CharacterEquipment({ setStoreOpen }) {
   const toggleStoreOpen = () => setStoreOpen(prev => !prev)
 
   const renderedItems = items.map(item => (
-    <CharacterEquipmentTile key={item.key + item.epoch_stamp} item={item} handleRemoveItem={handleRemoveItem}  />
+    <CharacterEquipmentTile key={item.key + item.epochStamp} item={item} handleRemoveItem={handleRemoveItem}  />
   ) )
-
-  console.log(items)
 
   return (
 

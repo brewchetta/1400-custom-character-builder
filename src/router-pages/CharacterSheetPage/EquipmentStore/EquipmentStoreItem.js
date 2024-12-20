@@ -1,22 +1,30 @@
 import { useCharacterContext } from 'context/CharacterContext'
+import { postCharacterItem, postCharacterItemBuy } from 'fetch/fetch-character-items'
 
 function EquipmentStoreItem({ item }) {
 
-  const { currentCharacter: { gold }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { cost } = item
 
-  const cost = item.cost || 1
-
-  const handleTakeItem = () => {
-    setCurrentCharacter( prev => ({ ...prev, items: [ ...prev.items, {...item, epoch_stamp: Date.now()} ] }) )
+  async function handleTakeItem() {
+    const res = await postCharacterItem(currentCharacter._id, item)
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(prev => ({ ...prev, items: data.result }))
+    } else {
+      console.warn("Something went wrong...")
+    }
   }
-
-  const handleBuyItem = () => {
-    if ( gold >= cost ) {
-      setCurrentCharacter( prev => ({
-        ...prev,
-        gold: prev.gold - cost,
-        items: [ ...prev.items, {...item, epoch_stamp: Date.now() } ]
-      }) )
+  
+  async function handleBuyItem() {
+    if ( currentCharacter.gold >= cost ) {
+      const res = await postCharacterItemBuy(currentCharacter._id, item)
+      if (res.ok) {
+        const data = await res.json()
+        setCurrentCharacter(data.result)
+      } else {
+        console.warn("Something went wrong...")
+      }
     }
   }
 
@@ -37,7 +45,7 @@ function EquipmentStoreItem({ item }) {
       </td>
 
       <td className="padding-small">
-        <button className="text-black border-black" onClick={ handleBuyItem } disabled={gold - cost < 0}>
+        <button className="text-black border-black" onClick={ handleBuyItem } disabled={currentCharacter.gold - cost < 0}>
           Buy for { item.cost || 1 } gold
         </button>
       </td>

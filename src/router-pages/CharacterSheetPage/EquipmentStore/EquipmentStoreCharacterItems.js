@@ -9,12 +9,12 @@ function EquipmentStoreCharacterItems(props) {
   const { currentCharacter: { items }, setCurrentCharacter } = useCharacterContext()
 
   const handleRemoveItem = item => {
-    const updatedItems = items.filter( i => i !== item )
-    setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
+    // const updatedItems = items.filter( i => i !== item )
+    // setCurrentCharacter( prev => ({ ...prev, items: updatedItems }))
   }
 
   const renderedItems = items.map(item => (
-    <CharacterEquipmentTile key={item.epoch_stamp || item.key} item={item} handleRemoveItem={handleRemoveItem} removeable={true}  />
+    <CharacterEquipmentTile key={item.epochStamp || item.key} item={item} handleRemoveItem={handleRemoveItem} removeable={true}  />
   ) )
 
   return (

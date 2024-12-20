@@ -7,10 +7,10 @@ import useItems from 'hooks/useItems'
 
 function EquipmentStore() {
 
-  const items = useItems()
+  const categories = useItems()
 
-  const renderedCategories = Object.keys( items ).map( key => (
-    <EquipmentStoreCategory key={ key } name={ key } items={ items[key] } />
+  const renderedCategories = categories.map( category => (
+    <EquipmentStoreCategory key={ category.name } name={ category.name } items={ category.items } />
   ) )
 
   return (
@@ -24,8 +24,8 @@ function EquipmentStore() {
 
         { renderedCategories }
 
-        <EquipmentStoreSpells category="spells" spells={spells} />
-        <EquipmentStoreSpells category="rituals" spells={rituals} />
+        {/* <EquipmentStoreSpells category="spells" spells={spells} />
+        <EquipmentStoreSpells category="rituals" spells={rituals} /> */}
 
       </div>
 

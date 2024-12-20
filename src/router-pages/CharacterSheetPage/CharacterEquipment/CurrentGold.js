@@ -4,18 +4,33 @@ import IconButton from 'shared/IconButton'
 import { rulesGear } from 'data/rules'
 import plusIcon from 'assets/images/plus-circle.png'
 import minusIcon from 'assets/images/minus-circle.png'
+import { patchCharacter } from 'fetch/fetch-characters'
 
 function CurrentGold() {
 
-  const { currentCharacter: { gold }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { gold } = currentCharacter
 
-  const handleAddGold = () => setCurrentCharacter( prev => ({...prev, gold: prev.gold + 1}) )
-
-  const handleSubtractGold = () => {
-    if (gold > 0) {
-      setCurrentCharacter( prev => ({...prev, gold: prev.gold - 1}) )
+  async function handleAddGold() {
+    setCurrentCharacter( prev => ({...prev, gold: prev.gold + 1}) )
+    const res = await patchCharacter(currentCharacter._id, { gold: gold + 1 })
+    if (res.ok) {
+      const data = await res.json()
+      setCurrentCharacter(data.result) 
     }
   }
+
+  async function handleSubtractGold() {
+    if (gold > 0) {
+      setCurrentCharacter( prev => ({...prev, gold: prev.gold - 1}) )
+      const res = await patchCharacter(currentCharacter._id, { gold: gold - 1 })
+      if (res.ok) {
+        const data = await res.json()
+        setCurrentCharacter(data.result) 
+      }
+    }
+  }
+
 
   return (
     <div className="padding-small border-dark-grey flex-column space-between relative">
