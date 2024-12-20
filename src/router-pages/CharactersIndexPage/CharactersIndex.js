@@ -16,11 +16,11 @@ function CharactersIndex(props) {
     const res = await getAllCharacters()
 
     if (res.ok) {
-      const fetchedChars = await res.json()
-      if (!fetchedChars.length) {
+      const data = await res.json()
+      if (!data.result.length) {
         setModalOpen(true)
       } else {
-        setCharacters(fetchedChars)
+        setCharacters(data.result)
       }
     } else {
       alert("500 - Unable to fetch from server")

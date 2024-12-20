@@ -32,18 +32,18 @@ function LoginSignup() {
 
     async function handleSubmitLogin(e) {
         e.preventDefault()
-        const response = await fetch('/users/login', {
+        const res = await fetch('/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(loginFormState)
         })
 
-        if (response.ok) {
-            const currentUser = await response.json()
-            setCurrentUser(currentUser)
+        if (res.ok) {
+            const data = await res.json()
+            setCurrentUser(data.result)
         } else {
             try {
-                const errorResponse = await response.json()
+                const errorResponse = await res.json()
                 setErrors([ errorResponse.error ])
             } catch (err) {
                 console.error(err)
@@ -53,18 +53,18 @@ function LoginSignup() {
 
     async function handleSubmitSignup(e) {
         e.preventDefault()
-        const response = await fetch('/users', {
+        const res = await fetch('/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(signupFormState)
         })
 
-        if (response.ok) {
-            const currentUser = await response.json()
-            setCurrentUser(currentUser)
+        if (res.ok) {
+            const data = await res.json()
+            setCurrentUser(data.result)
         } else {
             try {
-                const errorResponse = await response.json()
+                const errorResponse = await res.json()
                 setErrors([ errorResponse.error ])
             } catch (err) {
                 console.error(err)

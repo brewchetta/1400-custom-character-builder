@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import CharacterBio from './CharacterBio'
 // import CharacterSkillsAdd from './CharacterSkillsAdd'
 import CharacterSkills from "./CharacterSkills"
-// import CharacterEquipment from "./CharacterEquipment"
+import CharacterEquipment from "./CharacterEquipment"
 import CharacterSpells from "./CharacterSpells"
 import CharacterRituals from "./CharacterRituals"
 import CharacterNotes from "./CharacterNotes"
-// import EquipmentStore from "./EquipmentStore"
-// import SideDrawer from "shared/SideDrawer"
+import EquipmentStore from "./EquipmentStore"
+import SideDrawer from "shared/SideDrawer"
 
 import { useParams } from 'react-router-dom'
 import { useCharacterContext } from 'context/CharacterContext'
@@ -20,15 +20,15 @@ function CharacterSheet() {
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
   const { editable } = useEditableContext()
 
-  // const [storeOpen, setStoreOpen] = useState(false)
+  const [storeOpen, setStoreOpen] = useState(false)
 
   const params = useParams()
 
   async function fetchCurrentCharacter() {
     const res = await getCharacter(params.id)
     if (res.ok) {
-      const char = await res.json()
-      setCurrentCharacter(char)
+      const data = await res.json()
+      setCurrentCharacter(data.result)
     } else if (res.status === 404) {
       alert('404 - Character not found')
     } else {
@@ -38,8 +38,7 @@ function CharacterSheet() {
 
   useEffect(() => {
     fetchCurrentCharacter()
-    // eslint-disable-line react-hooks/exhaustive-deps
-  }, [params.id]) 
+  }, [params.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
 
   if (currentCharacter._id) {
@@ -56,11 +55,11 @@ function CharacterSheet() {
           */}
         </div>
 
-        {/* <CharacterEquipment setStoreOpen={setStoreOpen} /> */}
+        <CharacterEquipment setStoreOpen={setStoreOpen} />
 
-        {/* <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen} className="background-white">
+        <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen} className="background-white">
           <EquipmentStore displayCondition={storeOpen} />
-        </SideDrawer> */}
+        </SideDrawer>
       </>
     )
   } else {

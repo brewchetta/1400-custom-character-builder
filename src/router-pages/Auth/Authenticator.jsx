@@ -11,17 +11,17 @@ function Authenticator({children}) {
     const [loading, setLoading] = useState(true)
 
     async function authenticateCurrentUser() {
-        const response = await fetch('/users/current')
-        if (response.status === 200) {
-            const user = await response.json()
-            setCurrentUser(user)
-        } else if (response.status >= 400) {
+        const res = await fetch('/users/current')
+        if (res.status === 200) {
+            const data = await res.json()
+            setCurrentUser(data.result)
+        } else if (res.status >= 400) {
             try {
                 console.error("Something went wrong...")
-                const json = response.json()
+                const json = res.json()
                 console.log(json)
             } catch {
-                console.error(response)
+                console.error(res)
             }
         }
         setLoading(false)

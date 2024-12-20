@@ -2,6 +2,8 @@ import { useCharacterContext } from 'context/CharacterContext'
 import { useCurrentUserContext } from 'context/CurrentUserContext'
 import { useState, useEffect } from 'react'
 
+const DEBOUNCE_TIME = 2 * 1000
+
 function CharacterNotes() {
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
@@ -29,11 +31,11 @@ function CharacterNotes() {
     if (notesState !== currentCharacter.notes) {
       const timeout = setTimeout(() => {
         fetchSaveNotes(notesState)
-      }, 5000) // TODO: add save animation for notes?
+      }, DEBOUNCE_TIME) // TODO: add save animation for notes?
   
       return () => clearTimeout(timeout)
     }
-  }, [notesState])
+  }, [notesState, currentCharacter.notes]) // eslint-disable-line react-hooks/exhaustive-deps
 
 
   const handleChange = e => setNotesState(e.target.value)
