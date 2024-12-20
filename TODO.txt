@@ -1,3 +1,5 @@
+- IMPORTANT: put back in buy spells / buy rituals
+- IMPORTANT: put back in change skills
 - rewrite help blurbs to be more condensed
 - random name generator
 - toasts

@@ -1,25 +1,18 @@
 import FormInput from 'shared/FormInput'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
-import { useCharacterContext } from 'context/CharacterContext'
 
-function CharacterBioEdit() {
+function CharacterBioEdit({ editableStates, setEditableStates }) {
 
-  const { currentCharacter: {
-    name,
-    quirk,
-    history
-  }, setCurrentCharacter } = useCharacterContext()
-
-  const handleChange = e => setCurrentCharacter(prev => ({...prev, [e.target.name]: e.target.value}))
+  const handleChange = e => setEditableStates(prev => ({...prev, [e.target.name]: e.target.value}))
 
   return (
     <div className="labeled-input-section">
 
-      <FormInput name='name' labelText='Name: ' onChange={handleChange} value={name} />
+      <FormInput name='name' labelText='Name: ' onChange={handleChange} value={editableStates.name} />
 
-      <FormInput name='quirk' labelText='Quirk: ' onChange={handleChange} value={quirk} />
+      <FormInput name='quirk' labelText='Quirk: ' onChange={handleChange} value={editableStates.quirk} />
 
-      <FormInput name='history' labelText='History: ' onChange={handleChange} value={history} />
+      <FormInput name='history' labelText='History: ' onChange={handleChange} value={editableStates.history} />
 
     </div>
   )

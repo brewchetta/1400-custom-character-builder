@@ -2,10 +2,15 @@ import CharacterBioEdit from "./CharacterBioEdit"
 import SaveAndEditButton from "./SaveAndEditButton"
 import DeleteButton from "./DeleteButton"
 import HelpButton from "shared/HelpButton"
+
 import { capitalize } from 'utilities'
+import { patchCharacter } from 'fetch/fetch-characters'
+
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import { useCurrentUserContext } from "context/CurrentUserContext"
+
+import { useState, useEffect } from 'react'
 
 function CharacterBio() {
 
@@ -14,7 +19,9 @@ function CharacterBio() {
     ancestry,
     quirk,
     history
-  } } = useCharacterContext()
+  }, setCurrentCharacter } = useCharacterContext()
+
+  const [editableStates, setEditableStates] = useState({ name, quirk, history})
 
   const { currentUser } = useCurrentUserContext()
   const isUserCharacter = currentCharacter.user === currentUser._id
@@ -23,6 +30,25 @@ function CharacterBio() {
   const helpToEdit = "You can edit your character by clicking the button next to me"
   const helpWhenEdit = "You can save your character by clicking the button next to me"
 
+  useEffect(() => {
+    async function sendRequest() {
+      const nameEdited = editableStates.name !== currentCharacter.name
+      const quirkEdited = editableStates.quirk !== currentCharacter.quirk
+      const historyEdited = editableStates.history !== currentCharacter.history
+      if (currentCharacter && (nameEdited || quirkEdited || historyEdited)) {
+        const res = await patchCharacter(currentCharacter._id, editableStates)
+        if (res.ok) {
+          const data = await res.json()
+          setCurrentCharacter(data.result)
+        } else {
+          console.warn("Something went wrong...")
+        }
+      }
+    }
+    
+    sendRequest()
+  }, [editable])
+
   return (
     <div className="padding-small">
       <h2>{name} - {capitalize(ancestry.name)} 
@@ -30,12 +56,12 @@ function CharacterBio() {
         isUserCharacter
         ?
         <>
-          {/* <SaveAndEditButton/>
+          <SaveAndEditButton/>
           <HelpButton info={editable ? helpWhenEdit : helpToEdit }/> {
           editable
           &&
           <DeleteButton character={currentCharacter}/>
-          } */} {/* TODO: Add back in edit/delete button */}
+          }
         </>
         :
         null
@@ -51,7 +77,7 @@ function CharacterBio() {
         <p>History: {history}</p>
         </>
         : // TODO: fix character editor again
-        <CharacterBioEdit /> 
+        <CharacterBioEdit editableStates={editableStates} setEditableStates={setEditableStates} /> 
       }
 
     </div>
