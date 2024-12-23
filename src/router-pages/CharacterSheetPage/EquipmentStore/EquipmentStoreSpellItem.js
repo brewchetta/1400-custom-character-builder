@@ -1,35 +1,53 @@
 import { useCharacterContext } from 'context/CharacterContext'
+import { postCharacterSpell, postCharacterRitual } from 'fetch/fetch-character-spells'
 
 // used for both spells and rituals, category determines the difference
-function EquipmentStoreItem({ spell, spellKey, category = "spells" }) {
+function EquipmentStoreItem({ item, itemKey, category = "spells" }) {
 
-  const { currentCharacter: { gold }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { gold } = currentCharacter
 
-  const cost = spell.cost || 1
+  const cost = item.cost || 1
 
-  const handleTakeSpell = () => {
+  async function handleTakeSpell() {
     if (category === "spells") {
-      setCurrentCharacter( prev => ({ ...prev, spells: [ ...prev.spells || [], spellKey ] }))
+      const res = await postCharacterSpell(currentCharacter._id, { _id: item._id })
+      if (res.ok) {
+        const data = await res.json()
+        setCurrentCharacter( prev => ({ ...prev, spells: data.result }) )
+      }
     } else if (category === "rituals") {
-      setCurrentCharacter( prev => ({ ...prev, rituals: [ ...prev.rituals || [], spellKey ] }))
+      const res = await postCharacterRitual(currentCharacter._id, { _id: item._id })
+      if (res.ok) {
+        const data = await res.json()
+        setCurrentCharacter( prev => ({ ...prev, rituals: data.result }) )
+      }
     }
   }
 
-  const handleBuySpell = () => {
-    if (category === "spells" && gold >= spell.cost) {
-      setCurrentCharacter( prev => ({ ...prev, spells: [ ...prev.spells, spellKey ], gold: prev.gold - spell.cost }) )
-    } else if (category === "rituals" && gold >= spell.cost) {
-      setCurrentCharacter( prev => ({ ...prev, rituals: prev.rituals ? [ ...prev.rituals, spellKey ] : [spellKey], gold: prev.gold - spell.cost }) )
+  async function handleBuy () {
+    if (category === "spells" && gold >= item.cost) {
+      const res = await postCharacterSpell(currentCharacter._id, { _id: item._id, cost: item.cost })
+      if (res.ok) {
+        const data = await res.json()
+        setCurrentCharacter( prev => ({ ...prev, spells: data.result, gold: prev.gold - item.cost }) )
+      }
+    } else if (category === "rituals" && gold >= item.cost) {
+      const res = await postCharacterRitual(currentCharacter._id, { _id: item._id, cost: item.cost })
+      if (res.ok) {
+        const data = await res.json()
+        setCurrentCharacter( prev => ({ ...prev, rituals: data.result, gold: prev.gold - item.cost }) )
+      }
     }
   }
 
   return (
     <tr className="background-light-grey text-black">
-      <td className="padding-small">{ spell.name }</td>
+      <td className="padding-small">{ item.name }</td>
 
       <td className="padding-small">
-        <button className="text-black border-black" onClick={ handleBuySpell } disabled={gold - cost < 0}>
-          Learn for { spell.cost || 1 } gold
+        <button className="text-black border-black" onClick={ handleBuy } disabled={gold - cost < 0}>
+          Learn for { item.cost || 1 } gold
         </button>
       </td>
 

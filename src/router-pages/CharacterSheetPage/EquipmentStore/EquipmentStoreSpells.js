@@ -11,18 +11,20 @@ import { rulesPlay } from 'data/rules'
 function EquipmentStoreSpells({ category = "spells", spells = [] }) {
 
   const [isOpen, setIsOpen] = useState(false)
-  const characterContext = useCharacterContext()
+  const { currentCharacter } = useCharacterContext()
 
   const toggleOpen = () => setIsOpen(isOpen => !isOpen)
 
   const characterSpells = category === "spells"
-  ? characterContext.currentCharacter.spells || []
-  : characterContext.currentCharacter.rituals || []
+  ? currentCharacter.spells.map(s => s.spellData.key) || []
+  : currentCharacter.rituals.map(s => s.ritualData.key) || []
 
-  const availableSpells = Object.keys(spells).filter(s => !characterSpells.includes(s))
+  const availableSpells = spells.filter(s => !characterSpells.includes(s.key))
 
-  const renderedSpells = availableSpells.map( spellKey => (
-    <EquipmentStoreSpellItem key={ spellKey } spell={ spells[spellKey] } spellKey={ spellKey } category={category} />
+  console.log(availableSpells, spells, characterSpells)
+
+  const renderedSpells = availableSpells.map( spell => (
+    <EquipmentStoreSpellItem key={ spell.key } item={ spell } itemKey={ spell.key } category={category} />
   ) )
 
   const renderedHelpButton = (

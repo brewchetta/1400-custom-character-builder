@@ -18,6 +18,7 @@ export default function useItems() {
       const builtCategories = buildCategories(categories, result)
       setItems( builtCategories )
     } else {
+      console.warn("Something went wrong...")
     }
   }
 
