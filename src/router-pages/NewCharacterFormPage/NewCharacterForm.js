@@ -28,7 +28,7 @@ function NewCharacterForm() {
   const [characterHistory, setCharacterHistory] = useState('')
 
   const [currentProfession, setCurrentProfession] = useState(null)
-  const [currentTrainings, setCurrentTrainings] = useState([])
+  const [currentTraining, setCurrentTraining] = useState([])
   const [currentSpells, setCurrentSpells] = useState({})
   const [currentAncestrySpells, setCurrentAncestrySpells] = useState({})
   const [currentAncestrySkills, setCurrentAncestrySkills] = useState([])
@@ -109,7 +109,7 @@ function NewCharacterForm() {
         ...Object.values(currentItems)
       ],
       gold: 2,
-      trainings: currentTrainings.map(t => t._id)
+      trainings: [ currentTraining._id ]
     }
 
     console.log(character)
@@ -171,7 +171,9 @@ function NewCharacterForm() {
         setCurrentExpertise,
         professions,
         spells,
-        items
+        items,
+        currentTraining,
+        setCurrentTraining
       }} />
 
       </div>

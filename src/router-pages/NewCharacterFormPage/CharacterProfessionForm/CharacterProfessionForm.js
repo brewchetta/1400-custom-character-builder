@@ -7,6 +7,7 @@ import SkillsInputs from 'shared/SkillsInputs'
 import ClassEquipmentInputs from './ClassEquipmentInputs'
 import ClassEquipmentDisplay from "./ClassEquipmentDisplay"
 import ConditionalWrapper from 'shared/ConditionalWrapper'
+import CharacterTrainingSelection from './CharacterTrainingSelection'
 
 import useToggleOnCondition from 'hooks/useToggleOnCondition'
 
@@ -25,7 +26,9 @@ function CharacterProfessionForm({
   setCurrentExpertise,
   professions,
   spells,
-  items
+  items,
+  currentTraining,
+  setCurrentTraining
 }) {
 
   const maxSpells = currentProfession?.spells
@@ -103,6 +106,13 @@ function CharacterProfessionForm({
         setCurrentSkills={setCurrentExpertise}
         maxSkills={currentProfession?.expertise}
         checkboxClass={"checkmark padding-small"}
+        />
+
+      <CharacterTrainingSelection
+        displayCondition={shouldDisplayEquipment && currentProfession?.trainings.length}
+        currentTraining={currentTraining}
+        setCurrentTraining={setCurrentTraining}
+        availableTrainings={currentProfession?.trainings || []}
         />
 
       <ClassEquipmentInputs

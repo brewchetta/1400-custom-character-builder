@@ -45,6 +45,9 @@ const rulesPlay = {
   advancement: [
     `After an adventure, increase a skill by editing your character (none→d8→d10→d12). Your storyteller may award you gold as well (usually 1d6 to each member).`
   ],
+  training: [
+    `Your training determines special abilities and features. You can learn new training during downtime after an adventure.`
+  ],
   defence: [
     `Instead of being injured, your worn armor loses a point of durability. Alternately, one of your items breaks or some other ill effect happens.`,
     `In town it takes one gold to repair a broken or disabled item.`

@@ -1,7 +1,6 @@
 import EquipmentStoreCharacterItems from './EquipmentStoreCharacterItems'
 import EquipmentStoreCategory from './EquipmentStoreCategory'
 import EquipmentStoreSpells from './EquipmentStoreSpells'
-import rituals from 'data/_ritualsCore'
 import useItems from 'hooks/useItems'
 
 import { getAllSpells } from 'fetch/fetch-spells'
