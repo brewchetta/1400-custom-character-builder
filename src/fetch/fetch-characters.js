@@ -18,6 +18,11 @@ export async function getCharacterCreationOptions() {
 }
 
 
+export async function getCharacterLevelUpOptions() {
+    return await fetch(`${router}/level-up-options`)
+}
+
+
 export async function postCharacter(payload) {
     return await fetch(`${router}`, {
         method: 'POST',

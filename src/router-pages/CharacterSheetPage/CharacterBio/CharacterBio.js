@@ -12,7 +12,7 @@ import { useCurrentUserContext } from "context/CurrentUserContext"
 
 import { useState, useEffect } from 'react'
 
-function CharacterBio() {
+function CharacterBio({ setLevelUpOpen }) {
 
   const { currentCharacter, currentCharacter: {
     name,
@@ -62,6 +62,7 @@ function CharacterBio() {
           &&
           <DeleteButton character={currentCharacter}/>
           }
+          <button onClick={() => setLevelUpOpen(prev => !prev)}>Level Up</button>
         </>
         :
         null

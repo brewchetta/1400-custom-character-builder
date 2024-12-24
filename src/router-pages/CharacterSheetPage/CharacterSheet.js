@@ -17,14 +17,16 @@ import { useEditableContext } from 'context/EditableContext'
 import { useLoadingContext } from 'context/LoadingContext'
 
 import { getCharacter } from 'fetch/fetch-characters'
+import CharacterLevelUp from './CharacterLevelUp/CharacterLevelUp'
 
 function CharacterSheet() {
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
   const { editable } = useEditableContext()
-  const { loading, setLoading } = useLoadingContext()
+  const { loading } = useLoadingContext()
 
   const [storeOpen, setStoreOpen] = useState(false)
+  const [levelUpOpen, setLevelUpOpen] = useState(false)
   
 
   const params = useParams()
@@ -40,6 +42,7 @@ function CharacterSheet() {
       console.warn('Something went wrong...')
     }
   }
+
   
   useEffect(() => {
     fetchCurrentCharacter()
@@ -50,21 +53,24 @@ function CharacterSheet() {
     return (
       <>
         <div className="grid-columns-large standard-gap">
-          <CharacterBio />
+          <CharacterBio setLevelUpOpen={setLevelUpOpen} />
           <CharacterNotes />
           <CharacterSkills />
           {/* <CharacterSkillsAdd displayCondition={editable} /> */}
           <CharacterTraining />
           <CharacterSpells displayCondition={editable || currentCharacter.spells?.length} />
           <CharacterRituals displayCondition={editable || currentCharacter.rituals?.length} /> 
-          {/* 
-          */}
+          
         </div>
 
         <CharacterEquipment setStoreOpen={setStoreOpen} />
 
         <SideDrawer isOpen={storeOpen} setIsOpen={setStoreOpen} className="background-white">
           <EquipmentStore displayCondition={storeOpen} />
+        </SideDrawer>
+
+        <SideDrawer isOpen={levelUpOpen} setIsOpen={setLevelUpOpen} className="background-white">
+          <CharacterLevelUp setLevelUpOpen={setLevelUpOpen} />
         </SideDrawer>
       </>
     )

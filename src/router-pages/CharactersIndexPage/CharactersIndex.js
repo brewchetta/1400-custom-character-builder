@@ -6,10 +6,8 @@ import hops from 'assets/images/hops-1.png'
 import hopsTwo from 'assets/images/hops-4.png'
 import PlaceableImage from "shared/PlaceableImage"
 import DrawerModal from 'shared/DrawerModal'
-import LoadingScreen from 'router-pages/Auth/LoadingScreen'
-import { useLoadingContext } from 'context/LoadingContext'
 
-function CharactersIndex(props) {
+function CharactersIndex() {
 
   const [characters, setCharacters] = useState([])
   const [modalOpen, setModalOpen] = useState(false)

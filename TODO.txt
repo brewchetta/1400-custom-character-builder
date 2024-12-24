@@ -5,3 +5,4 @@
 - rules rewrite for more narrative play
 - item store search
 - limit number of spells based on character spellsMax
+- fix deleting characters
