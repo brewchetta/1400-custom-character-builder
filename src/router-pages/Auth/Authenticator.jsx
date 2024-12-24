@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
 
-import LoadingScreen from './LoadingScreen'
+import LoadingAnimation from 'shared/LoadingAnimation' 
 import LoginSignup from './LoginSignup'
 
 import { useCurrentUserContext } from 'context/CurrentUserContext'
+import { useLoadingContext } from 'context/LoadingContext'
 
 function Authenticator({children}) {
 
     const { currentUser, setCurrentUser } = useCurrentUserContext()
-    const [loading, setLoading] = useState(true)
+    const { loading, setLoading } = useLoadingContext()
+    
 
     async function authenticateCurrentUser() {
         const res = await fetch('/users/current')
@@ -17,14 +19,14 @@ function Authenticator({children}) {
             setCurrentUser(data.result)
         } else if (res.status >= 400) {
             try {
-                console.error("Something went wrong...")
+                console.warn("Something went wrong...")
                 const json = res.json()
                 console.log(json)
             } catch {
                 console.error(res)
             }
         }
-        setLoading(false)
+        setTimeout(() => setLoading(false), 1000)
         // TODO use an animated element and the animationend event listener
     }
 
@@ -34,7 +36,7 @@ function Authenticator({children}) {
     }, [])
 
     if (loading) {
-        return <LoadingScreen />
+        return <LoadingAnimation />
     }
 
     if (!currentUser) {

@@ -9,10 +9,12 @@ import CharacterRituals from "./CharacterRituals"
 import CharacterNotes from "./CharacterNotes"
 import EquipmentStore from "./EquipmentStore"
 import SideDrawer from "shared/SideDrawer"
+import LoadingAnimation from 'shared/LoadingAnimation'
 
 import { useParams } from 'react-router-dom'
 import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
+import { useLoadingContext } from 'context/LoadingContext'
 
 import { getCharacter } from 'fetch/fetch-characters'
 
@@ -20,8 +22,10 @@ function CharacterSheet() {
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
   const { editable } = useEditableContext()
+  const { loading, setLoading } = useLoadingContext()
 
   const [storeOpen, setStoreOpen] = useState(false)
+  
 
   const params = useParams()
 
@@ -33,16 +37,16 @@ function CharacterSheet() {
     } else if (res.status === 404) {
       alert('404 - Character not found')
     } else {
-      alert('500 - Something went wrong...')
+      console.warn('Something went wrong...')
     }
   }
-
+  
   useEffect(() => {
     fetchCurrentCharacter()
   }, [params.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
 
-  if (currentCharacter._id) {
+  if (currentCharacter._id && !loading) {
     return (
       <>
         <div className="grid-columns-large standard-gap">
@@ -65,7 +69,7 @@ function CharacterSheet() {
       </>
     )
   } else {
-    return <div>Loading character...</div> // TODO: add short loading animation for incoming character
+    return <LoadingAnimation /> // TODO: add short loading animation for incoming character
   }
 
 }

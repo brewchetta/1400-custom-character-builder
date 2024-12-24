@@ -6,6 +6,8 @@ import hops from 'assets/images/hops-1.png'
 import hopsTwo from 'assets/images/hops-4.png'
 import PlaceableImage from "shared/PlaceableImage"
 import DrawerModal from 'shared/DrawerModal'
+import LoadingScreen from 'router-pages/Auth/LoadingScreen'
+import { useLoadingContext } from 'context/LoadingContext'
 
 function CharactersIndex(props) {
 
@@ -23,14 +25,15 @@ function CharactersIndex(props) {
         setCharacters(data.result)
       }
     } else {
-      alert("500 - Unable to fetch from server")
+      console.warn("Something went wrong...")
     }
   }
-
+  
   useEffect(() => {
     fetchUserCharacters()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
 
   const renderCharacters = characters.map(c => (
     <Link key={c._id}

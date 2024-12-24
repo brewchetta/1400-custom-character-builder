@@ -1,19 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLoadingContext } from 'context/LoadingContext'
+import useToggleOnCondition from 'hooks/useToggleOnCondition'
+
 import { buildUpgradedSkillsList } from 'utilities'
+
+import LoadingAnimation from 'shared/LoadingAnimation'
 import CharacterBioForm from './CharacterBioForm'
 import CharacterProfessionForm from './CharacterProfessionForm'
 import Toast from 'shared/Toast'
-import useToggleOnCondition from 'hooks/useToggleOnCondition'
+
 import { toSpinalCase } from 'utilities'
 import { getCharacterCreationOptions } from 'fetch/fetch-characters'
 import { postCharacter } from 'fetch/fetch-characters'
 
+
 function NewCharacterForm() {
-
+  
   const navigate = useNavigate()
-
-  const [loading, setLoading] = useState(true)
+  
+  const { loading, setLoading } = useLoadingContext()
 
   const [ancestries, setAncestries] = useState([])
   const [items, setItems] = useState([])
@@ -69,7 +75,7 @@ function NewCharacterForm() {
   )
 
   if (loading) {
-    return <h1>Loading</h1>
+    return <LoadingAnimation />
   } // TODO: Build a more interesting loading screen with animations etc
 
   function validate() {

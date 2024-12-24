@@ -1,26 +1,23 @@
 import { useLocation } from 'react-router-dom'
 import { useState, useMemo } from 'react'
 
-import { getLocalDarkMode } from 'utils/local-storage'
-
 import AppRoutes from "./AppRoutes"
 import AppNavbar from "./AppNavbar"
 import Authenticator from 'router-pages/Auth'
 
 import { CurrentUserContextProvider } from 'context/CurrentUserContext'
+import { useDarkModeContext } from 'context/DarkModeContext'
+import { useLoadingContext } from 'context/LoadingContext'
 
 function App() {
 
-  const initialDarkMode = useMemo(() => {
-    const browserDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-    return getLocalDarkMode() !== null ? getLocalDarkMode() : browserDarkMode
-  }, [])
-
-  const [darkMode, setDarkMode] = useState(initialDarkMode)
+  const {darkMode, setDarkMode} = useDarkModeContext()
+  const { loading } = useLoadingContext()
 
   const location = useLocation()
 
   const determinedBackground = () => {
+    if (loading) return ''
     switch (location.pathname) {
       case '/':
         return 'tavern-background'

@@ -4,5 +4,4 @@
 - toasts
 - rules rewrite for more narrative play
 - item store search
-- specializations / specialties / special trainings (need to settle on a word)
 - limit number of spells based on character spellsMax
