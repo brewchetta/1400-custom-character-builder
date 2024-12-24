@@ -71,7 +71,7 @@ function CharacterProfessionForm({
         {professions.map(p => <option key={p.key} value={p.key}>{p.name}</option>)}
       </FormSelect>
 
-      <input type="button" value='Random Class' onClick={handleChooseRandomClass}/>
+      <input type="button" value='Random Profession' onClick={handleChooseRandomClass}/>
 
       <ClassDetailsDisplay
         displayCondition={currentProfession}
