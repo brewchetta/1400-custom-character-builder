@@ -15,8 +15,6 @@ function EquipmentStore() {
 
   const categories = useItems()
 
-  console.log(categories)
-
   
   useEffect(() => {
     async function fetchSpells() {

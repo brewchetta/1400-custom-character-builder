@@ -21,8 +21,6 @@ function EquipmentStoreSpells({ category = "spells", spells = [] }) {
 
   const availableSpells = spells.filter(s => !characterSpells.includes(s.key))
 
-  console.log(availableSpells, spells, characterSpells)
-
   const renderedSpells = availableSpells.map( spell => (
     <EquipmentStoreSpellItem key={ spell.key } item={ spell } itemKey={ spell.key } category={category} />
   ) )

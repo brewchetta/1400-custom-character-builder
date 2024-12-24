@@ -5,7 +5,7 @@ import HelpButton from 'shared/HelpButton'
 import { rulesGear } from 'data/rules'
 import { deleteCharacterItem } from 'fetch/fetch-character-items'
 
-function EquipmentStoreCharacterItems(props) {
+function EquipmentStoreCharacterItems() {
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
   const { items } = currentCharacter
@@ -21,7 +21,8 @@ function EquipmentStoreCharacterItems(props) {
   }
 
   const renderedItems = items.map(item => (
-    <CharacterEquipmentTile key={item.epochStamp || item.key} item={item} handleRemoveItem={handleRemoveItem} removeable={true}  />
+    // TODO: epoch time is not a great unique id since it will get duplicated when mass producing items, maybe fix it with uuid?
+    <CharacterEquipmentTile key={item.epochStamp + item.key || item.key} item={item} handleRemoveItem={handleRemoveItem} removeable={true}  />
   ) )
 
   return (
