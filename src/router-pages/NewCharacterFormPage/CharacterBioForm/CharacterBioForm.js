@@ -6,16 +6,27 @@ import BioAncestryDisplay from './BioAncestryDisplay'
 import useSpells from 'hooks/useSpells'
 import useCharacterQuirks from 'hooks/useCharacterQuirks'
 import useCharacterHistories from 'hooks/useCharacterHistories'
-import coreSkills from 'data/_skillsCore'
 import { randomArrayItem } from 'utilities'
+import quirks from 'data/_quirksCore'
+import histories from 'data/_historyCore'
 
-function CharacterBiographyForm({currentRulesets, characterName, setCharacterName, ancestry, setAncestry, setCurrentAncestrySkills, setCurrentAncestrySpells, currentAncestrySkills, currentAncestrySpells, characterQuirk, setCharacterQuirk, characterHistory, setCharacterHistory, ancestries}) {
-
-  const { spells } = useSpells(currentRulesets)
-  const { quirks } = useCharacterQuirks(currentRulesets)
-  const { histories } = useCharacterHistories(currentRulesets)
-
-  const ancestryObj = ancestries[ancestry]
+function CharacterBiographyForm({
+  characterName,
+  setCharacterName,
+  ancestry,
+  setAncestry,
+  currentAncestrySkills,
+  setCurrentAncestrySkills,
+  currentAncestrySpells,
+  setCurrentAncestrySpells,
+  characterQuirk,
+  setCharacterQuirk,
+  characterHistory,
+  setCharacterHistory,
+  ancestries,
+  skills,
+  spells
+}) {
 
   const handleRandomizeQuirk = () => setCharacterQuirk(randomArrayItem(quirks))
   const handleRandomizeHistory = () => setCharacterHistory(randomArrayItem(histories))
@@ -32,14 +43,13 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           value={characterName}
           onChange={e => setCharacterName(e.target.value)}
         />
-
         <FormInput
           name="character-quirk"
           info="Give your character a defining quirk"
           labelText="Character Quirk: "
           value={characterQuirk}
           onChange={e => setCharacterQuirk(e.target.value)}
-        />
+          />
 
         <input type='button' onClick={handleRandomizeQuirk} value="Random Quirk"/>
 
@@ -49,31 +59,32 @@ function CharacterBiographyForm({currentRulesets, characterName, setCharacterNam
           labelText="Character History: "
           value={characterHistory}
           onChange={e => setCharacterHistory(e.target.value)}
-        />
+          />
 
         <input type='button' onClick={handleRandomizeHistory} value="Random History"/>
 
         <BioAncestryForm ancestry={ancestry} setAncestry={setAncestry} ancestries={ancestries}/>
 
-        <BioAncestryDisplay displayCondition={ancestryObj} ancestry={ancestryObj}/>
+        <BioAncestryDisplay displayCondition={ancestry} ancestry={ancestry}/>
+
 
         <SpellsInputs
-          displayCondition={ancestryObj && ancestryObj.spells}
+          displayCondition={ancestry && ancestry.spells}
           spells={spells}
           currentSpells={currentAncestrySpells}
           setCurrentSpells={setCurrentAncestrySpells}
-          maxSpells={ancestryObj?.spells}
+          maxSpells={ancestry?.spells}
           checkboxClass="checkmark padding-small"
-        />
+          />
 
         <SkillsInputs
-          displayCondition={ancestryObj && ancestryObj.skills}
-          possibleSkills={coreSkills}
+          displayCondition={ancestry && ancestry.skills}
+          possibleSkills={skills}
           currentSkills={currentAncestrySkills}
           setCurrentSkills={setCurrentAncestrySkills}
-          maxSkills={ancestryObj?.skills}
+          maxSkills={ancestry?.skills}
           checkboxClass="checkmark padding-small"
-        />
+          /> 
 
       </div>
 

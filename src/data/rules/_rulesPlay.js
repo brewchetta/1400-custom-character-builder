@@ -26,10 +26,10 @@ const rulesPlay = {
     `The storyteller can return players their luck dice for good roleplaying, generosity, sacrifice, or any other reason.`
   ],
   spells: [
-    'A character can only add two spells to their spellbook without special training',
+    'A character can only add three spells to their spellbook without special training',
     'Spells have names. When using a spell, describe how it\'s cast and its intended effect.',
-    'The storyteller might impose a challenge if the spell presents a risk or a powerful effect. This can include overexerting your character\'s spell.',
-    'If the spell has any risk, the roll is Spellcasting',
+    'The storyteller might impose a challenge if the spell presents a risk or a powerful effect. This can include exhausting your character\'s spell.',
+    'If the spell has any risk, the roll is a d6 unless you have special training',
     'You can disable an exhausted spell by clicking the checkmark.',
     'The storyteller determines based on success and intention how the effect manifests.',
   ],
@@ -40,7 +40,7 @@ const rulesPlay = {
     'Each participant in the ritual becomes "connected" and shares one truthful answer to another player\'s question.',
   ],
   load: [
-    `Carry as much as makes sense, but more than one heavy item may hinder you at times. Two handed weapons and heavy armor also hinders while being used without special training.`
+    `Carry as much as makes sense, but more than one heavy item may hinder you at times.`
   ],
   advancement: [
     `After an adventure, increase a skill by editing your character (none→d8→d10→d12). Your storyteller may award you gold as well (usually 1d6 to each member).`

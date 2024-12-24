@@ -1,31 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import * as rulesets from 'data/_rulesets'
-import { capitalize, buildUpgradedSkillsList } from 'utilities'
+import { buildUpgradedSkillsList } from 'utilities'
 import CharacterBioForm from './CharacterBioForm'
-import CharacterClassForm from './CharacterClassForm'
-import FormCheckbox from 'shared/FormCheckbox'
+import CharacterProfessionForm from './CharacterProfessionForm'
 import Toast from 'shared/Toast'
-import useCharacterClasses from 'hooks/useCharacterClasses'
-import useCharacterAncestries from 'hooks/useCharacterAncestries'
 import useToggleOnCondition from 'hooks/useToggleOnCondition'
-import { addLocalCharacter } from 'utils/local-storage'
 import { toSpinalCase } from 'utilities'
-import { v4 as uuid } from 'uuid'
-import HelpButton from 'shared/HelpButton'
-import { rulesPlay } from 'data/rules'
+import { getCharacterCreationOptions } from 'fetch/fetch-characters'
+import { postCharacter } from 'fetch/fetch-characters'
 
 function NewCharacterForm() {
 
   const navigate = useNavigate()
 
-  const [currentRulesets, setCurrentRulesets] = useState([rulesets.core])
+  const [loading, setLoading] = useState(true)
+
+  const [ancestries, setAncestries] = useState([])
+  const [items, setItems] = useState([])
+  const [professions, setProfessions] = useState([])
+  const [rituals, setRituals] = useState([])
+  const [skills, setSkills] = useState([])
+  const [spells, setSpells] = useState([])
+
   const [characterName, setCharacterName] = useState('')
-  const [ancestry, setAncestry] = useState('default')
+  const [ancestry, setAncestry] = useState(null)
   const [characterQuirk, setCharacterQuirk] = useState('')
   const [characterHistory, setCharacterHistory] = useState('')
 
-  const [currentClassKey, setCurrentClassKey] = useState('default')
+  const [currentProfession, setCurrentProfession] = useState(null)
+  const [currentTrainings, setCurrentTrainings] = useState([])
   const [currentSpells, setCurrentSpells] = useState({})
   const [currentAncestrySpells, setCurrentAncestrySpells] = useState({})
   const [currentAncestrySkills, setCurrentAncestrySkills] = useState([])
@@ -34,25 +37,50 @@ function NewCharacterForm() {
   const [currentItems, setCurrentItems] = useState({})
   const [validationErrors, setValidationErrors] = useState([])
 
-  const { classes } = useCharacterClasses(currentRulesets)
-  const { ancestries } = useCharacterAncestries(currentRulesets)
+  useEffect(() => {
+    async function fetchCreatorOptions() {
+      const res = await getCharacterCreationOptions()
+      if (res.ok) {
+        const data = await res.json()
+        setProfessions(data.result.professions)
+        setSkills(data.result.skills)
+        setSpells(data.result.spells)
+        setRituals(data.result.rituals)
+        setAncestries(data.result.ancestries)
+        setItems(data.result.items)
+        setLoading(false)
+      } else {
+        console.warn("Something went wrong...")
+      }
+    }
+    fetchCreatorOptions()
+  }, [])
+
+  useEffect(() => {
+    setCurrentAncestrySkills([])
+    setCurrentAncestrySpells({})
+  }, [ancestry])
 
   const shouldDisplayClassForm = useToggleOnCondition(
-    ancestry !== 'default'
+    ancestry
     && characterName.length
-    && (currentAncestrySkills.length || 0) >= (ancestries[ancestry]?.skills || 0)
+    && (currentAncestrySkills.length || 0) >= (ancestry.skills || 0)
     && (Object.keys(currentAncestrySpells).length || 0) >= (ancestries[ancestry]?.spells || 0)
   )
+
+  if (loading) {
+    return <h1>Loading</h1>
+  } // TODO: Build a more interesting loading screen with animations etc
 
   function validate() {
     const valErrs = []
     if (!characterName.length) { valErrs.push(`Name can't be empty`) }
-    if (!ancestry || ancestry === 'default') { valErrs.push(`Ancestry can't be blank`) }
-    if (!currentClassKey.length || currentClassKey === 'default') { valErrs.push(`You must choose a class`) }
-    if (classes[currentClassKey]?.spells > Object.keys(currentSpells).length) { valErrs.push(`Not all spells have been chosen`) }
-    if (classes[currentClassKey]?.skillSlots > currentSkills.length) { valErrs.push(`Not all skills have been chosen`) }
-    if (classes[currentClassKey]?.expertise > currentExpertise.length) { valErrs.push(`Not all skills have been chosen`) }
-    if (classes[currentClassKey]?.equipmentGroups?.length > Object.keys(currentItems).length) { valErrs.push(`Not all equipment has been chosen`) }
+    if (!ancestry) { valErrs.push(`Ancestry can't be blank`) }
+    if (!currentProfession) { valErrs.push(`You must choose a class`) }
+    if (currentProfession?.spells > Object.keys(currentSpells).length) { valErrs.push(`Not all spells have been chosen`) }
+    if (currentProfession?.skillSlots > currentSkills.length) { valErrs.push(`Not all skills have been chosen`) }
+    if (currentProfession?.expertise > currentExpertise.length) { valErrs.push(`Not all skills have been chosen`) }
+    if (currentProfession?.equipmentGroups?.length > Object.keys(currentItems).length) { valErrs.push(`Not all equipment has been chosen`) }
     setValidationErrors(valErrs)
     return valErrs
   }
@@ -60,80 +88,57 @@ function NewCharacterForm() {
   function buildCharacterObject() {
 
     const character = {
-      id: uuid(),
-      ancestry,
+      ancestry: ancestry._id,
       name: characterName,
-      className: currentClassKey,
       quirk: characterQuirk,
       history: characterHistory,
-      skills: buildUpgradedSkillsList({}, ...currentSkills, ...currentExpertise, ...currentAncestrySkills, classes[currentClassKey]?.coreskill),
-      spells: [...Object.keys(currentSpells), ...Object.keys(currentAncestrySpells)],
+      profession: currentProfession._id,
+      skills: buildUpgradedSkillsList(
+        [], 
+        ...currentSkills.map(s => ({ name: s })), 
+        { name: currentProfession.coreskill },
+        ...currentAncestrySkills.map(s => ({ name: s })),
+        ...currentExpertise.map(s => ({ name: s })), 
+      ),
+      spells: [
+        ...Object.values(currentSpells).map(s => s._id),
+        ...Object.values(currentAncestrySpells).map(s => s._id),
+      ],
       items: [
-        ...classes[currentClassKey].equipmentGuaranteed,
+        ...currentProfession.equipmentGuaranteed,
         ...Object.values(currentItems)
       ],
-      gold: 2
+      gold: 2,
+      trainings: currentTrainings.map(t => t._id)
     }
 
-    if (classes[currentClassKey].specialText) {
-      character.classSpecial = classes[currentClassKey].specialText
-    }
-
-    if (ancestries[ancestry]?.specialText) {
-      character.ancestrySpecial = ancestries[ancestry].specialText
-    }
+    console.log(character)
 
     return character
 
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     if (!validate().length) {
-      const { id, name } = addLocalCharacter(buildCharacterObject())
-      navigate(`/characters/${toSpinalCase(name)}/${id}`)
+      const res = await postCharacter(buildCharacterObject())
+      if (res.ok) {
+        const data = await res.json()
+        console.log(data)        
+        navigate(`/characters/${toSpinalCase(data.result.name)}/${data.result._id}`)
+      } else {
+        console.warn("Something went wrong...")
+      }
     }
   }
-
-  function toggleRuleset(rule) {
-    if (currentRulesets.includes(rulesets[rule])) {
-      setCurrentRulesets(prev => prev.filter(r => r !== rulesets[rule]))
-    } else {
-      setCurrentRulesets(prev => [...prev, rulesets[rule]])
-    }
-  }
-
-  const renderedRulesets = Object.keys(rulesets).map(rule => {
-    const displayName = capitalize(rulesets[rule])
-    return (
-      <FormCheckbox
-        key={rule}
-        name={`ruleset-${rule}`}
-        labelText={displayName}
-        onChange={() => toggleRuleset(rule)}
-        checked={currentRulesets.includes(rulesets[rule])}
-        disabled={rule === "core"}
-        className="checkmark"
-      />
-     )
-  })
 
   return (
     <form onSubmit={handleSubmit} className="hand-written">
-
-      <p><HelpButton info={rulesPlay['custom rules']} /> Rulesets:</p>
-
-      <div className="flex-wrap-container">
-        {renderedRulesets}
-      </div>
-
-      <br/>
 
       <div className="grid-columns-large">
 
 
       <CharacterBioForm {...{
-        currentRulesets,
         characterName,
         setCharacterName,
         ancestry,
@@ -146,15 +151,16 @@ function NewCharacterForm() {
         setCharacterQuirk,
         characterHistory,
         setCharacterHistory,
-        ancestries
+        ancestries,
+        skills,
+        spells
       }}/>
 
-      <CharacterClassForm
+      <CharacterProfessionForm
       displayCondition={shouldDisplayClassForm}
       {...{
-        currentRulesets,
-        currentClassKey,
-        setCurrentClassKey,
+        currentProfession,
+        setCurrentProfession,
         currentSpells,
         setCurrentSpells,
         currentSkills,
@@ -163,7 +169,9 @@ function NewCharacterForm() {
         setCurrentItems,
         currentExpertise,
         setCurrentExpertise,
-        classes
+        professions,
+        spells,
+        items
       }} />
 
       </div>

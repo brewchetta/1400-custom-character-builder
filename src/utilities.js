@@ -21,16 +21,29 @@ export function randomAttribute(allAttributes, currentAttributes) {
   }
 }
 
+
+// newSkills --> { name: String, diceSize: Number }
+// newSkills with no diceSize will either default to 8 or increase a previous skill size by 2
+// newSkills with diceSize will set skill to that dice size
+// skills cannot be upgraded past diceSize 12
 export function buildUpgradedSkillsList(charSkills, ...newSkills) {
-  const skills = {...charSkills}
+  const skills = [...charSkills]
+
   newSkills.forEach(newSkill => {
-    if (!skills[newSkill]) {
-      skills[newSkill] = 8
-    } else if (skills[newSkill] >= 12) {
-      console.error(`Could not increase ${newSkill} over a d12`)
+    const foundSkill = skills.find(s => s.name === newSkill.name)
+    if (!newSkill?.name) return // exit if skill is undefined
+
+    if (!foundSkill && (!newSkill.diceSize || newSkill.diceSize <= 12)) { // for valid diceSizes
+      skills.push({ name: newSkill.name, diceSize: newSkill.diceSize || 8 })
+
+    } else if (!foundSkill) { // for invalid diceSizes
+      skills.push({ name: newSkill.name, diceSize: 12 })
+
     } else {
-      skills[newSkill] += 2
+      foundSkill.diceSize = newSkill.diceSize || foundSkill.diceSize + 2
+      if (foundSkill.diceSize > 12) foundSkill.diceSize = 12
     }
+    
   })
   return skills
 }

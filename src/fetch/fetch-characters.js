@@ -7,8 +7,14 @@ export async function getAllCharacters() {
     return await fetch(`${router}`)
 }
 
+
 export async function getCharacter(id) {
     return await fetch(`${router}/${id}`)
+}
+
+
+export async function getCharacterCreationOptions() {
+    return await fetch(`${router}/creation-options`)
 }
 
 

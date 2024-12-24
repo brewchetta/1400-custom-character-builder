@@ -1,18 +1,38 @@
+import { useMemo } from 'react'
+
 import FormSelect from 'shared/FormSelect'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 
-function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, equipmentGuaranteed}) {
+function ClassEquipmentInputs({
+  currentItems,
+  setCurrentItems,
+  equipmentGroups,
+  equipmentGuaranteed,
+  items
+}) {
+
+  // console.log(equipmentGroups)
+  // console.log(items)
+
+  const indexedItems = useMemo(() => {
+    const result = {}
+    items.forEach(item => {
+      result[item.key] = item
+    })
+    return result
+  }, [items])
 
   function renderEquipmentGroupOptions(group) {
-    return Object.keys(group).map(itemKey => (
-      <option key={itemKey} value={itemKey}>
-        {group[itemKey].name}
+    const groupItems = items.filter(item => item.tags.includes(group))
+    return groupItems.map(item => (
+      <option key={item.key} value={item.key}>
+        {item.name}
       </option>)
     )
   }
 
   function handleChange(e,i) {
-    setCurrentItems(prev => ({...prev, [i]: equipmentGroups[i][e.target.value]}))
+    setCurrentItems(prev => ({...prev, [i]: indexedItems[e.target.value]}))
   }
 
   const renderEquipmentSelects = () => equipmentGroups?.map((group,i) => {
@@ -27,12 +47,12 @@ function ClassEquipmentInputs({currentItems, setCurrentItems, equipmentGroups, e
         {
           !currentItems[i]?.key
           ?
-          <option value={null}>=Choose an Item=</option>
+          <option value={null}>=Choose {group}=</option>
           :
           null
         }
 
-        {renderEquipmentGroupOptions(group)}
+        { renderEquipmentGroupOptions(group) }
 
       </FormSelect>
     )

@@ -2,22 +2,18 @@ import { useEffect } from 'react'
 import FormSelect from 'shared/FormSelect'
 import { randomArrayItem } from 'utilities'
 import { rulesAncestries } from 'data/rules'
+import { capitalize } from 'utilities'
 
 function BioAncestryForm({ancestry, setAncestry, ancestries}) {
 
-  useEffect(() => {
-    setAncestry('default')
-    // eslint-disable-next-line
-  }, [ancestries])
+  const handleChange = e => setAncestry( ancestries.find(a => a.name === e.target.value) )
 
-  const handleChange = e => setAncestry( e.target.value )
+  const handleRandomAncestry = () => setAncestry( randomArrayItem( ancestries ) )
 
-  const handleRandomAncestry = () => setAncestry( randomArrayItem( Object.keys( ancestries ) ) )
-
-  const ancestryOptions = Object.keys( ancestries ).map(aKey => {
+  const ancestryOptions = ancestries.map(a => {
     return (
-      <option key={`ancestry-${ aKey }`} value={ aKey }>
-        { ancestries[aKey].name }
+      <option key={ a.name } value={ a.name }>
+        { capitalize( a.name ) }
       </option>)
   })
 
@@ -25,7 +21,7 @@ function BioAncestryForm({ancestry, setAncestry, ancestries}) {
     <>
       <FormSelect
         onChange={handleChange}
-        value={ancestry}
+        value={ancestry?.name || 'default'}
         labelText={"Ancestry"}
         defaultText={'---Choose an ancestry---'}
         info={rulesAncestries.ancestry}
