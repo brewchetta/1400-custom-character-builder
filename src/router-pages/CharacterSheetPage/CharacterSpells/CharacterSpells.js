@@ -10,6 +10,7 @@ import { patchCharacterSpell, deleteCharacterSpell } from 'fetch/fetch-character
 function CharacterSpells() {
 
   const { currentCharacter, setCurrentCharacter} = useCharacterContext()
+  const { spellsMax } = currentCharacter
 
   const { editable } = useEditableContext()
 
@@ -54,6 +55,14 @@ function CharacterSpells() {
       </div>
   ))
 
+  const renderMaxSpellsMessage = () => {
+    if (currentCharacter.spells?.length && spellsMax < currentCharacter.spells?.length) {
+      return ( <p className="italic text-dark-red">{ 
+        `You can learn ${spellsMax} spells but you have ${currentCharacter.spells.length}! You are hindered when you cast spells! You can forget a spell by editing your character...`
+      }</p> )
+    }
+  }
+
   return (
 
     <div className="border-black background-white alchemy-symbols-background padding-small relative">
@@ -64,6 +73,8 @@ function CharacterSpells() {
         className="position-top-right"
         info={rulesPlay.spells}
       />
+
+      { renderMaxSpellsMessage() }
 
       <ul className="skills-list grid-columns-large">
 

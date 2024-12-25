@@ -1,4 +1,4 @@
-- IMPORTANT: put back in change skills
+- put back in change skills
 - rewrite help blurbs to be more condensed
 - random name generator
 - toasts
@@ -6,3 +6,4 @@
 - item store search
 - limit number of spells based on character spellsMax
 - fix deleting characters
+- add background for character levelup

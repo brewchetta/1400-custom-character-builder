@@ -7,7 +7,7 @@ import LearnTraining from './LearnTraining'
 import { postCharacterSpell } from 'fetch/fetch-character-spells'
 import { patchCharacter } from 'fetch/fetch-characters'
 
-function CharacterLevelUp({ setLevelUpOpen }) {
+function CharacterLevelUp({ levelUpOpen, setLevelUpOpen }) {
 
     const { currentCharacter, setCurrentCharacter } =  useCharacterContext()
 
@@ -193,13 +193,25 @@ function CharacterLevelUp({ setLevelUpOpen }) {
             {
                 chosenPath === "spell"
                 ?
-                <SpellsInputs
+                <>
+                    {
+                        currentCharacter.spellsMax <= (currentCharacter.spells?.length || 0) && levelUpOpen // levelUpOpen avoids the red text while closing
+                        ?
+                        <>
+                        <p className="text-dark-red italic">You've reached your spell learning limit! Learning more will hinder your spellcasting!</p> 
+                        <p className="text-dark-red italic">However, certain training can improve that limit...</p>
+                        </>
+                        :
+                        null
+                    }
+                    <SpellsInputs
                     spells={ availableSpells }
                     currentSpells={ chosenSpells }
                     setCurrentSpells={ setChosenSpells }
                     maxSpells={ 1 }
                     checkboxClass="checkmark padding-small"
-                />
+                    />
+                </>
                 :
                 null
             }

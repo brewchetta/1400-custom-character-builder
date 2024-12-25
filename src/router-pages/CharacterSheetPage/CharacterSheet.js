@@ -70,7 +70,7 @@ function CharacterSheet() {
         </SideDrawer>
 
         <SideDrawer isOpen={levelUpOpen} setIsOpen={setLevelUpOpen} className="background-white">
-          <CharacterLevelUp setLevelUpOpen={setLevelUpOpen} />
+          <CharacterLevelUp setLevelUpOpen={setLevelUpOpen} levelUpOpen={levelUpOpen} />
         </SideDrawer>
       </>
     )
