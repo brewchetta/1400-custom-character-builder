@@ -7,3 +7,4 @@
 - fix deleting characters
 - add background for character levelup
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
+- preload images on load
