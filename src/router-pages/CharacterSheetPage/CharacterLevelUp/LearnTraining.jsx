@@ -14,7 +14,6 @@ function LearnTraining({ trainings, currentTrainings, setCurrentTrainings, maxTr
         return dict
     }, [currentCharacter])
 
-    console.log(characterTrainings)
 
     const trainingsLeftToChoose = maxTrainings - currentTrainings.length
 

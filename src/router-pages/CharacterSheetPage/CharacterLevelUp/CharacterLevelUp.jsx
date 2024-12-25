@@ -67,29 +67,78 @@ function CharacterLevelUp({ setLevelUpOpen }) {
     }, [])
 
 
-    async function handleLevelUp() {
-        console.log(chosenSkills)
-        if (chosenPath === "spell" && Object.values(chosenSpells).length) {
-            const res = await postCharacterSpell(currentCharacter._id, Object.values(chosenSpells)[0])
-            if (res.ok) {
-                const data = await res.json()
-                setCurrentCharacter(prev => ({...prev, spells: data.result}))
-                setLevelUpOpen(false)
+    function upgradeSkillInArray(skillName, previousSkills) {
+        const mappedSkills = previousSkills.map(skill => {
+            if (skill.name === skillName) {
+                return { name: skillName, diceSize: skill.diceSize + 2 }
             } else {
-                console.warn("Something went wrong...")
+                return skill
             }
+        })
+        return mappedSkills
+    }
+
+
+    function addNewSkill(skillName, previousSkills) {
+        return [...previousSkills, { name: skillName, diceSize: 8 }]
+    }
+
+
+    async function levelUpSpell() {
+        const res = await postCharacterSpell(currentCharacter._id, Object.values(chosenSpells)[0])
+        if (res.ok) {
+            const data = await res.json()
+            setCurrentCharacter(prev => ({...prev, spells: data.result}))
+            setLevelUpOpen(false)
+        } else {
+            console.warn("Something went wrong...")
+        }
+    }
+
+
+    async function levelUpSkill() {
+        const chosenSkill = chosenSkills[0]
+        const prevSkill = currentCharacter.skills.find(s => s.name === chosenSkill)
+        let updatedSkills
+        if (prevSkill) { 
+            updatedSkills = upgradeSkillInArray(chosenSkill, currentCharacter.skills) 
+        } else {
+            updatedSkills = addNewSkill(chosenSkill, currentCharacter.skills)
+        }
+
+        const res = await patchCharacter(currentCharacter._id, { skills: updatedSkills })
+        if (res.ok) {
+            const data = await res.json()
+            setCurrentCharacter(data.result)
+            setLevelUpOpen(false)
+        } else {
+            console.warn("Something went wrong...")
+        }
+    }
+
+
+    async function levelUpTraining() {
+        const updatedTrainings = [...currentCharacter.trainings.map(t => t._id), chosenTrainings[0]._id]
+        const res = await patchCharacter(currentCharacter._id, {trainings: updatedTrainings})
+        if (res.ok) {
+            const data = await res.json()
+            setCurrentCharacter(data.result)
+            setLevelUpOpen(false)
+        } else {
+            console.warn("Something went wrong...")
+        }
+    }
+
+
+    async function handleLevelUp() {
+        if (chosenPath === "spell" && Object.values(chosenSpells).length) {
+            await levelUpSpell()
         }
         if (chosenPath === "skill" && chosenSkills.length) {
-            const chosenSkill = chosenSkills[0]
-            const prevSkill = currentCharacter.skills.find(s => s.name === chosenSkill)
-            // TODO UPDATE SKILLS BY EITHER ADDING OR REPLACING OLD SKILLS
-
-            // const res = await patchCharacter(currentCharacter._id, {
-            //     skills: [...currentCharacter.skills]
-            // })
+            await levelUpSkill()
         }
-        if (chosenPath === "training") {
-
+        if (chosenPath === "training" && chosenTrainings.length) {
+            await levelUpTraining()
         }
     }
 
