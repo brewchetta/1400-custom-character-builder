@@ -4,6 +4,6 @@
 - toasts
 - rules rewrite for more narrative play
 - item store search
-- limit number of spells based on character spellsMax
 - fix deleting characters
 - add background for character levelup
+- fetch context with animations to show when network requests are occuring (spinning hourglass?)
