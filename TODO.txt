@@ -1,10 +1,42 @@
-- put back in change skills
-- rewrite help blurbs to be more condensed
+Features
 - random name generator
 - toasts
-- rules rewrite for more narrative play
-- item store search
-- fix deleting characters
 - add background for character levelup
+- item store search
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
+- worldbuilding / group route
+- a way to randomize worldbuilding prompts for the indecisive
+- character pronouns
+- notes sections (character, story, secrets, etc.)
+- group notes (certain character notes get automatically added to group notes?)
+- shortfolk ancestry
+- undead ancestry
+- copy character option
+- can add players to a group and allow worldbuilding before creating characters
+- email validations
+- email notifications (for example when invited to a story group)
+- version / changlog on the site
+- password reset via email
+Refactors
+- rewrite help blurbs to be more condensed
+- rules rewrite for more narrative play
 - preload images on load
+- remove (or rewrite) custom rules section of rulebook now that rules expansions are gone
+- Rulebook available without logging in
+- Light/dark mode toggle without logging in
+- Remove engineering skill (or combine with crafting?)
+- Add perception / awareness skill
+- General skills refactor?
+- edit button for each section of character sheet instead of one general edit button
+- text formatting for notes
+- add / remove sums of gold at a time
+- remove exhaust option for spells/rituals (simplify database)
+Bugs
+- put back in change skills
+- fix deleting characters
+- fix dropdowns in dark mode
+- fix dropdown options being blue on mobile
+- Light/dark mode currently covered by store / level up drawers
+- Buying items not working?
+- clicking on backpack may mark out certain other items? (reproduce bug with backpack and instrument)
+- fix darkmode image graphics

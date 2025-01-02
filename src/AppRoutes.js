@@ -3,6 +3,7 @@ import NewCharacterForm from 'router-pages/NewCharacterFormPage'
 import CharacterSheet from 'router-pages/CharacterSheetPage/'
 import CharactersIndex from 'router-pages/CharactersIndexPage'
 import Rulebook from 'router-pages/RulebookPage'
+import ChangeLog from 'router-pages/ChangeLog/ChangeLog'
 import { CharacterContextProvider } from 'context/CharacterContext'
 import { EditableContextProvider } from 'context/EditableContext'
 
@@ -11,6 +12,7 @@ import { EditableContextProvider } from 'context/EditableContext'
 // - CharactersIndex
 // - CharacterSheet
 // - Rulebook (with activeCard param too)
+// - ChangeLog
 
 function AppRoutes(props) {
   return (
@@ -26,6 +28,7 @@ function AppRoutes(props) {
       } />
       <Route path='rulebook' element={<Rulebook />} />
       <Route path='rulebook/:nav' element={<Rulebook />} />
+      <Route path='changelog' element={<ChangeLog />} />
     </Routes>
   )
 }
