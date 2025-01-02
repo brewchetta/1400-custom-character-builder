@@ -17,6 +17,7 @@ Features
 - email notifications (for example when invited to a story group)
 - version / changlog on the site
 - password reset via email
+- link to changelog
 Refactors
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
