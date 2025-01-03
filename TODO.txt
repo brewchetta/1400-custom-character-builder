@@ -18,6 +18,7 @@ Features
 - version / changlog on the site
 - password reset via email
 - link to changelog
+
 Refactors
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
@@ -32,6 +33,7 @@ Refactors
 - text formatting for notes
 - add / remove sums of gold at a time
 - remove exhaust option for spells/rituals (simplify database)
+
 Bugs
 - put back in change skills
 - fix deleting characters
@@ -41,3 +43,5 @@ Bugs
 - Buying items not working?
 - clicking on backpack may mark out certain other items? (reproduce bug with backpack and instrument)
 - fix darkmode image graphics
+
+Completed

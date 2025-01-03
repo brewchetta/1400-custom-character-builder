@@ -14,11 +14,10 @@ const rulesPlay = {
   rolling: [
     `When faced with a challenge, roll a d6 skill die - higher with a relevant skill.`,
     `If hindered or injured, roll a d4 instead.`,
-    `1-2 Disaster. Suffer the full risk. Storyteller decides if you succeed at all.`,
-    `3-4 Setback. A lesser consequence or partial success.`,
-    `5+ Success. The higher the roll, the better.`,
+    `1-3 Failure. Suffer the full risk. Storyteller decides if you succeed at all.`,
+    `4+ Success. Higher rolls mean more impressive results.`,
     `If success can't get you what you want, you'll at least get useful info or set up an advantage.`,
-    `The storyteller might increase how high you need to roll for more difficult challenges.`
+    `The storyteller might increase the roll needed for difficult tasks.`
   ],
   luck: [
     `Once per adventure a character can use their luck dice (d20).`,
@@ -28,13 +27,12 @@ const rulesPlay = {
   spells: [
     'A character can only add three spells to their spellbook without special training',
     'Spells have names. When using a spell, describe how it\'s cast and its intended effect.',
-    'The storyteller might impose a challenge if the spell presents a risk or a powerful effect. This can include exhausting your character\'s spell.',
+    'The storyteller might impose a challenge if the spell presents a risk or a powerful effect.',
     'If the spell has any risk, the roll is a d6 unless you have special training',
-    'You can disable an exhausted spell by clicking the checkmark.',
     'The storyteller determines based on success and intention how the effect manifests.',
   ],
   rituals: [
-    'Rituals take ten minutes to cast and use a magical supply with the ritual tag.',
+    'Rituals take ten minutes to cast and use a magical supply with the ritual tag. The challenge roll for a ritual is the same for spellcasting (d6 or special training).',
     'The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted.',
     'Multiple people can take part. Each rolls a spellcasting challenge. The highest roll determines success or failure.',
     'Each participant in the ritual becomes "connected" and shares one truthful answer to another player\'s question.',

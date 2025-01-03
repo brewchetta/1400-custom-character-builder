@@ -5,7 +5,7 @@ import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
-import { patchCharacterSpell, deleteCharacterSpell } from 'fetch/fetch-character-spells'
+import { deleteCharacterSpell } from 'fetch/fetch-character-spells'
 
 function CharacterSpells() {
 
@@ -25,15 +25,17 @@ function CharacterSpells() {
   }
 
 
-  async function handleToggleSpell(spell) {
-    const res = await patchCharacterSpell(currentCharacter._id, spell._id, { exhausted: !spell.exhausted })
-    if (res.ok) {
-      const data = await res.json()
-      setCurrentCharacter(prev => ({...prev, spells: data.result}))
-    } else {
-      alert("Something went wrong...")
-    }
-  }
+  /* CURRENTLY UNUSED AS TOGGLING SPELLS HAS BEEN REMOVED */
+  // async function handleToggleSpell(spell) {
+  //   const res = await patchCharacterSpell(currentCharacter._id, spell._id, { exhausted: !spell.exhausted })
+  //   if (res.ok) {
+  //     const data = await res.json()
+  //     setCurrentCharacter(prev => ({...prev, spells: data.result}))
+  //   } else {
+  //     alert("Something went wrong...")
+  //   }
+  // }
+
 
   const renderedSpells = currentCharacter.spells.map(spell => (
       editable
@@ -44,14 +46,8 @@ function CharacterSpells() {
         onClick={() => handleRemoveSpell(spell)}>X</button>
       </div>
       :
-      <div key={spell._id} className="crossable-checkbox">
-        <Checkbox
-          name={`spell-${toSpinalCase(spell.spellData.name)}`}
-          labelText={spell.spellData.name}
-          className="crossmark"
-          checked={spell.exhausted}
-          onChange={() => handleToggleSpell(spell)}
-        />
+      <div key={spell._id}>
+        <span>{spell.spellData.name}</span>
       </div>
   ))
 

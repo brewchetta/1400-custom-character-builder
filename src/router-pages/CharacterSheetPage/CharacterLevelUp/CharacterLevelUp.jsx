@@ -24,32 +24,32 @@ function CharacterLevelUp({ levelUpOpen, setLevelUpOpen }) {
     const [chosenTrainings, setChosenTrainings] = useState([])
 
     const availableSkills = useMemo(() => {
-        const skillsToFilter = {}
+        const skillsToFilter = {} // fill hash with skill names
         for (let i = 0; i < currentCharacter.skills.length; i++) {
             const skill = currentCharacter.skills[i]
             if (skill.diceSize >= 12) { skillsToFilter[skill.name] = true }
         }
-        return options.skills.filter(skill => !skillsToFilter[skill] )        
+        return options.skills.filter(skill => !skillsToFilter[skill] ) // filter based on hash keys
     }, [options])
 
 
     const availableSpells = useMemo(() => {
-        const spellsToFilter = {}
+        const spellsToFilter = {} // fill hash with spell names
         for (let i = 0; i < currentCharacter.spells.length; i++) {
-            const spellName = currentCharacter.spells[i].spellData.name
+            const spellName = currentCharacter.spells[i].name
             spellsToFilter[spellName] = true
         }
-        return options.spells.filter(spell => !spellsToFilter[spell.name] )        
+        return options.spells.filter(spell => !spellsToFilter[spell.name] ) // filter based on hash keys
     }, [options])
 
 
     const availableTrainings = useMemo(() => {
-        const trainingsToFilter = {}
+        const trainingsToFilter = {} // fill hash with training names
         for (let i = 0; i < currentCharacter.trainings.length; i++) {
             const trainingKey = currentCharacter.trainings[i].key
             trainingsToFilter[trainingKey] = true
         }
-        return options.trainings.filter(training => !trainingsToFilter[training.key] )
+        return options.trainings.filter(training => !trainingsToFilter[training.key] ) // filter based on hash keys
     }, [options])
 
 

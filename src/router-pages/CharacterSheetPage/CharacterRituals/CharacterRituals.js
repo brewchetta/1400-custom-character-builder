@@ -5,7 +5,7 @@ import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
-import { patchCharacterRitual, deleteCharacterRitual } from 'fetch/fetch-character-spells'
+import { deleteCharacterRitual } from 'fetch/fetch-character-spells'
 
 function CharacterRituals() {
 
@@ -23,15 +23,16 @@ function CharacterRituals() {
     }
   }
 
-  async function handleToggleRitual(ritual) {
-    const res = await patchCharacterRitual(currentCharacter._id, ritual._id, { exhausted: !ritual.exhausted })
-    if (res.ok) {
-      const data = await res.json()
-      setCurrentCharacter(prev => ({...prev, rituals: data.result}))
-    } else {
-      alert("Something went wrong...")
-    }
-  }
+  /* CURRENTLY UNUSED AS TOGGLING RITUALS HAS BEEN REMOVED */
+  // async function handleToggleRitual(ritual) {
+  //   const res = await patchCharacterRitual(currentCharacter._id, ritual._id, { exhausted: !ritual.exhausted })
+  //   if (res.ok) {
+  //     const data = await res.json()
+  //     setCurrentCharacter(prev => ({...prev, rituals: data.result}))
+  //   } else {
+  //     alert("Something went wrong...")
+  //   }
+  // }
 
   const renderedRituals = currentCharacter.rituals?.map(ritual => (
       editable
@@ -41,14 +42,8 @@ function CharacterRituals() {
         <button className="border-none text-dark-red background-white" onClick={() => handleRemoveRitual(ritual)}>X</button>
       </div>
       :
-      <div key={ritual._id} className="crossable-checkbox">
-        <Checkbox
-          name={`ritual-${toSpinalCase(ritual._id)}`}
-          labelText={ritual.ritualData.name}
-          className="crossmark"
-          checked={ritual.exhausted}
-          onChange={() => handleToggleRitual(ritual)}
-        />
+      <div key={ritual._id}>
+        <span>{ritual.ritualData.name}</span>
       </div>
   ))
 

@@ -22,14 +22,13 @@ const rulesTutorial = {
     `Players embody their characters in the game's world. Whenever you'd like to do something, just tell everyone what it is you'd like to do.`,
     `The storyteller will tell you if something is impossible. For example, just stating you'd like to jump to the roof of a ten story building without tools or magic probably won't work.`,
     `If something is possible but challenging you'll roll a dice depending on the skill you want to use. For example, if you wanted to persuade a troll to let you pass you would you would roll the appropriate skill and if you succeed then you may pass, if you fail then you suffer the consequences.`,
-    `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. If you don't succed or only partially succeed then you'll suffer the risk's consequences. In the example above, the risk might be that the troll attacks and injures you. The storyteller should always hint at a risk when giving a challenge.`,
+    `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. If you don't succeed then you'll suffer the risk's consequences. In the example above, the risk might be that the troll attacks and injures you. The storyteller should always hint at a risk when giving a challenge.`,
     `Each skill will have a dice size associated with it, and that's the dice you'll roll for the skill. If you're not trained in a skill then you roll a d6 and if you're hindered or injured you roll a d4. Normally the highest you can roll for a skill is a d12.`,
     `When you roll a dice, consult below to determine what happens:`,
-    `1-2 Disaster. Suffer the full risk. Storyteller decides if you succeed at all.`,
-    `3-4 Setback. A lesser consequence or partial success.`,
-    `5+ Success. The higher the roll, the better.`,
+    `1-3 Disaster. Suffer the full risk. Storyteller decides if you succeed at all.`,
+    `4+ Success. Higher rolls mean more impressive results.`,
     `If success can't get you what you want, you'll at least get useful information or set up some sort of future advantage for the people around you. At the very least you'll be rewarded with knowledge.`,
-    `The storyteller might increase these numbers for more difficult challenges but will inform you beforehand.`
+    `The storyteller might increase the roll needed for difficult tasks. For example, persuading a hungry and powerful dragon not to eat you might require a roll of 6 or higher.`
   ],
   combat: [
     'Combat in this system is narrative rather than mechanical. For those used to more mechanical battles you may have to deprogram certain concepts like initiative, health points, and attacking things until their health bar goes to zero. Instead, when encountering enemies, the player characters will need to describe how they succeed against those enemies using their skills and teamwork to end the fight.', 
@@ -50,16 +49,15 @@ const rulesTutorial = {
     `Characters can find or purchase new equipment on their journeys. You can open the shop by clicking the chest icon near your inventory. The storyteller may occasionally give characters items as rewards.`
   ],
   spells: [
-    'A character can only learn two spells without special training',
+    'A character can only learn three spells without special training',
     'A spell\'s name describes what it does. You can add your own more specific description or interpretation to the spell when you cast it and the storyteller determines its limitations.',
-    `The storyteller may impose a challenge if the spell presents a risk. This can include overexerting your character's magic for larger effects and being unable to cast the spell for a while. You can disable a spell by clicking on it in your character's page.`,
-    'If the spell has any risk, the roll is Spellcasting.',
+    `The storyteller may impose a challenge if the spell presents a risk. The roll for any spellcasting challenges is a d6 unless your character has special training. Risks often include out of control spells with disastrous effects.`,
     `Characters can learn new spells in exchange for gold in the equipment shop.`
   ],
   rituals: [
     'A ritual takes ten minutes in game to cast and uses up a magical supply with the ritual tag.',
     'The blood of a recently killed person, or the sacrifice of a rare animal or plant can be substituted for a magical supply.',
-    'You roll a spellcasting challenge to see how successfully you prepared the ritual.',
+    'You roll a spellcasting challenge to see how successfully you prepared the ritual. This is a d6 unless you have special training for casting spells.',
     'Multiple people can take part in a ritual in which case they all roll and the highest roll counts.',
     'Communal ritual casting connects the people casting it. Before the ritual ends you learn one truth about another participant in the ritual.',
     'To "learn one truth" ask a player a question about their character and they must answer truthfully. Only one question can be asked of each character.',
