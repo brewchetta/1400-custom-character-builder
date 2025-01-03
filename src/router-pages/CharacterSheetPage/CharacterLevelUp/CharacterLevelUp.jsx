@@ -85,7 +85,8 @@ function CharacterLevelUp({ levelUpOpen, setLevelUpOpen }) {
 
 
     async function levelUpSpell() {
-        const res = await postCharacterSpell(currentCharacter._id, Object.values(chosenSpells)[0])
+        console.log(Object.values(chosenSpells)[0])
+        const res = await postCharacterSpell(currentCharacter._id, {_id: Object.values(chosenSpells)[0]._id })
         if (res.ok) {
             const data = await res.json()
             setCurrentCharacter(prev => ({...prev, spells: data.result}))

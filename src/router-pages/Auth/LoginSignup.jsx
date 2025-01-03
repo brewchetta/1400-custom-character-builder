@@ -81,7 +81,7 @@ function LoginSignup() {
 
             <FormInput 
             name='username' 
-            labelText='Username' 
+            labelText='Username or Email' 
             onChange={handleChangeLoginForm} 
             value={loginFormState.username} />
 

@@ -1,4 +1,4 @@
-Features
+-------- Features --------
 - random name generator
 - toasts
 - add background for character levelup
@@ -19,7 +19,7 @@ Features
 - password reset via email
 - link to changelog
 
-Refactors
+-------- Refactors --------
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
 - preload images on load
@@ -32,9 +32,8 @@ Refactors
 - edit button for each section of character sheet instead of one general edit button
 - text formatting for notes
 - add / remove sums of gold at a time
-- remove exhaust option for spells/rituals (simplify database)
 
-Bugs
+-------- Bugs --------
 - put back in change skills
 - fix deleting characters
 - fix dropdowns in dark mode
@@ -44,4 +43,7 @@ Bugs
 - clicking on backpack may mark out certain other items? (reproduce bug with backpack and instrument)
 - fix darkmode image graphics
 
-Completed
+-------- Completed --------
+- remove exhaust option for spells/rituals (simplify database)
+- gold getting accidentally removed when leveling up spells
+- able to sign in with email or username
