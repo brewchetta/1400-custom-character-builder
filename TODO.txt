@@ -26,7 +26,6 @@
 - remove (or rewrite) custom rules section of rulebook now that rules expansions are gone
 - Rulebook available without logging in
 - Light/dark mode toggle without logging in
-- Remove engineering skill (or combine with crafting?)
 - Add perception / awareness skill
 - General skills refactor?
 - edit button for each section of character sheet instead of one general edit button
@@ -35,15 +34,16 @@
 
 -------- Bugs --------
 - put back in change skills
-- fix deleting characters
-- fix dropdowns in dark mode
-- fix dropdown options being blue on mobile
-- Light/dark mode currently covered by store / level up drawers
-- Buying items not working?
-- clicking on backpack may mark out certain other items? (reproduce bug with backpack and instrument)
+- light/dark mode currently covered by store / level up drawers
 - fix darkmode image graphics
 
 -------- Completed --------
 - remove exhaust option for spells/rituals (simplify database)
 - gold getting accidentally removed when leveling up spells
 - able to sign in with email or username
+- fixed buying items not actually buying the items
+- fixed items moving forward not interfering with each other's durability (current items will need to be removed and re-added)
+- fixed dropdowns being unreadable
+- fixed dropdown options being blue on mobile (hopefully)
+- removed engineering skill due to overlap with crafting (may expand crafting into multiple new skills in the future...)
+- you may now banish characters to the shadow realm with the Delete Character button

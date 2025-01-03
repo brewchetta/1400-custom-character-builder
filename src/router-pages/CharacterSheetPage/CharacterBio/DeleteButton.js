@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
-import { deleteLocalCharacter } from 'utils/local-storage'
+import { deleteCharacter } from 'fetch/fetch-characters'
 
 function DeleteButton({character}) {
 
   const navigate = useNavigate()
 
-  const handleDelete = () => {
+  async function handleDelete () {
     if ( window.confirm( "Are you sure?" ) ) {
-      deleteLocalCharacter(character)
+      await deleteCharacter(character._id)
       navigate('/')
     }
   }

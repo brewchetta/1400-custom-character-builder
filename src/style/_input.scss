@@ -34,6 +34,11 @@ select {
   color: $black;
 }
 
+option {
+  background: $white;
+  color: $black;
+}
+
 button.icon-button {
   border: none;
   background: none;
@@ -131,6 +136,11 @@ button.darkmode-button.day {
 
   select {
     border: solid $white 1px;
+    color: $white;
+  }
+
+  option {
+    background: $black;
     color: $white;
   }
 
