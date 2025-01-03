@@ -41,13 +41,13 @@ function CharacterSpells() {
       editable
       ?
       <div key={spell._id}>
-        <span>{spell.spellData.name}</span>
+        <span>{spell.name}</span>
         <button className="border-none text-dark-red background-white" 
         onClick={() => handleRemoveSpell(spell)}>X</button>
       </div>
       :
       <div key={spell._id}>
-        <span>{spell.spellData.name}</span>
+        <span>{spell.name}</span>
       </div>
   ))
 

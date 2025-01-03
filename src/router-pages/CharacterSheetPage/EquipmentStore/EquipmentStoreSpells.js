@@ -16,8 +16,8 @@ function EquipmentStoreSpells({ category = "spells", spells = [] }) {
   const toggleOpen = () => setIsOpen(isOpen => !isOpen)
 
   const characterSpells = category === "spells"
-  ? currentCharacter.spells.map(s => s.spellData.key) || []
-  : currentCharacter.rituals.map(s => s.ritualData.key) || []
+  ? currentCharacter.spells.map(s => s.key) || []
+  : currentCharacter.rituals.map(s => s.key) || []
 
   const availableSpells = spells.filter(s => !characterSpells.includes(s.key))
 

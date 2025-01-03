@@ -38,12 +38,12 @@ function CharacterRituals() {
       editable
       ?
       <div key={ritual._id}>
-        <span>{ritual.ritualData.name}</span>
+        <span>{ritual.name}</span>
         <button className="border-none text-dark-red background-white" onClick={() => handleRemoveRitual(ritual)}>X</button>
       </div>
       :
       <div key={ritual._id}>
-        <span>{ritual.ritualData.name}</span>
+        <span>{ritual.name}</span>
       </div>
   ))
 
