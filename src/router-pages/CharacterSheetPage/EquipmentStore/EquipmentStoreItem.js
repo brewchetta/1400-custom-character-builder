@@ -21,7 +21,7 @@ function EquipmentStoreItem({ item }) {
       const res = await postCharacterItemBuy(currentCharacter._id, item)
       if (res.ok) {
         const data = await res.json()
-        setCurrentCharacter(data.result)
+        setCurrentCharacter(prev => ({...prev, items: data.result.items, gold: data.result.gold}))
       } else {
         console.warn("Something went wrong...")
       }
