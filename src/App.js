@@ -9,15 +9,19 @@ import { CurrentUserContextProvider } from 'context/CurrentUserContext'
 import { useDarkModeContext } from 'context/DarkModeContext'
 import { useLoadingContext } from 'context/LoadingContext'
 
+import { usePreloadImages } from 'fetch/preload-images'
+
 function App() {
 
   const { darkMode, setDarkMode } = useDarkModeContext()
   const { loading } = useLoadingContext()
 
+  const [imagesLoaded] = usePreloadImages()
+
   const location = useLocation()
 
   const determinedBackground = () => {
-    if (loading) return ''
+    if (loading || !imagesLoaded) return ''
     switch (location.pathname) {
       case '/':
         return 'tavern-background'

@@ -22,7 +22,6 @@
 -------- Refactors --------
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
-- preload images on load
 - Rulebook available without logging in
 - Light/dark mode toggle without logging in
 - edit button for each section of character sheet instead of one general edit button
@@ -39,6 +38,7 @@
 - skill names have been changed for better clarity (older characters will be unaffected)
 - removed exhaust option for spells/rituals
 - removed obsolete custom rules section of rulebook
+- images get preloaded for a smoother experience
 - fixed darkmode image graphics
 - fixed buying items not actually buying the items
 - fixed items moving forward not interfering with each other's durability (current items will need to be removed and re-added)
