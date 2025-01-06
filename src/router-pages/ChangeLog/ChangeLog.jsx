@@ -2,9 +2,15 @@ import React from 'react'
 
 function ChangeLog() {
   return (
-    <div>
+    <div className="list-style-square">
         <h1>Change Log</h1>
-        <p>We heard you like patch notes so we're adding a section so you can see what's new for the game and site.</p>
+        <p>Previous and future patch notes for both the game and website will go here.</p>
+
+        <h2>01.XX.2025</h2>
+        <h3>Quarter Century Fixes</h3>
+        <ul>
+          <li>Changes go here</li>
+        </ul>
 
         <h2>12.25.2024</h2>
         <h3>Site 2.0 Launched with User Accounts</h3>

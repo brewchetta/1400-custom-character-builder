@@ -1,7 +1,7 @@
 import FormInput from 'shared/FormInput'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 
-function CharacterBioEdit({ editableStates, setEditableStates }) {
+function CharacterBioEdit({ editableStates, setEditableStates, setEditable }) {
 
   const handleChange = e => setEditableStates(prev => ({...prev, [e.target.name]: e.target.value}))
 
@@ -13,6 +13,10 @@ function CharacterBioEdit({ editableStates, setEditableStates }) {
       <FormInput name='quirk' labelText='Quirk: ' onChange={handleChange} value={editableStates.quirk} />
 
       <FormInput name='history' labelText='History: ' onChange={handleChange} value={editableStates.history} />
+
+      <br/>
+
+      <button onClick={() => setEditable(false)}>Save</button>
 
     </div>
   )

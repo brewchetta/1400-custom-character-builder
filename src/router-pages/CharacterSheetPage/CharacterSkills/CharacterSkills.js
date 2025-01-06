@@ -1,50 +1,63 @@
+import { useState } from 'react'
+
 import HelpButton from 'shared/HelpButton'
 import CharacterStatusConditions from './CharacterStatusConditions'
 import { rulesPlay } from 'data/rules'
-import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import triangleIcon from 'assets/images/triangle-icon.png'
+import SaveAndEditButton from 'shared/SaveAndEditButton'
+import { patchCharacter } from 'async/fetch-characters'
 
 function CharacterSkills() {
 
-  const { editable } = useEditableContext()
-  const { currentCharacter: { skills, hindered, injured, helped }, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter: { _id, skills, hindered, injured, helped }, currentCharacter, setCurrentCharacter } = useCharacterContext()
 
-  // TODO: add editable for skills
+  const [editable, setEditable] = useState(false)
 
-  // function handleChangeSkill(skillKey, numericChange) {
+  async function handleChangeSkill(skillToUpdate, numericChange) {
+    if (skillToUpdate.diceSize + numericChange <= 12) {
+      const updatedSkills = skills.map(skill => (
+        skill.name === skillToUpdate.name
+        ? 
+        {...skillToUpdate, diceSize: skillToUpdate.diceSize + numericChange } 
+        : 
+        skill 
+      ))
+      .filter(skill => skill.diceSize >= 8)
 
-  //   const updatedSkills = {...skills}
-  //   const updatedValue = updatedSkills[skillKey] + numericChange
+      const res = await patchCharacter(_id, {skills: updatedSkills})
+      if (res.ok) {
+        const data = await res.json()
+        setCurrentCharacter(data.result)
+      } else {
+        console.warn('Something went wrong...')
+      }
 
-  //   if (updatedValue <= 6) {
-  //     delete updatedSkills[skillKey]
-  //   } else if (updatedValue <= 12) {
-  //     updatedSkills[skillKey] = updatedValue
-  //   }
+    }
 
-  //   setCurrentCharacter(prev => ({...prev, skills: updatedSkills}))
-  // }
+  }
 
   const renderedSkills = skills.map(skill => (
     <li key={skill.name} className={`skill-item margin-bottom-small ${editable ? 'centered' : null}`}
     style={{fontSize: '0.9em'}}>
       {skill.name} [d{(!hindered && !injured) || editable ? skill.diceSize : 4}{helped && ' + d6'}]
-      {/* {
+      {
         editable
         ?
-        <div className="centered">
-          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skillKey, -2)}>
+        <div>
+          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skill, -2)}>-2</button>
+          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skill, -2)}>
             <img className="invert-on-darkmode" src={triangleIcon} alt={'decrease'} style={{ width: '0.6rem' }} />
           </button>
 
-          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skillKey, 2)}>
+          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skill, 2)} disabled={skill.diceSize >= 12}>+2</button>
+          <button className="icon-button border-none background-none" onClick={() => handleChangeSkill(skill, 2)} disabled={skill.diceSize >= 12}>
             <img className="invert-on-darkmode" src={triangleIcon} alt={'increase'} style={{ width: '0.6rem', transform: 'rotate(180deg)' }} />
           </button>
         </div>
         :
         null
-      } */}
+      }
     </li>
   ))
 
@@ -57,7 +70,7 @@ function CharacterSkills() {
         info={rulesPlay.rolling}
       />
 
-      <h3>Skills:</h3>
+      <h3>Skills <SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
 
       <ul className="skills-list grid-columns-large">
 

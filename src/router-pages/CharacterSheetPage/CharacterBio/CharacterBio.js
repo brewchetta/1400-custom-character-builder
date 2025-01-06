@@ -1,12 +1,11 @@
 import CharacterBioEdit from "./CharacterBioEdit"
-import SaveAndEditButton from "./SaveAndEditButton"
+import SaveAndEditButton from "shared/SaveAndEditButton"
 import DeleteButton from "./DeleteButton"
 import HelpButton from "shared/HelpButton"
 
 import { capitalize } from 'utilities'
 import { patchCharacter } from 'async/fetch-characters'
 
-import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import { useCurrentUserContext } from "context/CurrentUserContext"
 
@@ -22,13 +21,13 @@ function CharacterBio({ setLevelUpOpen }) {
   }, setCurrentCharacter } = useCharacterContext()
 
   const [editableStates, setEditableStates] = useState({ name, quirk, history})
+  const [editable, setEditable] = useState(false)
 
   const { currentUser } = useCurrentUserContext()
   const isUserCharacter = currentCharacter.user === currentUser._id
 
-  const { editable } = useEditableContext()
-  const helpToEdit = "You can edit your character by clicking the button next to me"
-  const helpWhenEdit = "You can save your character by clicking the button next to me"
+  const helpToEdit = "The button next to me allows you to edit your character"
+  const helpWhenEdit = "The button next to me allows you to save your changes"
 
   useEffect(() => {
     async function sendRequest() {
@@ -56,7 +55,7 @@ function CharacterBio({ setLevelUpOpen }) {
         isUserCharacter
         ?
         <>
-          <SaveAndEditButton/>
+          <SaveAndEditButton editable={editable} setEditable={setEditable}/>
           <HelpButton info={editable ? helpWhenEdit : helpToEdit }/> {
           editable
           &&
@@ -74,11 +73,11 @@ function CharacterBio({ setLevelUpOpen }) {
         !editable
         ?
         <>
-        <p>Quirk: {quirk}</p>
-        <p>History: {history}</p>
+          <p>Quirk: {quirk}</p>
+          <p>History: {history}</p>
         </>
-        : // TODO: fix character editor again
-        <CharacterBioEdit editableStates={editableStates} setEditableStates={setEditableStates} /> 
+        :
+        <CharacterBioEdit editableStates={editableStates} setEditableStates={setEditableStates} setEditable={setEditable} /> 
       }
 
     </div>

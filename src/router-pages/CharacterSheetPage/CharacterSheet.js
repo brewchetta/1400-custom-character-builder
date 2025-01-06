@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import CharacterBio from './CharacterBio'
-// import CharacterSkillsAdd from './CharacterSkillsAdd'
 import CharacterSkills from "./CharacterSkills"
 import CharacterTraining from './CharacterTraining'
 import CharacterEquipment from "./CharacterEquipment"
@@ -13,7 +12,6 @@ import LoadingAnimation from 'shared/LoadingAnimation'
 
 import { useParams } from 'react-router-dom'
 import { useCharacterContext } from 'context/CharacterContext'
-import { useEditableContext } from 'context/EditableContext'
 import { useLoadingContext } from 'context/LoadingContext'
 
 import { getCharacter } from 'async/fetch-characters'
@@ -22,7 +20,6 @@ import CharacterLevelUp from './CharacterLevelUp/CharacterLevelUp'
 function CharacterSheet() {
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
-  const { editable } = useEditableContext()
   const { loading } = useLoadingContext()
 
   const [storeOpen, setStoreOpen] = useState(false)
@@ -56,10 +53,9 @@ function CharacterSheet() {
           <CharacterBio setLevelUpOpen={setLevelUpOpen} />
           <CharacterNotes />
           <CharacterSkills />
-          {/* <CharacterSkillsAdd displayCondition={editable} /> */}
           <CharacterTraining />
-          <CharacterSpells displayCondition={editable || currentCharacter.spells?.length} />
-          <CharacterRituals displayCondition={editable || currentCharacter.rituals?.length} /> 
+          <CharacterSpells displayCondition={currentCharacter.spells?.length} />
+          <CharacterRituals displayCondition={currentCharacter.rituals?.length} /> 
           
         </div>
 

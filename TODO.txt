@@ -16,7 +16,6 @@
 - email validations
 - email notifications (for example when invited to a story group)
 - password reset via email
-- link to changelog
 
 -------- Refactors --------
 - rewrite help blurbs to be more condensed

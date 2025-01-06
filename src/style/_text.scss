@@ -94,3 +94,11 @@
 .text-align-center {
   text-align: center;
 }
+
+.list-style-square {
+  list-style: square;
+
+  * {
+    list-style: square;
+  }
+}

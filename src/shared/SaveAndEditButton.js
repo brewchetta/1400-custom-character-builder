@@ -1,10 +1,7 @@
-import { useEditableContext } from 'context/EditableContext'
 import saveIcon from 'assets/images/file-save.png'
 import editIcon from 'assets/images/pencil-paper-edit.png'
 
-function SaveAndEditButton(props) {
-
-  const { editable, setEditable } = useEditableContext()
+function SaveAndEditButton({editable, setEditable}) {
 
   return (
     <button className="icon-button" onClick={() => setEditable(prev => !prev)}>
