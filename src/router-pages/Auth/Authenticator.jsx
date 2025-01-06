@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 import LoadingAnimation from 'shared/LoadingAnimation' 
-import LoginSignup from './LoginSignup'
 
 import { useCurrentUserContext } from 'context/CurrentUserContext'
 import { useLoadingContext } from 'context/LoadingContext'

@@ -16,9 +16,9 @@ function LoadingAnimation() {
         return (
             <div className="loading-animation">
 
-                <img className='inner-loading-animation' src={sun} />
-                <img className='middle-loading-animation' src={clock} />
-                <img className='outer-loading-animation' src={stars} />
+                <img className='inner-loading-animation' src={sun} alt="" />
+                <img className='middle-loading-animation' src={clock} alt="" />
+                <img className='outer-loading-animation' src={stars} alt="" />
 
             </div>
         )
@@ -28,9 +28,9 @@ function LoadingAnimation() {
         return (
             <div className="loading-animation">
 
-                <img className='inner-loading-animation' src={sunDark} />
-                <img className='middle-loading-animation' src={clockDark} />
-                <img className='outer-loading-animation' src={starsDark} />
+                <img className='inner-loading-animation' src={sunDark} alt="" />
+                <img className='middle-loading-animation' src={clockDark} alt="" />
+                <img className='outer-loading-animation' src={starsDark} alt="" />
 
             </div>
         )
