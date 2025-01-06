@@ -9,7 +9,7 @@ import clockDark from 'assets/images/clock-abstract-dark.png'
 
 function LoadingAnimation() {
 
-    const { darkMode } = useDarkModeContext
+    const { darkMode } = useDarkModeContext()
 
     if (!darkMode) { // light mode
 
@@ -23,9 +23,7 @@ function LoadingAnimation() {
             </div>
         )
         
-        
     } else { // dark mode
-
 
         return (
             <div className="loading-animation">
