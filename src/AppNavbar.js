@@ -33,7 +33,7 @@ function AppNavbar({ setDarkMode, darkMode }) {
   if (loading) {
     return (
       <div className="grid-columns-medium centered margin-bottom-medium">
-        <a href="#" className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Loading...</a>
+        <a href="/" className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Loading...</a>
       </div>
 
     )
@@ -46,7 +46,7 @@ function AppNavbar({ setDarkMode, darkMode }) {
         <Link to='/' className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Home</Link>
         <Link to='create-character' className="text-black no-decoration swatch-hover-background-orange margin-bottom-medium">New Character</Link>
         <Link to='rulebook' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium">Rulebook</Link>
-        <Link to='#' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium" onClick={handleLogout}>Logout</Link>
+        <Link to='logout' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium" onClick={handleLogout}>Logout</Link>
   
         <DarkModeButton darkMode={darkMode} handleDarkModeClick={handleDarkModeClick} />
   
@@ -58,7 +58,6 @@ function AppNavbar({ setDarkMode, darkMode }) {
 
         <Link to='/' className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Login/Signup</Link>
         <Link to='rulebook' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium">Rulebook</Link>
-        {/* <Link to='changelog' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium">Change Log</Link> */}
 
         <DarkModeButton darkMode={darkMode} handleDarkModeClick={handleDarkModeClick} />
 

@@ -11,7 +11,7 @@ import { useLoadingContext } from 'context/LoadingContext'
 
 function App() {
 
-  const {darkMode, setDarkMode} = useDarkModeContext()
+  const { darkMode, setDarkMode } = useDarkModeContext()
   const { loading } = useLoadingContext()
 
   const location = useLocation()
@@ -27,6 +27,8 @@ function App() {
         return 'castle-ruins-background'
       case location.pathname.match(/\/rulebook/)?.input:
         return 'spellbook-background'
+      case location.pathname.match(/\/changelog/)?.input:
+        return ''
       default:
         return 'tavern-background'
     }
