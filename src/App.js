@@ -32,7 +32,7 @@ function App() {
       case location.pathname.match(/\/rulebook/)?.input:
         return 'spellbook-background'
       case location.pathname.match(/\/changelog/)?.input:
-        return ''
+        return 'dice-background'
       default:
         return 'tavern-background'
     }

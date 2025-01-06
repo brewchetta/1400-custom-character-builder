@@ -74,6 +74,10 @@
     @include image-background-mixin('../assets/images/alchemy-symbols-dark.png', center center, 20%);
   }
 
+  &.dice-background {
+    @include image-background-mixin('../assets/images/dice-sizes-dark.png', center center)
+  }
+
   &.castle-ruins-background, .castle-ruins-background {
     @include image-background-mixin('../assets/images/castle-ruins-dark.png', bottom right);
   }

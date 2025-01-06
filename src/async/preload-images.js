@@ -48,6 +48,7 @@ import img44 from "assets/images/sun-shine.png"
 import img45 from "assets/images/tavern-exterior-dark.png"
 import img46 from "assets/images/tavern-exterior.png"
 import img47 from "assets/images/triangle-icon.png"
+import img48 from "assets/images/dice-sizes-dark.png"
 
 const manifest = [
 img1,
@@ -97,6 +98,7 @@ img44,
 img45,
 img46,
 img47,
+img48
 ]
 
 async function resolveImage(src) {
@@ -122,7 +124,7 @@ export function usePreloadImages() {
     }, [])
 
     useEffect(() => {
-        console.log({imgsCompleted})
+        // console.log({imgsCompleted})
         setComplete(imgsCompleted === manifest.length)
     }, [imgsCompleted])
 
