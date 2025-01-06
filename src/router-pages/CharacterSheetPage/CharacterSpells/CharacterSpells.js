@@ -5,7 +5,7 @@ import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
-import { deleteCharacterSpell } from 'fetch/fetch-character-spells'
+import { deleteCharacterSpell } from 'async/fetch-character-spells'
 
 function CharacterSpells() {
 

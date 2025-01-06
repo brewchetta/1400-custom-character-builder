@@ -16,7 +16,7 @@ import { useCharacterContext } from 'context/CharacterContext'
 import { useEditableContext } from 'context/EditableContext'
 import { useLoadingContext } from 'context/LoadingContext'
 
-import { getCharacter } from 'fetch/fetch-characters'
+import { getCharacter } from 'async/fetch-characters'
 import CharacterLevelUp from './CharacterLevelUp/CharacterLevelUp'
 
 function CharacterSheet() {

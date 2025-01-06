@@ -1,11 +1,11 @@
-import { getCharacterLevelUpOptions } from 'fetch/fetch-characters'
+import { getCharacterLevelUpOptions } from 'async/fetch-characters'
 import { useState, useEffect, useMemo } from 'react'
 import { useCharacterContext } from 'context/CharacterContext'
 import SkillsInputs from 'shared/SkillsInputs'
 import SpellsInputs from 'shared/SpellsInputs'
 import LearnTraining from './LearnTraining'
-import { postCharacterSpell } from 'fetch/fetch-character-spells'
-import { patchCharacter } from 'fetch/fetch-characters'
+import { postCharacterSpell } from 'async/fetch-character-spells'
+import { patchCharacter } from 'async/fetch-characters'
 
 function CharacterLevelUp({ levelUpOpen, setLevelUpOpen }) {
 

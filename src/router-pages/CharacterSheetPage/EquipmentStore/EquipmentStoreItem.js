@@ -1,5 +1,5 @@
 import { useCharacterContext } from 'context/CharacterContext'
-import { postCharacterItem, postCharacterItemBuy } from 'fetch/fetch-character-items'
+import { postCharacterItem, postCharacterItemBuy } from 'async/fetch-character-items'
 
 function EquipmentStoreItem({ item }) {
 

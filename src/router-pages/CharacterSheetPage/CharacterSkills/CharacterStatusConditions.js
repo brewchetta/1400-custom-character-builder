@@ -3,7 +3,7 @@ import FormCheckbox from 'shared/FormCheckbox'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
-import { patchCharacter } from 'fetch/fetch-characters'
+import { patchCharacter } from 'async/fetch-characters'
 
 function CharacterStatusConditions() {
 

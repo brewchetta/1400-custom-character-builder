@@ -3,8 +3,8 @@ import EquipmentStoreCategory from './EquipmentStoreCategory'
 import EquipmentStoreSpells from './EquipmentStoreSpells'
 import useItems from 'hooks/useItems'
 
-import { getAllSpells } from 'fetch/fetch-spells'
-import { getAllRituals } from 'fetch/fetch-rituals'
+import { getAllSpells } from 'async/fetch-spells'
+import { getAllRituals } from 'async/fetch-rituals'
 import { useState, useEffect } from 'react'
 
 function EquipmentStore() {

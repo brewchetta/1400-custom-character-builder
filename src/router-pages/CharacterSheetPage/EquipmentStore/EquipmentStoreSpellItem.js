@@ -1,5 +1,5 @@
 import { useCharacterContext } from 'context/CharacterContext'
-import { postCharacterSpell, postCharacterRitual } from 'fetch/fetch-character-spells'
+import { postCharacterSpell, postCharacterRitual } from 'async/fetch-character-spells'
 
 // used for both spells and rituals, category determines the difference
 function EquipmentStoreItem({ item, itemKey, category = "spells" }) {

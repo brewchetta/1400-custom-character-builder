@@ -1,5 +1,5 @@
 import { useCharacterContext } from 'context/CharacterContext'
-import { patchCharacterItem } from 'fetch/fetch-character-items'
+import { patchCharacterItem } from 'async/fetch-character-items'
 
 function CharacterEquipmentDurability({ item }) {
 

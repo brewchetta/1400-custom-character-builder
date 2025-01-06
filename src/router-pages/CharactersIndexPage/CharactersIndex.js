@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getAllCharacters } from 'fetch/fetch-characters'
+import { getAllCharacters } from 'async/fetch-characters'
 import { toSpinalCase } from 'utilities'
 import hops from 'assets/images/hops-1.png'
 import hopsTwo from 'assets/images/hops-4.png'

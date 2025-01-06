@@ -32,5 +32,4 @@ export async function patchCharacterItem(id, itemID, payload) {
 
 export async function deleteCharacterItem(id, itemID) {
     return await fetch(`${router}/${id}/items/${itemID}`, { method: 'DELETE' })
-
 }

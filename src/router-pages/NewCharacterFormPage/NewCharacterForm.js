@@ -11,8 +11,8 @@ import CharacterProfessionForm from './CharacterProfessionForm'
 import Toast from 'shared/Toast'
 
 import { toSpinalCase } from 'utilities'
-import { getCharacterCreationOptions } from 'fetch/fetch-characters'
-import { postCharacter } from 'fetch/fetch-characters'
+import { getCharacterCreationOptions } from 'async/fetch-characters'
+import { postCharacter } from 'async/fetch-characters'
 
 
 function NewCharacterForm() {

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { deleteCharacter } from 'fetch/fetch-characters'
+import { deleteCharacter } from 'async/fetch-characters'
 
 function DeleteButton({character}) {
 

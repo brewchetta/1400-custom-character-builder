@@ -3,7 +3,7 @@ import CharacterEquipmentTile from '../CharacterEquipment/CharacterEquipmentTile
 import CurrentGold from '../CharacterEquipment/CurrentGold'
 import HelpButton from 'shared/HelpButton'
 import { rulesGear } from 'data/rules'
-import { deleteCharacterItem } from 'fetch/fetch-character-items'
+import { deleteCharacterItem } from 'async/fetch-character-items'
 
 function EquipmentStoreCharacterItems() {
 

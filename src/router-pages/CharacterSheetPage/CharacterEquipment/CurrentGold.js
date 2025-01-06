@@ -4,7 +4,7 @@ import IconButton from 'shared/IconButton'
 import { rulesGear } from 'data/rules'
 import plusIcon from 'assets/images/plus-circle.png'
 import minusIcon from 'assets/images/minus-circle.png'
-import { patchCharacter } from 'fetch/fetch-characters'
+import { patchCharacter } from 'async/fetch-characters'
 
 function CurrentGold() {
 

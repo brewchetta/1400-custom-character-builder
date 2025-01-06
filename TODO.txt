@@ -15,15 +15,12 @@
 - can add players to a group and allow worldbuilding before creating characters
 - email validations
 - email notifications (for example when invited to a story group)
-- version / changlog on the site
 - password reset via email
 - link to changelog
 
 -------- Refactors --------
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
-- Rulebook available without logging in
-- Light/dark mode toggle without logging in
 - edit button for each section of character sheet instead of one general edit button
 - text formatting for notes
 - add / remove sums of gold at a time
@@ -39,6 +36,9 @@
 - removed exhaust option for spells/rituals
 - removed obsolete custom rules section of rulebook
 - images get preloaded for a smoother experience
+- the rulebook is now available without logging in
+- added version number and changelog accessible in the lower right hand corner
+- fixed not being able to toggle light/dark mode without logging in
 - fixed darkmode image graphics
 - fixed buying items not actually buying the items
 - fixed items moving forward not interfering with each other's durability (current items will need to be removed and re-added)

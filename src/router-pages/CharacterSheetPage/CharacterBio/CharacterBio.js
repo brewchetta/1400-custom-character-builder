@@ -4,7 +4,7 @@ import DeleteButton from "./DeleteButton"
 import HelpButton from "shared/HelpButton"
 
 import { capitalize } from 'utilities'
-import { patchCharacter } from 'fetch/fetch-characters'
+import { patchCharacter } from 'async/fetch-characters'
 
 import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'

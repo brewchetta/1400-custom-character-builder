@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getItems } from 'fetch/fetch-item-templates'
+import { getItems } from 'async/fetch-item-templates'
 
 export default function useItems() {
   const [items, setItems] = useState([])
