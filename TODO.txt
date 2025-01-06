@@ -23,27 +23,25 @@
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
 - preload images on load
-- remove (or rewrite) custom rules section of rulebook now that rules expansions are gone
 - Rulebook available without logging in
 - Light/dark mode toggle without logging in
-- Add perception / awareness skill
-- General skills refactor?
 - edit button for each section of character sheet instead of one general edit button
 - text formatting for notes
 - add / remove sums of gold at a time
 
 -------- Bugs --------
 - put back in change skills
-- light/dark mode currently covered by store / level up drawers
-- fix darkmode image graphics
 
 -------- Completed --------
-- remove exhaust option for spells/rituals (simplify database)
-- gold getting accidentally removed when leveling up spells
-- able to sign in with email or username
+- you may now sign in with either your email or username
+- you may now banish characters to the shadow realm with the Delete Character button
+- dark mode icons should be consistent across devices and browsers
+- skill names have been changed for better clarity (older characters will be unaffected)
+- removed exhaust option for spells/rituals
+- removed obsolete custom rules section of rulebook
+- fixed darkmode image graphics
 - fixed buying items not actually buying the items
 - fixed items moving forward not interfering with each other's durability (current items will need to be removed and re-added)
 - fixed dropdowns being unreadable
-- fixed dropdown options being blue on mobile (hopefully)
-- removed engineering skill due to overlap with crafting (may expand crafting into multiple new skills in the future...)
-- you may now banish characters to the shadow realm with the Delete Character button
+- fixed dropdown options being blue on certain mobile browsers
+- fixed gold getting accidentally removed when leveling up spells

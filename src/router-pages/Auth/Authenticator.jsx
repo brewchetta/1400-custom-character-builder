@@ -8,7 +8,7 @@ import { useLoadingContext } from 'context/LoadingContext'
 
 function Authenticator({children}) {
 
-    const { currentUser, setCurrentUser } = useCurrentUserContext()
+    const { setCurrentUser } = useCurrentUserContext()
     const { loading, setLoading } = useLoadingContext()
     
 
@@ -37,10 +37,6 @@ function Authenticator({children}) {
 
     if (loading) {
         return <LoadingAnimation />
-    }
-
-    if (!currentUser) {
-        return <LoginSignup />
     }
 
     return children

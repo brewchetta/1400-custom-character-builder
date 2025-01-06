@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import AppRoutes from "./AppRoutes"
 import AppNavbar from "./AppNavbar"
 import Authenticator from 'router-pages/Auth'
+import Footer from './Footer'
 
 import { CurrentUserContextProvider } from 'context/CurrentUserContext'
 import { useDarkModeContext } from 'context/DarkModeContext'
@@ -36,10 +37,13 @@ function App() {
     <CurrentUserContextProvider>
       <div className={`App ${determinedBackground()} ${darkMode ? 'dark-mode' : ''}`}>
 
+        <AppNavbar setDarkMode={setDarkMode} darkMode={darkMode} />
+
         <Authenticator>
-          <AppNavbar setDarkMode={setDarkMode} darkMode={darkMode} />
           <AppRoutes />
         </Authenticator>
+
+        <Footer />
 
       </div>
     </CurrentUserContextProvider>

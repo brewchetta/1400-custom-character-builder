@@ -4,11 +4,13 @@ import { setLocalDarkMode } from 'utils/local-storage'
 import { useNavigate } from 'react-router-dom'
 
 import { useCurrentUserContext } from 'context/CurrentUserContext'
+import { useLoadingContext } from 'context/LoadingContext'
 
 function AppNavbar({ setDarkMode, darkMode }) {
 
   const navigate = useNavigate()
-  const { setCurrentUser } = useCurrentUserContext()
+  const { currentUser, setCurrentUser } = useCurrentUserContext()
+  const { loading } = useLoadingContext()
 
   const handleLogout = async (e) => {
     e.preventDefault()
@@ -27,19 +29,43 @@ function AppNavbar({ setDarkMode, darkMode }) {
     setLocalDarkMode(!darkMode)
     setDarkMode(!darkMode)
   }
+
+  if (loading) {
+    return (
+      <div className="grid-columns-medium centered margin-bottom-medium">
+        <a href="#" className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Loading...</a>
+      </div>
+
+    )
+  }
+
+  if (currentUser) { // CURRENT USER
+    return (
+      <div className="grid-columns-medium centered margin-bottom-medium">
   
-  return (
-    <div className="grid-columns-medium centered margin-bottom-medium">
+        <Link to='/' className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Home</Link>
+        <Link to='create-character' className="text-black no-decoration swatch-hover-background-orange margin-bottom-medium">New Character</Link>
+        <Link to='rulebook' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium">Rulebook</Link>
+        <Link to='#' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium" onClick={handleLogout}>Logout</Link>
+  
+        <DarkModeButton darkMode={darkMode} handleDarkModeClick={handleDarkModeClick} />
+  
+      </div>
+    )
+  } else { // ANONYMOUS USER
+    return (
+      <div className="grid-columns-medium centered margin-bottom-medium">
 
-      <Link to='/' className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Home</Link>
-      <Link to='create-character' className="text-black no-decoration swatch-hover-background-orange margin-bottom-medium">New Character</Link>
-      <Link to='rulebook' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium">Rulebook</Link>
-      <Link to='#' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium" onClick={handleLogout}>Logout</Link>
+        <Link to='/' className="text-black no-decoration swatch-hover-background-sky-blue margin-bottom-medium">Login/Signup</Link>
+        <Link to='rulebook' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium">Rulebook</Link>
+        {/* <Link to='changelog' className="text-black no-decoration swatch-hover-background-green margin-bottom-medium">Change Log</Link> */}
 
-      <DarkModeButton darkMode={darkMode} handleDarkModeClick={handleDarkModeClick} />
+        <DarkModeButton darkMode={darkMode} handleDarkModeClick={handleDarkModeClick} />
 
-    </div>
-  )
+      </div>
+    )
+  }
+
 }
 
 export default AppNavbar

@@ -112,12 +112,12 @@ const rulesTutorial = {
     `11. Make up a prompt and answer it!`,
     `Once players have created the world, they ought to build characters and decide how those characters know each other. It's suggested that each character has a tie to one of the worldbuilding prompts and each character knows at least one of the other adventurers. That being said, if you want to be total strangers then that's up to you!`
   ],
-  'custom rules': {
-    'your own rules': `The storyteller and players can agree on any house rules of their choice. Additionally, this site supports a few extra rulesets for more options while building characters.`,
-    'ancestries expanded': `Adds additional ancestries for player characters to choose from.`,
-    'extended D&D classes': `Adds additional classes based on those found in dungeons and dragons. (Made by Nate)`,
-    'draochtlan': `Replaces ancestries to match the custom Draochtlan setting. Cannot be used with other rules that change ancestries. (Made by Nate)`,
-  }
+  // 'custom rules': {
+  //   'your own rules': `The storyteller and players can agree on any house rules of their choice. Additionally, this site supports a few extra rulesets for more options while building characters.`,
+  //   'ancestries expanded': `Adds additional ancestries for player characters to choose from.`,
+  //   'extended D&D classes': `Adds additional classes based on those found in dungeons and dragons. (Made by Nate)`,
+  //   'draochtlan': `Replaces ancestries to match the custom Draochtlan setting. Cannot be used with other rules that change ancestries. (Made by Nate)`,
+  // }
 }
 
 export default rulesTutorial;
