@@ -20,7 +20,6 @@
 -------- Refactors --------
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
-- edit button for each section of character sheet instead of one general edit button
 - text formatting for notes
 - add / remove sums of gold at a time
 
@@ -36,6 +35,7 @@
 - removed obsolete custom rules section of rulebook
 - images get preloaded for a smoother experience
 - the rulebook is now available without logging in
+- each section of the character sheet can now be edited individually by clicking the edit icon
 - added version number and changelog accessible in the lower right hand corner
 - fixed not being able to toggle light/dark mode without logging in
 - fixed darkmode image graphics

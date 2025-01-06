@@ -1,13 +1,19 @@
+import { useState } from "react"
+
 import CurrentGold from "./CurrentGold"
 import CharacterEquipmentTile from "./CharacterEquipmentTile"
 import CharacterEquipmentOpenStoreTile from "./CharacterEquipmentOpenStoreTile"
 import HelpButton from "shared/HelpButton"
+import SaveAndEditButton from "shared/SaveAndEditButton"
+
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
 import { deleteCharacterItem } from "async/fetch-character-items"
 
 
 function CharacterEquipment({ setStoreOpen }) {
+
+  const [editable, setEditable] = useState(false)
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
   const { items } = currentCharacter
@@ -23,7 +29,7 @@ function CharacterEquipment({ setStoreOpen }) {
   const toggleStoreOpen = () => setStoreOpen(prev => !prev)
 
   const renderedItems = items.map(item => (
-    <CharacterEquipmentTile key={item.key + item.epochStamp} item={item} handleRemoveItem={handleRemoveItem}  />
+    <CharacterEquipmentTile key={item.key + item.epochStamp} item={item} handleRemoveItem={handleRemoveItem} editable={editable} />
   ) )
 
   return (
@@ -31,6 +37,7 @@ function CharacterEquipment({ setStoreOpen }) {
     <>
 
       <h3>Equipment
+        <SaveAndEditButton editable={editable} setEditable={setEditable} />
         <HelpButton info={rulesGear.management} />
       </h3>
 

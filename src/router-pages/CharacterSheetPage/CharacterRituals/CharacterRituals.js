@@ -1,47 +1,38 @@
+import { useState } from 'react'
 import ConditionalWrapper from 'shared/ConditionalWrapper'
-import Checkbox from 'shared/FormCheckbox'
-import { toSpinalCase } from 'utilities'
-import { useEditableContext } from 'context/EditableContext'
 import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
 import { deleteCharacterRitual } from 'async/fetch-character-spells'
+import SaveAndEditButton from 'shared/SaveAndEditButton'
 
 function CharacterRituals() {
 
   const {currentCharacter, setCurrentCharacter} = useCharacterContext()
 
-  const { editable } = useEditableContext()
+  const [editable, setEditable] = useState(false)
 
   async function handleRemoveRitual(ritual) {
     const res = await deleteCharacterRitual(currentCharacter._id, ritual._id)
     if (res.ok) {
       const data = await res.json()
       setCurrentCharacter(prev => ({...prev, rituals: data.result}))
+      if (data.result.length) { // doing this to avoid react state updates on unmounted components
+        setEditable(false)
+      }
     } else {
       alert("Something went wrong...")
     }
   }
 
-  /* CURRENTLY UNUSED AS TOGGLING RITUALS HAS BEEN REMOVED */
-  // async function handleToggleRitual(ritual) {
-  //   const res = await patchCharacterRitual(currentCharacter._id, ritual._id, { exhausted: !ritual.exhausted })
-  //   if (res.ok) {
-  //     const data = await res.json()
-  //     setCurrentCharacter(prev => ({...prev, rituals: data.result}))
-  //   } else {
-  //     alert("Something went wrong...")
-  //   }
-  // }
-
   const renderedRituals = currentCharacter.rituals?.map(ritual => (
       editable
-      ?
+      ? // EDITABLE
       <div key={ritual._id}>
         <span>{ritual.name}</span>
         <button className="border-none text-dark-red background-white" onClick={() => handleRemoveRitual(ritual)}>X</button>
       </div>
-      :
+      : // NOT EDITABLE
       <div key={ritual._id}>
         <span>{ritual.name}</span>
       </div>
@@ -51,7 +42,7 @@ function CharacterRituals() {
 
     <div className='border-black background-white magic-circle-background padding-small relative'>
 
-      <h3>Rituals:</h3>
+      <h3>Rituals<SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
 
       <HelpButton
       className='position-top-right'

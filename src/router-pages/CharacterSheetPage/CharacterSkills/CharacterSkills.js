@@ -70,7 +70,7 @@ function CharacterSkills() {
         info={rulesPlay.rolling}
       />
 
-      <h3>Skills <SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
+      <h3>Skills<SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
 
       <ul className="skills-list grid-columns-large">
 

@@ -4,7 +4,9 @@ This is a character creation app for the 1400 TTRPG system and allows for the cr
 
 ## Webpage
 
-You can see the live webpage [here](https://brewchetta.github.io/1400-custom-character-builder/)
+You can see the older live webpage [here](https://brewchetta.github.io/1400-custom-character-builder/)
+
+The updated version of the website will be hosted elsewhere.
 
 ## Local Installation
 

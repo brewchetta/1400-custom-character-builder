@@ -1,51 +1,45 @@
+import { useState } from 'react'
+
 import ConditionalWrapper from 'shared/ConditionalWrapper'
-import Checkbox from 'shared/FormCheckbox'
-import { toSpinalCase } from 'utilities'
-import { useEditableContext } from 'context/EditableContext'
-import { useCharacterContext } from 'context/CharacterContext'
 import HelpButton from 'shared/HelpButton'
-import { rulesPlay } from 'data/rules'
+import SaveAndEditButton from 'shared/SaveAndEditButton'
+
+import { useCharacterContext } from 'context/CharacterContext'
+
 import { deleteCharacterSpell } from 'async/fetch-character-spells'
+
+import { rulesPlay } from 'data/rules'
 
 function CharacterSpells() {
 
   const { currentCharacter, setCurrentCharacter} = useCharacterContext()
   const { spellsMax } = currentCharacter
 
-  const { editable } = useEditableContext()
+  const [editable, setEditable] = useState(false)
+
 
   async function handleRemoveSpell(spell) {
     const res = await deleteCharacterSpell(currentCharacter._id, spell._id)
     if (res.ok) {
       const data = await res.json()
       setCurrentCharacter(prev => ({...prev, spells: data.result}))
+      if (data.result.length) { // doing this to avoid react state updates on unmounted components
+        setEditable(false)
+      }
     } else {
       alert("Something went wrong...")
     }
   }
 
-
-  /* CURRENTLY UNUSED AS TOGGLING SPELLS HAS BEEN REMOVED */
-  // async function handleToggleSpell(spell) {
-  //   const res = await patchCharacterSpell(currentCharacter._id, spell._id, { exhausted: !spell.exhausted })
-  //   if (res.ok) {
-  //     const data = await res.json()
-  //     setCurrentCharacter(prev => ({...prev, spells: data.result}))
-  //   } else {
-  //     alert("Something went wrong...")
-  //   }
-  // }
-
-
   const renderedSpells = currentCharacter.spells.map(spell => (
       editable
-      ?
+      ? // EDITABLE
       <div key={spell._id}>
         <span>{spell.name}</span>
         <button className="border-none text-dark-red background-white" 
         onClick={() => handleRemoveSpell(spell)}>X</button>
       </div>
-      :
+      : // NOT EDITABLE
       <div key={spell._id}>
         <span>{spell.name}</span>
       </div>
@@ -63,7 +57,7 @@ function CharacterSpells() {
 
     <div className="border-black background-white alchemy-symbols-background padding-small relative">
 
-      <h3>Spells:</h3>
+      <h3>Spells<SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
 
       <HelpButton
         className="position-top-right"

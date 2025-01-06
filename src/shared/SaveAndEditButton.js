@@ -1,5 +1,5 @@
-import saveIcon from 'assets/images/file-save.png'
-import editIcon from 'assets/images/pencil-paper-edit.png'
+import saveIcon from 'assets/images/save-icon.png'
+import editIcon from 'assets/images/edit-icon.png'
 
 function SaveAndEditButton({editable, setEditable}) {
 
@@ -18,3 +18,6 @@ function SaveAndEditButton({editable, setEditable}) {
 }
 
 export default SaveAndEditButton
+
+// TODO: hange edit icon to quill??
+// or potentially get something more legible???

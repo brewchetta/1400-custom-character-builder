@@ -6,7 +6,6 @@ import Rulebook from 'router-pages/RulebookPage'
 import ChangeLog from 'router-pages/ChangeLog/ChangeLog'
 import LoginSignup from 'router-pages/Auth/LoginSignup'
 import { CharacterContextProvider } from 'context/CharacterContext'
-import { EditableContextProvider } from 'context/EditableContext'
 import { useCurrentUserContext } from 'context/CurrentUserContext'
 
 // ALL ROUTES ADDED HERE
@@ -27,11 +26,9 @@ function AppRoutes() {
         <Route path='/' element={<CharactersIndex />} />
         <Route path='create-character' element={<NewCharacterForm />} />
         <Route path='characters/:nameSlug/:id' element={
-          <EditableContextProvider>
-            <CharacterContextProvider>
-              <CharacterSheet />
-            </CharacterContextProvider>
-          </EditableContextProvider>
+          <CharacterContextProvider>
+            <CharacterSheet />
+          </CharacterContextProvider>
         } />
         <Route path='rulebook' element={<Rulebook />} />
         <Route path='rulebook/:nav' element={<Rulebook />} />

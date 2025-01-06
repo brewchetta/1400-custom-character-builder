@@ -1,9 +1,6 @@
 import CharacterEquipmentDurability from './CharacterEquipmentDurability'
-import { useEditableContext } from 'context/EditableContext'
 
-function CharacterEquipmentTile({ item, handleRemoveItem, removeable=false }) {
-
-  const { editable } = useEditableContext()
+function CharacterEquipmentTile({ item, handleRemoveItem, removeable=false, editable }) {
 
   return (
     <div className="background-white padding-small border-dark-grey flex-column space-between">

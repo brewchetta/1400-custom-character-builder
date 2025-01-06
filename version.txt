@@ -1,3 +1,0 @@
-241225 - Trainings, level ups, and accounts
-241023 - Darkmode + bug fixes
-230515 - Initial Release
