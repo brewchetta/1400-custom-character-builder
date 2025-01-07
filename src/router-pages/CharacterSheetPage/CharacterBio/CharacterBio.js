@@ -1,17 +1,24 @@
+import { useState, useEffect } from 'react'
+
 import CharacterBioEdit from "./CharacterBioEdit"
 import SaveAndEditButton from "shared/SaveAndEditButton"
 import DeleteButton from "./DeleteButton"
 import HelpButton from "shared/HelpButton"
+
+import levelUpIcon from 'assets/images/level-up-icon.png'
+import levelUpIconDark from 'assets/images/level-up-icon-dark.png'
 
 import { capitalize } from 'utilities'
 import { patchCharacter } from 'async/fetch-characters'
 
 import { useCharacterContext } from 'context/CharacterContext'
 import { useCurrentUserContext } from "context/CurrentUserContext"
+import { useDarkModeContext } from 'context/DarkModeContext'
 
-import { useState, useEffect } from 'react'
 
 function CharacterBio({ setLevelUpOpen }) {
+
+  const { darkMode } = useDarkModeContext()
 
   const { currentCharacter, currentCharacter: {
     name,
@@ -51,7 +58,7 @@ function CharacterBio({ setLevelUpOpen }) {
   }, [editable])  // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="padding-small">
+    <div className="padding-small relative">
       <h2>{name} - {capitalize(ancestry.name)} 
       {
         isUserCharacter
@@ -63,7 +70,6 @@ function CharacterBio({ setLevelUpOpen }) {
           &&
           <DeleteButton character={currentCharacter}/>
           }
-          <button onClick={() => setLevelUpOpen(prev => !prev)}>Level Up</button>
         </>
         :
         null
@@ -78,11 +84,15 @@ function CharacterBio({ setLevelUpOpen }) {
         ?
         <>
           <p>Quirk: {quirk}</p>
-          <p>History: {history}</p>
+          <p style={{ maxWidth: '50%' }}>History: {history}</p>
         </>
         :
         <CharacterBioEdit editableStates={editableStates} setEditableStates={setEditableStates} setEditable={setEditable} /> 
       }
+
+      <button onClick={() => setLevelUpOpen(prev => !prev)} className="position-bottom-right border-none background-transparent">
+        <img src={!darkMode ? levelUpIcon : levelUpIconDark} alt="level up" style={{ height: '3em' }} />
+      </button>
 
     </div>
   )

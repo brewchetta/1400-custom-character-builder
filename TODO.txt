@@ -1,7 +1,6 @@
 -------- Features --------
 - toasts
 - add background for character levelup
-- item store search
 - worldbuilding / group route
 - a way to randomize worldbuilding prompts for the indecisive
 - notes sections (character, story, secrets, etc.)
@@ -15,6 +14,7 @@
 - password reset via email
 
 -------- Refactors --------
+- image (campfire?) and help button for level up option
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
 - text formatting for notes
@@ -22,7 +22,8 @@
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
 
 -------- Bugs --------
-- 
+- spells and rituals aren't in the store search
+- by default items route gives core items and item search allows for non-core items
 
 -------- Completed --------
 - you may now sign in with either your email or username
@@ -35,6 +36,7 @@
 - the rulebook is now available without logging in
 - each section of the character sheet can now be edited individually by clicking the edit icon
 - characters can now be assigned a gender unless you want to leave it blank to spice up their mystery
+- added a search bar to the store
 - added version number and changelog accessible in the lower right hand corner
 - fixed not being able to toggle light/dark mode without logging in
 - fixed darkmode image graphics
