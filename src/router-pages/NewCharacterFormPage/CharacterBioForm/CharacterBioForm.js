@@ -10,6 +10,8 @@ import histories from 'data/_historyCore'
 function CharacterBiographyForm({
   characterName,
   setCharacterName,
+  gender,
+  setGender,
   ancestry,
   setAncestry,
   currentAncestrySkills,
@@ -39,6 +41,13 @@ function CharacterBiographyForm({
           labelText="Character Name"
           value={characterName}
           onChange={e => setCharacterName(e.target.value)}
+        />
+        <FormInput
+          name="character-gender"
+          info="Your character's gender"
+          labelText="Character Gender"
+          value={gender}
+          onChange={e => setGender(e.target.value)}
         />
         <FormInput
           name="character-quirk"

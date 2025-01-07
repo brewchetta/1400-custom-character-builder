@@ -1,9 +1,7 @@
 -------- Features --------
-- random name generator
 - toasts
 - add background for character levelup
 - item store search
-- fetch context with animations to show when network requests are occuring (spinning hourglass?)
 - worldbuilding / group route
 - a way to randomize worldbuilding prompts for the indecisive
 - character pronouns
@@ -22,9 +20,10 @@
 - rules rewrite for more narrative play
 - text formatting for notes
 - add / remove sums of gold at a time
+- fetch context with animations to show when network requests are occuring (spinning hourglass?)
 
 -------- Bugs --------
-- put back in change skills
+- 
 
 -------- Completed --------
 - you may now sign in with either your email or username

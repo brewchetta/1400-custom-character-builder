@@ -24,11 +24,11 @@ function NewCharacterForm() {
   const [ancestries, setAncestries] = useState([])
   const [items, setItems] = useState([])
   const [professions, setProfessions] = useState([])
-  const [rituals, setRituals] = useState([])
   const [skills, setSkills] = useState([])
   const [spells, setSpells] = useState([])
 
   const [characterName, setCharacterName] = useState('')
+  const [gender, setGender] = useState('')
   const [ancestry, setAncestry] = useState(null)
   const [characterQuirk, setCharacterQuirk] = useState('')
   const [characterHistory, setCharacterHistory] = useState('')
@@ -51,7 +51,6 @@ function NewCharacterForm() {
         setProfessions(data.result.professions)
         setSkills(data.result.skills)
         setSpells(data.result.spells)
-        setRituals(data.result.rituals)
         setAncestries(data.result.ancestries)
         setItems(data.result.items)
         setLoading(false)
@@ -60,7 +59,7 @@ function NewCharacterForm() {
       }
     }
     fetchCreatorOptions()
-  }, [])
+  }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     setCurrentAncestrySkills([])
@@ -96,6 +95,7 @@ function NewCharacterForm() {
     const character = {
       ancestry: ancestry._id,
       name: characterName,
+      gender,
       quirk: characterQuirk,
       history: characterHistory,
       profession: currentProfession._id,
@@ -147,6 +147,8 @@ function NewCharacterForm() {
       <CharacterBioForm {...{
         characterName,
         setCharacterName,
+        gender,
+        setGender,
         ancestry,
         setAncestry,
         currentAncestrySkills,

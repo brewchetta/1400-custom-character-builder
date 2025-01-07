@@ -10,6 +10,8 @@ function CharacterBioEdit({ editableStates, setEditableStates, setEditable }) {
 
       <FormInput name='name' labelText='Name: ' onChange={handleChange} value={editableStates.name} />
 
+      <FormInput name='gender' labelText='Gender: ' onChange={handleChange} value={editableStates.gender} />
+
       <FormInput name='quirk' labelText='Quirk: ' onChange={handleChange} value={editableStates.quirk} />
 
       <FormInput name='history' labelText='History: ' onChange={handleChange} value={editableStates.history} />

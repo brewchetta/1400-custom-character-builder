@@ -15,12 +15,13 @@ function CharacterBio({ setLevelUpOpen }) {
 
   const { currentCharacter, currentCharacter: {
     name,
+    gender,
     ancestry,
     quirk,
     history
   }, setCurrentCharacter } = useCharacterContext()
 
-  const [editableStates, setEditableStates] = useState({ name, quirk, history})
+  const [editableStates, setEditableStates] = useState({ name, gender, quirk, history})
   const [editable, setEditable] = useState(false)
 
   const { currentUser } = useCurrentUserContext()
@@ -32,9 +33,10 @@ function CharacterBio({ setLevelUpOpen }) {
   useEffect(() => {
     async function sendRequest() {
       const nameEdited = editableStates.name !== currentCharacter.name
+      const genderEdited = editableStates.gender !== currentCharacter.gender
       const quirkEdited = editableStates.quirk !== currentCharacter.quirk
       const historyEdited = editableStates.history !== currentCharacter.history
-      if (currentCharacter && (nameEdited || quirkEdited || historyEdited)) {
+      if (currentCharacter && (nameEdited || genderEdited || quirkEdited || historyEdited)) {
         const res = await patchCharacter(currentCharacter._id, editableStates)
         if (res.ok) {
           const data = await res.json()
@@ -46,7 +48,7 @@ function CharacterBio({ setLevelUpOpen }) {
     }
     
     sendRequest()
-  }, [editable])
+  }, [editable])  // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="padding-small">
@@ -66,6 +68,8 @@ function CharacterBio({ setLevelUpOpen }) {
         :
         null
       }</h2>
+
+      { gender.length ? <p>{gender}</p> : null }
 
       { ancestry.specialText && <p>{ancestry.specialText}</p> }
 
