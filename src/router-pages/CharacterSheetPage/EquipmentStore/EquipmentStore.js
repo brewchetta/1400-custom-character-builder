@@ -1,6 +1,7 @@
 import EquipmentStoreCharacterItems from './EquipmentStoreCharacterItems'
 import EquipmentStoreCategory from './EquipmentStoreCategory'
 import EquipmentStoreSpells from './EquipmentStoreSpells'
+import SearchEquipment from './SearchEquipment'
 import useItems from 'hooks/useItems'
 
 import { getAllSpells } from 'async/fetch-spells'
@@ -51,6 +52,8 @@ function EquipmentStore() {
       <h2 id="equipment-store-header" className="centered">Equipment Store</h2>
 
       <EquipmentStoreCharacterItems />
+
+      <SearchEquipment />
 
       <div>
 

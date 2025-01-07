@@ -4,7 +4,6 @@
 - item store search
 - worldbuilding / group route
 - a way to randomize worldbuilding prompts for the indecisive
-- character pronouns
 - notes sections (character, story, secrets, etc.)
 - group notes (certain character notes get automatically added to group notes?)
 - shortfolk ancestry
@@ -35,6 +34,7 @@
 - images get preloaded for a smoother experience
 - the rulebook is now available without logging in
 - each section of the character sheet can now be edited individually by clicking the edit icon
+- characters can now be assigned a gender unless you want to leave it blank to spice up their mystery
 - added version number and changelog accessible in the lower right hand corner
 - fixed not being able to toggle light/dark mode without logging in
 - fixed darkmode image graphics
