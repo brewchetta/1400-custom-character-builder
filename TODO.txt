@@ -1,7 +1,6 @@
 -------- Features --------
 - toasts
 - add background for character levelup
-- add distinct background for character trainings
 - worldbuilding / group route
 - a way to randomize worldbuilding prompts for the indecisive
 - notes sections (character, story, secrets, etc.)
@@ -13,6 +12,7 @@
 - email validations
 - email notifications (for example when invited to a story group)
 - password reset via email
+- items forge for making / sharing / shopping for custom items
 
 -------- Refactors --------
 - help button for level up option
@@ -21,29 +21,10 @@
 - text formatting for notes
 - add / remove sums of gold at a time
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
-- add new images to preloading manifest
+- REMINDER: always add new images to preloading manifest as you put them in
 
 -------- Bugs --------
-- spells and rituals aren't in the store search
-- by default items route gives core items and item search allows for non-core items
+- spells and rituals aren't in the store search yet
+- fix graphical jitter on incoming help messages
 
 -------- Completed --------
-- you may now sign in with either your email or username
-- you may now banish characters to the shadow realm with the Delete Character button
-- dark mode icons should be consistent across devices and browsers
-- skill names have been changed for better clarity (older characters will be unaffected)
-- removed exhaust option for spells/rituals
-- removed obsolete custom rules section of rulebook
-- images get preloaded for a smoother experience
-- the rulebook is now available without logging in
-- each section of the character sheet can now be edited individually by clicking the edit icon
-- characters can now be assigned a gender unless you want to leave it blank to spice up their mystery
-- added a search bar to the store
-- added version number and changelog accessible in the lower right hand corner
-- fixed not being able to toggle light/dark mode without logging in
-- fixed darkmode image graphics
-- fixed buying items not actually buying the items
-- fixed items moving forward not interfering with each other's durability (current items will need to be removed and re-added)
-- fixed dropdowns being unreadable
-- fixed dropdown options being blue on certain mobile browsers
-- fixed gold getting accidentally removed when leveling up spells

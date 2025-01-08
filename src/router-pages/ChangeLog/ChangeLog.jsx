@@ -6,10 +6,28 @@ function ChangeLog() {
         <h1>Change Log</h1>
         <p>Previous and future patch notes for both the game and website will go here.</p>
 
-        <h2>01.XX.2025</h2>
+        <h2>01.08.2025</h2>
         <h3>Quarter Century Fixes</h3>
         <ul>
-          <li>Changes go here</li>
+          <li>You may now sign in with either your email or username</li>
+          <li>You may now banish characters to the shadow realm with the Delete Character button</li>
+          <li>Dark mode icons should be consistent across devices and browsers</li>
+          <li>Skill names have been changed for better clarity (older characters will not be updated)</li>
+          <li>Removed exhaust option for spells/rituals</li>
+          <li>Removed obsolete custom rules section of rulebook</li>
+          <li>Images get preloaded for a smoother experience</li>
+          <li>The rulebook is now available without logging in</li>
+          <li>Each section of the character sheet can now be edited individually by clicking the edit icon</li>
+          <li>Characters can now be assigned a gender unless you want to leave it blank to spice up their mystery</li>
+          <li>Added a search bar to the store</li>
+          <li>Added version number and changelog accessible in the lower right hand corner</li>
+          <li>Added distinct background for character trainings</li>
+          <li>Fixed not being able to toggle light/dark mode without logging in</li>
+          <li>Fixed buying items not actually buying the items</li>
+          <li>Fixed items moving forward not interfering with each other's durability (current items will need to be removed and re-added)</li>
+          <li>Fixed dropdowns being unreadable</li>
+          <li>Fixed dropdown options being blue on certain mobile browsers</li>
+          <li>Fixed gold getting accidentally removed when leveling up spells</li>
         </ul>
 
         <h2>12.25.2024</h2>

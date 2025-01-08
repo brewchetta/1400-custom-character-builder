@@ -49,6 +49,11 @@ import img45 from "assets/images/tavern-exterior-dark.png"
 import img46 from "assets/images/tavern-exterior.png"
 import img47 from "assets/images/triangle-icon.png"
 import img48 from "assets/images/dice-sizes-dark.png"
+import img49 from "assets/images/crossed-arrows.png"
+import img50 from "assets/images/crossed-arrows-dark.png"
+import img51 from "assets/images/level-up-icon.png"
+import img52 from "assets/images/level-up-icon-dark.png"
+import img53 from "assets/images/dice-sizes-dark.png"
 
 const manifest = [
 img1,
@@ -98,7 +103,12 @@ img44,
 img45,
 img46,
 img47,
-img48
+img48,
+img49,
+img50,
+img51,
+img52,
+img53,
 ]
 
 async function resolveImage(src) {
