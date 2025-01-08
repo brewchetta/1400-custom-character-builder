@@ -1,6 +1,7 @@
 -------- Features --------
 - toasts
 - add background for character levelup
+- add distinct background for character trainings
 - worldbuilding / group route
 - a way to randomize worldbuilding prompts for the indecisive
 - notes sections (character, story, secrets, etc.)
@@ -14,12 +15,13 @@
 - password reset via email
 
 -------- Refactors --------
-- image (campfire?) and help button for level up option
+- help button for level up option
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
 - text formatting for notes
 - add / remove sums of gold at a time
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
+- add new images to preloading manifest
 
 -------- Bugs --------
 - spells and rituals aren't in the store search

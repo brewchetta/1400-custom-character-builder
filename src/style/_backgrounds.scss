@@ -34,6 +34,10 @@ input.background-transparent:hover, button.background-transparent:hover {
   @include image-background-mixin('../assets/images/alchemy-symbols.png', center center, 20%);
 }
 
+.arrows-background {
+  @include image-background-mixin('../assets/images/crossed-arrows.png', center center, 20%);
+}
+
 .castle-ruins-background {
   @include image-background-mixin('../assets/images/castle-ruins.png', bottom right);
 }
@@ -73,6 +77,10 @@ input.background-transparent:hover, button.background-transparent:hover {
 // dark mode specialty backgrounds //
 
 .dark-mode {
+  
+  &.arrows-background, .arrows-background {
+    @include image-background-mixin('../assets/images/crossed-arrows-dark.png', center center, 20%);
+  }
   
   &.alchemy-symbols-background, .alchemy-symbols-background {
     @include image-background-mixin('../assets/images/alchemy-symbols-dark.png', center center, 20%);

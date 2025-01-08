@@ -1,15 +1,28 @@
-import { getCharacterLevelUpOptions } from 'async/fetch-characters'
 import { useState, useEffect, useMemo } from 'react'
+
+import { getCharacterLevelUpOptions } from 'async/fetch-characters'
+import { postCharacterSpell } from 'async/fetch-character-spells'
+import { patchCharacter } from 'async/fetch-characters'
+
 import { useCharacterContext } from 'context/CharacterContext'
+import { useDarkModeContext } from 'context/DarkModeContext'
+
 import SkillsInputs from 'shared/SkillsInputs'
 import SpellsInputs from 'shared/SpellsInputs'
 import LearnTraining from './LearnTraining'
-import { postCharacterSpell } from 'async/fetch-character-spells'
-import { patchCharacter } from 'async/fetch-characters'
+
+import spellImg from 'assets/images/alchemy-symbols.png'
+import spellImgDark from 'assets/images/alchemy-symbols-dark.png'
+import skillImg from 'assets/images/quill-drawing.png'
+import skillImgDark from 'assets/images/quill-drawing-dark.png'
+import trainingImg from 'assets/images/crossed-arrows.png'
+import trainingImgDark from 'assets/images/crossed-arrows-dark.png'
+
 
 function CharacterLevelUp({ levelUpOpen, setLevelUpOpen }) {
 
     const { currentCharacter, setCurrentCharacter } =  useCharacterContext()
+    const { darkMode } = useDarkModeContext()
 
     const [options, setOptions] = useState({
         spells: [],
@@ -153,23 +166,44 @@ function CharacterLevelUp({ levelUpOpen, setLevelUpOpen }) {
 
             <p>Learn / improve a skill, gain training, or study a new spell...</p>
 
-            <input
-            type="button"
-            value="Learn a New Skill"
-            onClick={() => setChosenPath('skill')}
-            />
+            <div className="flex-wrap-container centered">
+                <button className="text-black border-black background-white" style={{ minWidth: "25%" }} onClick={() => setChosenPath('skill')}>
+                    {
+                        !darkMode
+                        ? // LIGHT MODE
+                        <img style={{width: '10em'}} src={skillImgDark} alt="" />
+                        : // DARK MODE
+                        <img style={{width: '10em'}} src={skillImg} alt="" />
+                    }
+                    <br/>
+                    <span className="text-large">Learn a New Skill</span>
+                </button>
 
-            <input
-            type="button"
-            value="Gain Training"
-            onClick={() => setChosenPath('training')}
-            />
+                <button className="text-black border-black background-white" style={{ minWidth: "25%" }} onClick={() => setChosenPath('training')}>
+                    {
+                        !darkMode
+                        ? // LIGHT MODE
+                        <img style={{width: '10em'}} src={trainingImgDark} alt="" />
+                        : // DARK MODE
+                        <img style={{width: '10em'}} src={trainingImg} alt="" />
+                    }
+                    <br/>
+                    <span className="text-large">Gain Training</span>
+                </button>
 
-            <input
-            type="button"
-            value="Study a New Spell"
-            onClick={() => setChosenPath('spell')}
-            />
+                <button className="text-black border-black background-white" style={{ minWidth: "25%" }} onClick={() => setChosenPath('spell')}>
+                    {
+                        !darkMode
+                        ? // LIGHT MODE
+                        <img style={{width: '10em'}} src={spellImgDark} alt="" />
+                        : // DARK MODE
+                        <img style={{width: '10em'}} src={spellImg} alt="" />
+                    }
+                    <br/>
+                    <span className="text-large">Study a New Spell</span>
+                </button>
+            </div>
+
 
             {/* SKILLS CHOICE */}
 

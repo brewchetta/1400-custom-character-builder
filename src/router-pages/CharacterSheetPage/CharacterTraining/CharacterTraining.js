@@ -1,8 +1,12 @@
-import { useCharacterContext } from "context/CharacterContext"
-import HelpButton from "shared/HelpButton"
-import { rulesPlay } from "data/rules"
 import { useState } from "react"
+
+import { useCharacterContext } from "context/CharacterContext"
+
+import HelpButton from "shared/HelpButton"
 import SaveAndEditButton from "shared/SaveAndEditButton"
+
+import { rulesPlay } from "data/rules"
+
 import { patchCharacter } from "async/fetch-characters"
 
 function CharacterTraining() {
@@ -40,7 +44,7 @@ function CharacterTraining() {
     ) )
 
     return (
-        <div className="border-black background-white padding-small quill-background relative">
+        <div className="border-black background-white padding-small arrows-background relative">
             <h3>Training<SaveAndEditButton editable={editable} setEditable={setEditable} /></h3> 
             <HelpButton 
                 className="position-top-right"
