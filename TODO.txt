@@ -1,30 +1,41 @@
 -------- Features --------
-- toasts
-- add background for character levelup
 - worldbuilding / group route
 - a way to randomize worldbuilding prompts for the indecisive
 - notes sections (character, story, secrets, etc.)
 - group notes (certain character notes get automatically added to group notes?)
+- can add players to a group and allow worldbuilding before creating characters
+- toasts
+- add background for character levelup
 - shortfolk ancestry
 - undead ancestry
 - copy character option
-- can add players to a group and allow worldbuilding before creating characters
 - email validations
 - email notifications (for example when invited to a story group)
 - password reset via email
 - items forge for making / sharing / shopping for custom items
+- user profile pictures
+- character portraits
+- give group ownership to another user (preferably with additional validation just to be sure)
 
 -------- Refactors --------
+- REMINDER: always add new images to preloading manifest as you put them in
 - help button for level up option
 - rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
 - text formatting for notes
 - add / remove sums of gold at a time
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
-- REMINDER: always add new images to preloading manifest as you put them in
+- add underline for changelog link
 
 -------- Bugs --------
+- fix users being added to same group multiple times
 - spells and rituals aren't in the store search yet
 - fix graphical jitter on incoming help messages
+- empty tavern needs white text in dark mode (use `text-black`) to match other text
+- change buttons on mobile (showing up as blue or with blue text)
+- fix notes form on mobile
+- on mobile clicking a level up option needs to scroll down to the options
+- items store on mobile needs fix for row sizes
+- help buttons for inputs can activate when pressing enter
 
 -------- Completed --------

@@ -1,10 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
+
 import NewCharacterForm from 'router-pages/NewCharacterFormPage'
 import CharacterSheet from 'router-pages/CharacterSheetPage/'
 import CharactersIndex from 'router-pages/CharactersIndexPage'
 import Rulebook from 'router-pages/RulebookPage'
 import ChangeLog from 'router-pages/ChangeLog/ChangeLog'
 import LoginSignup from 'router-pages/Auth/LoginSignup'
+import GroupsDashboard from 'router-pages/GroupsDashboard'
+import GroupPage from 'router-pages/GroupPage'
+
 import { CharacterContextProvider } from 'context/CharacterContext'
 import { useCurrentUserContext } from 'context/CurrentUserContext'
 
@@ -14,6 +18,9 @@ import { useCurrentUserContext } from 'context/CurrentUserContext'
 // - CharacterSheet
 // - Rulebook (with activeCard param too)
 // - ChangeLog
+// - GroupsDashboard
+// - GroupPage
+// - NewGroupForm
 
 function AppRoutes() {
 
@@ -33,6 +40,8 @@ function AppRoutes() {
         <Route path='rulebook' element={<Rulebook />} />
         <Route path='rulebook/:nav' element={<Rulebook />} />
         <Route path='changelog' element={<ChangeLog />} />
+        <Route path='story-groups' element={<GroupsDashboard />} />
+        <Route path='story-groups/:name/:id' element={<GroupPage />} />
       </Routes>
     )
     

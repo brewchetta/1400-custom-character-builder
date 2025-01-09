@@ -34,7 +34,7 @@ function App() {
       case location.pathname.match(/\/changelog/)?.input:
         return 'dice-background'
       default:
-        return 'tavern-background'
+        return ''
     }
   }
 
