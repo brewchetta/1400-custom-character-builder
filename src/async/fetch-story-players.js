@@ -16,3 +16,11 @@ export async function patchStoryPlayer(id, payload) {
         body: JSON.stringify(payload)
     })
 }
+
+export async function postStoryPlayerQuestion(id, payload) {
+    return await fetch(`${router}/${id}/worldbuilding`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(payload)
+    })
+}

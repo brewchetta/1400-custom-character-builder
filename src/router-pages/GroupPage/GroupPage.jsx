@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useParams } from "react-router-dom"
+
+import { useCurrentUserContext } from "context/CurrentUserContext"
 
 import { getStoryGroupById } from "async/fetch-story-groups"
 
 import LoadingAnimation from "shared/LoadingAnimation"
 import InvitationForm from "./InvitationForm"
+import GroupStoryQuestions from "./GroupStoryQuestions"
 
 function GroupPage() {
 
+    const { currentUser } = useCurrentUserContext()
     const { id } = useParams()
     const [groupDetails, setGroupDetails] = useState({})
     const [loading, setLoading] = useState(true)
 
     const { isOwner, players, storyGroup } = groupDetails
+
+    console.log(players)
 
     useEffect(() => {
         async function effect() {
@@ -29,11 +35,15 @@ function GroupPage() {
         effect()
     }, [])
 
+    const currentPlayer = useMemo(() => players?.find(p => p.user._id === currentUser._id), [players])
     
     if (loading) {
         return <LoadingAnimation />
     }
 
+    function setCurrentPlayer(currentPlayerData) {
+        setGroupDetails(prev => ({...prev, players: prev.players.map(p => p._id === currentPlayerData._id ? currentPlayerData : p)}))
+    }
 
     const renderedPlayersInvited = players.filter(p => !p.acceptedInvite)
     .map(p => <p key={p._id}>{p.user.username} has been invited</p>)
@@ -75,6 +85,8 @@ function GroupPage() {
                 { renderedPlayersInvited }
                 
             </div>
+
+            <GroupStoryQuestions players={players} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} />
 
         </div>
     )

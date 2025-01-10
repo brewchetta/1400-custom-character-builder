@@ -14,6 +14,7 @@ function InvitationForm({storyGroup, setGroupDetails}) {
         if (res.ok) {
             const data = await res.json()
             setGroupDetails(prev => ({...prev, players: [...prev.players, data.result]}))
+            setUsername('')
         } else {
             console.warn('Something went wrong...')
         }
