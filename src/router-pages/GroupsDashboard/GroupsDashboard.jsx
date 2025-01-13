@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
 import { getStoryGroups } from "async/fetch-story-groups"
+import { patchStoryPlayer, deleteStoryPlayer } from "async/fetch-story-players"
 import { toSpinalCase } from "utilities"
 
 import GroupCreationForm from "../GroupCreationForm"
@@ -32,9 +33,59 @@ function GroupsDashboard() {
         return <LoadingAnimation />
     }
 
-    const renderedOwnedGroups = storyGroups.ownedGroups.map(g => <Link key={g._id} to={`/story-groups/${toSpinalCase(g.name)}/${g._id}`}>{g.name}</Link>)
+    async function handleAcceptInvitation(role) {
+        const res = await patchStoryPlayer(role._id, { acceptedInvite: true })
+        if (res.ok) {
+            const data = await res.json()
+            setStoryGroups(prev => ({
+                ...prev,
+                playerRoles: prev.playerRoles.map(role => role._id === data.result._id ? data.result : role)
+            }))
+        } else {
+            console.warn('Something went wrong...')
+        }
+    } 
 
-    const renderedPlayingInGroups = storyGroups.playerRoles.map(r => <Link key={r._id} to={`/story-groups/${toSpinalCase(r.storyGroup.name)}/${r.storyGroup._id}`}>{r.character ? r.character.name : "Invitation"} in {r.storyGroup.name}</Link>)
+    async function handleDeclineInvitation(role) {
+        const res = await deleteStoryPlayer(role._id)
+        if (res.ok) {
+            setStoryGroups(prev => ({
+                ...prev,
+                playerRoles: prev.playerRoles.filter(r => !(r._id === role._id))
+            }))
+        } else {
+            console.warn('Something went wrong...')
+        }
+    }
+
+    const renderedOwnedGroups = storyGroups.ownedGroups.map(g => (
+        <div key={g._id} className="border-black flex-wrap-container space-between padding-small">
+            <Link key={g._id} to={`/story-groups/${toSpinalCase(g.name)}/${g._id}`}>{g.name}</Link>
+        </div>
+    ))
+
+    const renderedPlayingInGroups = storyGroups.playerRoles
+    .filter( r => r.acceptedInvite )
+    .map(r => (
+        <div key={r._id} className="border-black flex-wrap-container space-between padding-small">
+            <Link key={r._id} to={`/story-groups/${toSpinalCase(r.storyGroup.name)}/${r.storyGroup._id}`}>
+                [{r.character ? r.character.name : "No Character"}] in {r.storyGroup.name}
+            </Link>
+        </div>
+))
+
+    const renderedInvitedGroups = storyGroups.playerRoles
+    .filter( r => !r.acceptedInvite )
+    .map( r => (
+        <div key={r._id} className="border-black flex-wrap-container space-between padding-small">
+            <span>Invitation to Join {r.storyGroup.name}</span>
+            <div>
+                <button onClick={() => handleAcceptInvitation(r)} className="text-black background-white border-black">Accept</button>
+                <button onClick={() => handleDeclineInvitation(r)} className="text-black background-white border-black">Decline</button>
+            </div>
+        </div>
+    ))
+
 
     return (
         <div>
@@ -46,6 +97,11 @@ function GroupsDashboard() {
             <p>Here you can see your current story groups, create new groups as a storyteller, or join groups that you've been invited to.</p>
 
             <GroupCreationForm setStoryGroups={setStoryGroups} />
+
+            <div>
+                <h2>Your Invitations</h2>
+                { renderedInvitedGroups }
+            </div>
 
             <div>
                 <h2>Your Groups as Storyteller</h2>
