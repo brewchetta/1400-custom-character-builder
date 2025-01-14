@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import HelpButton from 'shared/HelpButton'
 
-function FormInput({name, info, inputType="text", labelText, onChange, value, labelClassName='', inputClassName='', className=''}) {
+function FormInput({name, info, inputType="text", labelText, onChange, value, labelClassName='', inputClassName='', className='', style={}}) {
 
   const input = useRef()
 
@@ -20,7 +20,7 @@ function FormInput({name, info, inputType="text", labelText, onChange, value, la
         null
       }
 
-      <input className={`${className} ${inputClassName}`}
+      <input className={`${className} ${inputClassName}`} style={style}
         ref={input}
         type={inputType}
         name={name}

@@ -61,7 +61,7 @@ function GroupsDashboard() {
     }
 
     const renderedOwnedGroups = storyGroups.ownedGroups.map(g => (
-        <div key={g._id} className="border-black flex-wrap-container space-between padding-small">
+        <div key={g._id} className="border-black flex-wrap-container space-between padding-small margin-small" style={{borderRadius: "15px"}}>
             <Link key={g._id} to={`/story-groups/${toSpinalCase(g.name)}/${g._id}`}>{g.name}</Link>
         </div>
     ))
@@ -69,7 +69,7 @@ function GroupsDashboard() {
     const renderedPlayingInGroups = storyGroups.playerRoles
     .filter( r => r.acceptedInvite )
     .map(r => (
-        <div key={r._id} className="border-black flex-wrap-container space-between padding-small">
+        <div key={r._id} className="border-black flex-wrap-container space-between padding-small margin-small" style={{borderRadius: "15px"}}>
             <Link key={r._id} to={`/story-groups/${toSpinalCase(r.storyGroup.name)}/${r.storyGroup._id}`}>
                 {r.storyGroup.name} [{r.character ? r.character.name : "No Character Yet"}]
             </Link>
@@ -79,7 +79,7 @@ function GroupsDashboard() {
     const renderedInvitedGroups = storyGroups.playerRoles
     .filter( r => !r.acceptedInvite )
     .map( r => (
-        <div key={r._id} className="border-black flex-wrap-container space-between padding-small">
+        <div key={r._id} className="border-black space-between padding-small">
             <span>Invitation to Join {r.storyGroup.name}</span>
             <div>
                 <button onClick={() => handleAcceptInvitation(r)} className="text-black background-white border-black">Accept</button>
@@ -100,21 +100,37 @@ function GroupsDashboard() {
 
             <GroupCreationForm setStoryGroups={setStoryGroups} />
 
-            <div>
-                <h2>Your Invitations</h2>
-                { renderedInvitedGroups }
-            </div>
+            <div className="flex-wrap-container space-around">
 
-            <div>
-                <h2>Your Groups as Storyteller</h2>
-                { renderedOwnedGroups }
-            </div>
+                {
+                    renderedInvitedGroups.length
+                    ?
+                    <div style={{ width: "25%", minWidth: "20em" }}>
+                        <h2>Invitations</h2>
+                        <div>
+                            { renderedInvitedGroups }
+                        </div>
+                    </div>
+                    :
+                    null
+                }
 
-            <div>
-                <h2>Your Groups as Player</h2>
-                { renderedPlayingInGroups }
-            </div>
 
+                <div style={{ width: "25%", minWidth: "20em" }}>
+                    <h2>Storyteller Groups</h2>
+                    <div className="flex-wrap-container space-between">
+                        { renderedOwnedGroups }
+                    </div>
+                </div>
+
+                <div style={{ width: "25%", minWidth: "20em" }}>
+                    <h2>Player Groups</h2>
+                    <div>
+                        { renderedPlayingInGroups }
+                    </div>
+                </div>
+
+            </div>
 
         </div>
     )

@@ -12,13 +12,13 @@ const worldbuildingQuestions = [
     `Describe the town, village or city that your adventurer came from.`,
     `What is the name of a tavern your adventurer frequents? Describe its characteristics.`,
     `Describe an upcoming festival or holy day that the people in this area celebrate.`,
-    `What important event happened before your adventurer was born? How did it change the culture or land around you?`,
+    `What important event happened before your adventurer was born? How did it change things?`,
     `Describe some nearby ruins and the rumors that surround them.`,
     `Monsters/villains have attacked recently. Who are they?`,
     `Name a god who protects these lands. Alternately name an evil god who covets these lands.`,
     `Name and describe a public figure like a monarch or a civil leader.`,
     `What is an interesting custom or taboo in the culture your character comes from?`,
-    `Make up a prompt and answer it!`
+    `Make up a prompt and answer it!` // this needs to be a special option
 ]
 
 function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
@@ -63,39 +63,43 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
             <p>To help out your Storyteller you should answer a few questions about the world that your group is creating. You can click any of the questions below to answer them or just write in a question of your own choosing.</p>
 
-            <ol className="list-style-decimal">
-                { renderedPredefinedQuestions }
-                <button onClick={handleChooseRandomQuestion}>Random Questions</button>
-            </ol>
+            <div style={{display: 'grid', gridTemplateColumns: "1fr 1fr"}}>
 
-            <h3>What people have written so far:</h3>
-            
-            <div>
-             { renderedOtherQuestions }
+                <ol className="list-style-decimal">
+                    { renderedPredefinedQuestions }
+                    <button onClick={handleChooseRandomQuestion}>Random Questions</button>
+                </ol>
+
+                {
+                    currentPlayer
+                    ? // if currentPlayer exists
+                    <div className="border-black padding-medium">
+                        <form className="labeled-input-section" onSubmit={handleAddQuestion}>
+
+                            <FormInput name="question-input" labelText="Question" style={{minWidth: "80%"}} onChange={e => setQuestion(e.target.value)} value={question} />
+                            <FormInput name="answer-input" labelText="Answer" onChange={e => setAnswer(e.target.value)} value={answer} />
+
+                            <input type="submit" value="Add Your Answer" />
+
+                        </form>
+
+                        <h3>What you've written so far:</h3>
+
+                        {<PlayerStoryQuestionsCard player={currentPlayer} titleOn={false} />}
+                    </div>
+                    : // if currentPlayer doesn't exist (is host/storyteller)
+                    null
+                }
+
+                <div>
+                    <h3>What people have written so far:</h3>
+                    
+                    <div>
+                    { renderedOtherQuestions }
+                    </div>
+                </div>
+
             </div>
-
-            {
-                currentPlayer
-                ? // if currentPlayer exists
-                <>
-                <h3>What you've written so far:</h3>
-
-                {<PlayerStoryQuestionsCard player={currentPlayer} titleOn={false} />}
-
-                <form className="labeled-input-section" onSubmit={handleAddQuestion}>
-
-                    <FormInput name="question-input" labelText="Question" onChange={e => setQuestion(e.target.value)} value={question} />
-                    <FormInput name="answer-input" labelText="Answer" onChange={e => setAnswer(e.target.value)} value={answer} />
-
-                    <input type="submit" value="Add Your Answer" />
-
-                </form>
-                </>
-                : // if currentPlayer doesn't exist (is host/storyteller)
-                null
-
-            }
-
 
         </div>
     )
