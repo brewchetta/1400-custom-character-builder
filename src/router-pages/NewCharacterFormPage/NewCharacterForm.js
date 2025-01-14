@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useLoadingContext } from 'context/LoadingContext'
 import useToggleOnCondition from 'hooks/useToggleOnCondition'
-
-import { buildUpgradedSkillsList } from 'utilities'
 
 import LoadingAnimation from 'shared/LoadingAnimation'
 import CharacterBioForm from './CharacterBioForm'
 import CharacterProfessionForm from './CharacterProfessionForm'
 import Toast from 'shared/Toast'
 
+import { buildUpgradedSkillsList } from 'utilities'
 import { toSpinalCase } from 'utilities'
 import { getCharacterCreationOptions } from 'async/fetch-characters'
 import { postCharacter } from 'async/fetch-characters'
+import { postStoryPlayerCharacter } from 'async/fetch-story-players'
 
 
 function NewCharacterForm() {
+
+  const {groupName, groupId, playerId} = useParams()
   
   const navigate = useNavigate()
   
@@ -118,19 +120,26 @@ function NewCharacterForm() {
       trainings: [ currentTraining._id ]
     }
 
-    console.log(character)
-
     return character
 
   }
 
   async function handleSubmit(e) {
     e.preventDefault()
-    if (!validate().length) {
+
+    // if made using group player link
+    if (!validate().length && playerId) {
+      const res = await postStoryPlayerCharacter(playerId, buildCharacterObject())
+      if (res.ok) {
+        navigate(`/story-groups/${groupName}/${groupId}`)
+      } else {
+        console.warn("Something went wrong...")
+      }
+    // if character unattached to a group
+    } else if (!validate().length) {
       const res = await postCharacter(buildCharacterObject())
       if (res.ok) {
         const data = await res.json()
-        console.log(data)        
         navigate(`/characters/${toSpinalCase(data.result.name)}/${data.result._id}`)
       } else {
         console.warn("Something went wrong...")

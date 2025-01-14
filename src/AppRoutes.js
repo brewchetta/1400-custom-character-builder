@@ -32,6 +32,7 @@ function AppRoutes() {
       <Routes>
         <Route path='/' element={<CharactersIndex />} />
         <Route path='create-character' element={<NewCharacterForm />} />
+        <Route path='story-groups/:groupName/:groupId/create-character/:playerId' element={<NewCharacterForm />} />
         <Route path='characters/:nameSlug/:id' element={
           <CharacterContextProvider>
             <CharacterSheet />

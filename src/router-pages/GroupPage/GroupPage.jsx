@@ -8,6 +8,7 @@ import { getStoryGroupById } from "async/fetch-story-groups"
 import LoadingAnimation from "shared/LoadingAnimation"
 import InvitationForm from "./InvitationForm"
 import GroupStoryQuestions from "./GroupStoryQuestions"
+import LinkPlayerCharacter from "./LinkPlayerCharacter"
 
 function GroupPage() {
 
@@ -17,8 +18,6 @@ function GroupPage() {
     const [loading, setLoading] = useState(true)
 
     const { isOwner, players, storyGroup } = groupDetails
-
-    console.log(players)
 
     useEffect(() => {
         async function effect() {
@@ -87,6 +86,11 @@ function GroupPage() {
             </div>
 
             <GroupStoryQuestions players={players} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} />
+
+            <LinkPlayerCharacter displayCondition={!currentPlayer.character}
+            currentPlayer={currentPlayer} 
+            setCurrentPlayer={setCurrentPlayer} 
+            storyGroup={storyGroup} />
 
         </div>
     )

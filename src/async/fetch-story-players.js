@@ -23,8 +23,18 @@ export async function deleteStoryPlayer(id) {
     })
 }
 
+// ADDITIONAL POSTS
+
 export async function postStoryPlayerQuestion(id, payload) {
     return await fetch(`${router}/${id}/worldbuilding`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(payload)
+    })
+}
+
+export async function postStoryPlayerCharacter(id, payload) {
+    return await fetch(`${router}/${id}/characters`, {
         method: 'POST',
         headers,
         body: JSON.stringify(payload)

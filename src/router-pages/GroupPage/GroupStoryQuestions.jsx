@@ -53,7 +53,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
     .map(p => <PlayerStoryQuestionsCard key={p._id} player={p} />)
 
     const renderedPredefinedQuestions = worldbuildingQuestions
-    .map(q => <li>{q} <button onClick={() => {setQuestion(q); setAnswer('')}}>Answer This</button></li>)
+    .map(q => <li key={q}>{q} <button onClick={() => {setQuestion(q); setAnswer('')}}>Answer This</button></li>)
 
 
     return (

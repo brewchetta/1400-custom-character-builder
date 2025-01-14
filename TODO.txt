@@ -26,6 +26,7 @@
 - add / remove sums of gold at a time
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
 - add underline for changelog link
+- random worldbuilding question needs to ignore current question and previous questions
 
 -------- Bugs --------
 - fix users being added to same group multiple times
