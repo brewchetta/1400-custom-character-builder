@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { getStoryGroups } from "async/fetch-story-groups"
 import { patchStoryPlayer, deleteStoryPlayer } from "async/fetch-story-players"
@@ -9,6 +9,8 @@ import GroupCreationForm from "../GroupCreationForm"
 import LoadingAnimation from "shared/LoadingAnimation"
 
 function GroupsDashboard() {
+
+    const navigate = useNavigate()
 
     const [storyGroups, setStoryGroups] = useState({ownedGroups: [], playerRoles: []})
     const [loading, setLoading] = useState(true)
@@ -72,7 +74,7 @@ function GroupsDashboard() {
                 {r.storyGroup.name} [{r.character ? r.character.name : "No Character Yet"}]
             </Link>
         </div>
-))
+    ))
 
     const renderedInvitedGroups = storyGroups.playerRoles
     .filter( r => !r.acceptedInvite )

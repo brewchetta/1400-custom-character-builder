@@ -87,7 +87,7 @@ function GroupPage() {
 
             <GroupStoryQuestions players={players} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} />
 
-            <LinkPlayerCharacter displayCondition={!currentPlayer.character}
+            <LinkPlayerCharacter displayCondition={currentPlayer && !currentPlayer.character}
             currentPlayer={currentPlayer} 
             setCurrentPlayer={setCurrentPlayer} 
             storyGroup={storyGroup} />

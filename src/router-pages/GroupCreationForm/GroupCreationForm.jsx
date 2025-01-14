@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import FormInput from 'shared/FormInput'
 
 import { postStoryGroup } from 'async/fetch-story-groups'
+import { toSpinalCase } from 'utilities'
 
 function GroupCreationForm({ setStoryGroups }) {
+
+    const navigate = useNavigate()
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -14,7 +18,7 @@ function GroupCreationForm({ setStoryGroups }) {
         const res = await postStoryGroup({name, description})
         if (res.ok) {
             const data = await res.json()
-            setStoryGroups(prev => ({...prev, ownedGroups: [ ...prev.ownedGroups, data.result ]}))
+            navigate(`/story-groups/${toSpinalCase(data.result.name)}/${data.result._id}`)
         } else {
             console.warn('Something went wrong...')
         }
