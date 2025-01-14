@@ -69,7 +69,7 @@ function GroupsDashboard() {
     .map(r => (
         <div key={r._id} className="border-black flex-wrap-container space-between padding-small">
             <Link key={r._id} to={`/story-groups/${toSpinalCase(r.storyGroup.name)}/${r.storyGroup._id}`}>
-                [{r.character ? r.character.name : "No Character"}] in {r.storyGroup.name}
+                {r.storyGroup.name} [{r.character ? r.character.name : "No Character Yet"}]
             </Link>
         </div>
 ))

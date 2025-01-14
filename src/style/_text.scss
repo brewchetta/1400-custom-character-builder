@@ -102,3 +102,11 @@
     list-style: square;
   }
 }
+
+.list-style-decimal {
+  list-style: decimal;
+
+  * {
+    list-style: decimal;
+  }
+}
