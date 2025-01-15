@@ -1,12 +1,16 @@
 import { useRef } from 'react'
 import HelpButton from 'shared/HelpButton'
 
-function FormInput({name, info, inputType="text", labelText, onChange, value, labelClassName='', inputClassName='', className='', style={}}) {
+function FormInput({name, info, inputType="text", labelText, onChange, value, labelClassName='', inputClassName='', className='', style={}, reference=null}) {
 
   const input = useRef()
 
   function handleClickLabel() {
-    input.current.focus()
+    if (reference) {
+      reference.current.focus()
+    } else {
+      input.current.focus()
+    }
   }
 
   return (
@@ -21,7 +25,7 @@ function FormInput({name, info, inputType="text", labelText, onChange, value, la
       }
 
       <input className={`${className} ${inputClassName}`} style={style}
-        ref={input}
+        ref={reference || input}
         type={inputType}
         name={name}
         onChange={onChange}

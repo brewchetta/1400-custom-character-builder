@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 import PlayerStoryQuestionsCard from "./PlayerStoryQuestionsCard"
 import FormInput from "shared/FormInput"
@@ -23,6 +23,8 @@ const worldbuildingQuestions = [
 
 function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
+    const answerInputRef = useRef(null)
+
     const [question, setQuestion] = useState('')
     const [answer, setAnswer] = useState('')
 
@@ -46,6 +48,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
     function handleChooseRandomQuestion() {
         setQuestion( randomArrayItem(worldbuildingQuestions) )
         setAnswer('')
+        answerInputRef.current.focus()
     }
 
     const renderedOtherQuestions = players
@@ -77,7 +80,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
                         <form className="labeled-input-section" onSubmit={handleAddQuestion}>
 
                             <FormInput name="question-input" labelText="Question" style={{minWidth: "80%"}} onChange={e => setQuestion(e.target.value)} value={question} />
-                            <FormInput name="answer-input" labelText="Answer" onChange={e => setAnswer(e.target.value)} value={answer} />
+                            <FormInput reference={answerInputRef} name="answer-input" labelText="Answer" onChange={e => setAnswer(e.target.value)} value={answer} />
 
                             <input type="submit" value="Add Your Answer" />
 
