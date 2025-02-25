@@ -10,14 +10,14 @@ import { postStoryPlayerQuestion } from "async/fetch-story-players"
 const worldbuildingQuestions = [
     `Describe a distant land.`,
     `Describe the town, village or city that your adventurer came from.`,
-    `What is the name of a tavern your adventurer frequents? Describe its characteristics.`,
-    `Describe an upcoming festival or holy day that the people in this area celebrate.`,
-    `What important event happened before your adventurer was born? How did it change things?`,
+    `What is the name of a tavern your adventurer frequents?`,
+    `Describe an upcoming festival or holy day.`,
+    `What important event happened before your adventurer was born?`,
     `Describe some nearby ruins and the rumors that surround them.`,
     `Monsters/villains have attacked recently. Who are they?`,
-    `Name a god who protects these lands. Alternately name an evil god who covets these lands.`,
+    `Name a god who protects or covets these lands.`,
     `Name and describe a public figure like a monarch or a civil leader.`,
-    `What is an interesting custom or taboo in the culture your character comes from?`,
+    `What is an interesting custom or taboo here?`,
     `Make up a prompt and answer it!` // this needs to be a special option
 ]
 
@@ -56,7 +56,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
     .map(p => <PlayerStoryQuestionsCard key={p._id} player={p} />)
 
     const renderedPredefinedQuestions = worldbuildingQuestions
-    .map(q => <li key={q}>{q} <button onClick={() => {setQuestion(q); setAnswer('')}}>Answer This</button></li>)
+    .map(q => <li key={q}>{q} <button onClick={() => {setQuestion(q); setAnswer(''); answerInputRef.current.focus()}}>Answer This</button></li>)
 
 
     return (

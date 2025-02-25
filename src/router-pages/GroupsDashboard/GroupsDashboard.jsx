@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import { getStoryGroups } from "async/fetch-story-groups"
 import { patchStoryPlayer, deleteStoryPlayer } from "async/fetch-story-players"
 import { toSpinalCase } from "utilities"
 
-import GroupCreationForm from "../GroupCreationForm"
+import GroupCreationForm from "./GroupCreationForm"
 import LoadingAnimation from "shared/LoadingAnimation"
 
 function GroupsDashboard() {
-
-    const navigate = useNavigate()
 
     const [storyGroups, setStoryGroups] = useState({ownedGroups: [], playerRoles: []})
     const [loading, setLoading] = useState(true)
@@ -98,9 +96,10 @@ function GroupsDashboard() {
 
             <p>Here you can see your current story groups, create new groups as a storyteller, or join groups that you've been invited to.</p>
 
-            <GroupCreationForm setStoryGroups={setStoryGroups} />
 
             <div className="flex-wrap-container space-around">
+
+                <GroupCreationForm setStoryGroups={setStoryGroups} />
 
                 {
                     renderedInvitedGroups.length
@@ -117,14 +116,14 @@ function GroupsDashboard() {
 
 
                 <div style={{ width: "25%", minWidth: "20em" }}>
-                    <h2>Storyteller Groups</h2>
+                    <h2>Groups as a Storyteller</h2>
                     <div className="flex-wrap-container space-between">
                         { renderedOwnedGroups }
                     </div>
                 </div>
 
                 <div style={{ width: "25%", minWidth: "20em" }}>
-                    <h2>Player Groups</h2>
+                    <h2>Groups as a Player</h2>
                     <div>
                         { renderedPlayingInGroups }
                     </div>
@@ -137,23 +136,3 @@ function GroupsDashboard() {
 }
 
 export default GroupsDashboard
-
-// Things we will need:
-// - Tiles for each story group to show the story group name and other relevant details.
-// - STRETCH: Invites via email
-// - Dashboard shows current invites
-// - Story group show page - three modes:
-//      - Owner of group can edit name/description, and invite people
-//      - New player can answer story questions and link/make character
-//      - Returning player can see other players, their story answers, their notes, some character details
-
-// BACKEND DONE
-// - StoryGroup model
-// - name, description, owner (user), players (user), characters, invitations?
-// - for players / characters it might make sense to have a three way join (group, user, character) named player with their story questions / answers / notes?
-// - Player model
-// - group(_id), user(_id), character(_id), acceptedInvite: Boolean default false, worldQuestions: array of objects with questions and answers, storyNotes: String
-
-// DONE
-// - The dashboard page to see and manage your current story groups. 
-// - A create new story group page. This should allow a storyteller to create a new group with a name and a synopsis. Can then invite players based on name.

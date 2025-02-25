@@ -6,15 +6,15 @@ import { useCurrentUserContext } from "context/CurrentUserContext"
 import { getStoryGroupById } from "async/fetch-story-groups"
 
 import LoadingAnimation from "shared/LoadingAnimation"
-import InvitationForm from "./InvitationForm"
 import GroupStoryQuestions from "./GroupStoryQuestions"
-import LinkPlayerCharacter from "./LinkPlayerCharacter"
+import GroupPlayersTab from "./GroupPlayersTab"
 
 function GroupPage() {
 
     const { currentUser } = useCurrentUserContext()
     const { id } = useParams()
     const [groupDetails, setGroupDetails] = useState({})
+    const [currentTab, setCurrentTab] = useState('players')
     const [loading, setLoading] = useState(true)
 
     const { isOwner, players, storyGroup } = groupDetails
@@ -44,15 +44,6 @@ function GroupPage() {
         setGroupDetails(prev => ({...prev, players: prev.players.map(p => p._id === currentPlayerData._id ? currentPlayerData : p)}))
     }
 
-    const renderedPlayersInvited = players.filter(p => !p.acceptedInvite)
-    .map(p => <p key={p._id}>{p.user.username} has been invited</p>)
-
-    const renderedPlayersWithoutCharacters = players.filter(p => p.acceptedInvite && !p.character)
-    .map(p => <p key={p._id}>{p.user.username} needs to add a character</p>)
-
-    const renderedPlayersNormal = players.filter(p => p.acceptedInvite && p.character)
-    .map(p => <p key={p._id}>{p.user.username} playing as {p.character.name}</p>)
-
     return (
         <div>
 
@@ -61,36 +52,54 @@ function GroupPage() {
 
             <p>{storyGroup.description}</p>
 
-            { // section for user owner
-                isOwner
+            <button className={currentTab === "players" ? "border-black text-black background-light-grey" : "border-black text-black background-white"}
+            onClick={() => setCurrentTab('players')}>Players</button>
+
+            <button className={currentTab === "worldbuilding" ? "border-black text-black background-light-grey" : "border-black text-black background-white"}
+            onClick={() => setCurrentTab('worldbuilding')}>Worldbuilding</button>
+
+            <button className={currentTab === "notes" ? "border-black text-black background-light-grey" : "border-black text-black background-white"}
+            onClick={() => setCurrentTab('notes')}>Story Notes</button>
+
+            {/* SHOW PLAYERS SECTION */}
+            
+
+            {
+                currentTab === 'players'
                 ?
-                (
-                    <>
-                        <InvitationForm storyGroup={storyGroup} setGroupDetails={setGroupDetails} />
-                    </>
-                )
+                <GroupPlayersTab {...{
+                    isOwner, 
+                    currentPlayer, 
+                    setCurrentPlayer, 
+                    storyGroup, 
+                    setGroupDetails, 
+                    players
+                }} />
                 :
                 null
             }
 
-            {/* SHOW CHARACTERS / PLAYERS SECTION */}
 
-            <div>
+            {/* SHOW STORY QUESTIONS SECTION */}
 
-                { renderedPlayersNormal }
+            {
+                currentTab === 'worldbuilding'
+                ?
+                <GroupStoryQuestions players={players} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} />
+                :
+                null
+            }
 
-                { renderedPlayersWithoutCharacters }
+            {/* SHOW STORY NOTES SECTIONS */}
 
-                { renderedPlayersInvited }
-                
-            </div>
+            {
+                currentTab === 'notes'
+                ?
+                <p>Notes section under construction please disregard the mess</p>
+                :
+                null
+            }
 
-            <GroupStoryQuestions players={players} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} />
-
-            <LinkPlayerCharacter displayCondition={currentPlayer && !currentPlayer.character}
-            currentPlayer={currentPlayer} 
-            setCurrentPlayer={setCurrentPlayer} 
-            storyGroup={storyGroup} />
 
         </div>
     )
