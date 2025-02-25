@@ -3,7 +3,7 @@ const rulesTutorial = {
     `This is 1400 plus. This is a tabletop roleplaying game (TTRPG) set in a fantasy world of your choosing.`,
     `You can play this game with any number of people but we recommend between 3 and 7 players. One of you will be the storyteller who is similar to the dungeon master or game master in other games while everyone else roleplays as an adventurer.`,
     `You can learn more about the players, characters, storyteller, and the world in other sections of the rulebook.`,
-    `One last note, if a rule that you see in conflicts with another rule, the more specific rule takes precedence.`,
+    `One last note, if a rule that you see conflicts with another rule, the more specific rule takes precedence.`,
     `Welcome and let's get started!`,
   ],
   storyteller: [
@@ -21,7 +21,7 @@ const rulesTutorial = {
   challenges: [
     `Players embody their characters in the game's world. Whenever you'd like to do something, just tell everyone what it is you'd like to do.`,
     `The storyteller will tell you if something is impossible. For example, just stating you'd like to jump to the roof of a ten story building without tools or magic probably won't work.`,
-    `If something is possible but challenging you'll roll a dice depending on the skill you want to use. For example, if you wanted to persuade a troll to let you pass you would you would roll the appropriate skill and if you succeed then you may pass, if you fail then you suffer the consequences.`,
+    `If something is possible but challenging you'll roll a dice depending on the skill you want to use. For example, if you wanted to persuade a troll to let you pass you would roll the appropriate skill and if you succeed then you may pass, if you fail then you suffer the consequences.`,
     `An important aspect of a challenge is that every challenge has a risk. If there's no risk then there's no need to roll. If you don't succeed then you'll suffer the risk's consequences. In the example above, the risk might be that the troll attacks and injures you. The storyteller should always hint at a risk when giving a challenge.`,
     `Each skill will have a dice size associated with it, and that's the dice you'll roll for the skill. If you're not trained in a skill then you roll a d6 and if you're hindered or injured you roll a d4. Normally the highest you can roll for a skill is a d12.`,
     `When you roll a dice, consult below to determine what happens:`,
@@ -63,7 +63,7 @@ const rulesTutorial = {
     'To "learn one truth" ask a player a question about their character and they must answer truthfully. Only one question can be asked of each character.',
   ],
   advancement: [
-    `There's are no "levels" in this game. Instead, characters can either improve a skill at the end of every adventure or else gain a new training.`,
+    `There are no "levels" in this game. Instead, characters can either improve a skill at the end of every adventure or else gain a new training.`,
     `Once an adventure is over, increase one of the skills or add a new training by editing your character.`,
     `Improving Skills: You can either choose a new skill to train in or improve one of your existing skills (none→d8→d10→d12).`,
     `Gain Training: TODO ADD TRAININGS`, // TODO: Add training instructions here

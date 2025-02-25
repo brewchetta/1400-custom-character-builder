@@ -41,3 +41,4 @@
 - help buttons for inputs can activate when pressing enter
 
 -------- Completed --------
+- Fixed a few typos in the rules sections
