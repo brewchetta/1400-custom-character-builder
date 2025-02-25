@@ -8,17 +8,16 @@ import { randomArrayItem } from "utilities"
 import { postStoryPlayerQuestion } from "async/fetch-story-players"
 
 const worldbuildingQuestions = [
-    `Describe a distant land.`,
-    `Describe the town, village or city that your adventurer came from.`,
+    `What is a well known distant land?`,
+    `What town, village or city did your adventurer come from?`,
     `What is the name of a tavern your adventurer frequents?`,
-    `Describe an upcoming festival or holy day.`,
+    `What is an upcoming festival or holy day?`,
     `What important event happened before your adventurer was born?`,
-    `Describe some nearby ruins and the rumors that surround them.`,
-    `Monsters/villains have attacked recently. Who are they?`,
-    `Name a god who protects or covets these lands.`,
-    `Name and describe a public figure like a monarch or a civil leader.`,
-    `What is an interesting custom or taboo here?`,
-    `Make up a prompt and answer it!` // this needs to be a special option
+    `What rumors surround the nearby ruins?`,
+    `Who are the monsters/villains who have attacked recently?`,
+    `What god protects or covets these lands?`,
+    `Who is a famous public figure like a monarch or civil leader?`,
+    `What is an interesting custom or taboo here?`
 ]
 
 function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
@@ -27,6 +26,12 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
     const [question, setQuestion] = useState('')
     const [answer, setAnswer] = useState('')
+
+    function handleChangeAnswer(e) {
+        setAnswer(e.target.value)
+        e.target.style.height = ""
+        e.target.style.height = e.target.scrollHeight + 3 + 'px'
+    }
 
     async function handleAddQuestion(e) {
         e.preventDefault()
@@ -56,7 +61,9 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
     .map(p => <PlayerStoryQuestionsCard key={p._id} player={p} />)
 
     const renderedPredefinedQuestions = worldbuildingQuestions
-    .map(q => <li key={q}>{q} <button onClick={() => {setQuestion(q); setAnswer(''); answerInputRef.current.focus()}}>Answer This</button></li>)
+    .map(q => <li style={{cursor: 'pointer'}} key={q}>
+        <button className='border-none padding-small text-black background-white' onClick={() => {setQuestion(q); setAnswer(''); answerInputRef.current.focus()}}>{q}</button>
+    </li>)
 
 
     return (
@@ -64,23 +71,26 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
             <h2>Worldbuilding Questions</h2>
 
-            <p>To help out your Storyteller you should answer a few questions about the world that your group is creating. You can click any of the questions below to answer them or just write in a question of your own choosing.</p>
+            <p>To help out your Storyteller you should answer a few questions about the world that your group is creating. You can click any of the questions below to answer them or just write in a question of your own choosing. <span className="text-dark-green">Try to answer 3-5 questions</span>.</p>
 
             <div style={{display: 'grid', gridTemplateColumns: "1fr 1fr"}}>
 
+                {/* TODO: Make this its own component please */}
                 <ol className="list-style-decimal">
                     { renderedPredefinedQuestions }
-                    <button onClick={handleChooseRandomQuestion}>Random Questions</button>
+                    <button onClick={handleChooseRandomQuestion}>Random Question</button>
                 </ol>
 
-                {
+                { // TODO: make this its own component please
                     currentPlayer
                     ? // if currentPlayer exists
                     <div className="padding-medium">
                         <form className="labeled-input-section" onSubmit={handleAddQuestion}>
 
                             <FormInput name="question-input" labelText="Question" style={{minWidth: "80%"}} onChange={e => setQuestion(e.target.value)} value={question} />
-                            <FormInput reference={answerInputRef} name="answer-input" labelText="Answer" onChange={e => setAnswer(e.target.value)} value={answer} />
+
+                            <label htmlFor='answer-input'>Answer</label>
+                            <textarea style={{minWidth: "80%"}} name="answer-input" onChange={handleChangeAnswer} value={answer} ref={answerInputRef} />
 
                             <input type="submit" value="Add Your Answer" />
 
@@ -94,8 +104,9 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
                     null
                 }
 
-                <div>
-                    <h3>What people have written so far:</h3>
+                {/* TODO: Make this its own component please */}
+                <div className="border-top-black">
+                    <h3>What other players have written so far:</h3>
                     
                     <div>
                     { renderedOtherQuestions }
