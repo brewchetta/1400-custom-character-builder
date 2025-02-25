@@ -4,18 +4,21 @@ import HelpButton from 'shared/HelpButton'
 import CharacterStatusConditions from './CharacterStatusConditions'
 import { rulesPlay } from 'data/rules'
 import { useCharacterContext } from 'context/CharacterContext'
+import { useCurrentUserContext } from 'context/CurrentUserContext'
 import triangleIcon from 'assets/images/triangle-icon.png'
 import SaveAndEditButton from 'shared/SaveAndEditButton'
 import { patchCharacter } from 'async/fetch-characters'
+import useCheckForOwnedCharacter from 'hooks/useCheckForOwnedCharacter'
 
 function CharacterSkills() {
 
-  const { currentCharacter: { _id, skills, hindered, injured, helped }, currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const { currentCharacter: { _id, skills, hindered, injured, helped }, setCurrentCharacter } = useCharacterContext()
+  const ownedCharacter = useCheckForOwnedCharacter()
 
   const [editable, setEditable] = useState(false)
 
   async function handleChangeSkill(skillToUpdate, numericChange) {
-    if (skillToUpdate.diceSize + numericChange <= 12) {
+    if (skillToUpdate.diceSize + numericChange <= 12 && ownedCharacter) {
       const updatedSkills = skills.map(skill => (
         skill.name === skillToUpdate.name
         ? 
@@ -70,7 +73,7 @@ function CharacterSkills() {
         info={rulesPlay.rolling}
       />
 
-      <h3>Skills<SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
+      <h3>Skills<SaveAndEditButton displayCondition={ownedCharacter} editable={editable} setEditable={setEditable}/></h3>
 
       <ul className="skills-list grid-columns-large">
 
@@ -78,7 +81,7 @@ function CharacterSkills() {
 
       </ul>
 
-      <CharacterStatusConditions displayCondition={!editable} />
+      <CharacterStatusConditions displayCondition={!editable && ownedCharacter} />
 
     </div>
   )

@@ -9,6 +9,7 @@ import SaveAndEditButton from "shared/SaveAndEditButton"
 import { rulesGear } from "data/rules"
 import { useCharacterContext } from 'context/CharacterContext'
 import { deleteCharacterItem } from "async/fetch-character-items"
+import useCheckForOwnedCharacter from "hooks/useCheckForOwnedCharacter"
 
 
 function CharacterEquipment({ setStoreOpen }) {
@@ -16,6 +17,7 @@ function CharacterEquipment({ setStoreOpen }) {
   const [editable, setEditable] = useState(false)
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const ownedCharacter = useCheckForOwnedCharacter()
   const { items } = currentCharacter
 
   async function handleRemoveItem(item) {
@@ -37,17 +39,23 @@ function CharacterEquipment({ setStoreOpen }) {
     <>
 
       <h3>Equipment
-        <SaveAndEditButton editable={editable} setEditable={setEditable} />
+        <SaveAndEditButton displayCondition={ownedCharacter} editable={editable} setEditable={setEditable} />
         <HelpButton info={rulesGear.management} />
       </h3>
 
       <div className="grid-columns-medium standard-gap">
 
-        <CurrentGold />
+        <CurrentGold ownedCharacter={ownedCharacter} />
 
         {renderedItems}
 
-        <CharacterEquipmentOpenStoreTile toggleStoreOpen={ toggleStoreOpen } />
+        {
+          ownedCharacter
+          ?
+          <CharacterEquipmentOpenStoreTile toggleStoreOpen={ toggleStoreOpen } />
+          :
+          null
+        }
 
       </div>
 

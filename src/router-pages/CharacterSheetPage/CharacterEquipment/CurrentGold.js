@@ -6,12 +6,13 @@ import plusIcon from 'assets/images/plus-circle.png'
 import minusIcon from 'assets/images/minus-circle.png'
 import { patchCharacter } from 'async/fetch-characters'
 
-function CurrentGold() {
+function CurrentGold({ownedCharacter}) {
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
   const { gold } = currentCharacter
 
   async function handleAddGold() {
+    if (!ownedCharacter) return
     setCurrentCharacter( prev => ({...prev, gold: prev.gold + 1}) )
     const res = await patchCharacter(currentCharacter._id, { gold: gold + 1 })
     if (res.ok) {
@@ -21,6 +22,7 @@ function CurrentGold() {
   }
 
   async function handleSubtractGold() {
+    if (!ownedCharacter) return
     if (gold > 0) {
       setCurrentCharacter( prev => ({...prev, gold: prev.gold - 1}) )
       const res = await patchCharacter(currentCharacter._id, { gold: gold - 1 })
@@ -37,9 +39,9 @@ function CurrentGold() {
       <HelpButton info={rulesGear.costs} className="position-top-right" />
       <label>Gold:</label>
       <p>
-        <IconButton className="invert-on-darkmode" src={minusIcon} onClick={handleSubtractGold} style={{top: '0.1em', position: 'relative'}} />
+        <IconButton displayCondition={ownedCharacter} className="invert-on-darkmode" src={minusIcon} onClick={handleSubtractGold} style={{top: '0.1em', position: 'relative'}} />
         {` ${gold}`}
-        <IconButton className="invert-on-darkmode" src={plusIcon} onClick={handleAddGold} style={{top: '0.1em', position: 'relative'}} />
+        <IconButton displayCondition={ownedCharacter} className="invert-on-darkmode" src={plusIcon} onClick={handleAddGold} style={{top: '0.1em', position: 'relative'}} />
       </p>
 
       <br/>

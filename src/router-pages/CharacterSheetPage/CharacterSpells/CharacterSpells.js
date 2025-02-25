@@ -9,6 +9,7 @@ import { useCharacterContext } from 'context/CharacterContext'
 import { deleteCharacterSpell } from 'async/fetch-character-spells'
 
 import { rulesPlay } from 'data/rules'
+import useCheckForOwnedCharacter from 'hooks/useCheckForOwnedCharacter'
 
 function CharacterSpells() {
 
@@ -17,8 +18,10 @@ function CharacterSpells() {
 
   const [editable, setEditable] = useState(false)
 
+  const ownedCharacter = useCheckForOwnedCharacter()
 
   async function handleRemoveSpell(spell) {
+    if (!ownedCharacter) return
     const res = await deleteCharacterSpell(currentCharacter._id, spell._id)
     if (res.ok) {
       const data = await res.json()
@@ -46,7 +49,7 @@ function CharacterSpells() {
   ))
 
   const renderMaxSpellsMessage = () => {
-    if (currentCharacter.spells?.length && spellsMax < currentCharacter.spells?.length) {
+    if (ownedCharacter && currentCharacter.spells?.length && spellsMax < currentCharacter.spells?.length) {
       return ( <p className="italic text-dark-red">{ 
         `You can learn ${spellsMax} spells but you have ${currentCharacter.spells.length}! You are hindered when you cast spells! You can forget a spell by editing your character...`
       }</p> )
@@ -57,7 +60,7 @@ function CharacterSpells() {
 
     <div className="border-black background-white alchemy-symbols-background padding-small relative">
 
-      <h3>Spells<SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
+      <h3>Spells<SaveAndEditButton displayCondition={ownedCharacter} editable={editable} setEditable={setEditable}/></h3>
 
       <HelpButton
         className="position-top-right"

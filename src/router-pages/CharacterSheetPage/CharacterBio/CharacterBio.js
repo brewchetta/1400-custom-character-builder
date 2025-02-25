@@ -14,6 +14,7 @@ import { patchCharacter } from 'async/fetch-characters'
 import { useCharacterContext } from 'context/CharacterContext'
 import { useCurrentUserContext } from "context/CurrentUserContext"
 import { useDarkModeContext } from 'context/DarkModeContext'
+import useCheckForOwnedCharacter from 'hooks/useCheckForOwnedCharacter'
 
 
 function CharacterBio({ setLevelUpOpen }) {
@@ -31,14 +32,14 @@ function CharacterBio({ setLevelUpOpen }) {
   const [editableStates, setEditableStates] = useState({ name, gender, quirk, history})
   const [editable, setEditable] = useState(false)
 
-  const { currentUser } = useCurrentUserContext()
-  const isUserCharacter = currentCharacter.user === currentUser._id
+  const ownedCharacter = useCheckForOwnedCharacter()
 
   const helpToEdit = "The button next to me allows you to edit your character"
   const helpWhenEdit = "The button next to me allows you to save your changes"
 
   useEffect(() => {
     async function sendRequest() {
+      if (!ownedCharacter) return
       const nameEdited = editableStates.name !== currentCharacter.name
       const genderEdited = editableStates.gender !== currentCharacter.gender
       const quirkEdited = editableStates.quirk !== currentCharacter.quirk
@@ -61,7 +62,7 @@ function CharacterBio({ setLevelUpOpen }) {
     <div className="padding-small relative">
       <h2>{name} - {capitalize(ancestry.name)} 
       {
-        isUserCharacter
+        ownedCharacter
         ?
         <>
           <SaveAndEditButton editable={editable} setEditable={setEditable}/>
@@ -90,9 +91,15 @@ function CharacterBio({ setLevelUpOpen }) {
         <CharacterBioEdit editableStates={editableStates} setEditableStates={setEditableStates} setEditable={setEditable} /> 
       }
 
-      <button onClick={() => setLevelUpOpen(prev => !prev)} className="position-bottom-right border-none background-transparent">
-        <img src={!darkMode ? levelUpIcon : levelUpIconDark} alt="level up" style={{ height: '3em' }} />
-      </button>
+      {
+        ownedCharacter
+        ?
+        <button onClick={() => setLevelUpOpen(prev => !prev)} className="position-bottom-right border-none background-transparent">
+          <img src={!darkMode ? levelUpIcon : levelUpIconDark} alt="level up" style={{ height: '3em' }} />
+        </button>
+        :
+        null
+      }
 
     </div>
   )

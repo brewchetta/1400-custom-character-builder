@@ -5,14 +5,17 @@ import HelpButton from 'shared/HelpButton'
 import { rulesPlay } from 'data/rules'
 import { deleteCharacterRitual } from 'async/fetch-character-spells'
 import SaveAndEditButton from 'shared/SaveAndEditButton'
+import useCheckForOwnedCharacter from 'hooks/useCheckForOwnedCharacter'
 
 function CharacterRituals() {
 
   const {currentCharacter, setCurrentCharacter} = useCharacterContext()
+  const ownedCharacter = useCheckForOwnedCharacter()
 
   const [editable, setEditable] = useState(false)
 
   async function handleRemoveRitual(ritual) {
+    if (!ownedCharacter) return
     const res = await deleteCharacterRitual(currentCharacter._id, ritual._id)
     if (res.ok) {
       const data = await res.json()
@@ -42,7 +45,7 @@ function CharacterRituals() {
 
     <div className='border-black background-white magic-circle-background padding-small relative'>
 
-      <h3>Rituals<SaveAndEditButton editable={editable} setEditable={setEditable}/></h3>
+      <h3>Rituals<SaveAndEditButton displayCondition={ownedCharacter} editable={editable} setEditable={setEditable}/></h3>
 
       <HelpButton
       className='position-top-right'

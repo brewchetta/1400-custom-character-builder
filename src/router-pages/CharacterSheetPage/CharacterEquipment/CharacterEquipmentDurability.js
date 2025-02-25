@@ -1,11 +1,14 @@
 import { useCharacterContext } from 'context/CharacterContext'
 import { patchCharacterItem } from 'async/fetch-character-items'
+import useCheckForOwnedCharacter from 'hooks/useCheckForOwnedCharacter'
 
 function CharacterEquipmentDurability({ item }) {
 
   const { currentCharacter, setCurrentCharacter } = useCharacterContext()
+  const ownedCharacter = useCheckForOwnedCharacter()
 
   async function handleClickBox(isChecked) {
+    if (!ownedCharacter) return
     const { durability, maxDurability } = item
     let updatedDurability = item.durability
 

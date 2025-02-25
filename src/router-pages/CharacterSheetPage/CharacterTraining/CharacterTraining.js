@@ -8,13 +8,16 @@ import SaveAndEditButton from "shared/SaveAndEditButton"
 import { rulesPlay } from "data/rules"
 
 import { patchCharacter } from "async/fetch-characters"
+import useCheckForOwnedCharacter from "hooks/useCheckForOwnedCharacter"
 
 function CharacterTraining() {
 
     const { currentCharacter: { trainings, _id }, setCurrentCharacter } = useCharacterContext()
     const [editable, setEditable] = useState(false)
+    const ownedCharacter = useCheckForOwnedCharacter()
 
     async function removeTraining(trainingId) {
+        if (!ownedCharacter) return
         const updatedTrainings = trainings.map(t => t._id)
         .filter(t => t !== trainingId)
 
@@ -45,7 +48,7 @@ function CharacterTraining() {
 
     return (
         <div className="border-black background-white padding-small arrows-background relative">
-            <h3>Training<SaveAndEditButton editable={editable} setEditable={setEditable} /></h3> 
+            <h3>Training<SaveAndEditButton displayCondition={ownedCharacter} editable={editable} setEditable={setEditable} /></h3> 
             <HelpButton 
                 className="position-top-right"
                 info={ rulesPlay.training } />
