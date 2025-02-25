@@ -1,5 +1,6 @@
 import saveIcon from 'assets/images/save-icon.png'
 import editIcon from 'assets/images/edit-icon.png'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 
 function SaveAndEditButton({editable, setEditable}) {
 
@@ -17,7 +18,5 @@ function SaveAndEditButton({editable, setEditable}) {
 
 }
 
-export default SaveAndEditButton
 
-// TODO: hange edit icon to quill??
-// or potentially get something more legible???
+export default ConditionalWrapper(SaveAndEditButton)

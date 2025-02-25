@@ -1,4 +1,5 @@
 import helpIcon from 'assets/images/help-icon.png'
+import ConditionalWrapper from 'shared/ConditionalWrapper'
 
 function IconButton({onClick, className, src=helpIcon, alt='icon button', style={}}) {
 
@@ -13,7 +14,7 @@ function IconButton({onClick, className, src=helpIcon, alt='icon button', style=
   )
 }
 
-export default IconButton
+export default ConditionalWrapper(IconButton)
 
 // example use:
 // <IconButton
