@@ -12,7 +12,7 @@ function GroupPlayersTab({
     setGroupDetails, 
     players
 }) {
-    
+
     const renderedPlayersNormal = players.filter(p => p.acceptedInvite && p.character)
     .map(p => <p key={p._id}>{p.user.username} playing as <Link to={`/characters/${toSpinalCase(p.character.name)}/${p.character._id}`}>{p.character.name}</Link></p>)
 
@@ -23,7 +23,7 @@ function GroupPlayersTab({
     .map(p => <p key={p._id}>{p.user.username} needs to add a character</p>)
 
     return (
-        <div>
+        <div className='padding-medium background-white border-black margin-small'>
 
             { // section for user owner
                 isOwner ? <InvitationForm storyGroup={storyGroup} setGroupDetails={setGroupDetails} /> : null

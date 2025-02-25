@@ -25,7 +25,8 @@ function GroupCreationForm({ setStoryGroups }) {
     }
 
     return (
-        <form className="labeled-input-section" onSubmit={handleCreateGroup}>
+        <form className="labeled-input-section border-black padding-large background-white" onSubmit={handleCreateGroup}>
+            <h2>Create New Group</h2>
             <FormInput name="name"
             info="This is the name of your story group that other players will see"
             labelText="Name"

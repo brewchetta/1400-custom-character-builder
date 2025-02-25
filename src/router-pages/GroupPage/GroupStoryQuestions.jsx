@@ -60,7 +60,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
 
     return (
-        <div>
+        <div className='padding-medium background-white border-black margin-small'>
 
             <h2>Worldbuilding Questions</h2>
 
@@ -76,7 +76,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
                 {
                     currentPlayer
                     ? // if currentPlayer exists
-                    <div className="border-black padding-medium">
+                    <div className="padding-medium">
                         <form className="labeled-input-section" onSubmit={handleAddQuestion}>
 
                             <FormInput name="question-input" labelText="Question" style={{minWidth: "80%"}} onChange={e => setQuestion(e.target.value)} value={question} />
@@ -86,7 +86,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
                         </form>
 
-                        <h3>What you've written so far:</h3>
+                        <h3 className='border-top-black padding-top-medium'>What you've written so far:</h3>
 
                         {<PlayerStoryQuestionsCard player={currentPlayer} titleOn={false} />}
                     </div>

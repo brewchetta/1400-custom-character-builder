@@ -58,18 +58,20 @@ function GroupsDashboard() {
         }
     }
 
+    console.log(storyGroups.ownedGroups)
+
     const renderedOwnedGroups = storyGroups.ownedGroups.map(g => (
-        <div key={g._id} className="border-black flex-wrap-container space-between padding-small margin-small" style={{borderRadius: "15px"}}>
-            <Link key={g._id} to={`/story-groups/${toSpinalCase(g.name)}/${g._id}`}>{g.name}</Link>
+        <div key={g._id} className="swatch-hover-background-alternating margin-small padding-small" style={{borderRadius: "15px"}}>
+            <Link className='no-decoration text-black' key={g._id} to={`/story-groups/${toSpinalCase(g.name)}/${g._id}`}>{g.name}</Link>
         </div>
     ))
 
     const renderedPlayingInGroups = storyGroups.playerRoles
     .filter( r => r.acceptedInvite )
     .map(r => (
-        <div key={r._id} className="border-black flex-wrap-container space-between padding-small margin-small" style={{borderRadius: "15px"}}>
-            <Link key={r._id} to={`/story-groups/${toSpinalCase(r.storyGroup.name)}/${r.storyGroup._id}`}>
-                {r.storyGroup.name} [{r.character ? r.character.name : "No Character Yet"}]
+        <div key={r._id} className="swatch-hover-background-alternating margin-small padding-small" style={{borderRadius: "15px"}}>
+            <Link className='no-decoration text-black' key={r._id} to={`/story-groups/${toSpinalCase(r.storyGroup.name)}/${r.storyGroup._id}`}>
+                {r.storyGroup.name} - {r.character ? <span className='text-dark-blue'>{r.character.name}</span> : <span className='text-dark-red'>No Character Yet</span>}
             </Link>
         </div>
     ))
@@ -104,7 +106,7 @@ function GroupsDashboard() {
                 {
                     renderedInvitedGroups.length
                     ?
-                    <div style={{ width: "25%", minWidth: "20em" }}>
+                    <div style={{ width: "25%", minWidth: "20em" }} className='border-black margin-medium background-white'>
                         <h2>Invitations</h2>
                         <div>
                             { renderedInvitedGroups }
@@ -115,14 +117,14 @@ function GroupsDashboard() {
                 }
 
 
-                <div style={{ width: "25%", minWidth: "20em" }}>
+                <div style={{ width: "25%", minWidth: "20em" }} className='border-black margin-medium background-white padding-medium'>
                     <h2>Groups as a Storyteller</h2>
                     <div className="flex-wrap-container space-between">
                         { renderedOwnedGroups }
                     </div>
                 </div>
 
-                <div style={{ width: "25%", minWidth: "20em" }}>
+                <div style={{ width: "25%", minWidth: "20em" }} className='border-black margin-medium background-white padding-medium'>
                     <h2>Groups as a Player</h2>
                     <div>
                         { renderedPlayingInGroups }

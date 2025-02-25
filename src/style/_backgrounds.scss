@@ -70,6 +70,10 @@ input.background-transparent:hover, button.background-transparent:hover {
   @include image-background-mixin('../assets/images/tavern-exterior.png', bottom center);
 }
 
+.tavern-interior-background {
+  @include image-background-mixin('../assets/images/tavern-interior.png', bottom left, 75%);
+}
+
 .town-skyline-background {
   @include image-background-mixin('../assets/images/medeival-town-skyline.png', bottom right, 60%)
 }
@@ -116,6 +120,10 @@ input.background-transparent:hover, button.background-transparent:hover {
 
   &.tavern-background, .tavern-background {
     @include image-background-mixin('../assets/images/tavern-exterior-dark.png', bottom center);
+  }
+
+  &.tavern-interior-background, .tavern-interior-background {
+    @include image-background-mixin('../assets/images/tavern-interior-dark.png', bottom left, 75%);
   }
 
   &.town-skyline-background, .town-skyline-background {

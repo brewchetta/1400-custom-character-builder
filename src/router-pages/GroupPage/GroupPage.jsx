@@ -95,7 +95,10 @@ function GroupPage() {
             {
                 currentTab === 'notes'
                 ?
+                <>
                 <p>Notes section under construction please disregard the mess</p>
+                <img style={{width: '40%', border: 'solid black 2px'}} src='https://exarc.net/sites/default/files/figure-14.jpg' alt='diagram of medieval construction' />
+                </>
                 :
                 null
             }

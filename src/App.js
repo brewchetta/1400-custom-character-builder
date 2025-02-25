@@ -27,6 +27,8 @@ function App() {
         return 'tavern-background'
       case '/create-character':
         return 'flock-background'
+      case location.pathname.match(/\/story-groups/)?.input:
+        return 'tavern-interior-background'
       case location.pathname.match(/\/characters\/\S+/)?.input:
         return 'castle-ruins-background'
       case location.pathname.match(/\/rulebook/)?.input:
