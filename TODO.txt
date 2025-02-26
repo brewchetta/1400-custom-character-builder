@@ -25,6 +25,7 @@
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
 - invites to a group send an email
 - refactor backend using node express best practices
+- group owner needs ability to delete any worldbuilding question/answer
 
 -------- Bugs --------
 - fix users being added to same group multiple times
@@ -39,12 +40,3 @@
 - clear button exists when non-owners visit character
 
 -------- Completed --------
-- Fixed a few typos in the rules sections
-- Story group section has been added
-- Worldbuilding section for groups to add their worldbuilding questions
-- Indecisive players can get random questions for their worldbuilding prompts
-- Players can attach their players to a storytelling group so that any player can view other characters
-- Added an underline to make it clear the Change Log is a link
-- Rewrote some help blurbs to be more condensed
-- Notes form should now dynamically change size depending on text
-- You now have to be the logged in owner of a character to edit them

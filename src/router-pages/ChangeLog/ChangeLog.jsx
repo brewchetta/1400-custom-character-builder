@@ -1,10 +1,27 @@
 import React from 'react'
 
 function ChangeLog() {
+
+
   return (
     <div className="list-style-square">
         <h1>Change Log</h1>
         <p>Previous and future patch notes for both the game and website will go here.</p>
+
+        <h2>02.26.2025</h2>
+        <h3>The Story Groups Update</h3>
+        <ul>
+          <li>Story group section has been added</li>
+          <li>Worldbuilding section for groups to add their worldbuilding questions</li>
+          <li>Indecisive players can get random questions for their worldbuilding prompts</li>
+          <li>Players can attach their players to a storytelling group so that any player can view another character</li>
+          <li>Added an underline to make it clear the Change Log is a link</li>
+          <li>Rewrote some help blurbs to be more condensed</li>
+          <li>Notes form should now dynamically change size depending on text</li>
+          <li>You now have to be the logged in owner of a character to edit them</li>
+          <li>Fixed a few typos in the rules sections</li>
+          <li>Minor fixes and tweaks throughout</li>
+        </ul>
 
         <h2>01.08.2025</h2>
         <h3>Quarter Century Fixes</h3>
