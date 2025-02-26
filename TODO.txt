@@ -1,9 +1,6 @@
 -------- Features --------
-- worldbuilding / group route
-- a way to randomize worldbuilding prompts for the indecisive
 - notes sections (character, story, secrets, etc.)
 - group notes (certain character notes get automatically added to group notes?)
-- can add players to a group and allow worldbuilding before creating characters
 - toasts
 - add background for character levelup
 - shortfolk ancestry
@@ -21,14 +18,12 @@
 -------- Refactors --------
 - REMINDER: always add new images to preloading manifest as you put them in
 - help button for level up option
-- rewrite help blurbs to be more condensed
 - rules rewrite for more narrative play
 - text formatting for notes
 - add / remove sums of gold at a time
 - fetch context with animations to show when network requests are occuring (spinning hourglass?)
-- add underline for changelog link
-- random worldbuilding question needs to ignore current question and previous questions
 - invites to a group send an email
+- refactor backend using node express best practices
 
 -------- Bugs --------
 - fix users being added to same group multiple times
@@ -40,6 +35,15 @@
 - on mobile clicking a level up option needs to scroll down to the options
 - items store on mobile needs fix for row sizes
 - help buttons for inputs can activate when pressing enter
+- clear button exists when non-owners visit character
 
 -------- Completed --------
 - Fixed a few typos in the rules sections
+- Story group section has been added
+- Worldbuilding section for groups
+- Indecisive players can get random questions for their worldbuilding prompts
+- Players can attach their players to a storytelling group so that any player can view other characters
+- Added an underline to make it clear the Change Log is a link
+- Rewrote some help blurbs to be more condensed
+- Notes form should now dynamically change size depending on text
+- You now have to be the logged in owner of a character to edit them

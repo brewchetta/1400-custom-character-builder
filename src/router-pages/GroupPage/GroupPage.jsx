@@ -6,6 +6,7 @@ import { useCurrentUserContext } from "context/CurrentUserContext"
 import { getStoryGroupById } from "async/fetch-story-groups"
 
 import LoadingAnimation from "shared/LoadingAnimation"
+import StateTabs from "shared/StateTabs"
 import GroupStoryQuestions from "./GroupStoryQuestions"
 import GroupPlayersTab from "./GroupPlayersTab"
 
@@ -52,20 +53,13 @@ function GroupPage() {
 
             <p>{storyGroup.description}</p>
 
-            <button className={currentTab === "players" ? "border-black text-black background-light-grey" : "border-black text-black background-white"}
-            onClick={() => setCurrentTab('players')}>Players</button>
-
-            <button className={currentTab === "worldbuilding" ? "border-black text-black background-light-grey" : "border-black text-black background-white"}
-            onClick={() => setCurrentTab('worldbuilding')}>Worldbuilding</button>
-
-            <button className={currentTab === "notes" ? "border-black text-black background-light-grey" : "border-black text-black background-white"}
-            onClick={() => setCurrentTab('notes')}>Story Notes</button>
+            <StateTabs tabs={['Players', 'Worldbuilding', 'Notes']} current={currentTab} onChoose={setCurrentTab} />
 
             {/* SHOW PLAYERS SECTION */}
             
 
             {
-                currentTab === 'players'
+                currentTab === 'Players'
                 ?
                 <GroupPlayersTab {...{
                     isOwner, 
@@ -83,7 +77,7 @@ function GroupPage() {
             {/* SHOW STORY QUESTIONS SECTION */}
 
             {
-                currentTab === 'worldbuilding'
+                currentTab === 'Worldbuilding'
                 ?
                 <GroupStoryQuestions players={players} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} />
                 :
@@ -93,7 +87,7 @@ function GroupPage() {
             {/* SHOW STORY NOTES SECTIONS */}
 
             {
-                currentTab === 'notes'
+                currentTab === 'Notes'
                 ?
                 <>
                 <p>Notes section under construction please disregard the mess</p>

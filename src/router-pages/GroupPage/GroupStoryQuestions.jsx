@@ -73,10 +73,10 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
             <p>To help out your Storyteller you should answer a few questions about the world that your group is creating. You can click any of the questions below to answer them or just write in a question of your own choosing. <span className="text-dark-green">Try to answer 3-5 questions</span>.</p>
 
-            <div style={{display: 'grid', gridTemplateColumns: "1fr 1fr"}}>
+            <div className='flex-wrap-container space-between'>
 
                 {/* TODO: Make this its own component please */}
-                <ol className="list-style-decimal">
+                <ol className="list-style-decimal" style={{maxWidth: '40em'}}>
                     { renderedPredefinedQuestions }
                     <button onClick={handleChooseRandomQuestion}>Random Question</button>
                 </ol>
@@ -84,7 +84,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
                 { // TODO: make this its own component please
                     currentPlayer
                     ? // if currentPlayer exists
-                    <div className="padding-medium">
+                    <div className="padding-medium" style={{maxWidth: '40em'}}>
                         <form className="labeled-input-section" onSubmit={handleAddQuestion}>
 
                             <FormInput name="question-input" labelText="Question" style={{minWidth: "80%"}} onChange={e => setQuestion(e.target.value)} value={question} />

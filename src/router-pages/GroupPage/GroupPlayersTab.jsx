@@ -14,7 +14,7 @@ function GroupPlayersTab({
 }) {
 
     const renderedPlayersNormal = players.filter(p => p.acceptedInvite && p.character)
-    .map(p => <p key={p._id}>{p.user.username} playing as <Link to={`/characters/${toSpinalCase(p.character.name)}/${p.character._id}`}>{p.character.name}</Link></p>)
+    .map(p => <p key={p._id}>{p.user.username} playing as <Link to={`/characters/${toSpinalCase(p.character.name)}/${p.character._id}`} className='text-black'>{p.character.name}</Link></p>)
 
     const renderedPlayersInvited = players.filter(p => !p.acceptedInvite)
     .map(p => <p key={p._id}>{p.user.username} has been invited</p>)
