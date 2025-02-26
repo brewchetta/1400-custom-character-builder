@@ -33,6 +33,12 @@ export async function postStoryPlayerQuestion(id, payload) {
     })
 }
 
+export async function deleteStoryPlayerQuestion(id, questionId) {
+    return await fetch(`${router}/${id}/worldbuilding/${questionId}`, {
+        method: 'DELETE'
+    })
+}
+
 export async function postStoryPlayerCharacter(id, payload) {
     return await fetch(`${router}/${id}/characters`, {
         method: 'POST',

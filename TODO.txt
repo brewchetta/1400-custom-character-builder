@@ -14,6 +14,7 @@
 - character portraits
 - give group ownership to another user (preferably with additional validation just to be sure)
 - safety sheet (lines and veils) with link to lines and veils originator
+- delete story groups and leave story groups
 
 -------- Refactors --------
 - REMINDER: always add new images to preloading manifest as you put them in
@@ -40,7 +41,7 @@
 -------- Completed --------
 - Fixed a few typos in the rules sections
 - Story group section has been added
-- Worldbuilding section for groups
+- Worldbuilding section for groups to add their worldbuilding questions
 - Indecisive players can get random questions for their worldbuilding prompts
 - Players can attach their players to a storytelling group so that any player can view other characters
 - Added an underline to make it clear the Change Log is a link

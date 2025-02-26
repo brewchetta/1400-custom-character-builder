@@ -15,7 +15,7 @@ function GroupPage() {
     const { currentUser } = useCurrentUserContext()
     const { id } = useParams()
     const [groupDetails, setGroupDetails] = useState({})
-    const [currentTab, setCurrentTab] = useState('players')
+    const [currentTab, setCurrentTab] = useState('Players')
     const [loading, setLoading] = useState(true)
 
     const { isOwner, players, storyGroup } = groupDetails
@@ -55,10 +55,8 @@ function GroupPage() {
 
             <StateTabs tabs={['Players', 'Worldbuilding', 'Notes']} current={currentTab} onChoose={setCurrentTab} />
 
-            {/* SHOW PLAYERS SECTION */}
-            
-
             {
+                /* SHOW PLAYERS SECTION */
                 currentTab === 'Players'
                 ?
                 <GroupPlayersTab {...{
@@ -70,23 +68,14 @@ function GroupPage() {
                     players
                 }} />
                 :
-                null
-            }
 
-
-            {/* SHOW STORY QUESTIONS SECTION */}
-
-            {
+                /* SHOW STORY QUESTIONS SECTION */
                 currentTab === 'Worldbuilding'
                 ?
                 <GroupStoryQuestions players={players} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} />
                 :
-                null
-            }
 
-            {/* SHOW STORY NOTES SECTIONS */}
-
-            {
+                /* SHOW STORY NOTES SECTIONS */
                 currentTab === 'Notes'
                 ?
                 <>

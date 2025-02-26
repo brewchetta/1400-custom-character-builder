@@ -7,13 +7,15 @@ import { randomArrayItem } from "utilities"
 
 import { postStoryPlayerQuestion } from "async/fetch-story-players"
 
+import { deleteStoryPlayerQuestion } from "async/fetch-story-players"
+
 const worldbuildingQuestions = [
     `What is a well known distant land?`,
-    `What town, village or city did your adventurer come from?`,
+    `Where did your adventurer come from?`,
     `What is the name of a tavern your adventurer frequents?`,
     `What is an upcoming festival or holy day?`,
     `What important event happened before your adventurer was born?`,
-    `What rumors surround the nearby ruins?`,
+    `What rumors surround a nearby landmark?`,
     `Who are the monsters/villains who have attacked recently?`,
     `What god protects or covets these lands?`,
     `Who is a famous public figure like a monarch or civil leader?`,
@@ -32,6 +34,8 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
         e.target.style.height = ""
         e.target.style.height = e.target.scrollHeight + 3 + 'px'
     }
+
+    // console.log(currentPlayer)
 
     async function handleAddQuestion(e) {
         e.preventDefault()
@@ -54,6 +58,17 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
         setQuestion( randomArrayItem(worldbuildingQuestions) )
         setAnswer('')
         answerInputRef.current.focus()
+    }
+
+    async function handleDeleteQuestion(id) {
+        // console.log(currentPlayer, id)
+        const res = await deleteStoryPlayerQuestion(currentPlayer._id, id)
+        if (res.ok) {
+            const data = await res.json()
+            setCurrentPlayer(data.result)
+        } else {
+            console.warn("Something went wrong...")
+        }
     }
 
     const renderedOtherQuestions = players
@@ -84,7 +99,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
                 { // TODO: make this its own component please
                     currentPlayer
                     ? // if currentPlayer exists
-                    <div className="padding-medium" style={{maxWidth: '40em'}}>
+                    <div className="padding-bottom-medium" style={{maxWidth: '40em'}}>
                         <form className="labeled-input-section" onSubmit={handleAddQuestion}>
 
                             <FormInput name="question-input" labelText="Question" style={{minWidth: "80%"}} onChange={e => setQuestion(e.target.value)} value={question} />
@@ -98,7 +113,7 @@ function GroupStoryQuestions({ players, currentPlayer, setCurrentPlayer }) {
 
                         <h3 className='border-top-black padding-top-medium'>What you've written so far:</h3>
 
-                        {<PlayerStoryQuestionsCard player={currentPlayer} titleOn={false} />}
+                        {<PlayerStoryQuestionsCard player={currentPlayer} titleOn={false} currentPlayer={true} handleDeleteQuestion={handleDeleteQuestion} />}
                     </div>
                     : // if currentPlayer doesn't exist (is host/storyteller)
                     null
