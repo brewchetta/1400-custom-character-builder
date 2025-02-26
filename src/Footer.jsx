@@ -4,7 +4,7 @@ function Footer() {
 
     return (
         <div className="position-bottom-right">
-            <span>v250108 - <Link to='changelog' className="text-black swatch-hover-background-green margin-bottom-medium">Change Log</Link></span>
+            <span>v250226 - <Link to='changelog' className="text-black swatch-hover-background-green margin-bottom-medium">Change Log</Link></span>
         </div>
     )
 }
