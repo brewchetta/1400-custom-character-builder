@@ -16,6 +16,7 @@
 - user profile pictures
 - character portraits
 - give group ownership to another user (preferably with additional validation just to be sure)
+- safety sheet (lines and veils) with link to lines and veils originator
 
 -------- Refactors --------
 - REMINDER: always add new images to preloading manifest as you put them in

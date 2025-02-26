@@ -1,6 +1,7 @@
 const rulesTutorial = {
   welcome: [
-    `This is 1400 plus. This is a tabletop roleplaying game (TTRPG) set in a fantasy world of your choosing.`,
+    `This is 1400 plus, a tabletop fantasy roleplaying game (TTRPG) set in a world of your choosing.`,
+    `Massive credit goes to James Lennox-Gordon (Unknown Dungeon) for building the initial system which we have respectfully tweaked and rebuilt for our games.`,
     `You can play this game with any number of people but we recommend between 3 and 7 players. One of you will be the storyteller who is similar to the dungeon master or game master in other games while everyone else roleplays as an adventurer.`,
     `You can learn more about the players, characters, storyteller, and the world in other sections of the rulebook.`,
     `One last note, if a rule that you see conflicts with another rule, the more specific rule takes precedence.`,
