@@ -66,7 +66,7 @@ const rulesTutorial = {
   advancement: [
     `There are no "levels" in this game. At the end of every adventure (or at the discretion of the storyteller) characters can either improve a skill, learn a spell, or gain training.`,
     `Improving Skills: You can either choose a new skill to train in or improve the dice size of one of your existing skills.`,
-    `Learn a Spell: Choose a new spell for your spellbook. Be aware that you can't learn more than 3 spells without special training.`
+    `Learn a Spell: Choose a new spell for your spellbook. Be aware that you can't learn more than 3 spells without special training.`,
     `Gain Training: Choose a new form of training for your adventurer.`,
     `Additionally after an adventur the storyteller may award gold for loot found and services rendered.`,
     `You can use gold to buy new items in the equipment store as long as you're somewhere with a shop (this is up to the storyteller's discretion). Valuable magic items might not be available unless you find them in the course of your adventures.`
@@ -92,7 +92,7 @@ const rulesTutorial = {
     'session zero': `Session zero is often considered an important first session for your group of adventurers. It serves several important functions: first it creates a safe space for everyone to play; secondly, it introduces the world to the players; thirdly, it establishes the rules.`,
     'storyteller': `This might seem obvious but choosing the storyteller is an important step nonetheless. The storyteller serves an important function in the game and players need to decide who will take on that role.`,
     'lines and veils': `A very important task in any session is to define lines and veils. A line is something that you never want to see in your game while a veil is something that's only alluded to. Make a list of these things for everyone to reference. Common themes include sexual content, harm to children or animals, drugs, political topics, racism, etc.`,
-    'worldbuilding': `What does your fantasy world look like? While the world can be specific or general, generic or unique, we recommend looking at the Worldbuilding section of the rulebook for an idea of how to quickly and inclusively build a setting.`,
+    'worldbuilding': `What does your fantasy world look like? While the world can be specific or general, generic or unique, we recommend looking at the Worldbuilding section of a storytelling group for an idea of how to build a setting.`,
     'making your character': `Once everyone has gone through the rulebook it's time for the players to build their first characters!`
   }
 }
