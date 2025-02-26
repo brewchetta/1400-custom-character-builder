@@ -1,13 +1,13 @@
-const magicItemsGenericDescription = `Rare items that you may find on your travels. Merchants rarely carry or buy them. Characters occasionally find magic items on their adventures.`
+const magicItemsGenericDescription = `Rare items that you may find on your travels. Merchants rarely carry them.`
 const heavyItemsGenericDescription = `Characters can carry one heavy item at a time.`
 const oneHandItemsGenericDescription = `Characters can hold two one handed items at a time.`
 const twoHandItemsGenericDescription = `Characters can hold only one two handed item at a time.`
-const weaponItemsGenericDescription = `This item is a weapon. You can't fight without one.`
+const weaponItemsGenericDescription = `You can't attack without a weapon.`
 const armourItemsGenericDescription = `Mark off one piece of armour durability to avoid being injured.`
 const wornItemsGenericDescription = `Wear this item to gain benefits. Only one piece of armour can be worn at a time.`
 const lightItemsGenericDescription = `A smaller one handed weapon that anyone can pick up and use.`
 const martialItemsGenericDescription = `A strong weapon that grants a bonus in combat.`
-const bowItemsGenericDescription = `Can attack enemies at a range. Characters have ammunition unless they've run out as part of a failure.`
+const bowItemsGenericDescription = `Can attack enemies at a range. Characters have ammunition unless they run out as part of a challenge.`
 const vehicleItemsGenericDescription = `Can be used to more quickly get around. Vehicles can only transport a certain number of characters.`
 const companionsGenericDescription = `Will follow your commands but may act on their own, be injured, or die.`
 const toolItemsGenericDescription = `An item with a variety of uses. Can be used up or broken.`
@@ -19,8 +19,8 @@ const rulesGear = {
   ],
   costs: [
     `Collect gold during your adventures or as rewards.`,
-    `Food, drinks, and rooms are negligible costs and aren't tracked.`,
-    `You can spend gold in the store for additional items or to learn spells.`
+    `Food, drinks, and rooms are negligible costs and aren't tracked except as narrative complications.`,
+    `You can spend gold in the store for additional items or to learn spells and rituals.`
   ],
   management: [
     `If a character's equipment loses durability, click on one of its checkmarks. If it breaks it cannot be used.`,
